@@ -1,0 +1,7 @@
+bower_components/
+dist/
+languages/
+node_modules/
+release/
+report/
+style.css
