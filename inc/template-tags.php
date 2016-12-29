@@ -49,13 +49,13 @@ function recover_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'recover' ) );
 		if ( $categories_list && recover_categorized_blog() ) {
-			printf( '<div class="cat-links">' . recover_get_svg( array( 'icon' => 'folder', 'title' => __( 'Categories', 'recover' ) ) ) . esc_html__( '%1$s', 'recover' ) . '</div>', $categories_list ); // WPCS: XSS OK.
+			printf( '<div class="cat-links">' . recover_get_svg( array( 'icon' => 'folder', 'title' => __( 'Categories', 'recover' ) ) ) . $categories_list . '</div>' ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'recover' ) );
 		if ( $tags_list ) {
-			printf( '<div class="tags-links">' . recover_get_svg( array( 'icon' => 'tag', 'title' => __( 'Tags', 'recover' ) ) ) . esc_html__( '%1$s', 'recover' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			printf( '<div class="tags-links">' . recover_get_svg( array( 'icon' => 'tag', 'title' => __( 'Tags', 'recover' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
 		}
 	}
 

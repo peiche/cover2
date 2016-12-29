@@ -27,10 +27,23 @@ if ( post_password_required() ) {
 	if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One response', '%1$s responses', get_comments_number(), 'comments title', 'recover' ) ),
-					number_format_i18n( get_comments_number() )
-				);
+				$comments_number = get_comments_number();
+				if ( 1 === $comments_number ) {
+					printf(
+						esc_html_x( 'One response', 'comments title', 'recover' )
+					);
+				} else {
+					printf( // WPCS: XSS OK.
+						/* translators: 1: number of comments, 2: post title */
+						esc_html( _nx(
+							'%1$s response',
+							'%1$s responses',
+							$comments_number,
+							'recover'
+						) ),
+						number_format_i18n( $comments_number )
+					);
+				}
 			?>
 		</h2>
 

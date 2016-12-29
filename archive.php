@@ -22,8 +22,7 @@ get_header(); ?>
 					<?php if ( is_author() ) : ?>
 						<div class="profile-avatar text-align-center">
 							<?php
-							$text = 'Profile Picture for ' . esc_html( get_the_author() );
-							echo get_avatar( get_the_author_meta( 'ID' ), 120, '', __( $text, 'recover' ) ); ?>
+							echo get_avatar( get_the_author_meta( 'ID' ), 120, '', __( 'Profile Picture for ', 'recover' ) . esc_html( get_the_author() ) ); ?>
 						</div>
 					<?php endif; ?>
 

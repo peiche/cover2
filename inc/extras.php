@@ -125,7 +125,7 @@ function recover_archive_title( $title ) {
        $title = single_term_title( '', false );
    } else {
        $title = __( 'Archives', 'recover' );
-   }
+   } // End if.
    return $title;
 }
 add_filter( 'get_the_archive_title', 'recover_archive_title' );
@@ -139,11 +139,11 @@ function recover_post_nav_background() {
 	$current_image = recover_get_first_featured_image();
 	$css      = '';
 
-	if ( is_attachment() && $previous->post_type == 'attachment' ) {
+	if ( is_attachment() && 'attachment' == $previous->post_type ) {
 		return;
 	}
 
-	if ( $current_image != '' ) {
+	if ( '' != $current_image ) {
 		$css .= '
 			.page-header__image { background-image: url(' . esc_url( $current_image ) . '); }
 		';
