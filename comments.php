@@ -26,25 +26,7 @@ if ( post_password_required() ) {
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
 		<h2 class="comments-title">
-			<?php
-				$comments_number = get_comments_number();
-				if ( 1 === $comments_number ) {
-					printf(
-						esc_html_x( 'One response', 'comments title', 'recover' )
-					);
-				} else {
-					printf( // WPCS: XSS OK.
-						/* translators: 1: number of comments, 2: post title */
-						esc_html( _nx(
-							'%1$s response',
-							'%1$s responses',
-							$comments_number,
-							'recover'
-						) ),
-						number_format_i18n( $comments_number )
-					);
-				}
-			?>
+			<?php _e( 'Responses', 'recover' ); ?>
 		</h2>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
