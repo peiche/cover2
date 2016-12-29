@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-wordpress/scss"
+  ],
+  "rules": {
+    "at-rule-empty-line-before": [ "always", {
+      except: [
+        "blockless-after-same-name-blockless",
+        "first-nested"
+      ],
+      ignore: ["after-comment"]
+    } ],
+    "comment-whitespace-inside": null,
+    "declaration-block-properties-order": "alphabetical",
+    "indentation": null,
+    "max-line-length": null
+  }
+}
