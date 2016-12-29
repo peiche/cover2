@@ -1,0 +1,110 @@
+<?php
+/**
+ * Jetpack Compatibility File.
+ *
+ * @link https://jetpack.me/
+ *
+ * @package ReCover
+ */
+
+/**
+ * Jetpack setup function.
+ *
+ * See: https://jetpack.me/support/infinite-scroll/
+ * See: https://jetpack.me/support/responsive-videos/
+ */
+function recover_jetpack_setup() {
+	// Add theme support for Infinite Scroll.
+	add_theme_support( 'infinite-scroll', array(
+		'container' => 'main',
+		'render'    => 'recover_infinite_scroll_render',
+		'footer'    => 'page',
+	) );
+
+	// Add theme support for Responsive Videos.
+	add_theme_support( 'jetpack-responsive-videos' );
+
+	// Add theme support for Social Menus.
+	add_theme_support( 'jetpack-social-menu' );
+
+	// Add theme support for Featured Content.
+	add_theme_support( 'featured-content', array(
+        'filter'      => 'recover_get_featured_posts',
+        'description' => esc_html__( 'The featured content section displays on the index page bellow the header.', 'recover' ),
+        'max_posts'   => 10,
+        'post_types'  => array( 'post', ),
+    ) );
+
+}
+add_action( 'after_setup_theme', 'recover_jetpack_setup' );
+
+/**
+ * Custom render function for Infinite Scroll.
+ */
+function recover_infinite_scroll_render() {
+	while ( have_posts() ) {
+		the_post();
+		get_template_part( 'components/post/content', 'summary' );
+	}
+}
+
+function recover_social_menu() {
+	if ( ! function_exists( 'jetpack_social_menu' ) ) {
+		return;
+	} else {
+		jetpack_social_menu();
+	}
+}
+
+/**
+ * Featured Posts.
+ */
+function recover_has_featured_post() {
+  $featured_posts = apply_filters( 'recover_get_featured_posts', array() );
+  if ( is_array( $featured_posts ) && 0 < count( $featured_posts ) ) {
+  	return true;
+  }
+  return false;
+}
+
+function recover_has_multiple_featured_posts() {
+  $featured_posts = apply_filters( 'recover_get_featured_posts', array() );
+  if ( is_array( $featured_posts ) && 1 < count( $featured_posts ) ) {
+  	return true;
+  }
+  return false;
+}
+
+function recover_get_featured_posts() {
+  return apply_filters( 'recover_get_featured_posts', false );
+}
+
+/**
+ * Display custom color CSS.
+ */
+function recover_featured_posts_css() {
+	$css = '';
+?>
+	<style type="text/css" id="featured-posts-css">
+		<?php
+		$featured_posts = recover_get_featured_posts();
+		if ( empty( $featured_posts ) ) {
+		    return;
+		}
+
+		foreach ( $featured_posts as $post ) {
+			setup_postdata( $post );
+			$img = recover_get_featured_image( $post->ID );
+			$css .= '
+			.featured-content .post-' . $post->ID . ' .page-header__image {
+				background-image: url(' . $img . ');
+			}
+			';
+		}
+		wp_reset_postdata();
+
+		echo $css;
+		?>
+	</style>
+<?php }
+add_action( 'wp_head', 'recover_featured_posts_css' );
