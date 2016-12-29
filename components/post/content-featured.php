@@ -4,6 +4,7 @@
  *
  * @package ReCover
  */
+
 $featured_posts = recover_get_featured_posts();
 if ( empty( $featured_posts ) ) {
     return;

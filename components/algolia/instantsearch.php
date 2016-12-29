@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying Algolia Instant Search.
+ *
+ * @package ReCover
+ */
+
+get_header(); ?>
 
 	<div id="ais-wrapper">
 		<main id="ais-main">

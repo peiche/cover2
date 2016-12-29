@@ -1,3 +1,12 @@
+<?php
+/**
+ * The template for displaying header branding.
+ *
+ * @package ReCover
+ */
+
+?>
+
 <div class="site-branding">
 	<?php recover_the_custom_logo(); ?>
 	<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

@@ -32,7 +32,7 @@ function recover_jetpack_setup() {
         'filter'      => 'recover_get_featured_posts',
         'description' => esc_html__( 'The featured content section displays on the index page bellow the header.', 'recover' ),
         'max_posts'   => 10,
-        'post_types'  => array( 'post', ),
+        'post_types'  => array( 'post' ),
     ) );
 
 }
@@ -48,6 +48,9 @@ function recover_infinite_scroll_render() {
 	}
 }
 
+/**
+ * Custom render function for Social Menu.
+ */
 function recover_social_menu() {
 	if ( ! function_exists( 'jetpack_social_menu' ) ) {
 		return;
@@ -57,7 +60,7 @@ function recover_social_menu() {
 }
 
 /**
- * Featured Posts.
+ * Check if there are any Featured Posts.
  */
 function recover_has_featured_post() {
   $featured_posts = apply_filters( 'recover_get_featured_posts', array() );
@@ -67,6 +70,9 @@ function recover_has_featured_post() {
   return false;
 }
 
+/**
+ * Check if there are more than one Featured Posts.
+ */
 function recover_has_multiple_featured_posts() {
   $featured_posts = apply_filters( 'recover_get_featured_posts', array() );
   if ( is_array( $featured_posts ) && 1 < count( $featured_posts ) ) {
@@ -75,6 +81,9 @@ function recover_has_multiple_featured_posts() {
   return false;
 }
 
+/**
+ * Get Featured Posts.
+ */
 function recover_get_featured_posts() {
   return apply_filters( 'recover_get_featured_posts', false );
 }

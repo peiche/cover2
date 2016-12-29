@@ -25,12 +25,10 @@ function recover_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( '%s', 'post date', 'recover' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		esc_html_x( '%s', 'post author', 'recover' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' .
 		get_avatar( get_the_author_meta( 'ID' ), 35, '', 'Profile Picture for ' . esc_html( get_the_author() ) ) .
 		'<span class="author-text">' . esc_html( get_the_author() ) . '</span></a></span>'

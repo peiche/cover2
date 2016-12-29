@@ -1,4 +1,11 @@
-<?php if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_menu( 'social' ) ) : ?>
+<?php
+/**
+ * The template for displaying the search and nav overlays.
+ *
+ * @package ReCover
+ */
+
+if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_menu( 'social' ) ) : ?>
 
 	<div class="overlay overlay--menu">
 		<?php if ( has_nav_menu( 'top' ) ) : ?>

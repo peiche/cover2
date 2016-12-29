@@ -21,12 +21,14 @@ get_header(); ?>
 
 					<?php if ( is_author() ) : ?>
 						<div class="profile-avatar text-align-center">
-							<?php echo get_avatar( get_the_author_meta( 'ID' ), 120, '', __( 'Profile Picture for ' . esc_html( get_the_author() ), 'recover' ) ); ?>
+							<?php
+							$text = 'Profile Picture for ' . esc_html( get_the_author() );
+							echo get_avatar( get_the_author_meta( 'ID' ), 120, '', __( $text, 'recover' ) ); ?>
 						</div>
 					<?php endif; ?>
 
 					<?php the_archive_title( '<h1 class="page-title text-align-center">', '</h1>' ); ?>
-					<?php if ( get_the_archive_description() != '' ): ?>
+					<?php if ( get_the_archive_description() != '' ) : ?>
 						<hr>
 						<?php the_archive_description( '<div class="page-description">', '</div>' ); ?>
 					<?php endif; ?>

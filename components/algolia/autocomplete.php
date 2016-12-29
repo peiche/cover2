@@ -1,3 +1,12 @@
+<?php
+/**
+ * The template for displaying Algolia Autocomplete.
+ *
+ * @package ReCover
+ */
+
+?>
+
 <script type="text/html" id="tmpl-autocomplete-header">
 	<div class="autocomplete-header">
 		<div class="autocomplete-header-title">{{ data.label }}</div>

@@ -65,6 +65,8 @@ add_action( 'customize_register', 'recover_customize_register' );
 
 /**
  * Sanitize the overlay_colorscheme.
+ *
+ * @param String $input The input to sanitize.
  */
 function recover_sanitize_overlay_colorscheme( $input ) {
 	$valid = array( 'light', 'dark' );

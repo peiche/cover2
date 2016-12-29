@@ -24,12 +24,12 @@ function recover_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Add a class of no-sidebar when there is no sidebar present
+	// Add a class of no-sidebar when there is no sidebar present.
 	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		$classes[] = 'no-sidebar';
 	}
 
-	// Add a class of has-featured-image when there is a featured image
+	// Add a class of has-featured-image when there is a featured image.
 	if ( is_singular() && get_the_post_thumbnail() ) {
   	$classes[] = 'has-featured-image';
 	}
@@ -83,6 +83,8 @@ function recover_get_featured_image( $post_id ) {
 
 /**
  * Remove the "Taxonomy: " prefix from the_archive_title().
+ *
+ * @param String $title The title to filter.
  */
 function recover_archive_title( $title ) {
    if ( is_category() ) {
@@ -137,7 +139,7 @@ function recover_post_nav_background() {
 	$current_image = recover_get_first_featured_image();
 	$css      = '';
 
-	if ( is_attachment() && 'attachment' == $previous->post_type ) {
+	if ( is_attachment() && $previous->post_type == 'attachment' ) {
 		return;
 	}
 
