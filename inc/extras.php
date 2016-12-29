@@ -125,7 +125,7 @@ function recover_archive_title( $title ) {
        $title = single_term_title( '', false );
    } else {
        $title = __( 'Archives', 'recover' );
-   } // End if.
+   } // End if().
    return $title;
 }
 add_filter( 'get_the_archive_title', 'recover_archive_title' );
