@@ -1,0 +1,24 @@
+.avatar {
+	border-radius: 50%;
+	display: inline-block;
+	vertical-align: middle;
+
+	.vcard & {
+		margin-right: 10px;
+	}
+}
+
+@each $size in $avatar-sizes {
+
+  .avatar-#{$size} {
+    height: #{$size}px;
+    width: #{$size}px;
+  }
+}
+
+.profile-avatar {
+
+	.page-header & {
+		margin-bottom: 1em;
+	}
+}

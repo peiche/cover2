@@ -1,0 +1,26 @@
+// We don't want to generate all sizes, just ones we use in this theme
+$avatar-sizes: 35 80 120;
+
+// Height of the header.
+$height__nav-bar: 77px;
+
+// WP top bar height on mobile and desktop
+$height__wp-top-bar-mobile: 46px;
+$height__wp-top-bar-desktop: 31px;
+
+// Specific size at which the WP top bar switches from mobile to desktop
+$breakpoint__wp-top-bar: 765px;
+
+// Sizes for media queries
+$breakpoint__tablet-portrait: 600px;
+$breakpoint__tablet-landscape: 900px;
+$breakpoint__desktop: 1200px;
+
+// Sizes for content
+$content__width-narrow: 500px;
+$content__width-small: 640px;
+$content__width-normal: 800px;
+$content__width-large: 1000px;
+
+// Z-indexes (z-indices?)
+$z-index__default: 1;

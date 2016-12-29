@@ -1,0 +1,63 @@
+.comments-wrapper {
+	background-color: $color__background-light;
+	padding: 30px 0;
+
+	> * {
+		@include site-width($content__width-small);
+	}
+
+	.edit-link {
+		padding: 0;
+	}
+
+	a {
+		@include link;
+	}
+}
+
+.comments-title {
+	font-weight: $font__weight-normal;
+	margin-top: 0;
+}
+
+.comment-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	.children {
+		list-style: none;
+		margin-left: 0;
+		padding: 0;
+
+		@include min-width($breakpoint__tablet-portrait) {
+			margin-left: 20px;
+		}
+
+		@include min-width($breakpoint__desktop) {
+			margin-left: 30px;
+		}
+	}
+}
+
+.comment-body {
+	border-bottom: 1px solid $color__border;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.comment-content {
+	@include clearfix;
+
+	a {
+		word-wrap: break-word;
+	}
+
+	ul {
+		margin-left: 0;
+	}
+}
+
+.bypostauthor {
+	display: block;
+}

@@ -1,0 +1,20 @@
+$tcon-size: 30px;
+$tcon-transition: 0.3s;
+$tcon-jstransform: "toggle-on";
+
+$tcon-menu-radius: ($tcon-size / 5);
+$tcon-menu-color: $color__white;
+$tcon-menu-arrowleft-transformation: (
+  transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg)
+);
+$tcon-menu-arrow360left-transformation: (
+  transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 360deg)
+);
+
+$tcon-search-size: $tcon-size;
+$tcon-search-radius: ($tcon-size / 14);
+$tcon-search-color: $color__text-main;
+$tcon-search-glass-color: transparent;
+$tcon-search-handle-width: ($tcon-size / 6);
+$tcon-search-glass-radius: ($tcon-size / 1.5);
+$tcon-search-glass-border-width: ($tcon-size / 7);

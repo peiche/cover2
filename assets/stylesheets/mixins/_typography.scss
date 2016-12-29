@@ -1,0 +1,69 @@
+@mixin rem($property, $sizeValue: 1) {
+	#{$property}: ($sizeValue * 16) * 1px;
+	#{$property}: $sizeValue * 1rem;
+}
+
+@mixin link($border-color: $color__border) {
+	border-bottom: 1px solid transparent;
+	text-decoration: none;
+	transition: border $timing__default;
+
+	&:hover {
+		border-color: $border-color;
+	}
+}
+
+@mixin button {
+	@include rem(padding-bottom, 0.25);
+	@include rem(padding-left, 1);
+	@include rem(padding-right, 1);
+	@include rem(padding-top, 0.25);
+
+	background-color: transparent;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 4px;
+	display: inline-block;
+	text-decoration: none;
+	transition: all $timing__default ease;
+
+	&:hover {
+		border-color: rgba(0, 0, 0, 0.5);
+	}
+}
+
+@mixin button-style($color, $ghost: true) {
+	border-color: $color;
+
+	@if $ghost {
+		background-color: transparent;
+		color: $color;
+	}
+
+	@else {
+		background-color: $color;
+		color: $color__white;
+	}
+
+	&:hover {
+		color: inverse-color($color);
+
+		@if $ghost {
+			background-color: $color;
+			border-color: $color;
+		}
+
+		@else {
+			background-color: darken($color, 10%);
+			border-color: darken($color, 10%);
+		}
+	}
+}
+
+@mixin caption {
+	@include rem(font-size, 1);
+	@include rem(line-height, 1.75);
+
+	color: $color__text-main;
+	font-style: italic;
+	text-align: center;
+}

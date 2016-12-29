@@ -1,0 +1,65 @@
+.widget {
+	margin: 0 0 1.5em;
+
+	select {
+		max-width: 100%; // Make sure select elements fit in widgets.
+	}
+}
+
+.widget-title {
+	font-family: $font__heading;
+	font-weight: $font__weight-normal;
+}
+
+.cat-item {
+
+	a {
+		display: block;
+	}
+
+	.children {
+		height: 0;
+		overflow: hidden;
+
+		&.sub-on {
+			height: auto;
+		}
+	}
+}
+
+.calendar_wrap {
+
+	a {
+		@include link;
+	}
+
+	thead {
+		border-bottom: 2px solid $color__border;
+	}
+
+	tbody {
+
+		tr {
+
+			&:nth-child(even) {
+				background-color: #eee;
+
+				.overlay-dark & {
+					background-color: #444;
+				}
+			}
+		}
+
+		td {
+			text-align: right;
+		}
+
+		a {
+			color: $color__accent;
+		}
+	}
+
+	#next {
+		text-align: right;
+	}
+}

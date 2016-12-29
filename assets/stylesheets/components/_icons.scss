@@ -1,0 +1,18 @@
+.recover-icon {
+  fill: currentColor;
+  height: 24px;
+  vertical-align: middle;
+  width: 24px;
+}
+
+.svg-fallback {
+  display: none;
+
+  .no-svg & {
+    display: inline-block;
+  }
+}
+
+body > svg {
+  display: none;
+}

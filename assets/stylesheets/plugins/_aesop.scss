@@ -1,0 +1,84 @@
+.aesop-component {
+  margin-bottom: 3em;
+  margin-top: 3em;
+}
+
+.aesop-image-component {
+
+  &:hover {
+    opacity: 1; // Override
+  }
+
+  img {
+    box-shadow: none;
+  }
+}
+
+.entry-content a.aesop-lightbox {
+
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.aesop-img-enlarge {
+  display: none;
+}
+
+.aesop-image-component .aesop-image-component-caption,
+.aesop-gallery-component .aesop-component-caption {
+  @include caption;
+
+  margin-top: 0;
+}
+
+.aesop-content-component {
+
+  .aesop-content {
+    @include site-width;
+  }
+
+  .aesop-content-comp-wrap {
+    padding: 1.5em 0;
+  }
+
+  .aesop-content-comp-inner p {
+    line-height: inherit;
+  }
+}
+
+
+.aesop-article-chapter {
+  min-height: 0 !important; // NOTE: overrides ASE's inline style
+}
+
+.aesop-cover-title {
+  @include site-width($content__width-large);
+
+  border: 0;
+  font-family: $font__heading;
+  font-weight: $font__weight-normal;
+  padding: 3em 0 1.5em;
+  position: static;
+}
+
+.aesop-gallery-edit {
+  display: inline-block;
+}
+
+.aesop-quote-component {
+  display: block;
+
+  &.aesop-content {
+    @include site-width;
+  }
+
+  blockquote {
+    display: block;
+    font-style: normal;
+  }
+
+  cite {
+    font-size: 85%;
+  }
+}

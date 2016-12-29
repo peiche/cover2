@@ -1,0 +1,16 @@
+.site-footer {
+	@include clearfix;
+
+	padding-bottom: 1.5em;
+	padding-top: 1.5em;
+
+	a {
+		@include link;
+	}
+}
+
+.site-info {
+	@include site-width($content__width-large);
+
+	text-align: center;
+}

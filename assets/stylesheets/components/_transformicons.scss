@@ -1,0 +1,163 @@
+.tcon {
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  height: $tcon-size;
+  justify-content: center;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  transition: $tcon-transition;
+  user-select: none;
+  width: $tcon-size;
+
+  > * {
+    display: block;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none; // see issue #36 https://github.com/grayghostvisuals/transformicons/issues/36
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+.tcon-menu__lines {
+  @include tcon-menu-lines;
+
+  position: relative;
+
+  &:before,
+  &:after {
+    @include tcon-menu-lines;
+
+    content: "";
+    left: 0;
+    position: absolute;
+    transform-origin: ($tcon-size / 15) center;
+    width: 100%;
+  }
+
+  &:before {
+    top: ($tcon-size / 3);
+  }
+
+  &:after {
+    top: -($tcon-size / 3);
+  }
+
+  .#{$tcon-jstransform} & {
+    transform: scale3d(0.8, 0.8, 0.8);
+  }
+}
+
+.tcon-menu--xcross {
+  width: auto;
+
+  &.#{$tcon-jstransform} {
+
+    .tcon-menu__lines {
+      background: transparent;
+
+      &:before,
+      &:after {
+        background-color: $color__text-main;
+        top: 0;
+        transform-origin: 50% 50%;
+        width: $tcon-size;
+
+        .overlay-dark & {
+          background-color: $color__white;
+        }
+      }
+
+      &:before {
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+
+      &:after {
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
+    }
+  }
+}
+
+.tcon-search__item {
+  @include search-item;
+
+  position: relative;
+  transform: rotate(-45deg) translate(-1px, 1px);
+
+  &:before,
+  &:after {
+    @include search-item;
+
+    bottom: 0;
+    content: "";
+    margin: auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &:before {
+    background-color: $color__white;
+    border-radius: $tcon-search-radius;
+    height: 50%;
+    left: 10px;
+    top: 16px;
+    width: $tcon-search-handle-width;
+  }
+
+  &:after {
+    background-color: $tcon-search-glass-color;
+    border: $tcon-search-glass-border-width solid $color__white;
+    border-radius: 50%;
+    height: $tcon-search-glass-radius;
+    right: 7px;
+    top: -10px;
+    transform-origin: 50% 50%;
+    width: $tcon-search-glass-radius;
+  }
+}
+
+.tcon-search--xcross {
+
+  &.#{$tcon-jstransform} {
+    transform: scale3d(0.8, 0.8, 0.8);
+
+    .tcon-search__item {
+
+      &:before,
+      &:after {
+        background-color: $tcon-search-color;
+        border-radius: $tcon-search-radius;
+
+        .overlay-dark & {
+          background-color: $color__white;
+        }
+      }
+
+      &:before {
+        bottom: 0;
+        height: auto;
+        left: 12px;
+        top: 0;
+      }
+
+      &:after {
+        border: 0;
+        height: $tcon-search-handle-width;
+        right: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+}

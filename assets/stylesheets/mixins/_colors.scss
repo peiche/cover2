@@ -1,0 +1,9 @@
+@function inverse-color($color) {
+  @if (lightness($color) > 60) {
+    @return $color__text-main; // Lighter backgorund, return dark color
+  }
+
+  @else {
+    @return $color__white; // Darker background, return light color
+  }
+}

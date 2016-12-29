@@ -1,0 +1,59 @@
+.featured-content {
+  background-color: $color__background-dark;
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-content--inner {
+
+  .no-js & {
+    font-size: 0; // Hack to get 0 space between each slide
+    overflow: auto;
+    white-space: nowrap;
+  }
+}
+
+.featured-content--slide {
+  display: none;
+
+  .no-js & {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    width: 100%;
+  }
+}
+
+.flex-direction-nav {
+  display: none;
+}
+
+.flex-control-paging {
+  bottom: 0;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  z-index: $z-index__default + 1;
+
+  li {
+    display: inline-block;
+    margin: 15px;
+  }
+
+  a {
+    border: 3px solid $color__white;
+    border-radius: 50%;
+    display: inline-block;
+    height: 20px;
+    text-indent: -9999px; // TODO better way to hide text?
+    width: 20px;
+
+    &.flex-active {
+      background-color: $color__white;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	border: 1px solid $color__border-input;
+	border-radius: 3px;
+	color: $color__text-input;
+
+	&:focus {
+		color: $color__text-input-focus;
+	}
+}
+
+select {
+	border: 1px solid $color__border-input;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"] {
+	padding: 3px;
+}
+
+textarea {
+	padding-left: 3px;
+	width: 100%;
+}
+
+.search-form {
+	position: relative;
+}
+
+input.search-field {
+	background-color: transparent;
+	border: 2px solid $color__border;
+	border-radius: 0;
+	border-width: 0 0 2px;
+	box-sizing: border-box;
+	display: block;
+	outline: none;
+	padding: 5px 0;
+	width: 100%;
+
+	// Hide "clear field" pseudo-element for IE/Edge.
+	&::-ms-clear {
+    display: none;
+	}
+
+	.overlay-dark .overlay & {
+		color: $color__white;
+	}
+}

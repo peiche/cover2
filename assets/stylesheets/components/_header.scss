@@ -1,0 +1,125 @@
+.site-header {
+  @include clearfix;
+
+  background-color: $color__accent;
+  color: $color__white;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all $timing__default linear;
+  will-change: transform;
+  z-index: $z-index__default + 2;
+
+  .has-featured-image &,
+  .has-featured-post &,
+  .archive & {
+    background-color: transparent;
+  }
+
+  .overlay-open & {
+    background-color: transparent;
+    z-index: $z-index__default + 3;
+
+    .site-branding {
+      display: none;
+    }
+  }
+
+  body.admin-bar & {
+    top: $height__wp-top-bar-mobile;
+
+    &.headroom--not-top {
+      top: 0;
+
+      @include min-width($breakpoint__wp-top-bar) {
+        top: $height__wp-top-bar-desktop;
+      }
+    }
+
+    @include min-width($breakpoint__wp-top-bar) {
+      top: $height__wp-top-bar-desktop;
+    }
+  }
+}
+
+.site-header.headroom {
+  position: fixed;
+
+  &.headroom--top {
+    background-color: transparent;
+
+    .home:not(.has-featured-image):not(.has-featured-post) &,
+    .blog:not(.has-featured-post) &,
+    .single:not(.has-featured-image) &,
+    .page:not(.has-featured-image) & {
+      background-color: $color__accent;
+    }
+  }
+
+  &.headroom--not-top {
+    background-color: $color__accent;
+  }
+
+  &.headroom--unpinned {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.custom-logo {
+  margin-top: -5px;
+  max-height: 65px;
+  padding: 10px 10px 10px 20px;
+  vertical-align: middle;
+  width: auto;
+
+  @include min-width($breakpoint__tablet-portrait) {
+    margin-top: -15px;
+  }
+}
+
+.site-title {
+  @include rem(font-size, 1.5);
+
+  color: $color__white;
+  display: inline-block;
+  font-weight: $font__weight-normal;
+  margin: 0;
+  padding: 20px;
+
+  .custom-logo-link:not([style="display:none;"]) + & {
+    padding-left: 0;
+  }
+
+  a {
+    border-bottom: 1px solid transparent;
+    color: inherit;
+    text-decoration: none;
+    transition: border $timing__default;
+
+    &:hover {
+      border-color: $color__white;
+      color: inherit;
+    }
+  }
+}
+
+.site-description {
+  @include rem(font-size, 1);
+  @include rem(line-height, 1.5);
+
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  display: none;
+  font-weight: $font__weight-normal;
+  margin: 0;
+  padding-left: 20px;
+  vertical-align: text-bottom;
+
+  @include min-width($breakpoint__tablet-portrait) {
+    display: inline-block;
+  }
+
+  &:empty {
+    display: none;
+  }
+}

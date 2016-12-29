@@ -1,0 +1,30 @@
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 20px;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 20px;
+}
+
+.aligncenter {
+	@include center-block;
+
+	clear: both;
+}
+
+.text-align-left {
+	text-align: left;
+}
+
+.text-align-center,
+.align-center {
+	text-align: center;
+}
+
+.text-align-right {
+	text-align: right;
+}

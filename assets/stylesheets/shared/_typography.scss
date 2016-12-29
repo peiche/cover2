@@ -1,0 +1,101 @@
+body,
+button,
+input,
+select,
+textarea {
+	@include rem(font-size, 1.25);
+
+	color: $color__text-main;
+	font-family: $font__main;
+	line-height: $font__line-height-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+p {
+	line-height: 38px;
+	margin: 0 0 30px;
+	word-break: break-word;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+dfn,
+cite {
+	font-size: 85%;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+code,
+kbd,
+tt,
+var {
+	@include rem(font-size, 1);
+
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	font-family: $font__code;
+	padding: 2px 4px;
+}
+
+pre {
+	@include rem(font-size, 1);
+
+	background: $color__background-pre;
+	color: $color__white;
+	font-family: $font__pre;
+	line-height: $font__line-height-pre;
+	margin-bottom: 30px;
+	max-width: 100%;
+	overflow: auto;
+	padding: 20px;
+
+	code {
+		background-color: transparent;
+	}
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted $color__border-abbr;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: $color__background-ins;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+blockquote,
+q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
