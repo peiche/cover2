@@ -1,0 +1,49 @@
+{
+  "name": "recover",
+  "description": "A content-driven blogging theme for WordPress.",
+  "homepage": "https://github.com/peiche/recover",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peiche/recover.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "blogging"
+  ],
+  "author": {
+    "name": "Paul Eiche",
+    "email": "peiche@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/peiche/recover/issues"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.5.3",
+    "browser-sync": "^2.18.1",
+    "cssnano": "^3.8.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sort": "^2.0.0",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-svg-sprite": "^1.3.6",
+    "gulp-todo": "^5.1.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-wp-pot": "^1.3.2",
+    "gulp-zip": "^3.2.0",
+    "postcss-scss": "^0.4.0",
+    "stylelint": "^7.5.0",
+    "stylelint-config-standard": "^14.0.0",
+    "stylelint-config-wordpress": "^9.1.1"
+  }
+}
