@@ -182,6 +182,7 @@ gulp.task('svg', function() {
       // Directional Icons
       'bower_components/Font-Awesome-SVG-PNG/black/svg/arrow-left.svg',
       'bower_components/Font-Awesome-SVG-PNG/black/svg/arrow-right.svg',
+      'bower_components/Font-Awesome-SVG-PNG/black/svg/angle-down.svg'
     ])
     .pipe(svgSprite(config.svg_options))
     .pipe(gulp.dest('dist'))
