@@ -42,7 +42,8 @@
    .comment-navigation .nav-previous a,
    .comment-navigation .nav-next a,
    .posts-navigation .nav-previous a,
-   .posts-navigation .nav-next a {
+   .posts-navigation .nav-next a,
+   .aesop-toggle-chapter-menu:hover {
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
    .comment-navigation .nav-previous a:hover,
@@ -57,6 +58,8 @@
      color: hsl(' . $hue . ', 75%, 50%);
    }
    a:hover,
+   a:focus,
+   a:active,
    .calendar_wrap tbody a:hover {
      color: hsl(' . $hue . ', 75%, 40%);
    }
