@@ -1,9 +1,17 @@
+/*--------------------------------------------------------------
+# Aesop Story Engine components
+--------------------------------------------------------------*/
+
 .aesop-component {
   margin-bottom: 3em;
   margin-top: 3em;
 }
 
-.aesop-image-component {
+/*--------------------------------------------------------------
+# Image
+--------------------------------------------------------------*/
+
+.aesop-component.aesop-image-component {
 
   &:hover {
     opacity: 1; // Override
@@ -11,18 +19,13 @@
 
   img {
     box-shadow: none;
+    display: block;
   }
-}
 
-.entry-content a.aesop-lightbox {
-
-  &:hover {
-    border-color: transparent;
+  .aesop-image-component-image.aesop-component-align-center {
+    margin-bottom: 3em;
+    margin-top: 3em;
   }
-}
-
-.aesop-img-enlarge {
-  display: none;
 }
 
 .aesop-image-component .aesop-image-component-caption,
@@ -32,39 +35,20 @@
   margin-top: 0;
 }
 
-.aesop-content-component {
+.aesop-img-enlarge {
+  display: none;
+}
 
-  .aesop-content {
-    @include site-width;
-  }
+.entry-content a.aesop-lightbox {
 
-  .aesop-content-comp-wrap {
-    padding: 1.5em 0;
-  }
-
-  .aesop-content-comp-inner p {
-    line-height: 38px;
+  &:hover {
+    border-color: transparent;
   }
 }
 
-
-.aesop-article-chapter {
-  min-height: 0 !important; // NOTE: overrides ASE's inline style
-}
-
-.aesop-cover-title {
-  @include site-width($content__width-large);
-
-  border: 0;
-  font-family: $font__heading;
-  font-weight: $font__weight-normal;
-  padding: 3em 0 1.5em;
-  position: static;
-}
-
-.aesop-gallery-edit {
-  display: inline-block;
-}
+/*--------------------------------------------------------------
+# Quote
+--------------------------------------------------------------*/
 
 .aesop-quote-component {
   display: block;
@@ -81,4 +65,110 @@
   cite {
     font-size: 85%;
   }
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+
+.aesop-content-component {
+
+  .aesop-content {
+    @include site-width;
+  }
+
+  .aesop-content-comp-wrap {
+    padding: 1.5em 0;
+  }
+
+  .aesop-content-comp-inner p {
+    line-height: 38px;
+  }
+
+  .aesop-content-img .aesop-content-comp-inner {
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+.aesop-cover-title {
+  @include site-width($content__width-large);
+
+  border: 0;
+  font-family: $font__heading;
+  font-weight: $font__weight-normal;
+  padding: 3em 0 1.5em;
+  position: static;
+}
+
+/*--------------------------------------------------------------
+# Chapter
+--------------------------------------------------------------*/
+
+.aesop-article-chapter {
+  min-height: 0 !important; // NOTE: overrides ASE's inline style
+}
+
+.aesop-cover-title small {
+  display: block;
+  font-family: $font__main;
+}
+
+.aesop-chapter-menu {
+  @include scrollbar(darken(#e6e6e6, 25%));
+
+  overflow: auto;
+
+  li {
+    @include rem(font-size, 1);
+
+    font-family: $font__main;
+    padding: 10px 0;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  a:link,
+  .scroll-nav__link {
+    @include link;
+  }
+}
+
+.scroll-nav__section {
+
+  > h1,
+	> h2,
+	> h3,
+	> h4,
+	> h5,
+	> h6,
+	> p,
+	> ol,
+	> ul,
+	> dl,
+	> table,
+	> address,
+	> pre,
+	> blockquote,
+	> .page-links {
+		@include site-width;
+	}
+}
+
+/*--------------------------------------------------------------
+# Gallery
+--------------------------------------------------------------*/
+
+.aesop-gallery-edit {
+  display: inline-block;
+}
+
+/*--------------------------------------------------------------
+# Chat
+--------------------------------------------------------------*/
+
+.aesop-component.aesop-component-chat + .aesop-component-chat {
+  margin-top: -3em;
 }
