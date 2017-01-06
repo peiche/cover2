@@ -171,6 +171,7 @@ gulp.task('svg', function() {
       // Post Format Icons
       'bower_components/Font-Awesome-SVG-PNG/black/svg/thumb-tack.svg',         // pinned posts
       'bower_components/Font-Awesome-SVG-PNG/black/svg/play-circle.svg',        // video
+      'bower_components/Font-Awesome-SVG-PNG/black/svg/play-circle-o.svg',
       'bower_components/Font-Awesome-SVG-PNG/black/svg/music.svg',              // audio
       'bower_components/Font-Awesome-SVG-PNG/black/svg/picture-o.svg',          // image
       'bower_components/Font-Awesome-SVG-PNG/black/svg/quote-right.svg',        // quote
