@@ -42,7 +42,7 @@
 		tr {
 
 			&:nth-child(even) {
-				background-color: #eee;
+				background-color: $color__gray;
 
 				.overlay-dark & {
 					background-color: #444;
