@@ -26,6 +26,8 @@
 		padding-top: 60vh;
 	}
 
+	.single.has-featured-video & {
+		padding-top: 35vh; // 60vh - 25vh
 	}
 
 	hr {

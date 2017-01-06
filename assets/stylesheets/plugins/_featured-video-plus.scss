@@ -1,0 +1,28 @@
+button.video-toggle {
+  @include center-block;
+
+  border: 0;
+  color: $color__white;
+  height: 25vh;
+  outline: none;
+  padding: 0;
+  width: 25vw;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  .recover-icon {
+    height: inherit;
+    width: inherit;
+  }
+
+  .overlay--video & {
+    height: auto;
+    position: absolute;
+    right: 20px;
+    top: 22px;
+    width: auto;
+    z-index: $z-index__default;
+  }
+}

@@ -188,3 +188,22 @@ body.overlay-open {
     font-size: 40px;
   }
 }
+
+.overlay--video {
+  padding: 85px 0 0;
+
+  video,
+  iframe {
+    bottom: 0;
+    display: block;
+    height: 56.25vw;
+    left: 0;
+    margin: auto;
+    max-height: calc(100vh - 60px);
+    max-width: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100vw;
+  }
+}
