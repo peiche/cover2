@@ -42,6 +42,10 @@ function recover_body_classes( $classes ) {
 		$classes[] = 'has-featured-post';
 	}
 
+	if ( is_single() && function_exists('has_post_video') && has_post_video() ) {
+		$classes[] = 'has-featured-video';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'recover_body_classes' );
