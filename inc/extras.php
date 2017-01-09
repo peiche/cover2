@@ -27,6 +27,23 @@ function recover_body_classes( $classes ) {
 	// Add a class of has-featured-image when there is a featured image.
 	if ( is_singular() && get_the_post_thumbnail() ) {
   	$classes[] = 'has-featured-image';
+	} else if ( is_singular() && 'thread' == get_post_type() ) {
+
+		$classes[] = 'thread';
+
+		$has_term_image = false;
+		foreach ( get_terms( 'threads' ) as $thread ) :
+
+			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $thread->term_id ) != '' ) {
+				$has_term_image = true;
+			}
+
+		endforeach;
+
+		if ( $has_term_image ) {
+			$classes[] = 'has-featured-image';
+		}
+
 	}
 
 	// Get the colorscheme or the default if there isn't one.
@@ -146,6 +163,22 @@ function recover_post_nav_background() {
 		$css .= '
 			.page-header__image { background-image: url(' . esc_url( $current_image ) . '); }
 		';
+	} else if ( 'thread' == get_post_type() ) {
+
+		$term_image = '';
+		foreach ( get_terms( 'threads' ) as $thread ) :
+
+			if ( function_exists( 'z_taxonomy_image_url' ) ) {
+				$term_image = z_taxonomy_image_url( $thread->term_id );
+			}
+
+		endforeach;
+
+		if ( $term_image != '' ) {
+			$css .= '
+				.page-header__image { background-image: url(' . esc_url( $term_image ) . '); }
+			';
+		}
 	}
 
 	if ( is_single() ) {
