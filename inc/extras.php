@@ -24,11 +24,6 @@ function recover_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Add a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
-	}
-
 	// Add a class of has-featured-image when there is a featured image.
 	if ( is_singular() && get_the_post_thumbnail() ) {
   	$classes[] = 'has-featured-image';
