@@ -2,9 +2,10 @@
  * Featured Video Plus js for theme
  */
 
+var player;
+
 ( function( $ ) {
   var $document = $( document ),
-      player,
       playButton,
       featuredVideo,
       tag,
@@ -15,7 +16,7 @@
 		playButton = $( '.video-play' )[0];
     featuredVideo = $( '.overlay--video iframe' )[0];
 
-    if ( null === featuredVideo ) {
+    if ( 'undefined' === typeof featuredVideo ) {
       featuredVideo = $( '.overlay--video video' )[0];
     }
 
@@ -45,16 +46,10 @@
 
         player = new Vimeo.Player( featuredVideo );
 
-        // Click listener for play button
-        playButton.addEventListener( 'click', function() {
-          player.play();
-        } );
       } else if ( featuredVideo.play ) {
 
-        // Click listener for play button
-        playButton.addEventListener( 'click', function() {
-          featuredVideo.play();
-        } );
+        player = featuredVideo;
+
       }
     }
 
@@ -77,11 +72,6 @@
 
       if ( 'undefined' !== typeof player ) {
 
-        // Youtube
-        if ( player.playVideo ) {
-          player.playVideo();
-        }
-
         // Vimeo and video tag
         if ( player.play ) {
           player.play();
@@ -94,11 +84,6 @@
       e.preventDefault();
 
       if ( 'undefined' !== typeof player ) {
-
-        // Youtube
-        if ( player.pauseVideo ) {
-          player.pauseVideo();
-        }
 
         // Vimeo and video tag
         if ( player.pause ) {
@@ -155,9 +140,15 @@ function onYouTubePlayerAPIReady() {
  */
 function onPlayerReady( event ) {
   playButton = jQuery( '.video-play' )[0];
+  stopButton = jQuery( '.video-stop' )[0];
 
   // Click listener for play button
   playButton.addEventListener( 'click', function() {
     player.playVideo();
+  } );
+
+  // Click listener for stop button
+  stopButton.addEventListener( 'click', function() {
+    player.pauseVideo();
   } );
 }
