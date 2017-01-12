@@ -5,6 +5,7 @@ var autoprefixer = require('autoprefixer'),
     gulp         = require('gulp'),
     jscs         = require('gulp-jscs'),
     lec          = require('gulp-line-ending-corrector'),
+    phpcs        = require('gulp-phpcs'),
     postcss      = require('gulp-postcss'),
     sass         = require('gulp-sass'),
     scss         = require('postcss-scss'),
@@ -157,6 +158,24 @@ gulp.task('pot', function () {
       headers: false
     } ))
     .pipe(gulp.dest('languages'));
+});
+
+/**
+ * Lint PHP files. (Requires phpcs)
+ */
+gulp.task('phplint', function() {
+  return gulp.src(
+    [
+      '**/*.php',
+      '!bower_components/**',
+      '!node_modules/**'
+    ]
+  )
+    .pipe(phpcs({
+      standard: 'codesniffer.ruleset.xml',
+      warningSeverity: 0
+    }))
+    .pipe(phpcs.reporter('log'));
 });
 
 /**
