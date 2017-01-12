@@ -22,6 +22,7 @@
   "devDependencies": {
     "Font-Awesome-SVG-PNG": "font-awesome-svg-png#^1.1.5",
     "headroom.js": "https://unpkg.com/headroom.js/bower.zip",
-    "flexslider": "^2.6.3"
+    "flexslider": "^2.6.3",
+    "vimeo-player-js": "^2.0.1"
   }
 }

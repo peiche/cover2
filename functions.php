@@ -239,6 +239,7 @@ function recover_scripts() {
 
 	if ( function_exists( 'has_post_video' ) && has_post_video() ) {
 		wp_enqueue_script( 'recover-featured-video-plus', get_template_directory_uri() . '/dist/js/featured-video-plus.js', array() );
+		wp_enqueue_script( 'vimeo', get_template_directory_uri() . '/dist/js/player.min.js', array(), filemtime( get_template_directory() . '/dist/js/player.min.js' ), true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'recover_scripts' );

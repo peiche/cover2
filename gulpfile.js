@@ -87,7 +87,8 @@ gulp.task('clean', function() {
 gulp.task('copy', function() {
   return gulp.src([
     'bower_components/headroom.js/dist/headroom.min.js',
-    'bower_components/flexslider/jquery.flexslider-min.js'
+    'bower_components/flexslider/jquery.flexslider-min.js',
+    'bower_components/vimeo-player-js/dist/player.min.js'
   ]).pipe(gulp.dest('dist/js'));
 });
 
