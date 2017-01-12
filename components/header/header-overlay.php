@@ -31,7 +31,7 @@ if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_
 
   <div class="overlay overlay--video">
 
-		<button type="button" class="video-toggle tcon tcon-menu--xcross toggle-on" aria-label="toggle menu" aria-expanded="false">
+		<button type="button" class="video-toggle video-stop tcon tcon-menu--xcross toggle-on" aria-label="toggle menu" aria-expanded="false">
 		  <span class="tcon-menu__lines" aria-hidden="true"></span>
 		  <span class="screen-reader-text"><?php echo _x( 'Toggle Menu', 'toggle menu overlay button', 'recover' ); ?></span>
 		</button>
