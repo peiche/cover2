@@ -43,7 +43,6 @@ function recover_body_classes( $classes ) {
 		if ( $has_term_image ) {
 			$classes[] = 'has-featured-image';
 		}
-
 	}
 
 	// Get the colorscheme or the default if there isn't one.
@@ -54,7 +53,7 @@ function recover_body_classes( $classes ) {
 		$classes[] = 'has-featured-post';
 	}
 
-	if ( function_exists('has_post_video') && has_post_video() ) {
+	if ( function_exists( 'has_post_video' ) && has_post_video() ) {
 		$classes[] = 'has-featured-video';
 	}
 
@@ -181,7 +180,6 @@ function recover_post_nav_background() {
 				.page-header__image { background-image: url(' . esc_url( $term_image ) . '); }
 			';
 		}
-
 	}
 
 	if ( is_single() && 'thread' != get_post_type() ) {

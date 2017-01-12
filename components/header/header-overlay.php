@@ -27,7 +27,7 @@ if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_
 	<?php get_search_form(); ?>
 </div>
 
-<?php if ( function_exists('has_post_video') && has_post_video() ) { ?>
+<?php if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
 
   <div class="overlay overlay--video">
 
@@ -37,8 +37,8 @@ if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_
 		</button>
 
     <?php
-    $video_oembed =  wp_oembed_get( get_the_post_video_url() );
-    if ($video_oembed != '') {
+    $video_oembed = wp_oembed_get( get_the_post_video_url() );
+    if ( '' != $video_oembed ) {
       echo $video_oembed;
     } else {
       echo '<video controls src="' . get_the_post_video_url() . '"><p>Your browser does not support native video playback.</p></video>';

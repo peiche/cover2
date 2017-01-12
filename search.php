@@ -18,6 +18,7 @@ get_header(); ?>
 			<header class="page-header">
 				<div class="page-header__image"></div>
 				<div class="page-header__content">
+					<?php /* translators: %s: Search query */ ?>
 					<h1 class="page-title text-align-center"><?php printf( esc_html__( 'Search Results for: %s', 'recover' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</div>
 			</header>

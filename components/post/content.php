@@ -16,7 +16,7 @@
 
 		<div class="page-header__content">
 
-			<?php if ( function_exists('has_post_video') && has_post_video() ) { ?>
+			<?php if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
 				<button class="video-toggle video-play" aria-label="toggle video" aria-expanded="false"><?php echo recover_get_svg( array( 'icon' => 'play-circle-o' ) ); ?></button>
 			<?php } ?>
 

@@ -237,7 +237,7 @@ function recover_scripts() {
 		wp_enqueue_script( 'recover-flexslider', get_template_directory_uri() . '/dist/js/flexslider.js', array( 'flexslider' ) );
 	}
 
-	if ( function_exists('has_post_video') && has_post_video() ) {
+	if ( function_exists( 'has_post_video' ) && has_post_video() ) {
 		wp_enqueue_script( 'recover-featured-video-plus', get_template_directory_uri() . '/dist/js/featured-video-plus.js', array() );
 	}
 }
