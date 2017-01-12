@@ -153,7 +153,7 @@ add_filter( 'get_the_archive_title', 'recover_archive_title' );
  */
 function recover_post_nav_background() {
 	$current_image = recover_get_first_featured_image();
-	$css      = '';
+	$css = '';
 
 	if ( is_attachment() && 'attachment' == $previous->post_type ) {
 		return;
@@ -163,25 +163,28 @@ function recover_post_nav_background() {
 		$css .= '
 			.page-header__image { background-image: url(' . esc_url( $current_image ) . '); }
 		';
-	} else if ( 'thread' == get_post_type() ) {
+	}
+
+	if ( is_singular() && 'thread' == get_post_type() ) {
 
 		$term_image = '';
 		foreach ( get_terms( 'threads' ) as $thread ) :
 
-			if ( function_exists( 'z_taxonomy_image_url' ) ) {
+			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $thread->term_id ) != '' ) {
 				$term_image = z_taxonomy_image_url( $thread->term_id );
 			}
 
 		endforeach;
 
-		if ( $term_image != '' ) {
+		if ( '' != $term_image ) {
 			$css .= '
 				.page-header__image { background-image: url(' . esc_url( $term_image ) . '); }
 			';
 		}
+
 	}
 
-	if ( is_single() ) {
+	if ( is_single() && 'thread' != get_post_type() ) {
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 		$next     = get_adjacent_post( false, '', false );
 
