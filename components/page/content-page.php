@@ -15,6 +15,10 @@
 		<div class="page-header__image"></div>
 
 		<div class="page-header__content">
+			<?php if ( function_exists('has_post_video') && has_post_video() ) { ?>
+				<button class="video-toggle video-play" aria-label="toggle video" aria-expanded="false"><?php echo recover_get_svg( array( 'icon' => 'play-circle-o' ) ); ?></button>
+			<?php } ?>
+
 			<?php the_title( '<h1 class="page-title text-align-center">', '</h1>' ); ?>
 		</div>
 	</header>

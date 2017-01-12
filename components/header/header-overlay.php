@@ -27,7 +27,7 @@ if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_
 	<?php get_search_form(); ?>
 </div>
 
-<?php if ( is_single() && function_exists('has_post_video') && has_post_video() ) { ?>
+<?php if ( function_exists('has_post_video') && has_post_video() ) { ?>
 
   <div class="overlay overlay--video">
 
