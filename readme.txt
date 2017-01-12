@@ -97,7 +97,7 @@ License - http://creativecommons.org/publicdomain/zero/1.0/
 
 All other resources are licensed as follows:
 
-Font Awesome http://fontawesome.io/ - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+Font Awesome SVG PNG https://github.com/encharm/Font-Awesome-SVG-PNG - MIT https://github.com/encharm/Font-Awesome-SVG-PNG/blob/master/LICENSE
 Headroom http://wicky.nillia.ms/headroom.js/ - MIT https://github.com/WickyNilliams/headroom.js/blob/master/LICENSE
 Transformicons http://www.transformicons.com/ - MIT https://github.com/grayghostvisuals/transformicons/blob/master/LICENSE.md
 FlexSlider http://flexslider.woothemes.com - GPL v2.0 or later https://github.com/woocommerce/FlexSlider/blob/master/LICENSE.md
