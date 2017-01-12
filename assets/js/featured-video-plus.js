@@ -6,93 +6,126 @@
   var $document = $( document ),
       player,
       playButton,
-      $featured_video,
-      firstScriptTag;
+      featuredVideo,
+      tag,
+      firstScriptTag,
+      sep = '?';
 
-  function videoOverlayControl() {
+  $document.ready( function() {
+		playButton = $( '.video-play' )[0];
+    featuredVideo = $( '.overlay--video iframe' )[0];
+
+    if ( null === featuredVideo ) {
+      featuredVideo = $( '.overlay--video video' )[0];
+    }
+
+    if ( featuredVideo && null !== featuredVideo ) {
+      featuredVideo.id = 'overlay--video__video';
+
+      if ( featuredVideo.src.indexOf( '?' ) !== -1 ) {
+        sep = '&';
+      }
+
+      if ( featuredVideo.src.indexOf( 'youtube.com' ) !== -1 ) {
+
+        // Append the embed url with the api param
+        featuredVideo.src += sep + 'enablejsapi=1';
+
+        /**
+         * Inject YouTube API script
+         */
+        tag = document.createElement( 'script' );
+        tag.src = 'https://www.youtube.com/player_api';
+        firstScriptTag = document.getElementsByTagName( 'script' )[0];
+        firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
+      } else if ( featuredVideo.src.indexOf( 'vimeo.com' ) !== -1 && 'undefined' !== typeof Vimeo ) {
+
+        // Append the embed url with the api param
+        featuredVideo.src += sep + 'api=1';
+
+        player = new Vimeo.Player( featuredVideo );
+
+        // Click listener for play button
+        playButton.addEventListener( 'click', function() {
+          player.play();
+        } );
+      } else if ( featuredVideo.play ) {
+
+        // Click listener for play button
+        playButton.addEventListener( 'click', function() {
+          featuredVideo.play();
+        } );
+      }
+    }
+
     $( '.video-toggle' ).on( 'click', function( e ) {
       var $this = $( this );
 
 			e.preventDefault();
 
-      // Stop video
-      if ( $( '.overlay--video' ).hasClass( 'show' ) ) {
-        if (typeof player !== 'undefined') {
-      		// Youtube
-      		if (player.pauseVideo) {
-      			player.pauseVideo();
-      		}
-
-      		// Vimeo and <video> tag
-      		if (player.pause) {
-      			player.pause();
-      		}
-      	}
-      }
-
-			$( '.overlay--video' ).toggleClass( 'show' ).resize();
+      $( '.overlay--video' ).toggleClass( 'show' ).resize();
 			$( 'body' ).toggleClass( 'overlay-open' );
 
 			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
 
       $( '.menu-toggle, .search-toggle' ).toggleClass( 'hide' );
+
 		} );
-  }
 
-  $document.ready( function() {
-		videoOverlayControl();
+    $( '.video-play' ).on( 'click', function( e ) {
+      e.preventDefault();
 
-    playButton = $( '.video-toggle' )[0];
-    $featured_video = $('.overlay--video iframe');
+      if ( 'undefined' !== typeof player ) {
 
-    if ($featured_video === null) {
-      $featured_video = $('.overlay--video video');
-    }
+        // Youtube
+        if ( player.playVideo ) {
+          player.playVideo();
+        }
 
-    if ($featured_video && $featured_video !== null) {
-      $featured_video.id = 'video-overlay-video';
-
-      var sep = '?';
-      if ($featured_video.src.indexOf('?') !== -1) {
-        sep = '&';
-      }
-
-      if ($featured_video.src.indexOf('youtube.com') !== -1) {
-        // Append the embed url with the api param
-        $featured_video.src += sep + 'enablejsapi=1';
-
-        /**
-         * Inject YouTube API script
-         */
-        var tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/player_api';
-        firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      } else if ($featured_video.src.indexOf('vimeo.com') !== -1 && typeof Vimeo !== 'undefined') {
-        // Append the embed url with the api param
-        $featured_video.src += sep + 'api=1';
-
-        /* jshint ignore:start */
-        player = new Vimeo.Player($featured_video);
-        /* jshint ignore:end */
-
-        // Click listener for play button
-        playButton.addEventListener('click', function() {
-          /* jshint ignore:start */
+        // Vimeo and video tag
+        if ( player.play ) {
           player.play();
-          /* jshint ignore:end */
-        });
-      } else if ($featured_video.play) {
-        // Click listener for play button
-        playButton.addEventListener('click', function() {
-          $featured_video.play();
-        });
+        }
+
       }
-    }
+    } );
+
+    $( '.video-stop' ).on( 'click', function( e ) {
+      e.preventDefault();
+
+      if ( 'undefined' !== typeof player ) {
+
+        // Youtube
+        if ( player.pauseVideo ) {
+          player.pauseVideo();
+        }
+
+        // Vimeo and video tag
+        if ( player.pause ) {
+          player.pause();
+        }
+
+      }
+    } );
 	} );
 
   $document.keyup( function( e ) {
     if ( 27 === e.keyCode && $( '.overlay--video' ).hasClass( 'show' ) ) {
+
+      // Stop video
+      if ( 'undefined' !== typeof player ) {
+
+        // Youtube
+        if ( player.pauseVideo ) {
+          player.pauseVideo();
+        }
+
+        // Vimeo and video tag
+        if ( player.pause ) {
+          player.pause();
+        }
+      }
+
       $( 'body' ).removeClass( 'overlay-open' );
       $( '.video-toggle' ).attr( 'aria-expanded', 'false' );
       $( '.overlay--video' ).removeClass( 'show' ).resize();
@@ -108,20 +141,23 @@
  * checkbox in the plugin options (/wp-admin/options-media.php).
  */
 function onYouTubePlayerAPIReady() {
+
   // Define player as Youtube player
-  player = new YT.Player(VIDEO_ID, {
+  player = new YT.Player( 'overlay--video__video', {
     events: {
       'onReady': onPlayerReady
     }
-  });
+  } );
 }
 
 /**
  * Function to be called once the player is ready
  */
-function onPlayerReady(event) {
+function onPlayerReady( event ) {
+  playButton = jQuery( '.video-play' )[0];
+
   // Click listener for play button
-  playButton.addEventListener('click', function() {
+  playButton.addEventListener( 'click', function() {
     player.playVideo();
-  });
+  } );
 }
