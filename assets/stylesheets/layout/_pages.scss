@@ -19,15 +19,11 @@
 		background-color: $color__background-dark;
 		min-height: 100vh;
 		padding-bottom: 50px;
-		padding-top: 40vh;
-	}
-
-	.single.has-featured-image & {
 		padding-top: 60vh;
 	}
 
-	.single.has-featured-video & {
-		padding-top: 35vh; // 60vh - 25vh
+	.has-featured-video & {
+		padding-top: 44vh; // 60vh - 16vh
 	}
 
 	hr {
