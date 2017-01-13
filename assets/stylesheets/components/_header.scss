@@ -101,6 +101,11 @@
       border-color: $color__white;
       color: inherit;
     }
+
+    &:active,
+    &:focus {
+      color: inherit;
+    }
   }
 }
 
