@@ -201,6 +201,7 @@ function recover_colors_css_wrap() {
 	<style type="text/css" id="custom-theme-colors" <?php if ( is_customize_preview() ) { echo 'data-hue="' . $hue . '"'; } ?>>
 		<?php echo recover_custom_colors_css(); ?>
 	</style>
+	<meta name="theme-color" content="hsl(<?php echo $hue; ?>, 75%, 50%)">
 <?php }
 add_action( 'wp_head', 'recover_colors_css_wrap' );
 
