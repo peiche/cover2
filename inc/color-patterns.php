@@ -19,8 +19,6 @@
   	 *
   	 * @param $saturation integer
   	 */
-  	$saturation = absint( apply_filters( 'recover_custom_colors_saturation', 50 ) );
-  	$saturation = $saturation . '%';
   	$css = '
   /**
    * ReCover: Color Patterns
@@ -114,5 +112,5 @@
    * @param $hue        int    The user's selected color hue.
    * @param $saturation string Filtered theme color saturation level.
    */
-  return apply_filters( 'recover_custom_colors_css', $css, $hue, $saturation );
+  return apply_filters( 'recover_custom_colors_css', $css, $hue );
 }
