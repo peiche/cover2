@@ -32,13 +32,14 @@ function recover_body_classes( $classes ) {
 		$classes[] = 'thread';
 
 		$has_term_image = false;
-		foreach ( get_terms( 'threads' ) as $thread ) :
+		$term_id = 0;
+		if ( function_exists( 'cftpb_get_term_id' ) ) {
+			$term_id = cftpb_get_term_id( 'threads', get_the_ID() );
 
-			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $thread->term_id ) != '' ) {
+			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $term_id ) != '' ) {
 				$has_term_image = true;
 			}
-
-		endforeach;
+		}
 
 		if ( $has_term_image ) {
 			$classes[] = 'has-featured-image';
@@ -164,22 +165,28 @@ function recover_post_nav_background() {
 		';
 	}
 
+	$term_image = '';
+
+	// Set the featured image for Threads.
 	if ( is_singular() && 'thread' == get_post_type() ) {
+		if ( function_exists( 'cftpb_get_term_id' ) ) {
+			$term_id = cftpb_get_term_id( 'threads', get_the_ID() );
 
-		$term_image = '';
-		foreach ( get_terms( 'threads' ) as $thread ) :
-
-			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $thread->term_id ) != '' ) {
-				$term_image = z_taxonomy_image_url( $thread->term_id );
+			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $term_id ) != '' ) {
+				$term_image = z_taxonomy_image_url( $term_id );
 			}
-
-		endforeach;
-
-		if ( '' != $term_image ) {
-			$css .= '
-				.page-header__image { background-image: url(' . esc_url( $term_image ) . '); }
-			';
 		}
+	}
+
+	// Set the fetaured image for archives.
+	if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url() != '' ) {
+		$term_image = z_taxonomy_image_url();
+	}
+
+	if ( '' != $term_image ) {
+		$css .= '
+			.page-header__image { background-image: url(' . esc_url( $term_image ) . '); }
+		';
 	}
 
 	if ( is_single() && 'thread' != get_post_type() ) {
