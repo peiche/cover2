@@ -13,6 +13,10 @@
 		padding-top: 0;
 	}
 
+	.thread & {
+		padding-bottom: 0;
+	}
+
 	.featured-content & {
 		background-color: $color__background-dark;
 		color: $color__white;
