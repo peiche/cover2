@@ -5,13 +5,13 @@
  * @package ReCover
  */
 
-if ( 'thread' != get_post_type() ) :
-
 ?>
 
 <footer class="entry-footer">
-	<?php get_template_part( 'components/author/author', 'bio' ); ?>
+	<?php
+	if ( 'timeline' != get_post_type() ) :
+		get_template_part( 'components/author/author', 'bio' );
+	endif;
+	?>
 	<?php recover_entry_footer(); ?>
 </footer><!-- .entry-footer -->
-
-<?php endif; ?>

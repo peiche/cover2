@@ -24,17 +24,18 @@ function recover_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	if ( 'timeline' == get_post_type() ) {
+		$classes[] = 'timeline';
+	}
+
 	// Add a class of has-featured-image when there is a featured image.
 	if ( is_singular() && get_the_post_thumbnail() ) {
   	$classes[] = 'has-featured-image';
-	} else if ( is_singular() && 'thread' == get_post_type() ) {
-
-		$classes[] = 'thread';
-
+	} else if ( is_singular() && 'timeline' == get_post_type() ) {
 		$has_term_image = false;
 		$term_id = 0;
 		if ( function_exists( 'cftpb_get_term_id' ) ) {
-			$term_id = cftpb_get_term_id( 'threads', get_the_ID() );
+			$term_id = cftpb_get_term_id( 'timelines', get_the_ID() );
 
 			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $term_id ) != '' ) {
 				$has_term_image = true;
@@ -167,10 +168,10 @@ function recover_post_nav_background() {
 
 	$term_image = '';
 
-	// Set the featured image for Threads.
-	if ( is_singular() && 'thread' == get_post_type() ) {
+	// Set the featured image for Timelines.
+	if ( is_singular() && 'timeline' == get_post_type() ) {
 		if ( function_exists( 'cftpb_get_term_id' ) ) {
-			$term_id = cftpb_get_term_id( 'threads', get_the_ID() );
+			$term_id = cftpb_get_term_id( 'timelines', get_the_ID() );
 
 			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $term_id ) != '' ) {
 				$term_image = z_taxonomy_image_url( $term_id );
@@ -189,7 +190,7 @@ function recover_post_nav_background() {
 		';
 	}
 
-	if ( is_single() && 'thread' != get_post_type() ) {
+	if ( is_single() && 'timeline' != get_post_type() ) {
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 		$next     = get_adjacent_post( false, '', false );
 
