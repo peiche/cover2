@@ -166,7 +166,8 @@
 	> address,
 	> pre,
 	> blockquote,
-	> .page-links {
+	> .page-links,
+	> .cp_embed_wrapper {
 		@include site-width;
 	}
 
