@@ -6,7 +6,7 @@
  */
 
 $has_sidebar = false;
-if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_menu( 'social' ) ) :
+if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_menu( 'jetpack-social-menu' ) ) :
 	$has_sidebar = true; ?>
 	<button type="button" class="menu-toggle tcon tcon-menu--xcross" aria-label="toggle menu" aria-expanded="false">
 	  <span class="tcon-menu__lines" aria-hidden="true"></span>

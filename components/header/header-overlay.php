@@ -5,7 +5,7 @@
  * @package ReCover
  */
 
-if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_menu( 'social' ) ) : ?>
+if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_menu( 'jetpack-social-menu' ) ) : ?>
 
 	<div class="overlay overlay--menu">
 		<?php if ( has_nav_menu( 'top' ) ) : ?>
