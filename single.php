@@ -26,7 +26,7 @@ get_header(); ?>
 			<?php
 			endif;
 
-			if ( 'thread' != get_post_type() ) {
+			if ( 'timeline' != get_post_type() ) {
 
 				// Previous/next post navigation.
 				the_post_navigation( array(
