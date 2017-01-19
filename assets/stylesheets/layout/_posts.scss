@@ -66,16 +66,6 @@
 	body.single & {
 		padding-top: 50px;
 	}
-
-	.recover-icon {
-		opacity: 0.75;
-
-		@include min-width($breakpoint__tablet-landscape) {
-			margin-left: -50px;
-			margin-top: 10px;
-			position: absolute;
-		}
-	}
 }
 
 .entry-title {
@@ -282,10 +272,4 @@
 .edit-link {
 	padding-left: 35px;
 	position: relative;
-
-	.recover-icon {
-		left: 0;
-		position: absolute;
-		top: 6px;
-	}
 }

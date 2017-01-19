@@ -1,8 +1,32 @@
-.recover-icon {
+.svg-icon {
+  align-self: center;
+  display: inline-flex;
   fill: currentColor;
-  height: 24px;
-  vertical-align: middle;
-  width: 24px;
+  height: 1em;
+  position: relative;
+  width: 1em;
+
+  .showsub-toggle.sub-on & {
+    transform: rotate(180deg);
+  }
+
+  .entry-header & {
+    opacity: 0.75;
+
+    @include min-width($breakpoint__tablet-landscape) {
+			margin-left: -50px;
+			margin-top: 15px;
+			position: absolute;
+		}
+  }
+
+  .cat-links &,
+  .tags-links &,
+  .edit-link & {
+    left: 0;
+		position: absolute;
+		top: 6px;
+  }
 }
 
 .svg-fallback {

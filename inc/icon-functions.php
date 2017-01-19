@@ -83,7 +83,7 @@ function recover_get_svg( $args = array() ) {
 	}
 
 	// Begin SVG markup.
-	$svg = '<svg class="recover-icon recover-icon-' . esc_attr( $args['icon'] ) . '"' . $aria_hidden . $aria_labelledby . ' role="img">';
+	$svg = '<svg class="svg-icon svg-icon-' . esc_attr( $args['icon'] ) . '"' . $aria_hidden . $aria_labelledby . ' role="img">';
 
 	// Display the title.
 	if ( $args['title'] ) {
@@ -106,7 +106,7 @@ function recover_get_svg( $args = array() ) {
 
 	// Add some markup to use as a fallback for browsers that do not support SVGs.
 	if ( $args['fallback'] ) {
-		$svg .= '<span class="svg-fallback recover-icon icon-' . esc_attr( $args['icon'] ) . '"></span>';
+		$svg .= '<span class="svg-fallback svg-icon icon-' . esc_attr( $args['icon'] ) . '"></span>';
 	}
 
 	$svg .= '</svg>';
