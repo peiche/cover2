@@ -2,5 +2,8 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.0 - 12/29/2016**
+**1.0.1 - 1/20/2017**
+- Fixed screenshot.
+
+**1.0 - 1/20/2017**
 - Initial release.
