@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package ReCover
+ * @package Cover2
  */
 
 get_header(); ?>
@@ -15,11 +15,11 @@ get_header(); ?>
 			<section class="error-404 not-found">
 				<header class="page-header">
 					<div class="page-header__content text-align-center">
-						<h1 class="page-title"><?php esc_html_e( 'That page can&rsquo;t be found.', 'recover' ); ?></h1>
+						<h1 class="page-title"><?php esc_html_e( 'That page can&rsquo;t be found.', 'cover2' ); ?></h1>
 					</div>
 				</header>
 				<div class="entry-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search?', 'recover' ); ?></p>
+					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search?', 'cover2' ); ?></p>
 				</div>
 			</section>
 		</main>

@@ -2,7 +2,7 @@
 /**
  * The template for displaying Algolia Instant Search.
  *
- * @package ReCover
+ * @package Cover2
  */
 
 get_header(); ?>

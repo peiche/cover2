@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ReCover
+ * @package Cover2
  */
 
 ?>
@@ -16,7 +16,7 @@
 
 		<div class="page-header__content">
 			<?php if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
-				<button class="video-toggle video-play" aria-label="toggle video" aria-expanded="false"><?php echo recover_get_svg( array( 'icon' => 'play-circle-o' ) ); ?></button>
+				<button class="video-toggle video-play" aria-label="toggle video" aria-expanded="false"><?php echo cover2_get_svg( array( 'icon' => 'play-circle-o' ) ); ?></button>
 			<?php } ?>
 
 			<?php the_title( '<h1 class="page-title text-align-center">', '</h1>' ); ?>
@@ -28,7 +28,7 @@
 			the_content();
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'recover' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'cover2' ),
 				'after'  => '</div>',
 			) );
 		?>
@@ -38,10 +38,10 @@
 			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'recover' ),
+					esc_html__( 'Edit %s', 'cover2' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				),
-				'<div class="edit-link">' . recover_get_svg( array( 'icon' => 'pencil', 'title' => __( 'Edit Post', 'recover' ) ) ),
+				'<div class="edit-link">' . cover2_get_svg( array( 'icon' => 'pencil', 'title' => __( 'Edit Post', 'cover2' ) ) ),
 				'</div>'
 			);
 		?>

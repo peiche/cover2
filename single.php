@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package ReCover
+ * @package Cover2
  */
 
 get_header(); ?>
@@ -30,10 +30,10 @@ get_header(); ?>
 
 				// Previous/next post navigation.
 				the_post_navigation( array(
-						'next_text' => '<span class="nav-next__image"></span><span class="meta-nav text-align-right" aria-hidden="true">' . recover_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'Next', 'recover' ) ) ) .
-						'</span> <span class="screen-reader-text">' . __( 'Next post:', 'recover' ) . '</span><hr><span class="post-title text-align-center">%title</span>',
-					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . recover_get_svg( array( 'icon' => 'arrow-left', 'title' => __( 'Previous', 'recover' ) ) ) .
-						'</span><span class="screen-reader-text">' . __( 'Previous post:', 'recover' ) . '</span><hr><span class="post-title text-align-center">%title</span>',
+						'next_text' => '<span class="nav-next__image"></span><span class="meta-nav text-align-right" aria-hidden="true">' . cover2_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'Next', 'cover2' ) ) ) .
+						'</span> <span class="screen-reader-text">' . __( 'Next post:', 'cover2' ) . '</span><hr><span class="post-title text-align-center">%title</span>',
+					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . cover2_get_svg( array( 'icon' => 'arrow-left', 'title' => __( 'Previous', 'cover2' ) ) ) .
+						'</span><span class="screen-reader-text">' . __( 'Previous post:', 'cover2' ) . '</span><hr><span class="post-title text-align-center">%title</span>',
 				) );
 
 			}

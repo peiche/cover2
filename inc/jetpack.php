@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.me/
  *
- * @package ReCover
+ * @package Cover2
  */
 
 /**
@@ -13,11 +13,11 @@
  * See: https://jetpack.me/support/infinite-scroll/
  * See: https://jetpack.me/support/responsive-videos/
  */
-function recover_jetpack_setup() {
+function cover2_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => 'recover_infinite_scroll_render',
+		'render'    => 'cover2_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
 
@@ -29,19 +29,19 @@ function recover_jetpack_setup() {
 
 	// Add theme support for Featured Content.
 	add_theme_support( 'featured-content', array(
-        'filter'      => 'recover_get_featured_posts',
-        'description' => esc_html__( 'The featured content section displays on the index page bellow the header.', 'recover' ),
+        'filter'      => 'cover2_get_featured_posts',
+        'description' => esc_html__( 'The featured content section displays on the index page bellow the header.', 'cover2' ),
         'max_posts'   => 10,
         'post_types'  => array( 'post' ),
     ) );
 
 }
-add_action( 'after_setup_theme', 'recover_jetpack_setup' );
+add_action( 'after_setup_theme', 'cover2_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function recover_infinite_scroll_render() {
+function cover2_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		get_template_part( 'components/post/content', 'summary' );
@@ -51,7 +51,7 @@ function recover_infinite_scroll_render() {
 /**
  * Custom render function for Social Menu.
  */
-function recover_social_menu() {
+function cover2_social_menu() {
 	if ( ! function_exists( 'jetpack_social_menu' ) ) {
 		return;
 	} else {
@@ -62,8 +62,8 @@ function recover_social_menu() {
 /**
  * Check if there are any Featured Posts.
  */
-function recover_has_featured_post() {
-  $featured_posts = apply_filters( 'recover_get_featured_posts', array() );
+function cover2_has_featured_post() {
+  $featured_posts = apply_filters( 'cover2_get_featured_posts', array() );
   if ( is_array( $featured_posts ) && 0 < count( $featured_posts ) ) {
   	return true;
   }
@@ -73,8 +73,8 @@ function recover_has_featured_post() {
 /**
  * Check if there are more than one Featured Posts.
  */
-function recover_has_multiple_featured_posts() {
-  $featured_posts = apply_filters( 'recover_get_featured_posts', array() );
+function cover2_has_multiple_featured_posts() {
+  $featured_posts = apply_filters( 'cover2_get_featured_posts', array() );
   if ( is_array( $featured_posts ) && 1 < count( $featured_posts ) ) {
   	return true;
   }
@@ -84,26 +84,26 @@ function recover_has_multiple_featured_posts() {
 /**
  * Get Featured Posts.
  */
-function recover_get_featured_posts() {
-  return apply_filters( 'recover_get_featured_posts', false );
+function cover2_get_featured_posts() {
+  return apply_filters( 'cover2_get_featured_posts', false );
 }
 
 /**
  * Display custom color CSS.
  */
-function recover_featured_posts_css() {
+function cover2_featured_posts_css() {
 	$css = '';
 ?>
 	<style type="text/css" id="featured-posts-css">
 		<?php
-		$featured_posts = recover_get_featured_posts();
+		$featured_posts = cover2_get_featured_posts();
 		if ( empty( $featured_posts ) ) {
 		    return;
 		}
 
 		foreach ( $featured_posts as $post ) {
 			setup_postdata( $post );
-			$img = recover_get_featured_image( $post->ID );
+			$img = cover2_get_featured_image( $post->ID );
 			$css .= '
 			.featured-content .post-' . $post->ID . ' .page-header__image {
 				background-image: url(' . $img . ');
@@ -116,4 +116,4 @@ function recover_featured_posts_css() {
 		?>
 	</style>
 <?php }
-add_action( 'wp_head', 'recover_featured_posts_css' );
+add_action( 'wp_head', 'cover2_featured_posts_css' );

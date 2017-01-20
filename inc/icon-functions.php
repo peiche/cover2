@@ -3,14 +3,14 @@
  * SVG icons related functions and filters
  *
  * @package WordPress
- * @subpackage ReCover
+ * @subpackage Cover2
  * @since 1.0
  */
 
 /**
  * Add SVG definitions to the footer.
  */
-function recover_include_svg_icons() {
+function cover2_include_svg_icons() {
 	// Define SVG sprite file.
 	$svg_icons = get_parent_theme_file_path( '/dist/img/sprites.svg' );
 
@@ -19,7 +19,7 @@ function recover_include_svg_icons() {
 		require_once( $svg_icons );
 	}
 }
-add_action( 'wp_footer', 'recover_include_svg_icons', 9999 );
+add_action( 'wp_footer', 'cover2_include_svg_icons', 9999 );
 
 /**
  * Return SVG markup.
@@ -33,15 +33,15 @@ add_action( 'wp_footer', 'recover_include_svg_icons', 9999 );
  * }
  * @return string SVG markup.
  */
-function recover_get_svg( $args = array() ) {
+function cover2_get_svg( $args = array() ) {
 	// Make sure $args are an array.
 	if ( empty( $args ) ) {
-		return __( 'Please define default parameters in the form of an array.', 'recover' );
+		return __( 'Please define default parameters in the form of an array.', 'cover2' );
 	}
 
 	// Define an icon.
 	if ( false === array_key_exists( 'icon', $args ) ) {
-		return __( 'Please define an SVG icon filename.', 'recover' );
+		return __( 'Please define an SVG icon filename.', 'cover2' );
 	}
 
 	// Set defaults.
@@ -62,13 +62,13 @@ function recover_get_svg( $args = array() ) {
 	$aria_labelledby = '';
 
 	/*
-	 * ReCover doesn't use the SVG title or description attributes for non-decorative icons inside buttons.
+	 * Cover2 doesn't use the SVG title or description attributes for non-decorative icons inside buttons.
 	 *
 	 * However, the title and description can be used to add information to non-decorative SVG icons to improve accessibility.
 	 *
-	 * Example 1 with title: <?php echo recover_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) ); ?>
+	 * Example 1 with title: <?php echo cover2_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) ); ?>
 	 *
-	 * Example 2 with title and description: <?php echo recover_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
+	 * Example 2 with title and description: <?php echo cover2_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
 	 *
 	 * See https://www.paciellogroup.com/blog/2013/12/using-aria-enhance-svg-accessibility/.
 	 */

@@ -2,7 +2,7 @@
 /**
  * The template for displaying post footer information.
  *
- * @package ReCover
+ * @package Cover2
  */
 
 ?>
@@ -13,5 +13,5 @@
 		get_template_part( 'components/author/author', 'bio' );
 	endif;
 	?>
-	<?php recover_entry_footer(); ?>
+	<?php cover2_entry_footer(); ?>
 </footer><!-- .entry-footer -->

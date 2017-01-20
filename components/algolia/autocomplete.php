@@ -2,7 +2,7 @@
 /**
  * The template for displaying Algolia Autocomplete.
  *
- * @package ReCover
+ * @package Cover2
  */
 
 ?>
@@ -53,7 +53,7 @@
 <script type="text/html" id="tmpl-autocomplete-footer">
 	<div class="autocomplete-footer">
 		<div class="autocomplete-footer-branding">
-			<?php esc_html_e( 'Powered by', 'recover' ); ?>
+			<?php esc_html_e( 'Powered by', 'cover2' ); ?>
 			<a href="#" class="algolia-powered-by-link" title="Algolia">
 				<div class="algolia-logo"></div>
 			</a>
@@ -63,7 +63,7 @@
 
 <script type="text/html" id="tmpl-autocomplete-empty">
 	<div class="autocomplete-empty">
-		<?php esc_html_e( 'No results matched your query ', 'recover' ); ?>
+		<?php esc_html_e( 'No results matched your query ', 'cover2' ); ?>
 		<span class="empty-query">{{ data.query }}"</span>
 	</div>
 </script>

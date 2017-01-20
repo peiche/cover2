@@ -1,13 +1,13 @@
 /*
-Theme Name: ReCover
-Theme URI: http://eichefam.net/projects/recover
+Theme Name: Cover2
+Theme URI: http://eichefam.net/projects/cover2
 Author: Paul Eiche
 Author URI: https://eichefam.net
 Description: A content-driven blogging theme for WordPress.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: recover
+Text Domain: cover2
 Tags: custom-colors, custom-menu, featured-images, one-column, sticky-post, theme-options
 
 This theme, like WordPress, is licensed under the GPL.
@@ -43,7 +43,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Infinite scroll
 # Media
 	## Galleries
-# ReCover
+# Cover2
 --------------------------------------------------------------*/
 @import "variables/variables-base";
 @import "mixins/mixins-base";
@@ -134,7 +134,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "shared/media";
 
 /*--------------------------------------------------------------
-# ReCover
+# Cover2
 --------------------------------------------------------------*/
 @import "components";
 

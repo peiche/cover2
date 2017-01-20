@@ -1,19 +1,19 @@
 <?php
 /**
- * ReCover: Color Patterns
+ * Cover2: Color Patterns
  *
- * @package ReCover
+ * @package Cover2
  * @since 1.0
  */
 
  /**
   * Generate the CSS for the current custom color scheme.
   */
-  function recover_custom_colors_css() {
+  function cover2_custom_colors_css() {
   	$hue = absint( get_theme_mod( 'accent_color', 250 ) );
 
   	/**
-  	 * Filter ReCover default saturation level.
+  	 * Filter Cover2 default saturation level.
   	 *
   	 * @since Twenty Seventeen 1.0
   	 *
@@ -21,7 +21,7 @@
   	 */
   	$css = '
   /**
-   * ReCover: Color Patterns
+   * Cover2: Color Patterns
    */
 
    .site-header,
@@ -104,13 +104,13 @@
    ';
 
   /**
-   * Filters ReCover custom colors CSS.
+   * Filters Cover2 custom colors CSS.
    *
-   * @since ReCover 1.0
+   * @since Cover2 1.0
    *
    * @param $css        string Base theme colors CSS.
    * @param $hue        int    The user's selected color hue.
    * @param $saturation string Filtered theme color saturation level.
    */
-  return apply_filters( 'recover_custom_colors_css', $css, $hue );
+  return apply_filters( 'cover2_custom_colors_css', $css, $hue );
 }

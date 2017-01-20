@@ -2,7 +2,7 @@
 /**
  * The template for displaying the search and nav overlays.
  *
- * @package ReCover
+ * @package Cover2
  */
 
 if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_menu( 'jetpack-social-menu' ) ) : ?>
@@ -14,7 +14,7 @@ if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_
 			</nav><!-- #site-navigation -->
 		<?php endif; ?>
 
-		<?php recover_social_menu(); ?>
+		<?php cover2_social_menu(); ?>
 
 		<?php if ( is_active_sidebar( 'sidebar-overlay' ) ) {
 			get_sidebar();
@@ -33,7 +33,7 @@ if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_
 
 		<button type="button" class="video-toggle video-stop tcon tcon-menu--xcross toggle-on" aria-label="toggle menu" aria-expanded="false">
 		  <span class="tcon-menu__lines" aria-hidden="true"></span>
-		  <span class="screen-reader-text"><?php echo _x( 'Toggle Menu', 'toggle menu overlay button', 'recover' ); ?></span>
+		  <span class="screen-reader-text"><?php echo _x( 'Toggle Menu', 'toggle menu overlay button', 'cover2' ); ?></span>
 		</button>
 
     <?php

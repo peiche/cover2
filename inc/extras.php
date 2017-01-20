@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package ReCover
+ * @package Cover2
  */
 
 /**
@@ -13,7 +13,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function recover_body_classes( $classes ) {
+function cover2_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -48,10 +48,10 @@ function recover_body_classes( $classes ) {
 	}
 
 	// Get the colorscheme or the default if there isn't one.
-	$colors = recover_sanitize_overlay_colorscheme( get_theme_mod( 'overlay_colorscheme', 'light' ) );
+	$colors = cover2_sanitize_overlay_colorscheme( get_theme_mod( 'overlay_colorscheme', 'light' ) );
 	$classes[] = 'overlay-' . $colors;
 
-	if ( recover_has_featured_post() ) {
+	if ( cover2_has_featured_post() ) {
 		$classes[] = 'has-featured-post';
 	}
 
@@ -61,17 +61,17 @@ function recover_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'recover_body_classes' );
+add_filter( 'body_class', 'cover2_body_classes' );
 
 /**
  * Returns the first featured image from a collection of posts.
  *
  * @return String
  */
-function recover_get_first_featured_image() {
+function cover2_get_first_featured_image() {
 	$img = '';
 	while ( have_posts() ) : the_post();
-		$img = recover_get_featured_image( get_the_ID() );
+		$img = cover2_get_featured_image( get_the_ID() );
 
 		if ( '' != $img ) {
 			break;
@@ -88,7 +88,7 @@ function recover_get_first_featured_image() {
  * @param int $post_id The post id for the thumbnail.
  * @return String
  */
-function recover_get_featured_image( $post_id ) {
+function cover2_get_featured_image( $post_id ) {
 	$img = '';
 	if ( '' != get_the_post_thumbnail() ) {
 		$img_arr = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
@@ -103,7 +103,7 @@ function recover_get_featured_image( $post_id ) {
  *
  * @param String $title The title to filter.
  */
-function recover_archive_title( $title ) {
+function cover2_archive_title( $title ) {
    if ( is_category() ) {
        $title = single_cat_title( '', false );
    } elseif ( is_tag() ) {
@@ -111,49 +111,49 @@ function recover_archive_title( $title ) {
    } elseif ( is_author() ) {
        $title = '<span class="vcard">' . get_the_author() . '</span>';
    } elseif ( is_year() ) {
-       $title = get_the_date( _x( 'Y', 'yearly archives date format', 'recover' ) );
+       $title = get_the_date( _x( 'Y', 'yearly archives date format', 'cover2' ) );
    } elseif ( is_month() ) {
-       $title = get_the_date( _x( 'F Y', 'monthly archives date format', 'recover' ) );
+       $title = get_the_date( _x( 'F Y', 'monthly archives date format', 'cover2' ) );
    } elseif ( is_day() ) {
-       $title = get_the_date( _x( 'F j, Y', 'daily archives date format', 'recover' ) );
+       $title = get_the_date( _x( 'F j, Y', 'daily archives date format', 'cover2' ) );
    } elseif ( is_tax( 'post_format' ) ) {
        if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-           $title = _x( 'Asides', 'post format archive title', 'recover' );
+           $title = _x( 'Asides', 'post format archive title', 'cover2' );
        } elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-           $title = _x( 'Galleries', 'post format archive title', 'recover' );
+           $title = _x( 'Galleries', 'post format archive title', 'cover2' );
        } elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-           $title = _x( 'Images', 'post format archive title', 'recover' );
+           $title = _x( 'Images', 'post format archive title', 'cover2' );
        } elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-           $title = _x( 'Videos', 'post format archive title', 'recover' );
+           $title = _x( 'Videos', 'post format archive title', 'cover2' );
        } elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-           $title = _x( 'Quotes', 'post format archive title', 'recover' );
+           $title = _x( 'Quotes', 'post format archive title', 'cover2' );
        } elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-           $title = _x( 'Links', 'post format archive title', 'recover' );
+           $title = _x( 'Links', 'post format archive title', 'cover2' );
        } elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-           $title = _x( 'Statuses', 'post format archive title', 'recover' );
+           $title = _x( 'Statuses', 'post format archive title', 'cover2' );
        } elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-           $title = _x( 'Audio', 'post format archive title', 'recover' );
+           $title = _x( 'Audio', 'post format archive title', 'cover2' );
        } elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-           $title = _x( 'Chats', 'post format archive title', 'recover' );
+           $title = _x( 'Chats', 'post format archive title', 'cover2' );
        }
    } elseif ( is_post_type_archive() ) {
        $title = post_type_archive_title( '', false );
    } elseif ( is_tax() ) {
        $title = single_term_title( '', false );
    } else {
-       $title = __( 'Archives', 'recover' );
+       $title = __( 'Archives', 'cover2' );
    } // End if().
    return $title;
 }
-add_filter( 'get_the_archive_title', 'recover_archive_title' );
+add_filter( 'get_the_archive_title', 'cover2_archive_title' );
 
 /**
  * Add featured image as background image to header and post navigation elements.
  *
  * @see wp_add_inline_style()
  */
-function recover_post_nav_background() {
-	$current_image = recover_get_first_featured_image();
+function cover2_post_nav_background() {
+	$current_image = cover2_get_first_featured_image();
 	$css = '';
 
 	if ( is_attachment() && 'attachment' == $previous->post_type ) {
@@ -203,6 +203,6 @@ function recover_post_nav_background() {
 		}
 	}
 
-	wp_add_inline_style( 'recover-style', $css );
+	wp_add_inline_style( 'cover2-style', $css );
 }
-add_action( 'wp_enqueue_scripts', 'recover_post_nav_background' );
+add_action( 'wp_enqueue_scripts', 'cover2_post_nav_background' );

@@ -4,7 +4,7 @@
  *
  * This file is centrally included from `wp-content/mu-plugins/wpcom-theme-compat.php`.
  *
- * @package ReCover
+ * @package Cover2
  */
 
 /**
@@ -12,7 +12,7 @@
  *
  * @global array $themecolors
  */
-function recover_wpcom_setup() {
+function cover2_wpcom_setup() {
 	global $themecolors;
 
 	// Set theme colors for third party services.
@@ -26,4 +26,4 @@ function recover_wpcom_setup() {
 		);
 	}
 }
-add_action( 'after_setup_theme', 'recover_wpcom_setup' );
+add_action( 'after_setup_theme', 'cover2_wpcom_setup' );

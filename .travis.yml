@@ -1,8 +1,8 @@
-# Travis CI (MIT License) configuration file for the ReCover WordPress theme
+# Travis CI (MIT License) configuration file for the Cover2 WordPress theme
 # @link https://travis-ci.org/
 
-# For use with the ReCover WordPress theme
-# @link https://github.com/peiche/recover
+# For use with the Cover2 WordPress theme
+# @link https://github.com/peiche/cover2
 
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/

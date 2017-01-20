@@ -32,7 +32,7 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 var config = {
-  name: 'recover',
+  name: 'cover2',
   production: !!util.env.production,
   report_loc: 'report',
   release_loc: 'release',
@@ -154,7 +154,7 @@ gulp.task('pot', function () {
     .pipe(wpPot( {
       domain: config.name,
       destFile: config.name + '.pot',
-      bugReport: 'https://eichefam.net/projects/recover',
+      bugReport: 'https://eichefam.net/projects/cover2',
       headers: false
     } ))
     .pipe(gulp.dest('languages'));

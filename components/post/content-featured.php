@@ -2,10 +2,10 @@
 /**
  * The template for displaying Featured Content
  *
- * @package ReCover
+ * @package Cover2
  */
 
-$featured_posts = recover_get_featured_posts();
+$featured_posts = cover2_get_featured_posts();
 if ( empty( $featured_posts ) ) {
     return;
 }

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package ReCover
+ * @package Cover2
  */
 
 get_header(); ?>
@@ -19,7 +19,7 @@ get_header(); ?>
 				<div class="page-header__image"></div>
 				<div class="page-header__content">
 					<?php /* translators: %s: Search query */ ?>
-					<h1 class="page-title text-align-center"><?php printf( esc_html__( 'Search Results for: %s', 'recover' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+					<h1 class="page-title text-align-center"><?php printf( esc_html__( 'Search Results for: %s', 'cover2' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</div>
 			</header>
 			<?php

@@ -2,11 +2,11 @@
 /**
  * The template for displaying post meta information.
  *
- * @package ReCover
+ * @package Cover2
  */
 
 ?>
 
 <div class="entry-meta">
-	<?php recover_posted_on(); ?>
+	<?php cover2_posted_on(); ?>
 </div>

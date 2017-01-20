@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ReCover
+ * @package Cover2
  */
 
 get_header(); ?>
@@ -22,7 +22,7 @@ get_header(); ?>
 					<?php if ( is_author() ) : ?>
 						<div class="profile-avatar text-align-center">
 							<?php
-							echo get_avatar( get_the_author_meta( 'ID' ), 120, '', __( 'Profile Picture for ', 'recover' ) . esc_html( get_the_author() ) ); ?>
+							echo get_avatar( get_the_author_meta( 'ID' ), 120, '', __( 'Profile Picture for ', 'cover2' ) . esc_html( get_the_author() ) ); ?>
 						</div>
 					<?php endif; ?>
 

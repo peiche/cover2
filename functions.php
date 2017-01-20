@@ -4,10 +4,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package ReCover
+ * @package Cover2
  */
 
-if ( ! function_exists( 'recover_setup' ) ) :
+if ( ! function_exists( 'cover2_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'recover_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function recover_setup() {
+function cover2_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on components, use a find and replace
-	 * to change 'recover' to the name of your theme in all the template files.
+	 * to change 'cover2' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'recover', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'cover2', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -42,12 +42,12 @@ function recover_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	add_image_size( 'recover-featured-image', 1600, 9999 );
-	add_image_size( 'recover-large', 2000, 1500, true );
+	add_image_size( 'cover2-featured-image', 1600, 9999 );
+	add_image_size( 'cover2-large', 2000, 1500, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'top'    => esc_html__( 'Top Menu', 'recover' ),
+		'top'    => esc_html__( 'Top Menu', 'cover2' ),
 	) );
 
 	/**
@@ -94,7 +94,7 @@ function recover_setup() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 endif;
-add_action( 'after_setup_theme', 'recover_setup' );
+add_action( 'after_setup_theme', 'cover2_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -104,15 +104,15 @@ add_action( 'after_setup_theme', 'recover_setup' );
  *
  * @global int $content_width
  */
-function recover_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'recover_content_width', 1600 );
+function cover2_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'cover2_content_width', 1600 );
 }
-add_action( 'after_setup_theme', 'recover_content_width', 0 );
+add_action( 'after_setup_theme', 'cover2_content_width', 0 );
 
 /**
  * Return early if Custom Logos are not available.
  */
-function recover_the_custom_logo() {
+function cover2_the_custom_logo() {
 	if ( ! function_exists( 'the_custom_logo' ) ) {
 		return;
 	} else {
@@ -123,7 +123,7 @@ function recover_the_custom_logo() {
 /**
  * Register custom fonts.
  */
-function recover_fonts_url() {
+function cover2_fonts_url() {
 	$fonts_url = '';
 
 	/**
@@ -131,9 +131,9 @@ function recover_fonts_url() {
 	 * supported by Libre Franklin, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$monserrat = _x( 'on', 'Montserrat font: on or off', 'recover' );
-	$open_sans = _x( 'on', 'Open Sans font: on or off', 'recover' );
-	$source_code_pro = _x( 'on', 'Source Code Pro font: on or off', 'recover' );
+	$monserrat = _x( 'on', 'Montserrat font: on or off', 'cover2' );
+	$open_sans = _x( 'on', 'Open Sans font: on or off', 'cover2' );
+	$source_code_pro = _x( 'on', 'Source Code Pro font: on or off', 'cover2' );
 
 	if ( 'off' !== $monserrat && 'off' !== $open_sans && 'off' !== $source_code_pro ) {
 		$font_families = array();
@@ -154,14 +154,14 @@ function recover_fonts_url() {
 /**
  * Add preconnect for Google Fonts.
  *
- * @since ReCover 1.0
+ * @since Cover2 1.0
  *
  * @param array  $urls           URLs to print for resource hints.
  * @param string $relation_type  The relation type the URLs are printed.
  * @return array $urls           URLs to print for resource hints.
  */
-function recover_resource_hints( $urls, $relation_type ) {
-	if ( wp_style_is( 'recover-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+function cover2_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'cover2-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
 		$urls[] = array(
 			'href' => 'https://fonts.gstatic.com',
 			'crossorigin',
@@ -170,81 +170,81 @@ function recover_resource_hints( $urls, $relation_type ) {
 
 	return $urls;
 }
-add_filter( 'wp_resource_hints', 'recover_resource_hints', 10, 2 );
+add_filter( 'wp_resource_hints', 'cover2_resource_hints', 10, 2 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function recover_widgets_init() {
+function cover2_widgets_init() {
 	// Overlay widgets.
 	register_sidebar( array(
-		'name'          => esc_html__( 'Overlay', 'recover' ),
+		'name'          => esc_html__( 'Overlay', 'cover2' ),
 		'id'            => 'sidebar-overlay',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'recover' ),
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'cover2' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'recover_widgets_init' );
+add_action( 'widgets_init', 'cover2_widgets_init' );
 
 /**
  * Display custom color CSS.
  */
-function recover_colors_css_wrap() {
+function cover2_colors_css_wrap() {
 	require_once( get_parent_theme_file_path( '/inc/color-patterns.php' ) );
 	$hue = absint( get_theme_mod( 'accent_color', 250 ) );
 ?>
 	<style type="text/css" id="custom-theme-colors" <?php if ( is_customize_preview() ) { echo 'data-hue="' . $hue . '"'; } ?>>
-		<?php echo recover_custom_colors_css(); ?>
+		<?php echo cover2_custom_colors_css(); ?>
 	</style>
 	<meta name="theme-color" content="hsl(<?php echo $hue; ?>, 75%, 50%)">
 <?php }
-add_action( 'wp_head', 'recover_colors_css_wrap' );
+add_action( 'wp_head', 'cover2_colors_css_wrap' );
 
 /**
  * Enqueue scripts and styles.
  */
-function recover_scripts() {
+function cover2_scripts() {
 
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'recover-fonts', recover_fonts_url(), array(), null );
+	wp_enqueue_style( 'cover2-fonts', cover2_fonts_url(), array(), null );
 
 	// Theme stylesheet.
-	wp_register_style( 'recover-style', get_stylesheet_uri(), array(), filemtime( get_template_directory() . '/style.css' ) );
-	wp_enqueue_style( 'recover-style' );
+	wp_register_style( 'cover2-style', get_stylesheet_uri(), array(), filemtime( get_template_directory() . '/style.css' ) );
+	wp_enqueue_style( 'cover2-style' );
 
-	wp_enqueue_script( 'recover-headroom', get_template_directory_uri() . '/dist/js/headroom.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/headroom.min.js' ), true );
+	wp_enqueue_script( 'cover2-headroom', get_template_directory_uri() . '/dist/js/headroom.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/headroom.min.js' ), true );
 
-	wp_enqueue_script( 'recover-main', get_template_directory_uri() . '/dist/js/main.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/main.js' ), true );
-	wp_localize_script( 'recover-main', 'menuToggleText', array(
-		'open'   => esc_html__( 'Open child menu', 'recover' ),
-		'close'  => esc_html__( 'Close child menu', 'recover' ),
-		'icon'   => recover_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) ),
+	wp_enqueue_script( 'cover2-main', get_template_directory_uri() . '/dist/js/main.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/main.js' ), true );
+	wp_localize_script( 'cover2-main', 'menuToggleText', array(
+		'open'   => esc_html__( 'Open child menu', 'cover2' ),
+		'close'  => esc_html__( 'Close child menu', 'cover2' ),
+		'icon'   => cover2_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) ),
 	) );
 
-	wp_enqueue_script( 'recover-navigation', get_template_directory_uri() . '/dist/js/navigation.js', array(), filemtime( get_template_directory() . '/dist/js/navigation.js' ), true );
+	wp_enqueue_script( 'cover2-navigation', get_template_directory_uri() . '/dist/js/navigation.js', array(), filemtime( get_template_directory() . '/dist/js/navigation.js' ), true );
 
-	wp_enqueue_script( 'recover-skip-link-focus-fix', get_template_directory_uri() . '/dist/js/skip-link-focus-fix.js', array(), filemtime( get_template_directory() . '/dist/js/skip-link-focus-fix.js' ), true );
+	wp_enqueue_script( 'cover2-skip-link-focus-fix', get_template_directory_uri() . '/dist/js/skip-link-focus-fix.js', array(), filemtime( get_template_directory() . '/dist/js/skip-link-focus-fix.js' ), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if ( recover_has_multiple_featured_posts() ) {
+	if ( cover2_has_multiple_featured_posts() ) {
 		wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/dist/js/jquery.flexslider-min.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/jquery.flexslider-min.js' ), true );
-		wp_enqueue_script( 'recover-flexslider', get_template_directory_uri() . '/dist/js/flexslider.js', array( 'flexslider' ), filemtime( get_template_directory() . '/dist/js/flexslider.js' ), true );
+		wp_enqueue_script( 'cover2-flexslider', get_template_directory_uri() . '/dist/js/flexslider.js', array( 'flexslider' ), filemtime( get_template_directory() . '/dist/js/flexslider.js' ), true );
 	}
 
 	if ( function_exists( 'has_post_video' ) && has_post_video() ) {
 		wp_enqueue_script( 'vimeo', get_template_directory_uri() . '/dist/js/player.min.js', array(), filemtime( get_template_directory() . '/dist/js/player.min.js' ), true );
-		wp_enqueue_script( 'recover-featured-video-plus', get_template_directory_uri() . '/dist/js/featured-video-plus.js', array(), filemtime( get_template_directory() . '/dist/js/featured-video-plus.js' ), true );
+		wp_enqueue_script( 'cover2-featured-video-plus', get_template_directory_uri() . '/dist/js/featured-video-plus.js', array(), filemtime( get_template_directory() . '/dist/js/featured-video-plus.js' ), true );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'recover_scripts' );
+add_action( 'wp_enqueue_scripts', 'cover2_scripts' );
 
 /**
  * Custom template tags for this theme.
