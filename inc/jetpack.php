@@ -92,28 +92,24 @@ function cover2_get_featured_posts() {
  * Display custom color CSS.
  */
 function cover2_featured_posts_css() {
-	$css = '';
-?>
-	<style type="text/css" id="featured-posts-css">
-		<?php
-		$featured_posts = cover2_get_featured_posts();
-		if ( empty( $featured_posts ) ) {
-		    return;
-		}
+        $css = '';
 
-		foreach ( $featured_posts as $post ) {
-			setup_postdata( $post );
-			$img = cover2_get_featured_image( $post->ID );
-			$css .= '
-			.featured-content .post-' . $post->ID . ' .page-header__image {
-				background-image: url(' . $img . ');
-			}
-			';
-		}
-		wp_reset_postdata();
+        $featured_posts = cover2_get_featured_posts();
+        if ( empty( $featured_posts ) ) {
+            return;
+        }
+	echo '<style type="text/css" id="featured-posts-css">';
+        foreach ( $featured_posts as $post ) {
+                setup_postdata( $post );
+                $img = cover2_get_featured_image( $post->ID );
+                $css .= '
+                .featured-content .post-' . $post->ID . ' .page-header__image {
+                        background-image: url(' . $img . ');
+                }
+                ';
+        }
+	wp_reset_postdata();
 
-		echo $css;
-		?>
-	</style>
-<?php }
+        printf( '<style type="text/css" id="featured-posts-css">%s</style>', $css );
+}
 add_action( 'wp_head', 'cover2_featured_posts_css' );
