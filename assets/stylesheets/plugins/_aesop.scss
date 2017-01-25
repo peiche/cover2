@@ -95,8 +95,15 @@
     padding: 1.5em 0;
   }
 
-  .aesop-content-comp-inner p {
-    line-height: 38px;
+  .aesop-content-comp-inner {
+
+    p {
+      line-height: 38px;
+    }
+
+    a {
+      color: inherit;
+    }
   }
 
   .aesop-content-img .aesop-content-comp-inner {
