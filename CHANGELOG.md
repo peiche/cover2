@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.2 - 1/24/2017**
+- Fixed broken HTML (missing closing style tag if no custom css)
+- Fixed link colors inside Aesop content component
+- Fixed image and gallery margins
+
 **1.0.1 - 1/20/2017**
 - Fixed screenshot.
 
