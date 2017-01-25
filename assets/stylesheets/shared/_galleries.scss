@@ -44,3 +44,11 @@
 .gallery-caption {
 	display: block;
 }
+
+.tiled-gallery {
+
+	.entry-content & {
+		margin-bottom: 3em;
+	  margin-top: 3em;
+	}
+}
