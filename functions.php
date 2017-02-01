@@ -47,7 +47,8 @@ function cover2_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'top'    => esc_html__( 'Top Menu', 'cover2' ),
+		'top'		=> esc_html__( 'Top Menu', 'cover2' ),
+		'mini'	=> esc_html__( 'Mini Menu', 'cover2' ),
 	) );
 
 	/**

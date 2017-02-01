@@ -34,3 +34,33 @@
 	line-height: 0;
 	padding: 6px;
 }
+
+.menu-mini-menu-container {
+	display: none;
+	float: right;
+	margin-right: 120px;
+
+	@include min-width($breakpoint__tablet-portrait) {
+		display: block;
+	}
+
+	.menu {
+		display: inline-block;
+	}
+
+	li {
+		display: inline-block;
+		padding: 23px 10px;
+	}
+
+	a {
+		@include link($color__white);
+
+		color: $color__white;
+		display: inline-block;
+
+		&:hover {
+			color: inherit;
+		}
+	}
+}
