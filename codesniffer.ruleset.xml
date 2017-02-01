@@ -15,8 +15,10 @@
 
 		<exclude name="WordPress.XSS.EscapeOutput" />
 		<exclude name="WordPress.WhiteSpace.ScopeIndent.Incorrect" />
+		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeKeyFound" />
 		<exclude name="WordPress.Variables.GlobalVariables" />
 
 		<exclude name="WordPress.VIP.RestrictedFunctions.get_adjacent_post" />
+		<exclude name="WordPress.VIP.RestrictedFunctions.get_adjacent_post_get_adjacent_post" />
 	</rule>
 </ruleset>
