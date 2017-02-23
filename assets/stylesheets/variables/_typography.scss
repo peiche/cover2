@@ -1,10 +1,10 @@
-$font__heading: "Montserrat", sans-serif;
-$font__main: "Open Sans", sans-serif;
-$font__code: "Source Code Pro", monospace;
-$font__pre: "Source Code Pro", monospace;
+$font__family-heading: "Montserrat", sans-serif;
+$font__family-main: "Open Sans", sans-serif;
+$font__family-code: "Source Code Pro", monospace;
 
-$font__line-height-body: 1.5;
-$font__line-height-pre: 1.6;
+$font__line-height-main: 1.5;
+$font__line-height-code: 1.6;
 
-$font__weight-normal: 400;
+$font__weight-heading: 400;
+$font__weight-normal: 300;
 $font__weight-bold: 700;

@@ -72,8 +72,8 @@
 	@include rem(font-size, 2);
 
 	color: $color__text-main;
-	font-family: $font__heading;
-	font-weight: $font__weight-normal;
+	font-family: $font__family-heading;
+	font-weight: $font__weight-heading;
 	margin-bottom: 0;
 	margin-top: 0;
 	word-break: break-word;
@@ -178,7 +178,7 @@
 		max-width: 90% !important; // Overrides Twitter's max-width: 100%
 	}
 
-	> p:first-child {
+	> p:first-of-type {
 		font-size: 125%;
 	}
 }
@@ -207,16 +207,11 @@
 }
 
 .entry-excerpt {
+	font-size: 125%;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: $content__width-large;
 	transition: font $timing__default;
-
-	.featured-content & {
-		@include rem(font-size, 1.25);
-
-		line-height: $font__line-height-body;
-	}
 }
 
 .author {

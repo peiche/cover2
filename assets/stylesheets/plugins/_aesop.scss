@@ -118,8 +118,8 @@
   @include site-width($content__width-large);
 
   border: 0;
-  font-family: $font__heading;
-  font-weight: $font__weight-normal;
+  font-family: $font__family-heading;
+  font-weight: $font__weight-heading;
   padding: 3em 0 1.5em;
   position: static;
 }
@@ -134,7 +134,7 @@
 
 .aesop-cover-title small {
   display: block;
-  font-family: $font__main;
+  font-family: $font__family-main;
 }
 
 .aesop-chapter-menu {
@@ -145,7 +145,7 @@
   li {
     @include rem(font-size, 1);
 
-    font-family: $font__main;
+    font-family: $font__family-main;
     padding: 10px 0;
 
     &:before {

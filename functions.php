@@ -139,7 +139,7 @@ function cover2_fonts_url() {
 	if ( 'off' !== $monserrat && 'off' !== $open_sans && 'off' !== $source_code_pro ) {
 		$font_families = array();
 
-		$font_families[] = 'Montserrat|Open+Sans:400,400i,700|Source+Code+Pro';
+		$font_families[] = 'Montserrat|Open+Sans:300,300i,600|Source+Code+Pro:300';
 
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),

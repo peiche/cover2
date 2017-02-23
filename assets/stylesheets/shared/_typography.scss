@@ -6,8 +6,8 @@ textarea {
 	@include rem(font-size, 1.25);
 
 	color: $color__text-main;
-	font-family: $font__main;
-	line-height: $font__line-height-body;
+	font-family: $font__family-main;
+	line-height: $font__line-height-main;
 }
 
 h1,
@@ -53,7 +53,7 @@ var {
 
 	background-color: rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
-	font-family: $font__code;
+	font-family: $font__family-code;
 	padding: 2px 4px;
 }
 
@@ -62,8 +62,8 @@ pre {
 
 	background: $color__background-pre;
 	color: $color__white;
-	font-family: $font__pre;
-	line-height: $font__line-height-pre;
+	font-family: $font__family-code;
+	line-height: $font__line-height-code;
 	margin-bottom: 30px;
 	max-width: 100%;
 	overflow: auto;

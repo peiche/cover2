@@ -3,10 +3,10 @@ button.video-toggle {
 
   border: 0;
   color: $color__white;
-  height: 18vh;
+  font-size: 18vh;
+  line-height: 0;
   outline: none;
   padding: 0;
-  width: 18vw;
 
   &:hover {
     background-color: transparent;
@@ -16,7 +16,7 @@ button.video-toggle {
     height: auto;
     position: absolute;
     right: 20px;
-    top: 22px;
+    top: 0;
     width: auto;
     z-index: $z-index__default;
   }
