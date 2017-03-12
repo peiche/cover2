@@ -36,6 +36,7 @@
    .page:not(.has-featured-image) .site-header.headroom.headroom--top,
    .single:not(.has-featured-image) .site-header.headroom,
    .page:not(.has-featured-image) .site-header.headroom,
+   .paged .site-header.headroom.headroom--top,
    .page-header,
    .comment-navigation .nav-previous a,
    .comment-navigation .nav-next a,
@@ -100,6 +101,9 @@
    .entry-content .page-links > a:hover {
      background-color: hsl(' . $hue . ', 75%, 50%);
      border-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .infinite-loader .spinner {
+	   border-top-color: hsl(' . $hue . ', 75%, 50%);
    }
    ';
 
