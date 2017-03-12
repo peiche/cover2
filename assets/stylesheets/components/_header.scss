@@ -50,6 +50,7 @@
     background-color: transparent;
 
     .home:not(.has-featured-image):not(.has-featured-post) &,
+	.paged &,
     .blog:not(.has-featured-post) &,
     .single:not(.has-featured-image) &,
     .page:not(.has-featured-image) & {
