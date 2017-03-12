@@ -73,10 +73,6 @@
   padding: 10px 10px 10px 20px;
   vertical-align: middle;
   width: auto;
-
-  @include min-width($breakpoint__tablet-portrait) {
-    margin-top: -15px;
-  }
 }
 
 .site-title {
