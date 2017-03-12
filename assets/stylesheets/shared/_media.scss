@@ -20,9 +20,22 @@ object {
 }
 
 .wp-caption {
-	margin-bottom: 3em;
-	margin-top: 3em;
+	margin: 3em auto;
 	max-width: 100%;
+	
+	&.alignleft,
+	&.alignright {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	
+	&.alignleft {
+		margin-right: 20px;
+	}
+	
+	&.alignright {
+		margin-left: 20px;
+	}
 
 	img[class*="wp-image-"] {
 		@include center-block;
