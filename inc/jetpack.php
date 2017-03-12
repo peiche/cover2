@@ -95,21 +95,19 @@ function cover2_featured_posts_css() {
         $css = '';
 
         $featured_posts = cover2_get_featured_posts();
-        if ( empty( $featured_posts ) ) {
-            return;
-        }
-	echo '<style type="text/css" id="featured-posts-css">';
-        foreach ( $featured_posts as $post ) {
-                setup_postdata( $post );
-                $img = cover2_get_featured_image( $post->ID );
-                $css .= '
-                .featured-content .post-' . $post->ID . ' .page-header__image {
-                        background-image: url(' . $img . ');
-                }
-                ';
-        }
-	wp_reset_postdata();
+        if ( !empty( $featured_posts ) ) {
+			foreach ( $featured_posts as $post ) {
+					setup_postdata( $post );
+					$img = cover2_get_featured_image( $post->ID );
+					$css .= '
+					.featured-content .post-' . $post->ID . ' .page-header__image {
+							background-image: url(' . $img . ');
+					}
+					';
+			}
+			wp_reset_postdata();
 
-        printf( '<style type="text/css" id="featured-posts-css">%s</style>', $css );
+			printf( '<style type="text/css" id="featured-posts-css">%s</style>', $css );
+		}
 }
 add_action( 'wp_head', 'cover2_featured_posts_css' );
