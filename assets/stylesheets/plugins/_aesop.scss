@@ -118,10 +118,12 @@
   @include site-width($content__width-large);
 
   border: 0;
+  bottom: auto;
   font-family: $font__family-heading;
   font-weight: $font__weight-heading;
+  left: auto;
   padding: 3em 0 1.5em;
-  position: static;
+  position: relative;
 }
 
 /*--------------------------------------------------------------
@@ -130,6 +132,17 @@
 
 .aesop-article-chapter {
   min-height: 0 !important; // NOTE: overrides ASE's inline style
+  
+  &:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #333;
+	opacity: 0.4;
+  }
 }
 
 .aesop-cover-title small {
