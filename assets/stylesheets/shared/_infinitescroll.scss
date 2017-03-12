@@ -11,3 +11,29 @@
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+.infinite-loader {
+	height: auto !important; // overrides jetpack css
+
+	.spinner {
+		animation-name: spin;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		border: 10px solid transparent;
+		border-radius: 50%;
+		border-top-color: $color__accent;
+		height: 75px;
+		left: auto !important; // overrides inline style
+		margin: auto;
+		width: 75px !important; // overrides inline style
+
+		div {
+			display: none;
+		}
+	}
+}
+
+#infinite-footer {
+	display: none;
+}
