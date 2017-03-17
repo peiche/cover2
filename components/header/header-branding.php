@@ -13,6 +13,6 @@
 	<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 
 	<?php if ( has_nav_menu( 'mini' ) ) : ?>
-		<?php wp_nav_menu( array( 'theme_location' => 'mini', 'depth' => 1 ) ); ?>
+		<?php wp_nav_menu( array( 'theme_location' => 'mini', 'depth' => 1, 'container_class' => 'mini-menu-container' ) ); ?>
 	<?php endif; ?>
 </div><!-- .site-branding -->
