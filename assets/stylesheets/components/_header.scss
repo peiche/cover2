@@ -49,7 +49,7 @@
   &.headroom--top {
     background-color: transparent;
 
-    .home:not(.has-featured-image):not(.has-featured-post) &,
+  .home:not(.has-featured-image):not(.has-featured-post) &,
 	.paged &,
     .blog:not(.has-featured-post) &,
     .single:not(.has-featured-image) &,
