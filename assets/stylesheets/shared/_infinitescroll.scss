@@ -16,9 +16,9 @@
 	height: auto !important; // overrides jetpack css
 
 	.spinner {
-		animation-name: spin;
 		animation-duration: 1s;
 		animation-iteration-count: infinite;
+		animation-name: spin;
 		animation-timing-function: linear;
 		border: 10px solid transparent;
 		border-radius: 50%;
