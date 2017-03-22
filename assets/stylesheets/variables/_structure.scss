@@ -24,3 +24,8 @@ $content__width-large: 1000px;
 
 // Z-indexes (z-indices?)
 $z-index__default: 1;
+
+$neat-grid: (
+  columns: 12,
+  gutter: 0,
+);
