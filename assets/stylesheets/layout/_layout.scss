@@ -18,7 +18,7 @@ body {
 .site-content {
 	@include clearfix;
 
-	.home:not(.has-featured-image):not(.has-featured-post) &,
+	.home:not(.has-featured-image):not(.has-featured-post):not(.page) &,
 	.blog:not(.has-featured-post) &,
 	.paged & {
 		padding-top: $height__nav-bar;
