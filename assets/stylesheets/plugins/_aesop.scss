@@ -5,6 +5,10 @@
 .aesop-component {
   margin-bottom: 3em;
   margin-top: 3em;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 /*--------------------------------------------------------------
