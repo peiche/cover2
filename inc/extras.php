@@ -213,9 +213,9 @@ add_action( 'wp_enqueue_scripts', 'cover2_post_nav_background' );
 /**
  * Add pingback to wp_head.
  */
-function cover_2_pingback_header() {
+function cover2_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
 	}
 }
-add_action( 'wp_head', 'cover_2_pingback_header' );
+add_action( 'wp_head', 'cover2_pingback_header' );
