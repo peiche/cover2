@@ -15,7 +15,7 @@
   	/**
   	 * Filter Cover2 default saturation level.
   	 *
-  	 * @since Twenty Seventeen 1.0
+  	 * @since Cover2 1.0
   	 *
   	 * @param $saturation integer
   	 */
