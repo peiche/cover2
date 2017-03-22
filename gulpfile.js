@@ -86,9 +86,9 @@ gulp.task('clean', function() {
 
 gulp.task('copy', function() {
   return gulp.src([
-    'node_modules/headroom.js/dist/headroom.min.js',
-    'node_modules/flexslider/jquery.flexslider-min.js',
-    'node_modules/@vimeo/player/dist/player.min.js'
+    'node_modules/headroom.js/dist/headroom*.js',
+    'node_modules/flexslider/jquery.flexslider*.js',
+    'node_modules/@vimeo/player/dist/player*.js'
   ]).pipe(gulp.dest('dist/js'));
 });
 
