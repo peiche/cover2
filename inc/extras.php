@@ -156,10 +156,6 @@ function cover2_post_nav_background() {
 	$current_image = cover2_get_first_featured_image();
 	$css = '';
 
-	if ( is_attachment() && 'attachment' == $previous->post_type ) {
-		return;
-	}
-
 	if ( '' != $current_image ) {
 		$css .= '
 			.page-header__image { background-image: url(' . esc_url( $current_image ) . '); }
@@ -193,6 +189,10 @@ function cover2_post_nav_background() {
 	if ( is_single() && 'timeline' != get_post_type() ) {
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 		$next     = get_adjacent_post( false, '', false );
+		
+		if ( is_attachment() && 'attachment' == $previous->post_type ) {
+			return;
+		}
 
 		if ( $next && has_post_thumbnail( $next->ID ) ) {
 			$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'post-thumbnail' );
