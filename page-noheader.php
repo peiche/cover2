@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying a page or post without the header.
- * 
+ *
  * Template Name: No header
  *
  * @link https://codex.wordpress.org/Template_Hierarchy

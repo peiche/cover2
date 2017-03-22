@@ -34,12 +34,12 @@ function cover2_body_classes( $classes ) {
 	} else if ( is_singular() && 'timeline' == get_post_type() ) {
 		$has_term_image = false;
 		$term_id = 0;
-		
-		// Timelines plugin compatibility
+
+		// Timelines plugin compatibility.
 		if ( function_exists( 'cftpb_get_term_id' ) ) {
 			$term_id = cftpb_get_term_id( 'timelines', get_the_ID() );
 
-			// Category Images plugin compatibility
+			// Category Images plugin compatibility.
 			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $term_id ) != '' ) {
 				$has_term_image = true;
 			}
@@ -192,7 +192,7 @@ function cover2_post_nav_background() {
 	if ( is_single() && 'timeline' != get_post_type() ) {
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 		$next     = get_adjacent_post( false, '', false );
-		
+
 		if ( is_attachment() && 'attachment' == $previous->post_type ) {
 			return;
 		}
@@ -210,6 +210,9 @@ function cover2_post_nav_background() {
 }
 add_action( 'wp_enqueue_scripts', 'cover2_post_nav_background' );
 
+/**
+ * Add pingback to wp_head.
+ */
 function cover_2_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );

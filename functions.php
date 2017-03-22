@@ -229,7 +229,7 @@ function cover2_scripts() {
 		wp_enqueue_script( 'cover2-flexslider', get_template_directory_uri() . '/dist/js/flexslider.js', array( 'flexslider' ), filemtime( get_template_directory() . '/dist/js/flexslider.js' ), true );
 	}
 
-	// Featured Video Plus plugin compatibility
+	// Featured Video Plus plugin compatibility.
 	if ( function_exists( 'has_post_video' ) && has_post_video() ) {
 		wp_enqueue_script( 'vimeo', get_template_directory_uri() . '/dist/js/player.min.js', array(), filemtime( get_template_directory() . '/dist/js/player.min.js' ), true );
 		wp_enqueue_script( 'cover2-featured-video-plus', get_template_directory_uri() . '/dist/js/featured-video-plus.js', array(), filemtime( get_template_directory() . '/dist/js/featured-video-plus.js' ), true );

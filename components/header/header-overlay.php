@@ -28,7 +28,7 @@ if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_
 </div>
 
 <?php
-// Featured Video Plus plugin compatibility
+// Featured Video Plus plugin compatibility.
 if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
 
   <div class="overlay overlay--video">
