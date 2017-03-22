@@ -34,9 +34,12 @@ function cover2_body_classes( $classes ) {
 	} else if ( is_singular() && 'timeline' == get_post_type() ) {
 		$has_term_image = false;
 		$term_id = 0;
+
+		// Timelines plugin compatibility.
 		if ( function_exists( 'cftpb_get_term_id' ) ) {
 			$term_id = cftpb_get_term_id( 'timelines', get_the_ID() );
 
+			// Category Images plugin compatibility.
 			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $term_id ) != '' ) {
 				$has_term_image = true;
 			}
@@ -156,10 +159,6 @@ function cover2_post_nav_background() {
 	$current_image = cover2_get_first_featured_image();
 	$css = '';
 
-	if ( is_attachment() && 'attachment' == $previous->post_type ) {
-		return;
-	}
-
 	if ( '' != $current_image ) {
 		$css .= '
 			.page-header__image { background-image: url(' . esc_url( $current_image ) . '); }
@@ -194,6 +193,10 @@ function cover2_post_nav_background() {
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 		$next     = get_adjacent_post( false, '', false );
 
+		if ( is_attachment() && 'attachment' == $previous->post_type ) {
+			return;
+		}
+
 		if ( $next && has_post_thumbnail( $next->ID ) ) {
 			$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'post-thumbnail' );
 			$css .= '
@@ -206,3 +209,13 @@ function cover2_post_nav_background() {
 	wp_add_inline_style( 'cover2-style', $css );
 }
 add_action( 'wp_enqueue_scripts', 'cover2_post_nav_background' );
+
+/**
+ * Add pingback to wp_head.
+ */
+function cover2_pingback_header() {
+	if ( is_singular() && pings_open() ) {
+		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
+	}
+}
+add_action( 'wp_head', 'cover2_pingback_header' );

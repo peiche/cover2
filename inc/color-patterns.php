@@ -15,7 +15,7 @@
   	/**
   	 * Filter Cover2 default saturation level.
   	 *
-  	 * @since Twenty Seventeen 1.0
+  	 * @since Cover2 1.0
   	 *
   	 * @param $saturation integer
   	 */
@@ -32,10 +32,9 @@
    .blog:not(.has-featured-post) .site-header.headroom.headroom--top,
    .single:not(.has-featured-image) .site-header.headroom,
    .single:not(.has-featured-image) .site-header.headroom.headroom--top,
-   .page:not(.has-featured-image) .site-header.headroom,
-   .page:not(.has-featured-image) .site-header.headroom.headroom--top,
+   .page:not(.has-featured-image):not(.page-template-page-noheader) .site-header.headroom,
+   .page:not(.has-featured-image):not(.page-template-page-noheader) .site-header.headroom.headroom--top,
    .single:not(.has-featured-image) .site-header.headroom,
-   .page:not(.has-featured-image) .site-header.headroom,
    .paged .site-header.headroom.headroom--top,
    .page-header,
    .comment-navigation .nav-previous a,
@@ -43,6 +42,12 @@
    .posts-navigation .nav-previous a,
    .posts-navigation .nav-next a,
    .aesop-toggle-chapter-menu:hover {
+     background-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .page.page-template-page-noheader .site-header {
+     background-color: transparent;
+   }
+   .page.page-template-page-noheader .site-header.headroom.headroom--not-top {
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
    .comment-navigation .nav-previous a:hover,

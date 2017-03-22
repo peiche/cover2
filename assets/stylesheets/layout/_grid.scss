@@ -1,0 +1,46 @@
+.container {
+	@include clearfix;
+	@include site-width; // Default width is the normal column size
+
+	&.narrow {
+		max-width: $content__width-narrow;
+	}
+
+	&.small {
+		max-width: $content__width-small;
+	}
+
+	&.large {
+		max-width: $content__width-large;
+	}
+}
+
+[class^="col-"] {
+	@include grid-column;
+
+	@include min-width($breakpoint__tablet-portrait) {
+		padding-right: 20px;
+	}
+}
+
+.col-2 {
+	@include min-width($breakpoint__tablet-portrait) {
+		@include grid-column(6); // 6/12 = 2 columns across
+	}
+}
+
+.col-3 {
+	@include min-width($breakpoint__tablet-portrait) {
+		@include grid-column(4); // 4/12 = 3 columns across
+	}
+}
+
+.col-4 {
+	@include min-width($breakpoint__tablet-portrait) {
+		@include grid-column(6); // 6/12 = 2 columns across
+	}
+
+	@include min-width($breakpoint__tablet-landscape) {
+		@include grid-column(3); // 3/12 = 4 columns across
+	}
+}

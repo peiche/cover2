@@ -95,7 +95,7 @@ function cover2_featured_posts_css() {
         $css = '';
 
         $featured_posts = cover2_get_featured_posts();
-        if ( !empty( $featured_posts ) ) {
+        if ( ! empty( $featured_posts ) ) {
 			foreach ( $featured_posts as $post ) {
 					setup_postdata( $post );
 					$img = cover2_get_featured_image( $post->ID );

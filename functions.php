@@ -111,17 +111,6 @@ function cover2_content_width() {
 add_action( 'after_setup_theme', 'cover2_content_width', 0 );
 
 /**
- * Return early if Custom Logos are not available.
- */
-function cover2_the_custom_logo() {
-	if ( ! function_exists( 'the_custom_logo' ) ) {
-		return;
-	} else {
-		the_custom_logo();
-	}
-}
-
-/**
  * Register custom fonts.
  */
 function cover2_fonts_url() {
@@ -224,7 +213,7 @@ function cover2_scripts() {
 	wp_localize_script( 'cover2-main', 'menuToggleText', array(
 		'open'   => esc_html__( 'Open child menu', 'cover2' ),
 		'close'  => esc_html__( 'Close child menu', 'cover2' ),
-		'icon'   => cover2_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) ),
+		'icon'   => cover2_get_svg( array( 'icon' => 'icon_bg_angle-down', 'fallback' => true ) ),
 	) );
 
 	wp_enqueue_script( 'cover2-navigation', get_template_directory_uri() . '/dist/js/navigation.js', array(), filemtime( get_template_directory() . '/dist/js/navigation.js' ), true );
@@ -240,6 +229,7 @@ function cover2_scripts() {
 		wp_enqueue_script( 'cover2-flexslider', get_template_directory_uri() . '/dist/js/flexslider.js', array( 'flexslider' ), filemtime( get_template_directory() . '/dist/js/flexslider.js' ), true );
 	}
 
+	// Featured Video Plus plugin compatibility.
 	if ( function_exists( 'has_post_video' ) && has_post_video() ) {
 		wp_enqueue_script( 'vimeo', get_template_directory_uri() . '/dist/js/player.min.js', array(), filemtime( get_template_directory() . '/dist/js/player.min.js' ), true );
 		wp_enqueue_script( 'cover2-featured-video-plus', get_template_directory_uri() . '/dist/js/featured-video-plus.js', array(), filemtime( get_template_directory() . '/dist/js/featured-video-plus.js' ), true );

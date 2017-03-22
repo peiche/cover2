@@ -49,13 +49,13 @@ function cover2_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'cover2' ) );
 		if ( $categories_list && cover2_categorized_blog() ) {
-			printf( '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'folder', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>' ); // WPCS: XSS OK.
+			printf( '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'icon_bg_folder', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>' ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'cover2' ) );
 		if ( $tags_list ) {
-			printf( '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
+			printf( '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'icon_bg_tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
 		}
 	}
 
@@ -71,7 +71,7 @@ function cover2_entry_footer() {
 			esc_html__( 'Edit %s', 'cover2' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
-		'<div class="edit-link">' . cover2_get_svg( array( 'icon' => 'pencil', 'title' => __( 'Edit Post', 'cover2' ) ) ),
+		'<div class="edit-link">' . cover2_get_svg( array( 'icon' => 'icon_bg_pencil', 'title' => __( 'Edit Post', 'cover2' ) ) ),
 		'</div>'
 	);
 }

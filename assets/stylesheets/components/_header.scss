@@ -50,10 +50,10 @@
     background-color: transparent;
 
     .home:not(.has-featured-image):not(.has-featured-post) &,
-	.paged &,
+	  .paged &,
     .blog:not(.has-featured-post) &,
     .single:not(.has-featured-image) &,
-    .page:not(.has-featured-image) & {
+    .page:not(.has-featured-image):not(.page-template-page-noheader) & {
       background-color: $color__accent;
     }
   }

@@ -28,7 +28,7 @@ if ( empty( $featured_posts ) ) {
           <?php if ( has_excerpt() ) : ?>
     				<hr>
     				<div class="entry-excerpt">
-    					<?php echo the_excerpt(); ?>
+    					<?php the_excerpt(); ?>
     				</div>
     			<?php endif; ?>
 

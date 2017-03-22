@@ -41,6 +41,24 @@ The Infinite Scroll module already works just fine, and we're not messing with t
 
 Cover2 was built from the ground up with Aesop Story Engine in mind. Break out of the content area with full-width components like images, galleries, maps, and more.
 
+## Other Features
+
+### Responsive Grid
+
+Cover2 includes support for a basic multi-column grid which collapses down to a single column on small screens. Use the following markup in your post or page:
+
+```
+<div class="container">
+  <div class="col-2">...</div>
+  <div class="col-2">...</div>
+</div>
+```
+
+Use these classes to define the width of your columns:
+- `col-2`   Two columns, collapses to one under 600px
+- `col-3`   Three columns, collapses to one under 600px
+- `col-4`   Four columns, collapses to two under 900px, collapses to one under 600px 
+
 ## Installation
 
 ### GitHub
@@ -97,6 +115,7 @@ All other resources are licensed as follows:
 * [Headroom](http://wicky.nillia.ms/headroom.js/) - [MIT](https://github.com/WickyNilliams/headroom.js/blob/master/LICENSE)
 * [Transformicons](http://www.transformicons.com/) - [MIT](https://github.com/grayghostvisuals/transformicons/blob/master/LICENSE.md)
 * [FlexSlider](http://flexslider.woothemes.com) - [GPL v2.0 or later](https://github.com/woocommerce/FlexSlider/blob/master/LICENSE.md)
+* [Bourbon Neat](http://neat.bourbon.io/) - [MIT](https://github.com/thoughtbot/neat/blob/master/LICENSE.md)
 
 ## Inspiration
 

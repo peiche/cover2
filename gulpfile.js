@@ -60,7 +60,6 @@ gulp.task('todo', function() {
 
   gulp.src(
     [
-      '!bower_components*',
 	    '!node_modules*',
       'assets/stylesheets/**/*.scss',
       'assets/js/**/*.js',
@@ -87,9 +86,9 @@ gulp.task('clean', function() {
 
 gulp.task('copy', function() {
   return gulp.src([
-    'bower_components/headroom.js/dist/headroom.min.js',
-    'bower_components/flexslider/jquery.flexslider-min.js',
-    'bower_components/vimeo-player-js/dist/player.min.js'
+    'node_modules/headroom.js/dist/headroom*.js',
+    'node_modules/flexslider/jquery.flexslider*.js',
+    'node_modules/@vimeo/player/dist/player*.js'
   ]).pipe(gulp.dest('dist/js'));
 });
 
@@ -146,7 +145,6 @@ gulp.task('js', function() {
  */
 gulp.task('pot', function () {
   return gulp.src([
-    '!bower_components*',
     '!node_modules*',
     './**/*.php'
   ])
@@ -167,7 +165,6 @@ gulp.task('phplint', function() {
   return gulp.src(
     [
       '**/*.php',
-      '!bower_components/**',
       '!node_modules/**'
     ]
   )
@@ -184,26 +181,26 @@ gulp.task('phplint', function() {
 gulp.task('svg', function() {
   return gulp.src([
       // Web App Icons
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/folder.svg',             // category
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/tag.svg',                // tag
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/pencil.svg',             // edit links
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_folder.svg',        // category
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_tag.svg',           // tag
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_pencil.svg',        // edit links
 
       // Post Format Icons
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/thumb-tack.svg',         // pinned posts
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/play-circle.svg',        // video
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/play-circle-o.svg',
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/music.svg',              // audio
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/picture-o.svg',          // image
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/quote-right.svg',        // quote
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/sticky-note-o.svg',      // aside
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/link.svg',               // link
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/comments.svg',           // chat
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/comment.svg',            // status
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_thumb-tack.svg',    // pinned posts
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_play-circle.svg',   // video
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_play-circle-o.svg',
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_music.svg',         // audio
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_picture-o.svg',     // image
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_quote-right.svg',   // quote
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_sticky-note-o.svg', // aside
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_link.svg',          // link
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_comments.svg',      // chat
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_comment.svg',       // status
 
       // Directional Icons
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/arrow-left.svg',
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/arrow-right.svg',
-      'bower_components/Font-Awesome-SVG-PNG/black/svg/angle-down.svg'
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-left.svg',
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-right.svg',
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_angle-down.svg'
     ])
     .pipe(svgSprite(config.svg_options))
     .pipe(gulp.dest('dist'))
@@ -251,8 +248,6 @@ gulp.task('zip', function() {
     [
       '!./assets',
       '!./assets/**/*',
-      '!./bower_components',
-      '!./bower_components/**/*',
       '!./node_modules',
       '!./node_modules/**/*',
       '!./release',

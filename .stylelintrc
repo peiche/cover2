@@ -3,6 +3,9 @@
     "stylelint-config-standard",
     "stylelint-config-wordpress/scss"
   ],
+  "plugins": [
+		"stylelint-order"
+	],
   "rules": {
     "at-rule-empty-line-before": [ "always", {
       except: [
@@ -12,8 +15,30 @@
       ignore: ["after-comment"]
     } ],
     "comment-whitespace-inside": null,
-    "declaration-block-properties-order": "alphabetical",
+    "declaration-block-no-ignored-properties": null,
     "indentation": null,
-    "max-line-length": null
+    "max-line-length": null,
+    "media-feature-no-missing-punctuation": null,
+    "no-eol-whitespace": [ true, {
+      ignore: [
+        "empty-lines"
+      ]
+    } ],
+    "order/order": [
+			"custom-properties",
+			"declarations"
+		],
+		"order/properties-alphabetical-order": true,
+    "rule-empty-line-before": [ "always-multi-line", {
+      except: [
+        "after-single-line-comment"
+      ],
+      ignore: [
+        "after-comment"
+      ]
+    } ],
+    "rule-nested-empty-line-before": null,
+    "rule-non-nested-empty-line-before": null,
+    "selector-no-empty": null
   }
 }

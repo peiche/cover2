@@ -1,5 +1,6 @@
 .widget {
 	margin: 0 0 1.5em;
+	word-break: break-word;
 
 	select {
 		max-width: 100%; // Make sure select elements fit in widgets.
