@@ -111,17 +111,6 @@ function cover2_content_width() {
 add_action( 'after_setup_theme', 'cover2_content_width', 0 );
 
 /**
- * Return early if Custom Logos are not available.
- */
-function cover2_the_custom_logo() {
-	if ( ! function_exists( 'the_custom_logo' ) ) {
-		return;
-	} else {
-		the_custom_logo();
-	}
-}
-
-/**
  * Register custom fonts.
  */
 function cover2_fonts_url() {
