@@ -206,3 +206,10 @@ function cover2_post_nav_background() {
 	wp_add_inline_style( 'cover2-style', $css );
 }
 add_action( 'wp_enqueue_scripts', 'cover2_post_nav_background' );
+
+function cover_2_pingback_header() {
+	if ( is_singular() && pings_open() ) {
+		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
+	}
+}
+add_action( 'wp_head', 'cover_2_pingback_header' );
