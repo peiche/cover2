@@ -34,9 +34,12 @@ function cover2_body_classes( $classes ) {
 	} else if ( is_singular() && 'timeline' == get_post_type() ) {
 		$has_term_image = false;
 		$term_id = 0;
+		
+		// Timelines plugin compatibility
 		if ( function_exists( 'cftpb_get_term_id' ) ) {
 			$term_id = cftpb_get_term_id( 'timelines', get_the_ID() );
 
+			// Category Images plugin compatibility
 			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $term_id ) != '' ) {
 				$has_term_image = true;
 			}
