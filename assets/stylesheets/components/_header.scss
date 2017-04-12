@@ -32,6 +32,10 @@
     &.headroom--not-top {
       top: 0;
 
+      @include min-width($breakpoint__tablet-portrait) {
+        top: auto;
+      }
+
       @include min-width($breakpoint__wp-top-bar) {
         top: $height__wp-top-bar-desktop;
       }
@@ -48,18 +52,24 @@
 
   &.headroom--top {
     background-color: transparent;
+    color: $color__white;
 
-    .home:not(.has-featured-image):not(.has-featured-post) &,
-	  .paged &,
-    .blog:not(.has-featured-post) &,
-    .single:not(.has-featured-image) &,
-    .page:not(.has-featured-image):not(.page-template-page-noheader) & {
+    .site-title a:hover {
+      border-color: $color__white;
+    }
+
+    .blog & {
       background-color: $color__accent;
+    }
+
+    .blog.has-featured-post & {
+      background-color: transparent;
     }
   }
 
   &.headroom--not-top {
     background-color: $color__accent;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
   }
 
   &.headroom--unpinned {
@@ -78,7 +88,6 @@
 .site-title {
   @include rem(font-size, 1.5);
 
-  color: $color__white;
   display: inline-block;
   font-weight: $font__weight-normal;
   margin: 0;
