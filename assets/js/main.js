@@ -10,9 +10,11 @@
 			siteHeader = $( '.site-header' ),
 			menuOverlay = $( '.overlay--menu' ),
 			searchOverlay = $( '.overlay--search' ),
+			chapterOverlay = $( '.overlay--chapter' ),
 			body = $( 'body' ),
 			menuToggle = $( '.menu-toggle' ),
 			searchToggle = $( '.search-toggle' ),
+			chapterToggle = $( '.chapter-toggle' ),
 			button = '<button class="showsub-toggle" aria-expanded="false">' + menuToggleText.icon + '<span class="screen-reader-text">' + menuToggleText.open + '</span></button>',
 			headroom;
 
@@ -57,11 +59,12 @@
 			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
 
 			searchToggle.toggleClass( 'hide' );
+			chapterToggle.toggleClass( 'hide' );
 		} );
 
 		searchToggle.on( 'click', function( e ) {
 			var $this = $( this ),
-					searchField = searchOverlay.find( 'input.search-field' );
+				searchField = searchOverlay.find( 'input.search-field' );
 
 			e.preventDefault();
 
@@ -72,12 +75,28 @@
 			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
 
 			menuToggle.toggleClass( 'hide' );
+			chapterToggle.toggleClass( 'hide' );
 
 			if ( searchField.is( ':visible' ) ) {
 				setTimeout( function() {
 					searchOverlay.find( 'input.search-field' ).focus();
 				}, 200 ); // Matches the transition timing in css
 			}
+		} );
+
+		chapterToggle.on( 'click', function( e ) {
+			var $this = $( this );
+
+			e.preventDefault();
+
+			chapterOverlay.toggleClass( 'show' ).resize();
+			body.toggleClass( 'overlay-open' );
+
+			$this.toggleClass( 'toggle-on' );
+			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
+
+			menuToggle.toggleClass( 'hide' );
+			searchToggle.toggleClass( 'hide' );
 		} );
 	}
 
@@ -112,26 +131,26 @@
 		 * https://css-tricks.com/snippets/jquery/smooth-scrolling/
 		 */
 		$( 'a[href*="#"]:not([href="#"]):not([href*="#comments"]):not([data-action="toggle-overlay"]):not([id^="aesop"])' ).click( function() {
-	    if ( location.pathname.replace( /^\//, '' ) === this.pathname.replace( /^\//, '' ) && location.hostname === this.hostname ) {
-	      target = $( this.hash );
-	      target = target.length ? target : $( '[name=' + this.hash.slice( 1 ) + ']' );
-	      if ( target.length ) {
+		    if ( location.pathname.replace( /^\//, '' ) === this.pathname.replace( /^\//, '' ) && location.hostname === this.hostname ) {
+		      target = $( this.hash );
+		      target = target.length ? target : $( '[name=' + this.hash.slice( 1 ) + ']' );
+		      if ( target.length ) {
 
-					headroom.tolerance = Number.MAX_SAFE_INTEGER;
-					headroom.unpin();
+				headroom.tolerance = Number.MAX_SAFE_INTEGER;
+				headroom.unpin();
 
-					$( 'html,body' ).animate( {
-	          scrollTop: target.offset().top
-	        }, 500 );
+				$( 'html,body' ).animate( {
+		          scrollTop: target.offset().top
+		        }, 500 );
 
-					setTimeout( function() {
-						headroom.tolerance = Headroom.options.tolerance;
-					}, 1000 );
+				setTimeout( function() {
+					headroom.tolerance = Headroom.options.tolerance;
+				}, 1000 );
 
-					return false;
-	      }
-	    }
-	  });
+				return false;
+		      }
+			}
+		});
 
 		/**
 		 * Aesop enhancements.
@@ -147,6 +166,16 @@
 				}, 1000 );
 			});
 		}
+
+		// Close chapter overlay when jumping to chapter.
+		chapterOverlay.on( 'click', '.scroll-nav__link', function() {
+			body.removeClass( 'overlay-open' );
+			chapterToggle.removeClass( 'toggle-on' );
+			chapterToggle.attr( 'aria-expanded', 'false' );
+			chapterOverlay.removeClass( 'show' ).resize();
+			menuToggle.removeClass( 'hide' );
+			searchToggle.removeClass( 'hide' );
+		} );
 	}
 
 	/**
@@ -159,6 +188,7 @@
 			menuToggle.attr( 'aria-expanded', 'false' );
 			menuOverlay.removeClass( 'show' ).resize();
 			searchToggle.removeClass( 'hide' );
+			chapterToggle.removeClass( 'hide' );
 		}
 
 		if ( 27 === e.keyCode && searchOverlay.hasClass( 'show' ) ) {
@@ -167,6 +197,16 @@
 			searchToggle.attr( 'aria-expanded', 'false' );
 			searchOverlay.removeClass( 'show' ).resize();
 			menuToggle.removeClass( 'hide' );
+			chapterToggle.removeClass( 'hide' );
+		}
+
+		if ( 27 === e.keyCode && chapterOverlay.hasClass( 'show' ) ) {
+			body.removeClass( 'overlay-open' );
+			chapterToggle.removeClass( 'toggle-on' );
+			chapterToggle.attr( 'aria-expanded', 'false' );
+			chapterOverlay.removeClass( 'show' ).resize();
+			menuToggle.removeClass( 'hide' );
+			searchToggle.removeClass( 'hide' );
 		}
 	} );
 

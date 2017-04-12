@@ -56,11 +56,17 @@
 	a {
 		@include link($color__white);
 
-		color: $color__white;
+		color: inherit;
 		display: inline-block;
 
-		&:hover {
+		&:hover,
+		&:focus,
+		&:active {
 			color: inherit;
 		}
+	}
+
+	.has-chapters & {
+		padding-right: 40px;
 	}
 }

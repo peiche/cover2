@@ -50,17 +50,12 @@ object {
 	@include caption;
 }
 
-.jetpack-video-wrapper {
-
-	.entry-content & {
-		@include site-width($content__width-large);
-
-		margin-bottom: 3em;
-		margin-top: 3em;
-	}
-}
-
 /*--------------------------------------------------------------
 ## Galleries
 --------------------------------------------------------------*/
 @import "galleries";
+
+/*--------------------------------------------------------------
+## Video
+--------------------------------------------------------------*/
+@import "video";

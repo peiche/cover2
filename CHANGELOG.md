@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.5 - 4/12/2017**
+- Fixed link styles for mini menu, overlay, and post/page headers.
+- Fixed featured content slider styles.
+- Fixed styles for showing and hiding navbar.
+- Fixed styles for embedded videos.
+- Added navbar color option in Customizer.
+- Added icon to navbar for when a post or page contains Aesop Story Engine chapter components.
+
 **1.0.4 - 3/22/2017**
 - Removed Bower assets in favor of npm.
 - Fixed SVG icon references after switch from Bower to npm.

@@ -10,7 +10,12 @@
   * Generate the CSS for the current custom color scheme.
   */
   function cover2_custom_colors_css() {
+   $header_color = get_theme_mod( 'header_color', '#4020df' );
   	$hue = absint( get_theme_mod( 'accent_color', 250 ) );
+  	$header_text_color = '#fff';
+  	if ( hexdec( $header_color ) > 0xffffff / 2 ) :
+  	  $header_text_color = '#404040';
+  	endif;
 
   	/**
   	 * Filter Cover2 default saturation level.
@@ -24,31 +29,41 @@
    * Cover2: Color Patterns
    */
 
+   .site-header.headroom.headroom--not-top {
+     background-color: ' . $header_color . ';
+     color: ' . $header_text_color . ';
+   }
+   .headroom--not-top .site-description,
+   .headroom--not-top .site-title a:hover,
+   .headroom--not-top .mini-menu-container a:hover {
+     border-color: ' . $header_text_color . ';
+   }
+   .headroom--not-top .tcon-search__item:before {
+     background-color: ' . $header_text_color . ';
+   }
+   .headroom--not-top .tcon-search__item:after {
+    border-color: ' . $header_text_color . ';
+   }
+   .headroom--not-top .tcon-menu__lines,
+   .headroom--not-top .tcon-menu__lines:before,
+   .headroom--not-top .tcon-menu__lines:after {
+     background-color: ' . $header_text_color . ';
+   }
+   .headroom--not-top .chapter-toggle:before {
+     border-color: ' . $header_text_color . ' ' . $header_text_color . ' transparent;
+   }
+   
    .site-header,
-   .site-header.headroom.headroom--not-top,
-   .home:not(.has-featured-image):not(.has-featured-post) .site-header.headroom,
-   .home:not(.has-featured-image):not(.has-featured-post) .site-header.headroom.headroom--top,
-   .blog:not(.has-featured-post) .site-header.headroom,
-   .blog:not(.has-featured-post) .site-header.headroom.headroom--top,
-   .single:not(.has-featured-image) .site-header.headroom,
-   .single:not(.has-featured-image) .site-header.headroom.headroom--top,
-   .page:not(.has-featured-image):not(.page-template-page-noheader) .site-header.headroom,
-   .page:not(.has-featured-image):not(.page-template-page-noheader) .site-header.headroom.headroom--top,
-   .single:not(.has-featured-image) .site-header.headroom,
-   .paged .site-header.headroom.headroom--top,
+   .blog .site-header.headroom.headroom--top,
    .page-header,
    .comment-navigation .nav-previous a,
    .comment-navigation .nav-next a,
    .posts-navigation .nav-previous a,
-   .posts-navigation .nav-next a,
-   .aesop-toggle-chapter-menu:hover {
+   .posts-navigation .nav-next a {
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
    .page.page-template-page-noheader .site-header {
      background-color: transparent;
-   }
-   .page.page-template-page-noheader .site-header.headroom.headroom--not-top {
-     background-color: hsl(' . $hue . ', 75%, 50%);
    }
    .comment-navigation .nav-previous a:hover,
    .comment-navigation .nav-next a:hover,

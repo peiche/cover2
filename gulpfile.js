@@ -200,7 +200,10 @@ gulp.task('svg', function() {
       // Directional Icons
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-left.svg',
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-right.svg',
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_angle-down.svg'
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_angle-down.svg',
+      
+      // Aesop Icons
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_bookmark.svg'
     ])
     .pipe(svgSprite(config.svg_options))
     .pipe(gulp.dest('dist'))

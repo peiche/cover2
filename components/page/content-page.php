@@ -23,7 +23,7 @@
 		</div>
 	</header>
 
-	<div class="entry-content">
+	<div class="entry-content aesop-entry-content">
 		<?php
 			the_content();
 

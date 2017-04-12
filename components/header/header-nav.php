@@ -24,3 +24,11 @@ endif;
 	<span class="tcon-search__item" aria-hidden="true"></span>
 	<span class="screen-reader-text"><?php echo _x( 'Toggle Search', 'toggle search overlay button', 'cover2' ); ?></span>
 </button>
+
+<?php if ( is_object( $post ) && has_shortcode( $post->post_content, 'aesop_chapter' ) ) : ?>
+
+<button type="button" class="chapter-toggle" aria-label="toggle chapter list" aria-expanded="false">
+	<span class="screen-reader-text"></span>
+</button>
+
+<?php endif; ?>

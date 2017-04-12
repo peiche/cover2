@@ -4,24 +4,8 @@
   position: relative;
 }
 
-.featured-content--inner {
-
-  .no-js & {
-    font-size: 0; // Hack to get 0 space between each slide
-    overflow: auto;
-    white-space: nowrap;
-  }
-}
-
-.featured-content--slide {
+.no-js .featured-content--slide:not(:first-child) {
   display: none;
-
-  .no-js & {
-    display: inline-block;
-    vertical-align: top;
-    white-space: normal;
-    width: 100%;
-  }
 }
 
 .flex-direction-nav {
