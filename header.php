@@ -21,10 +21,19 @@
 
 <body <?php body_class(); ?>>
 
+<?php do_action( 'ase_theme_body_inside_top' ); ?>
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'cover2' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
+	<?php
+	$has_chapters = '';
+	if ( is_object( $post ) && has_shortcode( $post->post_content, 'aesop_chapter' ) ) :
+		$has_chapters = ' has-chapters';
+	endif;
+	?>
+	
+	<header id="masthead" class="site-header<?php echo $has_chapters; ?>" role="banner">
 
 		<?php get_template_part( 'components/header/header', 'nav' ); ?>
 

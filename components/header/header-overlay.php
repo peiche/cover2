@@ -50,3 +50,10 @@ if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
   </div>
 
 <?php } ?>
+
+<?php if ( has_shortcode( $post->post_content, 'aesop_chapter' ) ) : ?>
+	
+	<div class="overlay overlay--chapter aesop-entry-header">
+	</div>
+	
+<?php endif; ?>
