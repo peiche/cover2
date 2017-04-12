@@ -16,17 +16,18 @@
 	height: auto !important; // overrides jetpack css
 
 	.spinner {
-		animation-duration: 1s;
+		animation-duration: 0.75s;
 		animation-iteration-count: infinite;
 		animation-name: spin;
 		animation-timing-function: linear;
-		border: 10px solid transparent;
+		border: 5px solid $color__border;
 		border-radius: 50%;
 		border-top-color: $color__accent;
-		height: 75px;
+		height: 50px;
 		left: auto !important; // overrides inline style
 		margin: auto;
-		width: 75px !important; // overrides inline style
+		top: 15px !important; // overrides inline style
+		width: 50px !important; // overrides inline style
 
 		div {
 			display: none;
