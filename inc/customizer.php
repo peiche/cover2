@@ -25,7 +25,7 @@ function cover2_customize_register( $wp_customize ) {
 
 	// Remove the core header textcolor control.
 	$wp_customize->remove_control( 'header_textcolor' );
-	
+
 	// Add setting for header color.
 	$wp_customize->add_setting( 'header_color', array(
 		'default'           => '#4020df',
@@ -45,7 +45,7 @@ function cover2_customize_register( $wp_customize ) {
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'cover2_sanitize_overlay_colorscheme',
 	) );
-	
+
 	// Add control for header color.
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
 		'label'		    	=> __( 'Navbar Color', 'cover2' ),
