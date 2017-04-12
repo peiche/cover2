@@ -134,18 +134,22 @@
 # Chapter
 --------------------------------------------------------------*/
 
+#aesop-toggle-chapter-menu {
+  display: none; // NOTE: hides ASE's button in favor of Cover2's
+}
+
 .aesop-article-chapter {
   min-height: 0 !important; // NOTE: overrides ASE's inline style
   
   &:before {
-	background-color: #333;
-	content: "";
-	height: 100%;
-	left: 0;
-	opacity: 0.4;
-	position: absolute;
-	top: 0;
-	width: 100%;
+  	background-color: #333;
+  	content: "";
+  	height: 100%;
+  	left: 0;
+  	opacity: 0.4;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
   }
 }
 
@@ -177,6 +181,20 @@
 }
 
 .scroll-nav__section {
+  margin-bottom: 3em;
+
+  &:first-child {
+    margin-top: -60px;
+    padding-top: 3em;
+
+    p:first-child {
+      font-size: 125%;
+    }
+  }
+
+  &:not(:first-child) {
+    margin-top: 3em;
+  }
 
   > h1,
 	> h2,
