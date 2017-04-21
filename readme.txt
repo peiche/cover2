@@ -99,6 +99,5 @@ All other resources are licensed as follows:
 
 Font Awesome SVG PNG https://github.com/encharm/Font-Awesome-SVG-PNG - MIT https://github.com/encharm/Font-Awesome-SVG-PNG/blob/master/LICENSE
 Headroom http://wicky.nillia.ms/headroom.js/ - MIT https://github.com/WickyNilliams/headroom.js/blob/master/LICENSE
-Transformicons http://www.transformicons.com/ - MIT https://github.com/grayghostvisuals/transformicons/blob/master/LICENSE.md
 FlexSlider http://flexslider.woothemes.com - GPL v2.0 or later https://github.com/woocommerce/FlexSlider/blob/master/LICENSE.md
 Morpheus SVG http://alexk111.github.io/SVG-Morpheus/ - MIT https://github.com/alexk111/SVG-Morpheus/blob/master/LICENSE

@@ -38,17 +38,6 @@
    .headroom--not-top .mini-menu-container a:hover {
      border-color: ' . $header_text_color . ';
    }
-   .headroom--not-top .tcon-search__item:before {
-     background-color: ' . $header_text_color . ';
-   }
-   .headroom--not-top .tcon-search__item:after {
-    border-color: ' . $header_text_color . ';
-   }
-   .headroom--not-top .tcon-menu__lines,
-   .headroom--not-top .tcon-menu__lines:before,
-   .headroom--not-top .tcon-menu__lines:after {
-     background-color: ' . $header_text_color . ';
-   }
    .headroom--not-top .chapter-toggle:before {
      border-color: ' . $header_text_color . ' ' . $header_text_color . ' transparent;
    }

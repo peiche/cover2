@@ -33,9 +33,8 @@ if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
 
   <div class="overlay overlay--video">
 
-		<button type="button" class="video-toggle video-stop tcon tcon-menu--xcross toggle-on" aria-label="toggle menu" aria-expanded="false">
-		  <span class="tcon-menu__lines" aria-hidden="true"></span>
-		  <span class="screen-reader-text"><?php echo _x( 'Toggle Menu', 'toggle menu overlay button', 'cover2' ); ?></span>
+		<button type="button" class="nav-toggle video-toggle video-stop toggle-on" aria-label="toggle menu" aria-expanded="false">
+		  <?php echo cover2_get_svg( array( 'icon' => 'icon_bg_times', 'title' => _x( 'Close', 'close video overlay button', 'cover2' ) ) ); ?>
 		</button>
 
     <?php
