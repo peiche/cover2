@@ -116,6 +116,7 @@ All other resources are licensed as follows:
 * [Transformicons](http://www.transformicons.com/) - [MIT](https://github.com/grayghostvisuals/transformicons/blob/master/LICENSE.md)
 * [FlexSlider](http://flexslider.woothemes.com) - [GPL v2.0 or later](https://github.com/woocommerce/FlexSlider/blob/master/LICENSE.md)
 * [Bourbon Neat](http://neat.bourbon.io/) - [MIT](https://github.com/thoughtbot/neat/blob/master/LICENSE.md)
+* [Morpheus SVG](http://alexk111.github.io/SVG-Morpheus/) - [MIT](https://github.com/alexk111/SVG-Morpheus/blob/master/LICENSE)
 
 ## Inspiration
 
