@@ -208,6 +208,11 @@ gulp.task('svg', function() {
       
       // Aesop Icons
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_bookmark.svg',      // bookmark
+      
+      // Navigation Icons
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_bars.svg',          // menu
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_search.svg',        // search
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_times.svg'          // close "x"
     ])
     .pipe(svgSprite(config.svg_options))
     .pipe(gulp.dest('dist'))
