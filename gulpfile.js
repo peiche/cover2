@@ -188,7 +188,7 @@ gulp.task('svg', function() {
       // Post Format Icons
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_thumb-tack.svg',    // pinned posts
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_play-circle.svg',   // video
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_play-circle-o.svg',
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_play-circle-o.svg', // video (hollow)
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_music.svg',         // audio
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_picture-o.svg',     // image
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_quote-right.svg',   // quote
@@ -198,12 +198,12 @@ gulp.task('svg', function() {
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_comment.svg',       // status
 
       // Directional Icons
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-left.svg',
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-right.svg',
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_angle-down.svg',
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-left.svg',    // left arrow
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-right.svg',   // right arrow
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_angle-down.svg',    // down chevron
       
       // Aesop Icons
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_bookmark.svg'
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_bookmark.svg',      // bookmark
     ])
     .pipe(svgSprite(config.svg_options))
     .pipe(gulp.dest('dist'))
