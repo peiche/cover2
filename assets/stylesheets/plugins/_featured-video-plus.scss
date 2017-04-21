@@ -1,11 +1,10 @@
-button.video-toggle {
+.video-toggle {
   @include center-block;
 
   border: 0;
-  color: $color__white;
+  color: inherit;
   font-size: 18vh;
   line-height: 0;
-  outline: none;
   padding: 0;
 
   &:hover {
@@ -13,11 +12,7 @@ button.video-toggle {
   }
 
   .overlay--video & {
-    height: auto;
-    position: absolute;
-    right: 20px;
     top: 0;
-    width: auto;
-    z-index: $z-index__default;
+    width: 30px;
   }
 }

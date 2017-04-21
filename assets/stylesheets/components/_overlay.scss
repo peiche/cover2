@@ -1,27 +1,38 @@
 @import "navigation-vertical";
 
-button.menu-toggle,
-button.search-toggle {
+.nav-toggle {
   background-color: transparent;
-  display: block;
-  left: auto;
-  line-height: 0;
-	padding: 0;
+  border: 0;
+  color: inherit;
+  height: 30px;
+  padding: 0;
   position: absolute;
-	right: 20px;
-	top: 22px;
+  right: 20px;
+  top: 24px;
+  transform-origin: center;
+  transition: all $timing__default;
+  width: 30px;
+
+  &:hover {
+    background-color: transparent;
+    color: inherit;
+  }
 
   &.hide {
     opacity: 0;
     visibility: hidden;
   }
 
-  &:hover {
-    border: 0;
+  .overlay-open & {
+    color: $color__text-main;
+  }
+
+  .overlay-dark.overlay-open & {
+    color: $color__white;
   }
 }
 
-button.search-toggle {
+.search-toggle {
 
   &.has-sidebar {
     right: 70px;
@@ -32,72 +43,11 @@ button.search-toggle {
   }
 }
 
-button.chapter-toggle {
-  background-color: transparent;
-  border: 0;
-  height: 30px;
-  position: absolute;
+.chapter-toggle {
   right: 120px;
-  top: 24px;
-  transition: all $timing__default;
-  width: 30px;
-
-  &:hover {
-    background-color: transparent;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:before {
-    border: 0 solid #fff;
-    border-bottom-color: transparent;
-    border-radius: 3px 3px 0 0;
-    border-width: 24px 10px 6px;
-    content: "";
-    display: block;
-    height: 0;
-    left: 0;
-    margin: auto;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 0;
-  }
-
-  &.hide {
-    opacity: 0;
-    visibility: hidden;
-  }
 
   &.toggle-on {
     right: 20px;
-    transform: rotate(45deg);
-
-    &:before,
-    &:after {
-      background-color: $color__text-main;
-      border: 0;
-      border-color: transparent;
-      border-radius: 1px;
-      bottom: 0;
-      content: "";
-      height: 4px;
-      margin: auto;
-      position: absolute;
-      top: 0;
-      width: 24px;
-
-      .overlay-dark & {
-        background-color: $color__white;
-      }
-    }
-
-    &:after {
-      left: 4px;
-      transform: rotate(90deg);
-    }
   }
 }
 

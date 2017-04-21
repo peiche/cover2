@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.6 - 4/21/2017**
+- Replaced Transformicons with SVG.
+- Added Morpheus SVG for navbar icon animation.
+
 **1.0.5 - 4/12/2017**
 - Fixed link styles for mini menu, overlay, and post/page headers.
 - Fixed featured content slider styles.
