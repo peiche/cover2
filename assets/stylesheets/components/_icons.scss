@@ -6,6 +6,11 @@
   position: relative;
   width: 1em;
 
+  .nav-toggle & {
+    height: inherit;
+    width: inherit;
+  }
+
   .showsub-toggle.sub-on & {
     transform: rotate(180deg);
   }
@@ -37,6 +42,6 @@
   }
 }
 
-body > svg {
+svg.hide {
   display: none;
 }
