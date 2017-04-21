@@ -4,19 +4,25 @@
 
 ( function( $ ) {
 	var $window   = $( window ),
-			$document = $( document ),
-			resizeTimer,
-			toolbarHeight,
-			siteHeader = $( '.site-header' ),
-			menuOverlay = $( '.overlay--menu' ),
-			searchOverlay = $( '.overlay--search' ),
-			chapterOverlay = $( '.overlay--chapter' ),
-			body = $( 'body' ),
-			menuToggle = $( '.menu-toggle' ),
-			searchToggle = $( '.search-toggle' ),
-			chapterToggle = $( '.chapter-toggle' ),
-			button = '<button class="showsub-toggle" aria-expanded="false">' + menuToggleText.icon + '<span class="screen-reader-text">' + menuToggleText.open + '</span></button>',
-			headroom;
+		$document = $( document ),
+		resizeTimer,
+		siteHeader = $( '.site-header' ),
+		menuOverlay = $( '.overlay--menu' ),
+		searchOverlay = $( '.overlay--search' ),
+		chapterOverlay = $( '.overlay--chapter' ),
+		body = $( 'body' ),
+		menuToggle = $( '.menu-toggle' ),
+		searchToggle = $( '.search-toggle' ),
+		chapterToggle = $( '.chapter-toggle' ),
+		button = '<button class="showsub-toggle" aria-expanded="false">' + menuToggleText.icon + '<span class="screen-reader-text">' + menuToggleText.open + '</span></button>',
+		headroom,
+		morpheusConfig = {
+			duration: 200,
+			rotation: 'none'
+		},
+		menuIcon = new SVGMorpheus( '#svg-icon-menu-icon', morpheusConfig ),
+		searchIcon = new SVGMorpheus( '#svg-icon-search-icon', morpheusConfig ),
+		bookmarkIcon = $( '#svg-icon-bookmark-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-bookmark-icon', morpheusConfig ) : undefined;
 
 	/**
 	 * Header
@@ -58,6 +64,8 @@
 			$this.toggleClass( 'toggle-on' );
 			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
 
+			menuIcon.to( $this.hasClass( 'toggle-on' ) ? 'svg-icon-menu-close' : 'svg-icon-menu' );
+
 			searchToggle.toggleClass( 'hide' );
 			chapterToggle.toggleClass( 'hide' );
 		} );
@@ -73,6 +81,8 @@
 
 			$this.toggleClass( 'toggle-on' );
 			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
+
+			searchIcon.to( $this.hasClass( 'toggle-on' ) ? 'svg-icon-search-close' : 'svg-icon-search' );
 
 			menuToggle.toggleClass( 'hide' );
 			chapterToggle.toggleClass( 'hide' );
@@ -94,6 +104,8 @@
 
 			$this.toggleClass( 'toggle-on' );
 			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
+
+			bookmarkIcon.to( $this.hasClass( 'toggle-on' ) ? 'svg-icon-bookmark-close' : 'svg-icon-bookmark' );
 
 			menuToggle.toggleClass( 'hide' );
 			searchToggle.toggleClass( 'hide' );
@@ -175,6 +187,7 @@
 			chapterOverlay.removeClass( 'show' ).resize();
 			menuToggle.removeClass( 'hide' );
 			searchToggle.removeClass( 'hide' );
+			bookmarkIcon.to( 'svg-icon-bookmark' );
 		} );
 	}
 
@@ -189,6 +202,7 @@
 			menuOverlay.removeClass( 'show' ).resize();
 			searchToggle.removeClass( 'hide' );
 			chapterToggle.removeClass( 'hide' );
+			menuIcon.to( 'svg-icon-menu' );
 		}
 
 		if ( 27 === e.keyCode && searchOverlay.hasClass( 'show' ) ) {
@@ -198,6 +212,7 @@
 			searchOverlay.removeClass( 'show' ).resize();
 			menuToggle.removeClass( 'hide' );
 			chapterToggle.removeClass( 'hide' );
+			searchIcon.to( 'svg-icon-search' );
 		}
 
 		if ( 27 === e.keyCode && chapterOverlay.hasClass( 'show' ) ) {
@@ -207,6 +222,7 @@
 			chapterOverlay.removeClass( 'show' ).resize();
 			menuToggle.removeClass( 'hide' );
 			searchToggle.removeClass( 'hide' );
+			bookmarkIcon.to( 'svg-icon-bookmark' );
 		}
 	} );
 
