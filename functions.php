@@ -208,7 +208,7 @@ function cover2_scripts() {
 	wp_enqueue_style( 'cover2-style' );
 
 	wp_enqueue_script( 'cover2-headroom', get_template_directory_uri() . '/dist/js/headroom.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/headroom.min.js' ), true );
-	
+
 	wp_enqueue_script( 'cover2-morpheus-svg', get_template_directory_uri() . '/dist/js/svg-morpheus.js', array(), filemtime( get_template_directory() . '/dist/js/svg-morpheus.js' ), true );
 
 	wp_enqueue_script( 'cover2-main', get_template_directory_uri() . '/dist/js/main.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/main.js' ), true );
