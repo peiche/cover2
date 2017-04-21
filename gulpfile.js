@@ -46,7 +46,11 @@ var config = {
     },
     svg: {
       xmlDeclaration: false,
-      doctypeDeclaration: false
+      doctypeDeclaration: false,
+      rootAttributes: {
+        'id': 'icons',
+        'class': 'hide'
+      }
     }
   }
 };
