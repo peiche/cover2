@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.7 - 4/28/2017**
+- Updated <pre> and <code> styles.
+- Updated ASE styles for scroll navigation sections.
+- Added side navigation for Timeline components.
+- Added support for Post Badges plugin.
+
 **1.0.6 - 4/21/2017**
 - Replaced Transformicons with SVG.
 - Added Morpheus SVG for navbar icon animation.
