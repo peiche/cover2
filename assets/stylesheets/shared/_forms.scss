@@ -59,6 +59,7 @@ input.search-field {
 	border: 2px solid $color__border;
 	border-radius: 0;
 	border-width: 0 0 2px;
+	box-shadow: none; // Hide "invalid" styling for Firefox.
 	box-sizing: border-box;
 	display: block;
 	outline: none;
@@ -67,7 +68,7 @@ input.search-field {
 
 	// Hide "clear field" pseudo-element for IE/Edge.
 	&::-ms-clear {
-    display: none;
+    	display: none;
 	}
 
 	.overlay-dark .overlay & {
