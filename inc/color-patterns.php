@@ -51,9 +51,6 @@
    .posts-navigation .nav-next a {
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
-   .page.page-template-page-noheader .site-header {
-     background-color: transparent;
-   }
    .comment-navigation .nav-previous a:hover,
    .comment-navigation .nav-next a:hover,
    .posts-navigation .nav-previous a:hover,
