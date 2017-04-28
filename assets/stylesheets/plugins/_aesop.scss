@@ -152,7 +152,6 @@
   }
 
   &:first-child {
-    margin-top: -3em;
 
     p:first-of-type {
       font-size: 125%;
@@ -186,6 +185,14 @@
 .aesop-close-chapter-menu,
 .aesop-chapter-menu {
   display: none; // NOTE: hides ASE's button in favor of Cover2's
+}
+
+.aesop-component.aesop-article-chapter-wrap {
+  margin-top: 3em;
+
+  .scroll-nav__section + .scroll-nav__section > & {
+    margin-top: 4.5em;
+  }
 }
 
 .aesop-article-chapter {
