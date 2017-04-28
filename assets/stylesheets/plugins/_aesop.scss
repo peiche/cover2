@@ -152,6 +152,8 @@
   }
 
   &:first-child {
+    margin-top: -3em;
+    padding-top: 3em;
 
     p:first-of-type {
       font-size: 125%;
