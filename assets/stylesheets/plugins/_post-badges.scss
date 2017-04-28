@@ -1,0 +1,17 @@
+.badge-status {
+
+    .site-content & { // Higher specificity to override plugin's style
+        display: inline-block;
+        font-size: 50%;
+        position: static;
+        vertical-align: middle;
+    }
+
+    .overlay .widget & {
+        font-size: 50%;
+    }
+
+    .page-header & {
+        display: none; // Do not show in post/page header
+    }
+}
