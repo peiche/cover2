@@ -111,6 +111,9 @@
    .infinite-loader .spinner {
 	   border-top-color: hsl(' . $hue . ', 75%, 50%);
    }
+   .fotorama__thumb-border {
+    border-color: hsl(' . $hue . ', 75%, 40%);
+   }
    ';
 
   /**
