@@ -314,7 +314,7 @@
     display: inline-block;
     margin-right: 15px;
     opacity: 0;
-    padding: 5px 15px;
+    padding: 8px 15px;
     position: absolute;
     right: 100%;
     text-decoration: none;
@@ -324,13 +324,13 @@
     white-space: nowrap;
 
     &:after {
-      border: 5px solid transparent;
+      border: 7px solid transparent;
       border-left-color: $color__gray;
       bottom: 0;
       content: "";
       height: 0;
       left: 100%;
-      margin: auto;
+      margin: auto -1px;
       position: absolute;
       top: 0;
       width: 0;
