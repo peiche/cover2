@@ -2,7 +2,9 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.0.7 - 4/28/2017**
+**1.0.7 - 4/30/2017**
+- Fixed logo alignment and display.
+- Fixed alignment for embedded content.
 - Updated `<pre>` and `<code>` styles.
 - Updated ASE styles for scroll navigation sections.
 - Added side navigation for Timeline components.
