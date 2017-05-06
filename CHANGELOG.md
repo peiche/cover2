@@ -5,10 +5,13 @@ All notable changes to this project will be documented in this file. This projec
 **1.0.7 - 4/30/2017**
 - Fixed logo alignment and display.
 - Fixed alignment for embedded content.
+- Fixed page and post header button styles.
+- Fixed logo alignment in navbar.
 - Updated `<pre>` and `<code>` styles.
 - Updated ASE styles for scroll navigation sections.
 - Added side navigation for Timeline components.
 - Added support for Post Badges plugin.
+- Added page template for Jetpack portfolio pages.
 
 **1.0.6 - 4/21/2017**
 - Replaced Transformicons with SVG.
