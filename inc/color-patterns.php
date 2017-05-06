@@ -86,7 +86,8 @@
    input[type="button"].default,
    input[type="reset"].default,
    input[type="submit"].default,
-   .button.default {
+   .button.default,
+   .page-header .button.default {
      border-color: hsl(' . $hue . ', 75%, 50%);
      color: hsl(' . $hue . ', 75%, 50%);
    }
@@ -94,7 +95,8 @@
    input[type="button"].default:hover,
    input[type="reset"].default:hover,
    input[type="submit"].default:hover,
-   .button.default:hover {
+   .button.default:hover,
+   .page-header .button.default:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
