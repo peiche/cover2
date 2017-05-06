@@ -58,6 +58,19 @@ function cover2_entry_footer() {
 			printf( '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'icon_bg_tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
 		}
 	}
+	if ( 'jetpack-portfolio' === get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_term_list( get_the_ID(), 'jetpack-portfolio-type', '', esc_html__( ', ', 'cover2' ) );
+		if ( $categories_list && cover2_categorized_blog() ) {
+			printf( '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'icon_bg_folder', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>' ); // WPCS: XSS OK.
+		}
+
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_term_list( get_the_ID(), 'jetpack-portfolio-tag', '', esc_html__( ', ', 'cover2' ) );
+		if ( $tags_list ) {
+			printf( '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'icon_bg_tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
+		}
+	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
