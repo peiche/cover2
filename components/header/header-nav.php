@@ -9,7 +9,6 @@ $has_sidebar = false;
 if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_menu( 'jetpack-social-menu' ) ) :
 	$has_sidebar = true; ?>
 	<button class="nav-toggle menu-toggle" aria-label="toggle menu" aria-expanded="false">
-		<!-- <?php echo cover2_get_svg( array( 'icon' => 'icon_bg_bars', 'title' => _x( 'Toggle menu', 'toggle menu overlay button', 'cover2' ) ) ); ?> -->
 		<svg id="svg-icon-menu-icon" class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1792">
 			<g id="svg-icon-menu-close" style="display: none;">
 				<path d="M1298 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/>
@@ -28,7 +27,6 @@ endif;
 ?>
 
 <button type="button" class="nav-toggle search-toggle<?php echo $search_button_class; ?>" aria-label="toggle search" aria-expanded="false">
-	<!-- <?php echo cover2_get_svg( array( 'icon' => 'icon_bg_search', 'title' => _x( 'Toggle search', 'toggle search overlay button', 'cover2' ) ) ); ?> -->
 	<svg id="svg-icon-search-icon" class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1792">
 		<g id="svg-icon-search-close" style="display: none;">
 			<path d="M1298 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/>
@@ -42,7 +40,6 @@ endif;
 <?php if ( is_object( $post ) && has_shortcode( $post->post_content, 'aesop_chapter' ) ) : ?>
 
 <button type="button" class="nav-toggle chapter-toggle" aria-label="toggle chapter list" aria-expanded="false">
-	<!-- <?php echo cover2_get_svg( array( 'icon' => 'icon_bg_bookmark', 'title' => _x( 'Toggle chapters', 'toggle chapter overlay button', 'cover2' ) ) ); ?> -->
 	<svg id="svg-icon-bookmark-icon" class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1792">
 		<g id="svg-icon-bookmark-close" style="display: none;">
 			<path d="M1298 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/>
