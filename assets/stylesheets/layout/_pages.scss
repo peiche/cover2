@@ -4,7 +4,7 @@
 	padding: 150px 0 100px;
 	position: relative;
 
-	a {
+	a:not(.button) {
 		@include link;
 
 		color: inherit;
@@ -14,6 +14,15 @@
 		&:active,
 		&:hover {
 			color: inherit;
+		}
+	}
+
+	.button {
+		border-color: $color__white;
+		color: $color__white;
+
+		&.default {
+			@include button-style($color__accent);
 		}
 	}
 
