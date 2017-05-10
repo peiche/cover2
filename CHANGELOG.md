@@ -2,16 +2,18 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.0.7 - 5/6/2017**
+**1.0.7 - 5/10/2017**
 - Fixed logo alignment and display.
 - Fixed alignment for embedded content.
 - Fixed page and post header button styles.
 - Fixed logo alignment in navbar.
 - Updated `<pre>` and `<code>` styles.
 - Updated ASE styles for scroll navigation sections.
+- Updated Algolia plugin templates for v2.
 - Added side navigation for Timeline components.
 - Added support for Post Badges plugin.
 - Added page template for Jetpack portfolio pages.
+- Removed keyboard navigation for Flexslider.
 
 **1.0.6 - 4/21/2017**
 - Replaced Transformicons with SVG.
