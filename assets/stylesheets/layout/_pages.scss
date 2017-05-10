@@ -73,7 +73,7 @@
 	}
 }
 
-.page-title {
+.page-title:not(#algolia-search-box) {
 	font-family: $font__family-heading;
 	font-size: 12vmin;
 	font-weight: $font__weight-heading;
