@@ -9,7 +9,7 @@ get_header(); ?>
 
 	<div id="ais-wrapper">
 		<main id="ais-main">
-
+			
 			<header class="page-header">
 				<div class="page-header__content">
 
@@ -19,10 +19,9 @@ get_header(); ?>
 
 				</div>
 			</header>
-
+			
 			<div id="algolia-hits"></div>
 			<div id="algolia-pagination"></div>
-
 		</main>
 		<aside id="ais-facets">
 			<section class="ais-facets" id="facet-post-types"></section>
@@ -31,33 +30,24 @@ get_header(); ?>
 			<section class="ais-facets" id="facet-users"></section>
 		</aside>
 	</div>
+
 	<script type="text/html" id="tmpl-instantsearch-hit">
 		<article class="hentry" itemtype="http://schema.org/Article">
 			<div class="ais-hits--content">
 				<header class="entry-header">
-					<h1 class="entry-title" itemprop="name headline">
+					<h2 class="entry-title" itemprop="name headline">
 						<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a>
-					</h1>
+					</h2>
 				</header>
 				<div class="entry-summary">
 					<p>
-						<#
-						var attributes = ['content', 'title6', 'title5', 'title4', 'title3', 'title2', 'title1'];
-						var attribute_name;
-						var relevant_content = '';
-						for ( var index in attributes ) {
-							attribute_name = attributes[ index ];
-							if ( data._highlightResult[ attribute_name ].matchedWords.length > 0 ) {
-								relevant_content = data._snippetResult[ attribute_name ].value;
-							}
-						}
-
-						relevant_content = data._snippetResult[ attributes[ 0 ] ].value;
-						#>
-						{{{ relevant_content }}}
+			            <# if ( data._snippetResult['content'] ) { #>
+			              <span class="suggestion-post-content">{{{ data._snippetResult['content'].value }}}</span>
+			            <# } #>
 					</p>
 				</div>
 			</div>
+			<div class="ais-clearfix"></div>
 		</article>
 	</script>
 
@@ -70,7 +60,7 @@ get_header(); ?>
 					alert('It looks like you haven\'t indexed the searchable posts index. Please head to the Indexing page of the Algolia Search plugin and index it.');
 				}
 
-				// Instantiate instantsearch.js
+				/* Instantiate instantsearch.js */
 				var search = instantsearch({
 					appId: algolia.application_id,
 					apiKey: algolia.search_api_key,
@@ -80,22 +70,13 @@ get_header(); ?>
 						trackedParameters: ['query']
 					},
 					searchParameters: {
-						facetingAfterDistinct: true
-					},
-					searchFunction: function(helper) {
-						if (search.helper.state.query === '') {
-							search.helper.setQueryParameter('distinct', false);
-							search.helper.setQueryParameter('filters', 'record_index=0');
-						} else {
-							search.helper.setQueryParameter('distinct', true);
-							search.helper.setQueryParameter('filters', '');
-						}
-
-						helper.search();
+						facetingAfterDistinct: true,
+			            highlightPreTag: '__ais-highlight__',
+			            highlightPostTag: '__/ais-highlight__'
 					}
 				});
 
-				// Search box widget
+				/* Search box widget */
 				search.addWidget(
 					instantsearch.widgets.searchBox({
 						container: '#algolia-search-box',
@@ -105,14 +86,14 @@ get_header(); ?>
 					})
 				);
 
-				// Stats widget
+				/* Stats widget */
 				search.addWidget(
 					instantsearch.widgets.stats({
 						container: '#algolia-stats'
 					})
 				);
 
-				// Hits widget
+				/* Hits widget */
 				search.addWidget(
 					instantsearch.widgets.hits({
 						container: '#algolia-hits',
@@ -120,18 +101,42 @@ get_header(); ?>
 						templates: {
 							empty: 'No results were found for "<strong>{{query}}</strong>".',
 							item: wp.template('instantsearch-hit')
-						}
+						},
+            transformData: {
+						  item: function (hit) {
+                for(var key in hit._highlightResult) {
+                  // We do not deal with arrays.
+                  if(typeof hit._highlightResult[key].value !== 'string') {
+                    continue;
+                  }
+                  hit._highlightResult[key].value = _.escape(hit._highlightResult[key].value);
+                  hit._highlightResult[key].value = hit._highlightResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+                }
+
+                for(var key in hit._snippetResult) {
+                  // We do not deal with arrays.
+                  if(typeof hit._snippetResult[key].value !== 'string') {
+                    continue;
+                  }
+
+                  hit._snippetResult[key].value = _.escape(hit._snippetResult[key].value);
+                  hit._snippetResult[key].value = hit._snippetResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+                }
+
+                return hit;
+              }
+            }
 					})
 				);
 
-				// Pagination widget
+				/* Pagination widget */
 				search.addWidget(
 					instantsearch.widgets.pagination({
 						container: '#algolia-pagination'
 					})
 				);
 
-				// Post types refinement widget
+				/* Post types refinement widget */
 				search.addWidget(
 					instantsearch.widgets.menu({
 						container: '#facet-post-types',
@@ -144,7 +149,7 @@ get_header(); ?>
 					})
 				);
 
-				// Categories refinement widget
+				/* Categories refinement widget */
 				search.addWidget(
 					instantsearch.widgets.hierarchicalMenu({
 						container: '#facet-categories',
@@ -157,7 +162,7 @@ get_header(); ?>
 					})
 				);
 
-				// Tags refinement widget
+				/* Tags refinement widget */
 				search.addWidget(
 					instantsearch.widgets.refinementList({
 						container: '#facet-tags',
@@ -171,7 +176,7 @@ get_header(); ?>
 					})
 				);
 
-				// Users refinement widget
+				/* Users refinement widget */
 				search.addWidget(
 					instantsearch.widgets.menu({
 						container: '#facet-users',
@@ -179,12 +184,12 @@ get_header(); ?>
 						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 						limit: 10,
 						templates: {
-							header: '<h3 class="widgettitle">Auteurs</h3>'
+							header: '<h3 class="widgettitle">Authors</h3>'
 						}
 					})
 				);
 
-				// Start
+				/* Start */
 				search.start();
 
 				jQuery('#algolia-search-box input').attr('type', 'search').select();
