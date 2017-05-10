@@ -68,3 +68,39 @@
 		}
 	}
 }
+
+#ais-facets {
+  display: none;
+}
+
+.ais-pagination {
+  
+}
+
+#algolia-search-box {
+  
+}
+
+#algolia-stats {
+  opacity: 0.75;
+  text-align: left;
+}
+
+input.ais-search-box--input {
+  background-color: transparent;
+	border: 2px solid $color__border;
+	border-radius: 0;
+	border-width: 0 0 2px;
+	box-shadow: none; // Hide "invalid" styling for Firefox.
+	box-sizing: border-box;
+	display: block;
+	font-size: 40px;
+	outline: none;
+	padding: 5px 0;
+	width: 100%;
+
+	// Hide "clear field" pseudo-element for IE/Edge.
+	&::-ms-clear {
+    	display: none;
+	}
+}
