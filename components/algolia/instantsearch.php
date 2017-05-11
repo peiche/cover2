@@ -11,6 +11,7 @@ get_header(); ?>
 		<main id="ais-main">
 			
 			<header class="page-header">
+				<div class="page-header__image"></div>
 				<div class="page-header__content">
 
 					<div id="algolia-search-box" class="page-title text-align-center">
