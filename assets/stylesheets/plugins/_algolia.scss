@@ -97,6 +97,10 @@ input.ais-search-box--input {
 	padding: 5px 0;
 	width: 100%;
 
+	&::placeholder {
+	  color: rgba(255, 255, 255, 0.75);
+	}
+
 	&:focus {
 	  color: inherit;
 	}
