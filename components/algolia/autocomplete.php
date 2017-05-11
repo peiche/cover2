@@ -31,7 +31,7 @@
 <script type="text/html" id="tmpl-autocomplete-footer">
   <div class="autocomplete-footer">
     <div class="autocomplete-footer-branding">
-      <?php esc_html_e( 'Powered by', 'cover2' ); ?>
+      <?php esc_html_e( 'Search by', 'cover2' ); ?>
       <a href="#" class="algolia-powered-by-link" title="Algolia">
         <div class="algolia-logo"></div>
       </a>
