@@ -128,6 +128,12 @@ input.ais-search-box--input {
   width: 100px;
 }
 
+.ais-hits__empty {
+  @include site-width;
+
+  padding: 50px 0;
+}
+
 .ais-hits--content em {
   background-color: #ddd;
   border-radius: 3px;
