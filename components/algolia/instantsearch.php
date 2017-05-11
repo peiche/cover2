@@ -194,6 +194,8 @@ get_header(); ?>
 				search.start();
 
 				jQuery('#algolia-search-box input').attr('type', 'search').select();
+				
+				jQuery('.site-footer').css('display', 'block');
 			}
 		});
 	</script>
