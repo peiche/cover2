@@ -188,6 +188,7 @@ gulp.task('svg', function() {
       // Web App Icons
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_folder.svg',        // category
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_tag.svg',           // tag
+      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_tags.svg',          // tags
       'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_pencil.svg',        // edit links
 
       // Post Format Icons
