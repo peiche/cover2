@@ -55,7 +55,7 @@ function cover2_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'cover2' ) );
 		if ( $tags_list ) {
-			if ( count( get_tags() ) > 1 ) {
+			if ( count( get_the_tags() ) > 1 ) {
 				$tag_str = 'icon_bg_tags';
 			} else {
 				$tag_str = 'icon_bg_tag';
