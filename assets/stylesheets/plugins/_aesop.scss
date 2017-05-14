@@ -345,3 +345,19 @@
 .aesop-component.aesop-component-chat + .aesop-component-chat {
   margin-top: -3em;
 }
+
+/*--------------------------------------------------------------
+# Video
+--------------------------------------------------------------*/
+
+.aesop-video-component {
+
+  .wp-video {
+    margin: auto;
+  }
+
+  .mejs-container,
+  .fluid-width-video-wrapper {
+    background-color: #ccc;
+  }
+}
