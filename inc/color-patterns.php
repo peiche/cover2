@@ -51,9 +51,6 @@
    .posts-navigation .nav-next a {
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
-   .page.page-template-page-noheader .site-header {
-     background-color: transparent;
-   }
    .comment-navigation .nav-previous a:hover,
    .comment-navigation .nav-next a:hover,
    .posts-navigation .nav-previous a:hover,
@@ -89,7 +86,8 @@
    input[type="button"].default,
    input[type="reset"].default,
    input[type="submit"].default,
-   .button.default {
+   .button.default,
+   .page-header .button.default {
      border-color: hsl(' . $hue . ', 75%, 50%);
      color: hsl(' . $hue . ', 75%, 50%);
    }
@@ -97,7 +95,8 @@
    input[type="button"].default:hover,
    input[type="reset"].default:hover,
    input[type="submit"].default:hover,
-   .button.default:hover {
+   .button.default:hover,
+   .page-header .button.default:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
@@ -113,6 +112,9 @@
    }
    .infinite-loader .spinner {
 	   border-top-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .fotorama__thumb-border {
+    border-color: hsl(' . $hue . ', 75%, 40%);
    }
    ';
 

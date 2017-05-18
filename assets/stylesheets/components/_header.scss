@@ -78,11 +78,9 @@
 }
 
 .custom-logo {
-  margin-top: -5px;
-  max-height: 65px;
-  padding: 10px 10px 10px 20px;
-  vertical-align: middle;
-  width: auto;
+  float: left;
+  margin: 10px 10px 10px 20px;
+  max-height: 55px;
 }
 
 .site-title {
@@ -91,10 +89,15 @@
   display: inline-block;
   font-weight: $font__weight-normal;
   margin: 0;
-  padding: 20px;
+  padding: 20px 10px 20px 20px;
 
   .custom-logo-link:not([style="display:none;"]) + & {
-    padding-left: 0;
+    display: none;
+    padding-left: 10px;
+
+    @include min-width($breakpoint__tablet-portrait) {
+      display: inline-block;
+    }
   }
 
   a {

@@ -1,6 +1,7 @@
 .avatar {
 	border-radius: 50%;
 	display: inline-block;
+	overflow: hidden;
 	vertical-align: middle;
 
 	.vcard & {

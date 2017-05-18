@@ -55,7 +55,29 @@ function cover2_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'cover2' ) );
 		if ( $tags_list ) {
-			printf( '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'icon_bg_tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
+			if ( count( get_the_tags() ) > 1 ) {
+				$tag_str = 'icon_bg_tags';
+			} else {
+				$tag_str = 'icon_bg_tag';
+			}
+			printf( '<div class="tags-links">' . cover2_get_svg( array( 'icon' => $tag_str, 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
+		}
+	}
+	if ( 'jetpack-portfolio' === get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_term_list( get_the_ID(), 'jetpack-portfolio-type', '', esc_html__( ', ', 'cover2' ) );
+		if ( $categories_list && cover2_categorized_blog() ) {
+			printf( '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'icon_bg_folder', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>' ); // WPCS: XSS OK.
+		}
+
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_term_list( get_the_ID(), 'jetpack-portfolio-tag', '', esc_html__( ', ', 'cover2' ) );
+		if ( $tags_list ) {
+			$tag_str = 'icon_bg_tag';
+			if ( count( wp_get_post_terms( get_the_ID(), 'jetpack-portfolio-tag' ) ) > 1 ) {
+				$tag_str = 'icon_bg_tags';
+			}
+			printf( '<div class="tags-links">' . cover2_get_svg( array( 'icon' => $tag_str, 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
 		}
 	}
 

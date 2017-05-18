@@ -49,8 +49,6 @@ code,
 kbd,
 tt,
 var {
-	@include rem(font-size, 1);
-
 	background-color: rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
 	font-family: $font__family-code;
@@ -58,19 +56,19 @@ var {
 }
 
 pre {
-	@include rem(font-size, 1);
-
-	background: $color__background-pre;
+	background-color: $color__background-pre;
 	color: $color__white;
 	font-family: $font__family-code;
 	line-height: $font__line-height-code;
 	margin-bottom: 30px;
 	max-width: 100%;
 	overflow: auto;
-	padding: 20px;
+	padding: 20px 0;
 
 	code {
 		background-color: transparent;
+		display: block;
+		padding: 0;
 	}
 }
 

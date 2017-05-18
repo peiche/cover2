@@ -9,7 +9,7 @@
 
 <footer class="entry-footer">
 	<?php
-	if ( 'timeline' != get_post_type() ) :
+	if ( 'timeline' != get_post_type() && 'jetpack-portfolio' != get_post_type() ) :
 		get_template_part( 'components/author/author', 'bio' );
 	endif;
 	?>

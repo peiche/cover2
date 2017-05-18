@@ -167,19 +167,28 @@
 		/**
 		 * Aesop enhancements.
 		 *
-		 * Disable headroom while we're scrolling to a chapter point.
+		 * Disable headroom while we're scrolling to a chapter or timeline point.
 		 */
-		if ( $( '.aesop-chapter-menu' ).length > 0 ) {
-			$document.on( 'click', '.aesop-chapter-menu .scroll-nav__item a', function() {
-				headroom.tolerance = Number.MAX_SAFE_INTEGER;
-				headroom.unpin();
-				setTimeout( function() {
-					headroom.tolerance = Headroom.options.tolerance;
-				}, 1000 );
-			});
-		}
+		$document.on( 'click', '.scroll-nav__link', function() {
+			headroom.tolerance = Number.MAX_SAFE_INTEGER;
+			headroom.unpin();
+			setTimeout( function() {
+				headroom.tolerance = Headroom.options.tolerance;
+			}, 1000 );
+		});
 
-		// Close chapter overlay when jumping to chapter.
+		/**
+		 * Clicking on a list item will be passed on to its child link.
+		 */
+		$document.on( 'click', '.scroll-nav__item', function() {
+			if ( !! $( this ).children( '.scroll-nav__link' ).get( 0 ) ) {
+				$( this ).children( '.scroll-nav__link' ).get( 0 ).click();
+			}
+		});
+
+		/**
+		 * Close chapter overlay when jumping to chapter.
+		 */
 		chapterOverlay.on( 'click', '.scroll-nav__link', function() {
 			body.removeClass( 'overlay-open' );
 			chapterToggle.removeClass( 'toggle-on' );
