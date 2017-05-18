@@ -50,6 +50,16 @@
   }
 }
 
+.aesop-component-align-left,
+.aesop-component-align-right {
+  @include max-width($content__width-small) {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
 /*--------------------------------------------------------------
 # Quote
 --------------------------------------------------------------*/
