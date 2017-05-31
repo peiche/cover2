@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.8 - 5/31/2017**
+- Fixed caption style inconsistencies.
+- Removed wpcom file.
+- Moved "no header" template to templates directory.
+- Updated Algolia support to include PHP 5.2.
+
 **1.0.7 - 5/10/2017**
 - Fixed logo alignment and display.
 - Fixed alignment for embedded content.
