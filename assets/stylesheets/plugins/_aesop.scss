@@ -35,8 +35,6 @@
 .aesop-image-component .aesop-image-component-caption,
 .aesop-gallery-component .aesop-component-caption {
   @include caption;
-
-  margin-top: 0;
 }
 
 .aesop-img-enlarge {
@@ -369,5 +367,9 @@
   .mejs-container,
   .fluid-width-video-wrapper {
     background-color: #ccc;
+  }
+
+  .aesop-video-component-caption {
+    @include caption;
   }
 }

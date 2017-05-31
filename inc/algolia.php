@@ -22,6 +22,7 @@ add_action( 'wp_print_styles', 'cover2_dequeue_styles', 100 );
  *
  * @link https://community.algolia.com/wordpress/customize-templates.html#customize-templates-folder-name
  */
-add_filter( 'algolia_templates_path', function() {
+function cover2_algolia_templates_path() {
   return 'components/algolia/';
-} );
+}
+add_filter( 'algolia_templates_path', 'cover2_algolia_templates_path' );
