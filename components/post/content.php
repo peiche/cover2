@@ -29,8 +29,8 @@
 				get_template_part( 'components/post/content', 'meta' );
 			endif;
 			
-			$post_content_excerpt = preg_split( '/<!--more(.*?)?-->/', get_post()->post_content )[0];
-			if ( has_excerpt() && strcasecmp( trim( get_the_excerpt() ), trim( $post_content_excerpt ) ) != 0 ) : ?>
+			$post_content_excerpt = preg_split( '/<!--more(.*?)?-->/', get_post()->post_content );
+			if ( has_excerpt() && strcasecmp( trim( get_the_excerpt() ), trim( $post_content_excerpt[0] ) ) != 0 ) : ?>
 				<hr>
 				<div class="entry-excerpt">
 					<?php the_excerpt(); ?>
