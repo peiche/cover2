@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.9 - 6/25/2017**
+- Fixed broken author link style in page and post header.
+- Fixed excerpt logic on single posts.
+- Added "jump to content" link from full screen header.
+
 **1.0.8 - 5/31/2017**
 - Fixed caption style inconsistencies.
 - Removed wpcom file.
