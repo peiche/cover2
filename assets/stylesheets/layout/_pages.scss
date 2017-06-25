@@ -29,8 +29,8 @@
 	.has-featured-image & {
 		background-color: $color__background-dark;
 		min-height: 100vh;
-		padding-bottom: 50px;
-		padding-top: 60vh;
+		padding-bottom: 75px;
+		padding-top: 45vh;
 	}
 
 	.has-featured-video & {
@@ -70,6 +70,35 @@
 		margin-left: auto;
 		margin-right: auto;
 		max-width: $content__width-large;
+	}
+
+	.has-featured-image & {
+		@include min-width($breakpoint__tablet-portrait) {
+		    bottom: 75px;
+		    left: 5%;
+		    position: absolute;
+		    right: 5%;
+		}
+	}
+}
+
+a.page-header__scroll-to-content {
+	@include rem(font-size, 2.5);
+
+	bottom: 0;
+	display: inline-block;
+	left: 0;
+	line-height: 75px; // matches bottom padding of container
+	position: absolute;
+	right: 0;
+	text-align: center;
+
+	&:focus {
+		outline: none;
+	}
+
+	.page-header & {
+		border: 0;
 	}
 }
 
