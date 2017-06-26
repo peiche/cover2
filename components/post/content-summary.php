@@ -54,13 +54,13 @@
 	</header>
 	<div class="entry-summary">
 		<?php
-      if ( has_excerpt() ) {
-        the_excerpt();
-      } else if ( strpos( $post->post_content, '<!--more-->' ) ) {
-        the_content( '' ); // No "more" link.
-      } else {
-        the_excerpt();
-      }
+			if ( has_excerpt() ) {
+				the_excerpt();
+			} else if ( strpos( $post->post_content, '<!--more-->' ) ) {
+				the_content( '' ); // No "more" link.
+			} else {
+				the_excerpt();
+			}
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'cover2' ),

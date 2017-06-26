@@ -25,22 +25,29 @@
 			<?php
 			the_title( '<h1 class="page-title text-align-center">', '</h1>' );
 
-			if ( 'post' === get_post_type() ) : ?>
-			<?php get_template_part( 'components/post/content', 'meta' ); ?>
-			<?php
-			endif; ?>
-
-			<?php if ( has_excerpt() ) : ?>
+			if ( 'post' === get_post_type() ) :
+				get_template_part( 'components/post/content', 'meta' );
+			endif;
+			
+			$post_content_excerpt = preg_split( '/<!--more(.*?)?-->/', get_post()->post_content );
+			if ( has_excerpt() && strcasecmp( trim( get_the_excerpt() ), trim( $post_content_excerpt[0] ) ) != 0 ) : ?>
 				<hr>
 				<div class="entry-excerpt">
-					<?php echo the_excerpt(); ?>
+					<?php the_excerpt(); ?>
 				</div>
 			<?php endif; ?>
 
 		</div>
+
+		<?php if ( cover2_get_featured_image( get_the_ID() ) != '' ) : ?>
+			<a class="page-header__scroll-to-content" href="#post-<?php the_ID(); ?>-content">
+				<?php echo cover2_get_svg( array( 'icon' => 'icon_bg_angle-down' ) ); ?>
+			</a>
+		<?php endif; ?>
+		
 	</header>
 
-	<div class="entry-content aesop-entry-content">
+	<div id="post-<?php the_ID(); ?>-content" class="entry-content aesop-entry-content">
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */

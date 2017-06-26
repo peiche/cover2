@@ -218,18 +218,23 @@
 	transition: font $timing__default;
 }
 
-.author {
+.author,
+.page-header .author {
 
 	.author-text {
 		border-bottom: 1px solid transparent;
 		transition: border $timing__default;
 	}
 
-	.url:hover {
-		border-color: transparent;
+	.url {
+		border: 0;
 
-		.author-text {
-			border-color: $color__border;
+		&:hover {
+			border: 0;
+
+			.author-text {
+				border-color: $color__border;
+			}
 		}
 	}
 }
