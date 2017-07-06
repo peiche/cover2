@@ -87,7 +87,7 @@
 
   &.aesop-content-has-img {
 
-    &:after {
+    .aesop-content-darken {
       background-color: $color__background-dark;
       bottom: 0;
       content: "";
