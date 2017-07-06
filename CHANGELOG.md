@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.10 - 7/5/2017**
+- Replaced pseudo-element ASE content overlay with a real element.
+
 **1.0.9 - 6/25/2017**
 - Fixed broken author link style in page and post header.
 - Fixed excerpt logic on single posts.
