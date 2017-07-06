@@ -87,7 +87,7 @@
 
   &.aesop-content-has-img {
 
-    &:after {
+    .aesop-content-darken {
       background-color: $color__background-dark;
       bottom: 0;
       content: "";
@@ -371,5 +371,10 @@
 
   .aesop-video-component-caption {
     @include caption;
+  }
+
+  .jetpack-video-wrapper {
+    margin-bottom: 0;
+    margin-top: 0;
   }
 }
