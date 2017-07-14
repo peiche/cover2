@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.11 - 7/14/2017**
+- Removed margin on page header.
+
 **1.0.10 - 7/5/2017**
 - Replaced pseudo-element ASE content overlay with a real element.
 - Removed jetpack video margins when inside ASE video component.
