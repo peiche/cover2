@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.12 - 7/18/2017**
+- Fixed image URLs for page header css (thanks [@eightam](https://github.com/eightam))
+
 **1.0.11 - 7/14/2017**
 - Removed margin on page header.
 
