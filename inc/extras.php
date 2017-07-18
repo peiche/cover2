@@ -161,7 +161,7 @@ function cover2_post_nav_background() {
 
 	if ( '' != $current_image ) {
 		$css .= '
-			.page-header__image { background-image: url(' . esc_url( $current_image ) . '); }
+			.page-header__image { background-image: url(' . esc_url_raw( $current_image ) . '); }
 		';
 	}
 
@@ -185,7 +185,7 @@ function cover2_post_nav_background() {
 
 	if ( '' != $term_image ) {
 		$css .= '
-			.page-header__image { background-image: url(' . esc_url( $term_image ) . '); }
+			.page-header__image { background-image: url(' . esc_url_raw( $term_image ) . '); }
 		';
 	}
 
@@ -200,7 +200,7 @@ function cover2_post_nav_background() {
 		if ( $next && has_post_thumbnail( $next->ID ) ) {
 			$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'post-thumbnail' );
 			$css .= '
-				.nav-next__image { background-image: url(' . esc_url( $nextthumb[0] ) . '); }
+				.nav-next__image { background-image: url(' . esc_url_raw( $nextthumb[0] ) . '); }
 				.post-navigation .nav-next { padding-bottom: 100px; }
 			';
 		}
