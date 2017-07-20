@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.13 - 7/19/2017**
+- Fixed accessibility issue with post & page content jump links.
+
 **1.0.12 - 7/18/2017**
 - Fixed image URLs for page header css (thanks [@eightam](https://github.com/eightam))
 
