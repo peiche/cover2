@@ -21,9 +21,9 @@
 
 			<?php the_title( '<h1 class="page-title text-align-center">', '</h1>' ); ?>
 		</div>
-		
+
 		<?php if ( cover2_get_featured_image( get_the_ID() ) != '' ) : ?>
-			<a class="page-header__scroll-to-content" href="#post-<?php the_ID(); ?>-content">
+			<a class="page-header__scroll-to-content" href="#post-<?php the_ID(); ?>-content" aria-label="<?php echo __( 'Jump to content', 'cover2' ); ?>">
 				<?php echo cover2_get_svg( array( 'icon' => 'icon_bg_angle-down' ) ); ?>
 			</a>
 		<?php endif; ?>
