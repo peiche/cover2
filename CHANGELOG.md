@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. This projec
 
 **1.0.13 - 7/19/2017**
 - Fixed accessibility issue with post & page content jump links.
+- Fixed JavaScript error when one or more header icons do not exist.
 
 **1.0.12 - 7/18/2017**
 - Fixed image URLs for page header css (thanks [@eightam](https://github.com/eightam))
