@@ -20,8 +20,8 @@
 			duration: 200,
 			rotation: 'none'
 		},
-		menuIcon = new SVGMorpheus( '#svg-icon-menu-icon', morpheusConfig ),
-		searchIcon = new SVGMorpheus( '#svg-icon-search-icon', morpheusConfig ),
+		menuIcon = $( '#svg-icon-menu-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-menu-icon', morpheusConfig ) : undefined,
+		searchIcon = $( '#svg-icon-search-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-search-icon', morpheusConfig ) : undefined,
 		bookmarkIcon = $( '#svg-icon-bookmark-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-bookmark-icon', morpheusConfig ) : undefined;
 
 	/**
