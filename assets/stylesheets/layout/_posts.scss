@@ -185,6 +185,16 @@
 	> p:first-of-type {
 		font-size: 125%;
 	}
+
+	pre {
+
+		> code {
+			@include scrollbar(lighten($color__background-dark, 25%));
+
+			overflow: auto;
+		}
+	}
+}
 }
 
 .twitter-tweet {
