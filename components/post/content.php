@@ -28,7 +28,7 @@
 			if ( 'post' === get_post_type() ) :
 				get_template_part( 'components/post/content', 'meta' );
 			endif;
-			
+
 			$post_content_excerpt = preg_split( '/<!--more(.*?)?-->/', get_post()->post_content );
 			if ( has_excerpt() && strcasecmp( trim( get_the_excerpt() ), trim( $post_content_excerpt[0] ) ) != 0 ) : ?>
 				<hr>
@@ -44,7 +44,7 @@
 				<?php echo cover2_get_svg( array( 'icon' => 'icon_bg_angle-down' ) ); ?>
 			</a>
 		<?php endif; ?>
-		
+
 	</header>
 
 	<div id="post-<?php the_ID(); ?>-content" class="entry-content aesop-entry-content">

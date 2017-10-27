@@ -13,6 +13,14 @@
 
   .showsub-toggle.sub-on & {
     transform: rotate(180deg);
+
+    .mini-menu-container & {
+      transform: rotate(0deg);
+    }
+
+    .mini-menu-container .sub-menu & {
+      transform: rotate(180deg);
+    }
   }
 
   .entry-header & {

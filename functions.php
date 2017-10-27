@@ -93,6 +93,19 @@ function cover2_setup() {
 	 * See https://make.wordpress.org/core/2016/03/22/implementing-selective-refresh-support-for-widgets/
 	 */
 	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	/*
+	 * Enable support for the Gutenberg editor.
+	 * See http://gutenberg-devdoc.surge.sh/reference/theme-support/
+	 */
+	add_theme_support( 'gutenberg', array(
+		'wide-images' => true,
+	) );
+
+	/*
+	 * Enable support for excerpts on pages.
+	 */
+	add_post_type_support( 'page', 'excerpt' );
 }
 endif;
 add_action( 'after_setup_theme', 'cover2_setup' );

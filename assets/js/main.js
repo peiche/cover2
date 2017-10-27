@@ -20,8 +20,8 @@
 			duration: 200,
 			rotation: 'none'
 		},
-		menuIcon = new SVGMorpheus( '#svg-icon-menu-icon', morpheusConfig ),
-		searchIcon = new SVGMorpheus( '#svg-icon-search-icon', morpheusConfig ),
+		menuIcon = $( '#svg-icon-menu-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-menu-icon', morpheusConfig ) : undefined,
+		searchIcon = $( '#svg-icon-search-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-search-icon', morpheusConfig ) : undefined,
 		bookmarkIcon = $( '#svg-icon-bookmark-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-bookmark-icon', morpheusConfig ) : undefined;
 
 	/**
@@ -135,6 +135,20 @@
 			$screenReaderText.text( $screenReaderText.text() == menuToggleText.open ? menuToggleText.close : menuToggleText.open );
 			$this.parent().next( '.children, .sub-menu' ).toggleClass( 'sub-on' );
 			$this.attr( 'aria-expanded', 'false' == $this.attr( 'aria-expanded' ) ? 'true' : 'false' );
+		} );
+
+		/**
+		 * Clicking away from the mini-menu popup will close it.
+		 */
+		$document.on( 'click', function( e ) {
+			var $toggle = $( '.mini-menu-container .showsub-toggle.sub-on' );
+			console.log( e );
+			if ( $toggle.length > 0 && (
+					! $( e.target ).is( '.mini-menu-container .showsub-toggle' ) &&
+					! $( e.target ).closest( '.showsub-toggle' ).is( '.mini-menu-container .showsub-toggle' ) ) ) {
+				$toggle.parent().next( '.children, .sub-menu' ).removeClass( 'sub-on' );
+				$toggle.attr( 'aria-expanded', 'false' ).removeClass( 'sub-on' );
+			}
 		} );
 
 		/**

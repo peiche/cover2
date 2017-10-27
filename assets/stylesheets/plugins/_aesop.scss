@@ -152,6 +152,7 @@
 
 .scroll-nav__section {
   margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
 
   p + &,
   .scroll-nav__section + & {
@@ -180,7 +181,7 @@
 	> dl,
 	> table,
 	> address,
-	> pre,
+	> pre > code,
 	> blockquote,
 	> .page-links {
 		@include site-width;
@@ -237,11 +238,14 @@
   padding-top: 1em;
 }
 
-.aesop-timeline {
+.aesop-timeline,
+.scroll-nav {
   background-color: transparent;
   bottom: auto;
   display: none;
   left: auto;
+  position: fixed;
+  right: 0;
   top: 50%;
   transform: translate(0, -50%);
   width: 50px;
@@ -251,14 +255,12 @@
     display: block;
   }
 
-  .aesop-chapter-menu--inner {
-    padding: 0;
-  }
-
   .scroll-nav__list {
     background-color: transparent;
     box-shadow: none;
+    margin: 0;
     padding: 0;
+    position: relative;
 
     &:after {
       display: none;

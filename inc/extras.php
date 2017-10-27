@@ -93,7 +93,7 @@ function cover2_get_first_featured_image() {
  */
 function cover2_get_featured_image( $post_id ) {
 	$img = '';
-	if ( '' != get_the_post_thumbnail() ) {
+	if ( '' != get_the_post_thumbnail( $post_id ) ) {
 		$img_arr = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
 		$img = $img_arr[0];
 	}
