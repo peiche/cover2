@@ -93,7 +93,8 @@ gulp.task( 'copy', function() {
     'node_modules/headroom.js/dist/headroom*.js',
     'node_modules/flexslider/jquery.flexslider*.js',
     'node_modules/@vimeo/player/dist/player*.js',
-    'node_modules/svg-morpheus/compile/unminified/svg-morpheus.js'
+    'node_modules/svg-morpheus/compile/unminified/svg-morpheus.js',
+    'node_modules/scrollnav/dist/jquery.scrollnav.min.js'
   ] ).pipe( gulp.dest( 'dist/js' ) );
 } );
 
