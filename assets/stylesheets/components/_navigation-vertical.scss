@@ -51,7 +51,7 @@
 	float: right;
 	margin-right: 120px;
 
-	@include min-width($breakpoint__tablet-portrait) {
+	@include min-width($breakpoint__desktop) {
 		display: block;
 	}
 
@@ -61,7 +61,7 @@
 
 	li {
 		display: inline-block;
-		padding: 20px 10px;
+		padding: 25px 10px 15px;
 		position: relative;
 	}
 
