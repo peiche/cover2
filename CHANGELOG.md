@@ -2,9 +2,15 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.0.13 - 7/19/2017**
+**1.0.13 - 10/27/2017**
 - Fixed accessibility issue with post & page content jump links.
 - Fixed JavaScript error when one or more header icons do not exist.
+- Fixed featured image function.
+- Fixed sub-menus in the mini-nav.
+- Fixed masthead styling for posts and pages with long titles and/or excerpts.
+- Added excerpt support for pages.
+- Added Gutenberg styling and wide image support.
+- Added single page template.
 
 **1.0.12 - 7/18/2017**
 - Fixed image URLs for page header css (thanks [@eightam](https://github.com/eightam))
