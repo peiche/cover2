@@ -20,6 +20,15 @@
 			<?php } ?>
 
 			<?php the_title( '<h1 class="page-title text-align-center">', '</h1>' ); ?>
+			
+			<?php
+			$post_content_excerpt = preg_split( '/<!--more(.*?)?-->/', get_post()->post_content );
+			if ( has_excerpt() && strcasecmp( trim( get_the_excerpt() ), trim( $post_content_excerpt[0] ) ) != 0 ) : ?>
+				<hr>
+				<div class="entry-excerpt">
+					<?php the_excerpt(); ?>
+				</div>
+			<?php endif; ?>
 		</div>
 
 		<?php if ( cover2_get_featured_image( get_the_ID() ) != '' ) : ?>
