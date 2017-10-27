@@ -1,0 +1,341 @@
+/*--------------------------------------------------------------
+# Gutenberg components
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Cover Image
+--------------------------------------------------------------*/
+
+.wp-block-cover-image {
+    height: auto;
+    margin-bottom: 3em;
+    margin-top: 3em;
+    min-height: 500px;
+
+    &.has-parallax {
+        //
+    }
+
+    &.has-background-dim {
+
+        &:before {
+            //
+        }
+    }
+
+    h2 {
+        font-family: $font__family-heading;
+        font-size: 8vmin;
+        line-height: 10vmin;
+        max-width: $content__width-large;
+        padding: 0;
+    }
+}
+
+/*--------------------------------------------------------------
+# Paragraph
+--------------------------------------------------------------*/
+
+p {
+
+    &.aligncenter {
+        // Nothing needed
+    }
+
+    &.alignleft,
+    &.alignright {
+        display: block;
+        float: none;
+
+        @include min-width($breakpoint__tablet-portrait) {
+            margin-left: 1em;
+            margin-right: 1em;
+            max-width: 50%;
+        }
+    }
+
+    &.alignleft {
+        @include min-width($breakpoint__tablet-portrait) {
+            float: left;
+        }
+    }
+
+    &.alignright {
+        @include min-width($breakpoint__tablet-portrait) {
+            float: right;
+        }
+    }
+
+    &.alignwide {
+        max-width: $content__width-large;
+    }
+
+    &.alignfull {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    &.has-drop-cap:first-letter {
+        font-family: inherit;
+    }
+}
+
+/*--------------------------------------------------------------
+# Quote
+--------------------------------------------------------------*/
+
+.wp-block-quote {
+
+    footer {
+        color: inherit;
+        font-size: 85%;
+        font-style: italic;
+    }
+
+    &.blocks-quote-style-1 {
+        border-color: $color__border;
+        border-left-width: 5px;
+        padding-left: 1.5em;
+    }
+
+    &.blocks-quote-style-2 {
+        border-left-width: 5px;
+        padding-left: 1.5em;
+
+        p {
+            font-size: inherit;
+            font-style: inherit;
+            line-height: inherit;
+        }
+
+        footer {
+            font-size: 85%;
+            text-align: left;
+        }
+    }
+}
+
+.wp-block-pullquote {
+    border: 5px solid $color__accent;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+/*--------------------------------------------------------------
+# Button
+--------------------------------------------------------------*/
+
+.wp-block-button {
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 38px;
+    margin-bottom: 30px;
+    max-width: $content__width-large;
+    text-align: center;
+
+    &.aligncenter {
+        display: block;
+    }
+
+    .entry-content & a {
+        @include button;
+        @include button-style($color__accent);
+    }
+}
+
+/*--------------------------------------------------------------
+# Image
+--------------------------------------------------------------*/
+
+.wp-block-image {
+    @include site-width;
+
+    margin-bottom: 3em;
+    margin-top: 3em;
+
+    &.aligncenter {
+        text-align: center;
+    }
+
+    &.alignleft,
+    &.alignright {
+        display: block;
+
+        @include min-width($breakpoint__tablet-portrait) {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+    }
+
+    &.alignleft {
+        @include min-width($breakpoint__tablet-portrait) {
+            float: left;
+            margin-right: 1em;
+        }
+    }
+
+    &.alignright {
+        @include min-width($breakpoint__tablet-portrait) {
+            float: right;
+            margin-left: 1em;
+        }
+    }
+
+    &.alignwide {
+        max-width: $content__width-large;
+    }
+
+    &.alignfull {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    figcaption {
+        @include caption;
+    }
+}
+
+/*--------------------------------------------------------------
+# Gallery
+--------------------------------------------------------------*/
+
+.wp-block-gallery {
+    @include site-width($content__width-normal);
+
+    margin-bottom: 3em;
+    margin-top: 3em;
+
+    &.alignwide {
+        @include site-width($content__width-large);
+    }
+
+    &.alignfull {
+        //width: 100%;
+    }
+
+    &.columns-2 {
+        // TODO iterate over possible column widths
+        // TODO small screens should collapse to single column
+    }
+}
+
+.blocks-gallery-image {
+    //
+}
+
+/*--------------------------------------------------------------
+# Table
+--------------------------------------------------------------*/
+
+.wp-block-table {
+
+    thead {
+        //
+    }
+
+    tbody {
+        //
+    }
+
+    tr {
+        //
+
+        &.alt {
+            //
+        }
+    }
+
+    th {
+        //
+    }
+
+    td {
+        //
+    }
+}
+
+/*--------------------------------------------------------------
+# Separator
+--------------------------------------------------------------*/
+
+.wp-block-separator {
+    border: 0;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
+/*--------------------------------------------------------------
+# Code
+--------------------------------------------------------------*/
+
+.wp-block-code {
+    //
+}
+
+.wp-block-preformatted {
+    @include site-width($content__width-large);
+
+    padding: 20px;
+}
+
+/*--------------------------------------------------------------
+# Embed
+--------------------------------------------------------------*/
+
+.wp-block-embed {
+    @include site-width($content__width-normal);
+
+    margin-bottom: 3em;
+    margin-top: 3em;
+
+    &.alignwide {
+        @include site-width($content__width-large);
+    }
+
+    &.alignfull {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    // Added an extra class here because Gutenberg doesn't add a class when you're embedding a video
+    &.responsive {
+        display: block;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        width: 100%;
+
+        &:before {
+            content: "";
+            display: block;
+            padding-top: 56.25%;
+        }
+
+        iframe {
+            border: 0;
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    }
+
+    iframe {
+        //
+    }
+
+    .twitter-tweet {
+        //
+    }
+
+    .wp-embedded-content {
+        //
+    }
+
+    figcaption {
+        @include caption;
+    }
+}
