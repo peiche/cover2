@@ -110,9 +110,6 @@
 	</footer>
 </article><!-- #post-## -->
 
-<!-- TODO class/style! -->
-
-<!--
 <div class="singlepage-scroll-nav">
 	<nav class="scroll-nav fixed" role="navigation">
 		<div class="scroll-nav__wrapper">
@@ -131,4 +128,3 @@
 		</div>
 	</nav>
 </div>
--->
