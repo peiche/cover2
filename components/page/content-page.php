@@ -23,7 +23,7 @@
 		</div>
 
 		<?php if ( cover2_get_featured_image( get_the_ID() ) != '' ) : ?>
-			<a class="page-header__scroll-to-content" href="#post-<?php the_ID(); ?>-content" aria-label="<?php echo __( 'Jump to content', 'cover2' ); ?>">
+			<a class="page-header__scroll-to-content" href="#post-<?php the_ID(); ?>-content">
 				<?php echo cover2_get_svg( array( 'icon' => 'icon_bg_angle-down' ) ); ?>
 			</a>
 		<?php endif; ?>
