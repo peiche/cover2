@@ -138,6 +138,20 @@
 		} );
 
 		/**
+		 * Clicking away from the mini-menu popup will close it.
+		 */
+		$document.on( 'click', function( e ) {
+			var $toggle = $( '.mini-menu-container .showsub-toggle.sub-on' );
+			console.log( e );
+			if ( $toggle.length > 0 && (
+					! $( e.target ).is( '.mini-menu-container .showsub-toggle' ) &&
+					! $( e.target ).closest( '.showsub-toggle' ).is( '.mini-menu-container .showsub-toggle' ) ) ) {
+				$toggle.parent().next( '.children, .sub-menu' ).removeClass( 'sub-on' );
+				$toggle.attr( 'aria-expanded', 'false' ).removeClass( 'sub-on' );
+			}
+		} );
+
+		/**
 		 * Performs a smooth page scroll to an anchor on the same page.
 		 * Ignore Aesop Story Engine ids and comment paging.
 		 * https://css-tricks.com/snippets/jquery/smooth-scrolling/

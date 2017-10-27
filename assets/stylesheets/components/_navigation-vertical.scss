@@ -28,11 +28,22 @@
 .showsub-toggle {
 	background: transparent;
 	border: 0;
+	border-radius: 25px;
 	box-shadow: none;
 	color: inherit;
 	float: right;
 	line-height: 0;
+	margin-left: 10px;
 	padding: 6px;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+		color: inherit;
+
+		.overlay-dark .overlay & {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+	}
 }
 
 .mini-menu-container {
@@ -50,7 +61,8 @@
 
 	li {
 		display: inline-block;
-		padding: 23px 10px;
+		padding: 20px 10px;
+		position: relative;
 	}
 
 	a {
@@ -68,5 +80,72 @@
 
 	.has-chapters & {
 		padding-right: 40px;
+	}
+
+	.showsub-toggle {
+		color: inherit;
+	}
+
+	.sub-menu {
+		background-color: $color__white;
+		border: 1px solid rgba(0, 0, 0, 0.25);
+		border-radius: 3px;
+		color: $color__text-main;
+		display: none;
+		margin-top: -10px;
+		min-width: 100%;
+		overflow: visible;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		position: absolute;
+		right: 0;
+		top: 100%;
+
+		&.sub-on {
+			display: block;
+		}
+
+		&:before,
+		&:after {
+			border: 10px solid transparent;
+			border-bottom-color: rgba(0, 0, 0, 0.25);
+			bottom: 100%;
+			content: "";
+			position: absolute;
+			right: 15px;
+		}
+
+		&:after {
+			border-bottom-color: $color__white;
+			margin-bottom: -1px;
+			margin-top: 10px;
+		}
+
+		li {
+			display: block;
+			padding: 0;
+		}
+
+		a {
+			border: 0;
+			display: block;
+			padding: 15px 10px 15px 25px;
+
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+		}
+
+		.sub-menu {
+			border: 0;
+			margin: 0;
+			padding: 0;
+			position: static;
+
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
 	}
 }
