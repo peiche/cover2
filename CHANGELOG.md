@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.14 - 10/27/2017**
+- Fixed Gutenberg full width gallery.
+
 **1.0.13 - 10/27/2017**
 - Fixed accessibility issue with post & page content jump links.
 - Fixed JavaScript error when one or more header icons do not exist.
