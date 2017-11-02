@@ -184,6 +184,7 @@ p {
 
     &.alignwide {
         max-width: $content__width-large;
+        width: 100%;
     }
 
     &.alignfull {
@@ -207,16 +208,17 @@ p {
     margin-top: 3em;
 
     &.alignwide {
-        @include site-width($content__width-large);
+        max-width: $content__width-large;
+        width: 100%;
     }
 
     &.alignfull {
-        //width: 100%;
+        max-width: 100%;
+        width: 100%;
     }
 
-    &.columns-2 {
-        // TODO iterate over possible column widths
-        // TODO small screens should collapse to single column
+    .blocks-gallery-image {
+      margin: 8px;
     }
 }
 
