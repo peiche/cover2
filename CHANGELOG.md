@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.0.15 - 11/15/2017**
+- Fixed Aesop Story Engine chapter overlay.
+- Replaced Font Awesome icons with Nucleo icons.
+- Removed Morpheus SVG.
+- Added Scrollnav for single page template.
+
 **1.0.14 - 10/27/2017**
 - Fixed Gutenberg full width gallery.
 
