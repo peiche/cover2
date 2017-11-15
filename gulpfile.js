@@ -82,24 +82,26 @@ gulp.task( 'todo', function() {
 });
 
 /**
- * Removes the generated files.
+ * Remove all generated files.
  */
 gulp.task( 'clean', function() {
   return del( [ 'dist', 'languages', config.report_loc, config.release_loc, 'style.css' ] );
 } );
 
+/**
+ * Copy third-party scripts.
+ */
 gulp.task( 'copy', function() {
   return gulp.src( [
     'node_modules/headroom.js/dist/headroom*.js',
     'node_modules/flexslider/jquery.flexslider*.js',
     'node_modules/@vimeo/player/dist/player*.js',
-    'node_modules/svg-morpheus/compile/unminified/svg-morpheus.js',
-    'node_modules/scrollnav/dist/jquery.scrollnav.min.js'
+    'node_modules/scrollnav/dist/jquery.scrollnav*.js'
   ] ).pipe( gulp.dest( 'dist/js' ) );
 } );
 
 /**
- * Lints the Sass stylesheet.
+ * Lint the Sass stylesheet.
  */
 gulp.task( 'stylelint', function() {
   var processors = [
@@ -114,9 +116,9 @@ gulp.task( 'stylelint', function() {
 } );
 
 /**
- * Compiles the Sass stylesheet and runs it through the PostCSS processor array.
+ * Compile the Sass stylesheet and run it through the PostCSS processor array.
  */
-gulp.task( 'css', ['stylelint'], function() {
+gulp.task( 'css', [ 'stylelint' ], function() {
   var processors = [
     autoprefixer( { browsers: AUTOPREFIXER_BROWSERS } )
   ];
@@ -135,15 +137,24 @@ gulp.task( 'css', ['stylelint'], function() {
 } );
 
 /**
- * Lint and uglify the JavaScript.
+ * Lint the JavaScript.
  */
-gulp.task( 'js', function() {
+gulp.task( 'jscs', function() {
   return gulp.src( [
-    'assets/js/*.js',
-    'gulpfile.js'
+    'gulpfile.js',
+    'assets/js/*.js'
   ] )
     .pipe( jscs() )
-    .pipe( jscs.reporter() )
+    .pipe( jscs.reporter() );
+} );
+
+/**
+ * Strip debug statements and uglify the JavaScript.
+ */
+gulp.task( 'js', [ 'jscs' ], function() {
+  return gulp.src( [
+    'assets/js/*.js'
+  ] )
     .pipe( config.production ? stripDebug() : util.noop() )
     .pipe( config.production ? uglify() : util.noop() )
     .pipe( gulp.dest( 'dist/js' ) );
@@ -189,27 +200,7 @@ gulp.task( 'phplint', function() {
  */
 gulp.task( 'svg', function() {
   return gulp.src( [
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_folder.svg',        // Category
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_tag.svg',           // Tag
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_tags.svg',          // Tags
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_pencil.svg',        // Edit links
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_thumb-tack.svg',    // Pinned posts
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_play-circle.svg',   // Video
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_play-circle-o.svg', // Video (hollow)
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_music.svg',         // Audio
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_picture-o.svg',     // Image
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_quote-right.svg',   // Quote
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_sticky-note-o.svg', // Aside
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_link.svg',          // Link
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_comments.svg',      // Chat
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_comment.svg',       // Status
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-left.svg',    // Left arrow
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_arrow-right.svg',   // Right arrow
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_angle-down.svg',    // Down chevron
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_bookmark.svg',      // Bookmark
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_bars.svg',          // Menu
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_search.svg',        // Search
-      'node_modules/bem-font-awesome-icons/icon/_bg/icon_bg_times.svg'          // Close "x"
+      'assets/svg/*.svg'
     ] )
     .pipe( svgSprite( config.svg_options ) )
     .pipe( gulp.dest( 'dist' ) );
@@ -225,31 +216,42 @@ gulp.task( 'js-watch', [ 'js' ], function( done ) {
 } );
 
 /**
+ * Compile the theme's assets.
+ */
+gulp.task( 'build', function() {
+  gulp.start( 'copy', 'css', 'js', 'svg' );
+} );
+
+/**
  * Proxy server
  */
 gulp.task( 'browser-sync', function() {
-    browserSync.init( {
-        proxy: 'localhost/wordpress'
-    } );
+  browserSync.init( {
+      proxy: 'localhost/wordpress'
+  } );
 } );
 
 /**
- * Static Server + watching scss/html files
+ * Static Server + watching files.
  */
-gulp.task( 'serve', [ 'browser-sync', 'copy', 'css', 'js', 'svg' ], function() {
-    gulp.watch( 'assets/stylesheets/**/*.scss', [ 'css' ] );
-    gulp.watch( 'assets/js/*.js', [ 'js-watch' ] );
-    gulp.watch( '**/*.php' ).on( 'change', browserSync.reload );
+gulp.task( 'serve', [ 'browser-sync', 'build' ], function() {
+  gulp.watch( 'assets/stylesheets/**/*.scss', [ 'css' ] );
+  gulp.watch( 'assets/js/*.js', [ 'js-watch' ] );
+  gulp.watch( 'assets/svg/*.svg', [ 'svg' ] );
+  gulp.watch( '**/*.php' ).on( 'change', browserSync.reload );
 } );
 
 /**
- * The default task will run the `clean` task first, then the `serve`, and `js`
- * tasks. The `serve` task will run the `css` task as a requirement.
+ * The default task will run the `clean` task first, then the necessary tasks
+ * for compiling the theme's assets, along with generating a translation file.
  */
 gulp.task( 'default', [ 'clean' ], function() {
-  gulp.start( 'copy', 'css', 'js', 'pot', 'svg' );
+  gulp.start( 'build', 'pot' );
 } );
 
+/**
+ * Create a zip archive of the compiled theme.
+ */
 gulp.task( 'zip', function() {
   del( [ config.release_loc ] );
 
