@@ -50,11 +50,9 @@
   },
   "dependencies": {
     "@vimeo/player": "^2.0.1",
-    "bem-font-awesome-icons": "^1.0.2",
     "bourbon-neat": "^2.0.0",
     "flexslider": "^2.6.3",
     "headroom.js": "^0.9.3",
-    "scrollnav": "^2.7.1",
-    "svg-morpheus": "^0.3.0"
+    "scrollnav": "^2.7.1"
   }
 }
