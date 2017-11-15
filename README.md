@@ -111,11 +111,10 @@ License - http://creativecommons.org/publicdomain/zero/1.0/
 
 All other resources are licensed as follows:
 
-* [Font Awesome SVG PNG](https://github.com/encharm/Font-Awesome-SVG-PNG) - [MIT](https://github.com/encharm/Font-Awesome-SVG-PNG/blob/master/LICENSE)
 * [Headroom](http://wicky.nillia.ms/headroom.js/) - [MIT](https://github.com/WickyNilliams/headroom.js/blob/master/LICENSE)
 * [FlexSlider](http://flexslider.woothemes.com) - [GPL v2.0 or later](https://github.com/woocommerce/FlexSlider/blob/master/LICENSE.md)
 * [Bourbon Neat](http://neat.bourbon.io/) - [MIT](https://github.com/thoughtbot/neat/blob/master/LICENSE.md)
-* [Morpheus SVG](http://alexk111.github.io/SVG-Morpheus/) - [MIT](https://github.com/alexk111/SVG-Morpheus/blob/master/LICENSE)
+* [Nucleo Icons](https://nucleoapp.com/) - [Standard License](https://github.com/NucleoApp/license-standard)
 
 ## Inspiration
 
