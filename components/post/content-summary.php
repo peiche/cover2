@@ -14,33 +14,36 @@
 
 		<?php
 		if ( is_sticky() ) {
-			echo cover2_get_svg( array( 'icon' => 'icon_bg_thumb-tack', 'title' => __( 'Sticky Post', 'cover2' ) ) );
+			echo cover2_get_svg( array( 'icon' => 'pin', 'title' => __( 'Sticky Post', 'cover2' ) ) );
 		} else if ( get_post_format() ) {
 			$format = get_post_format();
 			switch ( $format ) {
 				case 'video':
-					echo cover2_get_svg( array( 'icon' => 'icon_bg_play-circle', 'title' => __( 'Video', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'video-square', 'title' => __( 'Video', 'cover2' ) ) );
 					break;
 				case 'audio':
-					echo cover2_get_svg( array( 'icon' => 'icon_bg_music', 'title' => __( 'Audio', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'music', 'title' => __( 'Audio', 'cover2' ) ) );
+					break;
+				case 'gallery':
+					echo cover2_get_svg( array( 'icon' => 'image', 'title' => __( 'Gallery', 'cover2' ) ) );
 					break;
 				case 'image':
-					echo cover2_get_svg( array( 'icon' => 'icon_bg_picture-o', 'title' => __( 'Image', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'image', 'title' => __( 'Image', 'cover2' ) ) );
 					break;
 				case 'quote':
-					echo cover2_get_svg( array( 'icon' => 'icon_bg_quote-right', 'title' => __( 'Quote', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'quote', 'title' => __( 'Quote', 'cover2' ) ) );
 					break;
 				case 'aside':
-					echo cover2_get_svg( array( 'icon' => 'icon_bg_file-o', 'title' => __( 'Aside', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'note', 'title' => __( 'Aside', 'cover2' ) ) );
 					break;
 				case 'link':
-					echo cover2_get_svg( array( 'icon' => 'icon_bg_link', 'title' => __( 'Link', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'link', 'title' => __( 'Link', 'cover2' ) ) );
 					break;
 				case 'chat':
-					echo cover2_get_svg( array( 'icon' => 'icon_bg_comments', 'title' => __( 'Chat', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'chat', 'title' => __( 'Chat', 'cover2' ) ) );
 					break;
 				case 'status':
-					echo cover2_get_svg( array( 'icon' => 'icon_bg_comment', 'title' => __( 'Status', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'status', 'title' => __( 'Status', 'cover2' ) ) );
 					break;
 			}
 		}

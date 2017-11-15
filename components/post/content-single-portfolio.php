@@ -18,7 +18,7 @@
 
 			<?php if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
 				<button class="video-toggle video-play" aria-label="toggle video" aria-expanded="false">
-					<?php echo cover2_get_svg( array( 'icon' => 'icon_bg_play-circle-o' ) ); ?>
+					<?php echo cover2_get_svg( array( 'icon' => 'video-circle' ) ); ?>
 				</button>
 			<?php } ?>
 
