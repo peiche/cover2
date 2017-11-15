@@ -222,13 +222,11 @@ function cover2_scripts() {
 
 	wp_enqueue_script( 'cover2-headroom', get_template_directory_uri() . '/dist/js/headroom.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/headroom.min.js' ), true );
 
-	wp_enqueue_script( 'cover2-morpheus-svg', get_template_directory_uri() . '/dist/js/svg-morpheus.js', array(), filemtime( get_template_directory() . '/dist/js/svg-morpheus.js' ), true );
-
 	wp_enqueue_script( 'cover2-main', get_template_directory_uri() . '/dist/js/main.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/main.js' ), true );
 	wp_localize_script( 'cover2-main', 'menuToggleText', array(
 		'open'   => esc_html__( 'Open child menu', 'cover2' ),
 		'close'  => esc_html__( 'Close child menu', 'cover2' ),
-		'icon'   => cover2_get_svg( array( 'icon' => 'icon_bg_angle-down', 'fallback' => true ) ),
+		'icon'   => cover2_get_svg( array( 'icon' => 'chevron-down-small', 'fallback' => true ) ),
 	) );
 
 	wp_enqueue_script( 'cover2-navigation', get_template_directory_uri() . '/dist/js/navigation.js', array(), filemtime( get_template_directory() . '/dist/js/navigation.js' ), true );
@@ -245,10 +243,13 @@ function cover2_scripts() {
 	}
 
 	// Featured Video Plus plugin compatibility.
-	if ( function_exists( 'has_post_video' ) && has_post_video() ) {
+	if ( function_exists( 'has_post_video' ) && has_post_video() && (is_single() || is_page()) ) {
 		wp_enqueue_script( 'vimeo', get_template_directory_uri() . '/dist/js/player.min.js', array(), filemtime( get_template_directory() . '/dist/js/player.min.js' ), true );
 		wp_enqueue_script( 'cover2-featured-video-plus', get_template_directory_uri() . '/dist/js/featured-video-plus.js', array(), filemtime( get_template_directory() . '/dist/js/featured-video-plus.js' ), true );
 	}
+	
+	// Scrollnav functionality (for single page template).
+	wp_enqueue_script( 'scrollnav', get_template_directory_uri() . '/dist/js/jquery.scrollnav.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/jquery.scrollnav.min.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'cover2_scripts' );
 
