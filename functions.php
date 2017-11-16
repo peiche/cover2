@@ -250,6 +250,11 @@ function cover2_scripts() {
 	
 	// Scrollnav functionality (for single page template).
 	wp_enqueue_script( 'scrollnav', get_template_directory_uri() . '/dist/js/jquery.scrollnav.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/jquery.scrollnav.min.js' ), true );
+	
+	// Disable mediaelement.js for archives
+	if ( is_home() || is_archive() || is_search() ) {
+		wp_dequeue_script( 'wp-mediaelement' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'cover2_scripts' );
 
