@@ -12,15 +12,19 @@
     width: inherit;
   }
 
+  .showsub-toggle & {
+    transition: all 200ms;
+  }
+
   .showsub-toggle.sub-on & {
-    transform: rotate(180deg);
+    transform: rotateX(180deg);
 
     .mini-menu-container & {
-      transform: rotate(0deg);
+      transform: rotateX(0deg);
     }
 
     .mini-menu-container .sub-menu & {
-      transform: rotate(180deg);
+      transform: rotateX(180deg);
     }
   }
 
