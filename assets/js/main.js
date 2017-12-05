@@ -31,10 +31,6 @@
 		chapterToggle = $( '.chapter-toggle' ),
 		button = '<button class="showsub-toggle" aria-expanded="false">' + menuToggleText.icon + '<span class="screen-reader-text">' + menuToggleText.open + '</span></button>',
 		headroom,
-		morpheusConfig = {
-			duration: 200,
-			rotation: 'none'
-		},
 		clickEvent = new CustomEvent( 'click' ), // For programmatically firing the click event on SVG icons
 		menuIcon = document.getElementById( 'svg-icon-menu-icon' ),
 		searchIcon = document.getElementById( 'svg-icon-search-icon' ),
