@@ -52,7 +52,6 @@
     "@vimeo/player": "^2.0.1",
     "bourbon-neat": "^2.0.0",
     "flexslider": "^2.6.3",
-    "headroom.js": "^0.9.3",
-    "scrollnav": "^2.7.1"
+    "headroom.js": "^0.9.3"
   }
 }
