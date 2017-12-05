@@ -2,11 +2,15 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.0.15 - 11/15/2017**
+**1.0.15 - 12/5/2017**
 - Fixed Aesop Story Engine chapter overlay.
+- Fixed header styles on paged archives.
+- Fixed [JavaScript error](https://github.com/peiche/cover2/issues/13).
+- Fixed [error on 404 pages](https://github.com/peiche/cover2/issues/14).
+- Fixed Aesop Story Engine chapter component logic for site header and overlay.
 - Replaced Font Awesome icons with Nucleo icons.
 - Removed Morpheus SVG.
-- Added Scrollnav for single page template.
+- Updated Gutenberg styles.
 
 **1.0.14 - 10/27/2017**
 - Fixed Gutenberg full width gallery.
