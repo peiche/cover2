@@ -247,11 +247,6 @@ function cover2_scripts() {
 		wp_enqueue_script( 'vimeo', get_template_directory_uri() . '/dist/js/player.min.js', array(), filemtime( get_template_directory() . '/dist/js/player.min.js' ), true );
 		wp_enqueue_script( 'cover2-featured-video-plus', get_template_directory_uri() . '/dist/js/featured-video-plus.js', array(), filemtime( get_template_directory() . '/dist/js/featured-video-plus.js' ), true );
 	}
-	
-	// Disable mediaelement.js for archives
-	if ( is_home() || is_archive() || is_search() ) {
-		wp_dequeue_script( 'wp-mediaelement' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'cover2_scripts' );
 
