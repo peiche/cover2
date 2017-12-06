@@ -81,13 +81,13 @@
    .posts-navigation .nav-next a:hover {
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
-
    button.default,
    input[type="button"].default,
    input[type="reset"].default,
    input[type="submit"].default,
    .button.default,
-   .page-header .button.default {
+   .page-header .button.default,
+   .entry-content .wp-block-button a {
      border-color: hsl(' . $hue . ', 75%, 50%);
      color: hsl(' . $hue . ', 75%, 50%);
    }
@@ -96,7 +96,8 @@
    input[type="reset"].default:hover,
    input[type="submit"].default:hover,
    .button.default:hover,
-   .page-header .button.default:hover {
+   .page-header .button.default:hover,
+   .entry-content .wp-block-button a:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
    }

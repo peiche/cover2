@@ -12,7 +12,7 @@
   z-index: $z-index__default + 2;
 
   .has-featured-image &,
-  .has-featured-post &,
+  .has-featured-post:not(.paged) &,
   .archive & {
     background-color: transparent;
   }
@@ -62,7 +62,7 @@
       background-color: $color__accent;
     }
 
-    .blog.has-featured-post & {
+    .blog.has-featured-post:not(.paged) & {
       background-color: transparent;
     }
   }

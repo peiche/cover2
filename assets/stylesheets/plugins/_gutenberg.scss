@@ -119,6 +119,18 @@ p {
     border: 5px solid $color__accent;
     padding-left: 1.5em;
     padding-right: 1.5em;
+
+    p {
+        font-family: $font__family-main;
+        font-size: 150%;
+        font-weight: $font__weight-normal;
+    }
+
+    footer {
+        font-size: 90%;
+        font-weight: $font__weight-normal;
+        text-transform: none;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -126,16 +138,27 @@ p {
 --------------------------------------------------------------*/
 
 .wp-block-button {
+    @include site-width;
+
     background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
+    border-radius: 0;
+    display: block;
+    height: auto;
     line-height: 38px;
     margin-bottom: 30px;
-    max-width: $content__width-large;
-    text-align: center;
+    padding: 0;
+    white-space: normal;
+
+    &.alignleft,
+    &.alignright {
+        margin-left: 30px;
+        margin-right: 30px;
+        width: auto;
+    }
 
     &.aligncenter {
         display: block;
+        text-align: center;
     }
 
     .entry-content & a {
@@ -184,7 +207,6 @@ p {
 
     &.alignwide {
         max-width: $content__width-large;
-        width: 100%;
     }
 
     &.alignfull {
@@ -208,22 +230,24 @@ p {
     margin-top: 3em;
 
     &.alignwide {
-        max-width: $content__width-large;
-        width: 100%;
+        @include site-width($content__width-large);
     }
 
     &.alignfull {
         max-width: 100%;
         width: 100%;
     }
-
-    .blocks-gallery-image {
-      margin: 8px;
-    }
 }
 
+// How awful that we have to extend this specificity tomfoolery
 .blocks-gallery-image {
-    //
+
+    .wp-block-gallery &,
+    .wp-block-gallery.alignleft &,
+    .wp-block-gallery.alignright &,
+    .wp-block-gallery.aligncenter & {
+        margin: 8px;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -282,10 +306,10 @@ p {
 }
 
 /*--------------------------------------------------------------
-# Embed
+# Video
 --------------------------------------------------------------*/
 
-.wp-block-embed {
+.wp-block-video {
     @include site-width($content__width-normal);
 
     margin-bottom: 3em;
@@ -300,44 +324,60 @@ p {
         width: 100%;
     }
 
-    // Added an extra class here because Gutenberg doesn't add a class when you're embedding a video
-    &.responsive {
-        display: block;
-        overflow: hidden;
-        padding: 0;
-        position: relative;
+    figcaption {
+        @include caption;
+    }
+}
+
+/*--------------------------------------------------------------
+# Embed
+--------------------------------------------------------------*/
+
+.wp-block-embed,
+[class^="wp-block-embed-"] {
+    @include site-width($content__width-normal);
+
+    margin-bottom: 3em;
+    margin-top: 3em;
+
+    &.alignwide {
+        @include site-width($content__width-large);
+    }
+
+    &.alignfull {
+        max-width: 100%;
         width: 100%;
-
-        &:before {
-            content: "";
-            display: block;
-            padding-top: 56.25%;
-        }
-
-        iframe {
-            border: 0;
-            bottom: 0;
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-    }
-
-    iframe {
-        //
-    }
-
-    .twitter-tweet {
-        //
-    }
-
-    .wp-embedded-content {
-        //
     }
 
     figcaption {
         @include caption;
+    }
+}
+
+/*
+ * There is no way to know which embed classes have video,
+ * so we need to declare each one specifically.
+ */
+.wp-block-embed-youtube,
+.wp-block-embed-vimeo,
+.wp-block-embed-videopress {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    iframe {
+        border: 0;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
     }
 }

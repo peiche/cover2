@@ -28,7 +28,7 @@
 
 	<?php
 	$has_chapters = '';
-	if ( is_object( $post ) && has_shortcode( $post->post_content, 'aesop_chapter' ) ) :
+	if ( is_object( $post ) && has_shortcode( $post->post_content, 'aesop_chapter' ) && ( is_single() || is_page() ) ) :
 		$has_chapters = ' has-chapters';
 	endif;
 	?>

@@ -2,6 +2,21 @@
  * Custom js for theme
  */
 
+// CustomEvent polyfill
+( function() {
+	if ( 'function' === typeof window.CustomEvent ) {
+		return false;
+	}
+	function CustomEvent( event, params ) {
+		var evt = document.createEvent( 'CustomEvent' );
+		params = params || { bubbles: false, cancelable: false, detail: undefined };
+		evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+		return evt;
+	}
+	CustomEvent.prototype = window.Event.prototype;
+	window.CustomEvent = CustomEvent;
+} )();
+
 ( function( $ ) {
 	var $window   = $( window ),
 		$document = $( document ),
@@ -16,13 +31,10 @@
 		chapterToggle = $( '.chapter-toggle' ),
 		button = '<button class="showsub-toggle" aria-expanded="false">' + menuToggleText.icon + '<span class="screen-reader-text">' + menuToggleText.open + '</span></button>',
 		headroom,
-		morpheusConfig = {
-			duration: 200,
-			rotation: 'none'
-		},
-		menuIcon = $( '#svg-icon-menu-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-menu-icon', morpheusConfig ) : undefined,
-		searchIcon = $( '#svg-icon-search-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-search-icon', morpheusConfig ) : undefined,
-		bookmarkIcon = $( '#svg-icon-bookmark-icon' ).length > 0 ? new SVGMorpheus( '#svg-icon-bookmark-icon', morpheusConfig ) : undefined;
+		clickEvent = new CustomEvent( 'click' ), // For programmatically firing the click event on SVG icons
+		menuIcon = document.getElementById( 'svg-icon-menu-icon' ),
+		searchIcon = document.getElementById( 'svg-icon-search-icon' ),
+		bookmarkIcon = document.getElementById( 'svg-icon-bookmark-icon' );
 
 	/**
 	 * Header
@@ -64,7 +76,7 @@
 			$this.toggleClass( 'toggle-on' );
 			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
 
-			menuIcon.to( $this.hasClass( 'toggle-on' ) ? 'svg-icon-menu-close' : 'svg-icon-menu' );
+			menuIcon.dispatchEvent( clickEvent );
 
 			searchToggle.toggleClass( 'hide' );
 			chapterToggle.toggleClass( 'hide' );
@@ -82,7 +94,7 @@
 			$this.toggleClass( 'toggle-on' );
 			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
 
-			searchIcon.to( $this.hasClass( 'toggle-on' ) ? 'svg-icon-search-close' : 'svg-icon-search' );
+			searchIcon.dispatchEvent( clickEvent );
 
 			menuToggle.toggleClass( 'hide' );
 			chapterToggle.toggleClass( 'hide' );
@@ -105,7 +117,7 @@
 			$this.toggleClass( 'toggle-on' );
 			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
 
-			bookmarkIcon.to( $this.hasClass( 'toggle-on' ) ? 'svg-icon-bookmark-close' : 'svg-icon-bookmark' );
+			bookmarkIcon.dispatchEvent( clickEvent );
 
 			menuToggle.toggleClass( 'hide' );
 			searchToggle.toggleClass( 'hide' );
@@ -142,7 +154,6 @@
 		 */
 		$document.on( 'click', function( e ) {
 			var $toggle = $( '.mini-menu-container .showsub-toggle.sub-on' );
-			console.log( e );
 			if ( $toggle.length > 0 && (
 					! $( e.target ).is( '.mini-menu-container .showsub-toggle' ) &&
 					! $( e.target ).closest( '.showsub-toggle' ).is( '.mini-menu-container .showsub-toggle' ) ) ) {
@@ -210,7 +221,7 @@
 			chapterOverlay.removeClass( 'show' ).resize();
 			menuToggle.removeClass( 'hide' );
 			searchToggle.removeClass( 'hide' );
-			bookmarkIcon.to( 'svg-icon-bookmark' );
+			bookmarkIcon.dispatchEvent( clickEvent );
 		} );
 	}
 
@@ -225,7 +236,7 @@
 			menuOverlay.removeClass( 'show' ).resize();
 			searchToggle.removeClass( 'hide' );
 			chapterToggle.removeClass( 'hide' );
-			menuIcon.to( 'svg-icon-menu' );
+			menuIcon.dispatchEvent( clickEvent );
 		}
 
 		if ( 27 === e.keyCode && searchOverlay.hasClass( 'show' ) ) {
@@ -235,7 +246,7 @@
 			searchOverlay.removeClass( 'show' ).resize();
 			menuToggle.removeClass( 'hide' );
 			chapterToggle.removeClass( 'hide' );
-			searchIcon.to( 'svg-icon-search' );
+			searchIcon.dispatchEvent( clickEvent );
 		}
 
 		if ( 27 === e.keyCode && chapterOverlay.hasClass( 'show' ) ) {
@@ -245,7 +256,7 @@
 			chapterOverlay.removeClass( 'show' ).resize();
 			menuToggle.removeClass( 'hide' );
 			searchToggle.removeClass( 'hide' );
-			bookmarkIcon.to( 'svg-icon-bookmark' );
+			bookmarkIcon.dispatchEvent( clickEvent );
 		}
 	} );
 

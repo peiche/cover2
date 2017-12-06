@@ -30,9 +30,9 @@ get_header(); ?>
 
 				// Previous/next post navigation.
 				the_post_navigation( array(
-						'next_text' => '<span class="nav-next__image"></span><span class="meta-nav text-align-right" aria-hidden="true">' . cover2_get_svg( array( 'icon' => 'icon_bg_arrow-right', 'title' => __( 'Next', 'cover2' ) ) ) .
+						'next_text' => '<span class="nav-next__image"></span><span class="meta-nav text-align-right" aria-hidden="true">' . cover2_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'Next', 'cover2' ) ) ) .
 						'</span> <span class="screen-reader-text">' . __( 'Next post:', 'cover2' ) . '</span><hr><span class="post-title text-align-center">%title</span>',
-					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . cover2_get_svg( array( 'icon' => 'icon_bg_arrow-left', 'title' => __( 'Previous', 'cover2' ) ) ) .
+						'prev_text' => '<span class="meta-nav" aria-hidden="true">' . cover2_get_svg( array( 'icon' => 'arrow-left', 'title' => __( 'Previous', 'cover2' ) ) ) .
 						'</span><span class="screen-reader-text">' . __( 'Previous post:', 'cover2' ) . '</span><hr><span class="post-title text-align-center">%title</span>',
 				) );
 

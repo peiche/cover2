@@ -31,15 +31,7 @@
 		background-color: $color__background-dark;
 		min-height: 100vh;
 		padding-bottom: 75px;
-		padding-top: 45vh;
-
-		@include min-width($breakpoint__tablet-portrait) {
-			padding-top: 60vh;
-		}
-	}
-
-	.has-featured-video & {
-		padding-top: 44vh; // 60vh - 16vh
+		padding-top: 40vh;
 	}
 
 	hr {
