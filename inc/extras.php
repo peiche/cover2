@@ -53,6 +53,12 @@ function cover2_body_classes( $classes ) {
 	// Get the colorscheme or the default if there isn't one.
 	$colors = cover2_sanitize_overlay_colorscheme( get_theme_mod( 'overlay_colorscheme', 'light' ) );
 	$classes[] = 'overlay-' . $colors;
+	
+	// Set accent colored footer.
+	$accent_footer = cover2_sanitize_checkbox( get_theme_mod( 'footer_accent', false ) );
+	if ( $accent_footer ) {
+		$classes[] = 'accent-footer';
+	}
 
 	if ( cover2_has_featured_post() ) {
 		$classes[] = 'has-featured-post';

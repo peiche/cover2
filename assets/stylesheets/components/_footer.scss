@@ -6,6 +6,9 @@
 
 	a {
 		@include link;
+	.accent-footer & {
+		background-color: $color__accent;
+	}
 	}
 }
 
@@ -13,4 +16,16 @@
 	@include site-width($content__width-large);
 
 	text-align: center;
+
+	.accent-footer & {
+		color: $color__white;
+	}
+
+	a:not(.button) {
+		@include link;
+
+		.accent-footer & {
+			color: $color__white;
+		}
+	}
 }

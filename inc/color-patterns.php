@@ -117,6 +117,9 @@
    .fotorama__thumb-border {
     border-color: hsl(' . $hue . ', 75%, 40%);
    }
+   .accent-footer .site-footer {
+    background-color: hsl(' . $hue . ', 75%, 40%);
+   }
    ';
 
   /**
