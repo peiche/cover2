@@ -150,34 +150,12 @@ body.overlay-open {
     }
   }
 
-  .widget {
-
-    ul {
-      list-style: none;
-      margin-left: 0;
-      padding: 0;
-    }
+  .widget:last-child {
+    margin-bottom: 3em;
   }
 
   .widget-title {
-    color: #999;
-    margin-top: 2em;
-  }
-
-  .recentcomments a {
-    color: lighten($color__text-main, 10%);
-
-    .overlay-dark & {
-      color: darken($color__white, 10%);
-    }
-
-    &:hover {
-      color: $color__text-main;
-
-      .overlay-dark & {
-        color: $color__white;
-      }
-    }
+  	margin-top: 2em;
   }
 
   .menu-social-menu-container ul {
