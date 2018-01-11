@@ -19,6 +19,11 @@ function cover2_jetpack_setup() {
 		'container' => 'main',
 		'render'    => 'cover2_infinite_scroll_render',
 		'footer'    => 'page',
+		'footer_widgets' => array(
+			'sidebar-footer-1',
+			'sidebar-footer-2',
+			'sidebar-footer-3',
+		),
 	) );
 
 	// Add theme support for Responsive Videos.

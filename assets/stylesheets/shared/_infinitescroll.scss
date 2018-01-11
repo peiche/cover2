@@ -38,3 +38,15 @@
 #infinite-footer {
 	display: none;
 }
+
+.site-main #infinite-handle {
+	margin-top: 1.5em;
+	text-align: center;
+
+	span {
+		@include button;
+		@include button-style($color__accent, false);
+
+		font-size: inherit;
+	}
+}
