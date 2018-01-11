@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 - Fixed broken pages widget.
 - Added option to apply accent color to footer.
 - Added footer widgets.
+- Updated Jetpack's Infinite Scroll module to account for footer widgets.
 
 **1.0.15 - 12/5/2017**
 - Fixed Aesop Story Engine chapter overlay.
