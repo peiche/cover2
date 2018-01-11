@@ -136,9 +136,7 @@
 		$( '.page_item_has_children > a, .menu-item-has-children > a' ).each( function() {
 			$( this ).append( button );
 		} );
-		$( '.children' ).each(function() {
-			$( this ).closest( 'li' ).find( '> a' ).append( button );
-		});
+
 		$( '.showsub-toggle' ).click( function( e ) {
 			var $this = $( this );
 			var $screenReaderText = $( this ).find( '.screen-reader-text' );
