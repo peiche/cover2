@@ -11,23 +11,23 @@
     <div class="footer-widgets">
         <div class="container">
             
-            <?php if ( is_active_sidebar( 'sidebar-footer-1' ) ) : ?>
-                <div class="col-3">
+            <div class="col-3">
+                <?php if ( is_active_sidebar( 'sidebar-footer-1' ) ) : ?>
                     <?php dynamic_sidebar( 'sidebar-footer-1' ); ?>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
             
-            <?php if ( is_active_sidebar( 'sidebar-footer-2' ) ) : ?>
-                <div class="col-3">
+            <div class="col-3">
+                <?php if ( is_active_sidebar( 'sidebar-footer-2' ) ) : ?>
                     <?php dynamic_sidebar( 'sidebar-footer-2' ); ?>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
             
-            <?php if ( is_active_sidebar( 'sidebar-footer-3' ) ) : ?>
-                <div class="col-3">
+            <div class="col-3">
+                <?php if ( is_active_sidebar( 'sidebar-footer-3' ) ) : ?>
                     <?php dynamic_sidebar( 'sidebar-footer-3' ); ?>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
             
         </div>
     </div>

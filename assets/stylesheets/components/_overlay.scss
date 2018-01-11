@@ -150,8 +150,12 @@ body.overlay-open {
     }
   }
 
-  .widget:last-child {
-    margin-bottom: 3em;
+  .widget {
+    margin-top: 3em;
+
+    &:last-child {
+      margin-bottom: 3em;
+    }
   }
 
   .widget-title {

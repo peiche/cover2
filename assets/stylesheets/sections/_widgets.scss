@@ -147,3 +147,18 @@
 		text-align: right;
 	}
 }
+
+.widget_pages {
+
+	.children {
+		box-shadow: none;
+		height: 0;
+		overflow: hidden;
+		top: auto;
+		width: 100%;
+
+		&.sub-on {
+			height: auto;
+		}
+	}
+}
