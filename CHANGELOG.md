@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.1.0 - 1/10/2018**
+- Fixed broken pages widget.
+- Added option to apply accent color to footer.
+- Added footer widgets.
+- Updated Jetpack's Infinite Scroll module to account for footer widgets.
+
 **1.0.15 - 12/5/2017**
 - Fixed Aesop Story Engine chapter overlay.
 - Fixed header styles on paged archives.

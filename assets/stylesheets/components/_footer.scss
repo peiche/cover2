@@ -1,16 +1,39 @@
 .site-footer {
 	@include clearfix;
 
+	margin-top: 1.5em;
 	padding-bottom: 1.5em;
-	padding-top: 1.5em;
 
-	a {
-		@include link;
+	.accent-footer & {
+		background-color: $color__accent;
+	}
+}
+
+.footer-widgets {
+	background-color: #f5f5f5;
+	padding: 3em 0;
+
+	.overlay-dark & {
+		background-color: $color__background-dark;
+	    color: $color__white;
 	}
 }
 
 .site-info {
 	@include site-width($content__width-large);
 
+	padding-top: 1.5em;
 	text-align: center;
+
+	.accent-footer & {
+		color: $color__white;
+	}
+
+	a:not(.button) {
+		@include link;
+
+		.accent-footer & {
+			color: $color__white;
+		}
+	}
 }

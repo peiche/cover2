@@ -18,6 +18,8 @@ Cover2 puts your content first, exactly where it should be. But that doesn't mea
 
 The overlay is a full-screen menu and widget display. You can define one menu and as many widgets as your little heart desires.
 
+Additionally, there are three footer widget positions, which collapse to a single column on small screens.
+
 ### Accent Color and Overlay Color Scheme
 
 Customize Cover2's header color and overlay color scheme in the Customizer. Live preview shows you exactly what it'll look like before hitting Publish!

@@ -233,17 +233,20 @@
 # Timeline
 --------------------------------------------------------------*/
 
-.aesop-timeline-stop {
+.aesop-timeline-stop,
+.wp-block-scrollnav-block {
   margin-bottom: 1em;
   padding-top: 1em;
 }
 
 .aesop-timeline,
-.singlepage-scroll-nav .scroll-nav {
+.singlepage-scroll-nav .scroll-nav,
+.gb-scrollnav .scroll-nav {
   background-color: transparent;
   bottom: auto;
   display: none;
   left: auto;
+  padding: 0;
   position: fixed;
   right: 0;
   top: 50%;

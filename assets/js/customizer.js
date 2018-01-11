@@ -42,4 +42,14 @@
 		} );
 	} );
 
+	// Footer accent.
+	wp.customize( 'footer_accent', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).removeClass( 'accent-footer' );
+			if ( !! to ) {
+				$( 'body' ).addClass( 'accent-footer' );
+			}
+		} );
+	} );
+
 } )( jQuery );

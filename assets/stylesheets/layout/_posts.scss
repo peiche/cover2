@@ -9,7 +9,8 @@
 	position: relative;
 
 	.single &,
-	.page & {
+	.page &,
+	.attachment & {
 		padding-top: 0;
 	}
 
@@ -248,7 +249,7 @@
 }
 
 .entry-meta a,
-.entry-summary a,
+.entry-summary a:not(.button),
 .entry-content a:not(.button),
 .entry-footer a {
 	@include link;

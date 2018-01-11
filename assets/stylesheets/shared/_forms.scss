@@ -71,7 +71,8 @@ input.search-field {
     	display: none;
 	}
 
-	.overlay-dark .overlay & {
+	.overlay-dark .overlay &,
+	.overlay-dark .widget & {
 		color: $color__white;
 	}
 }

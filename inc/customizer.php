@@ -45,6 +45,13 @@ function cover2_customize_register( $wp_customize ) {
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'cover2_sanitize_overlay_colorscheme',
 	) );
+	
+	// Add setting for using accent color in footer.
+	$wp_customize->add_setting( 'footer_accent', array(
+		'default'			=> '',
+		'transport'			=> 'postMessage',
+		'sanitize_callback'	=> 'cover2_sanitize_checkbox',
+	) );
 
 	// Add control for header color.
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
@@ -74,6 +81,14 @@ function cover2_customize_register( $wp_customize ) {
 		'section'  			=> 'colors',
 		'priority' 			=> 7,
 	) );
+	
+	// Add control for footer accent color.
+	$wp_customize->add_control( 'footer_accent', array(
+		'type'				=> 'checkbox',
+		'label'				=> __( 'Use Accent Color in footer', 'cover2' ),
+		'section'			=> 'colors',
+		'priority'			=> 8,
+	) );
 
 }
 add_action( 'customize_register', 'cover2_customize_register' );
@@ -91,6 +106,15 @@ function cover2_sanitize_overlay_colorscheme( $input ) {
 	}
 
 	return 'light';
+}
+
+/**
+ * Sanitize checkbox.
+ *
+ * @param String $input The input to sanitize.
+ */
+function cover2_sanitize_checkbox( $checked ) {
+  return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }
 
 /**

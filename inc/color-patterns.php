@@ -48,13 +48,15 @@
    .comment-navigation .nav-previous a,
    .comment-navigation .nav-next a,
    .posts-navigation .nav-previous a,
-   .posts-navigation .nav-next a {
+   .posts-navigation .nav-next a,
+   .site-main #infinite-handle span {
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
    .comment-navigation .nav-previous a:hover,
    .comment-navigation .nav-next a:hover,
    .posts-navigation .nav-previous a:hover,
-   .posts-navigation .nav-next a:hover {
+   .posts-navigation .nav-next a:hover,
+   .site-main #infinite-handle span:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
    }
    a,
@@ -72,13 +74,15 @@
    .comment-navigation .nav-next a,
    .posts-navigation .nav-previous a,
    .posts-navigation .nav-next a,
-   .entry-content > blockquote {
+   .entry-content > blockquote,
+   .site-main #infinite-handle span {
      border-color: hsl(' . $hue . ', 75%, 50%);
    }
    .comment-navigation .nav-previous a:hover,
    .comment-navigation .nav-next a:hover,
    .posts-navigation .nav-previous a:hover,
-   .posts-navigation .nav-next a:hover {
+   .posts-navigation .nav-next a:hover,
+   .site-main #infinite-handle span:hover {
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
    button.default,
@@ -116,6 +120,9 @@
    }
    .fotorama__thumb-border {
     border-color: hsl(' . $hue . ', 75%, 40%);
+   }
+   .accent-footer .site-footer {
+    background-color: hsl(' . $hue . ', 75%, 40%);
    }
    ';
 
