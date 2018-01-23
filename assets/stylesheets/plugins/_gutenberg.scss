@@ -169,9 +169,12 @@ p {
         text-align: center;
     }
 
-    .entry-content & a {
+    .entry-content & .wp-block-button__link {
         @include button;
         @include button-style($color__accent);
+
+        height: auto;
+        line-height: inherit;
     }
 }
 

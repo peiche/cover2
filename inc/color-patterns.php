@@ -91,7 +91,7 @@
    input[type="submit"].default,
    .button.default,
    .page-header .button.default,
-   .entry-content .wp-block-button a {
+   .entry-content .wp-block-button .wp-block-button__link {
      border-color: hsl(' . $hue . ', 75%, 50%);
      color: hsl(' . $hue . ', 75%, 50%);
    }
@@ -101,7 +101,7 @@
    input[type="submit"].default:hover,
    .button.default:hover,
    .page-header .button.default:hover,
-   .entry-content .wp-block-button a:hover {
+   .entry-content .wp-block-button .wp-block-button__link:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
