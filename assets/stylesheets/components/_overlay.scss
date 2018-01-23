@@ -76,6 +76,10 @@ body.overlay-open {
   width: 100%;
 	z-index: $z-index__default + 2;
 
+	.aesop-sticky-map & {
+	  z-index: 121;
+	}
+
   .overlay-dark & {
     @include scrollbar(lighten($color__background-dark, 25%));
 
