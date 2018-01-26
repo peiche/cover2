@@ -2,8 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.1.1 - 1/11/2018**
+**1.1.1 - 1/23/2018**
 - Tweaked footer style.
+- Updated styles for Aesop Story Engine map component.
+- Updated styles for Gutenberg button block.
 
 **1.1.0 - 1/10/2018**
 - Fixed broken pages widget.
