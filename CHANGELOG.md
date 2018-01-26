@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. This projec
 **1.1.1 - 1/23/2018**
 - Tweaked footer style.
 - Updated styles for Aesop Story Engine map component.
-- Updated styles for Gutenberg button block.
+- Updated styles for Gutenberg cover image and button blocks.
 
 **1.1.0 - 1/10/2018**
 - Fixed broken pages widget.
