@@ -11,6 +11,21 @@
   will-change: transform;
   z-index: $z-index__default + 2;
 
+  @include min-width($breakpoint__tablet-aesop) {
+
+    .aesop-sticky-map.aesop-sticky-map-top & {
+      top: 220px;
+    }
+
+    .aesop-sticky-map.aesop-sticky-map-left & {
+      left: 250px;
+    }
+
+    .aesop-sticky-map.aesop-sticky-map-right:not(.overlay-open) & {
+      right: 250px;
+    }
+  }
+
   .has-featured-image &,
   .has-featured-post:not(.paged) &,
   .archive & {
@@ -24,6 +39,10 @@
     .site-branding {
       display: none;
     }
+  }
+
+  .overlay-open.aesop-sticky-map & {
+    z-index: 122;
   }
 
   body.admin-bar & {
