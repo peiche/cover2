@@ -8,9 +8,11 @@
 
 .wp-block-cover-image {
     height: auto;
-    margin-bottom: 3em;
-    margin-top: 3em;
+    margin: 3em auto;
+    max-width: $content__width-normal;
     min-height: 500px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
 
     &.has-parallax {
         //
@@ -21,6 +23,18 @@
         &:before {
             //
         }
+    }
+
+    &.aligncenter {
+        display: flex;
+    }
+
+    &.alignwide {
+        max-width: $content__width-large;
+    }
+
+    &.alignfull {
+        max-width: 100%;
     }
 
     h2 {
@@ -245,6 +259,7 @@ p {
 
     margin-bottom: 3em;
     margin-top: 3em;
+    padding: 0;
 
     &.alignwide {
         @include site-width($content__width-large);
