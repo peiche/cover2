@@ -105,12 +105,12 @@
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
-   .page-links > a,
+   .entry-summary .page-links > a,
    .entry-content .page-links > a {
      color: hsl(' . $hue . ', 75%, 50%);
      border-color: hsl(' . $hue . ', 75%, 50%);
    }
-   .page-links > a:hover,
+   .entry-summary .page-links > a:hover,
    .entry-content .page-links > a:hover {
      background-color: hsl(' . $hue . ', 75%, 50%);
      border-color: hsl(' . $hue . ', 75%, 50%);

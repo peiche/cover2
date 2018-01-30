@@ -13,7 +13,7 @@
 }
 
 .infinite-loader {
-	height: auto !important; // overrides jetpack css
+	height: 85px !important; // overrides jetpack css
 
 	.spinner {
 		animation-duration: 0.75s;
@@ -40,6 +40,7 @@
 }
 
 .site-main #infinite-handle {
+	margin-bottom: 1.5em;
 	margin-top: 1.5em;
 	text-align: center;
 

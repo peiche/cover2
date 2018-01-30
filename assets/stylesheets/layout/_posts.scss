@@ -321,7 +321,7 @@
 	margin-left: 100px;
 }
 
-.page-links > a,
+.entry-summary .page-links > a,
 .entry-content .page-links > a {
 	@include button;
 	@include button-style($color__link);
