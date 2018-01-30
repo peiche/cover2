@@ -49,26 +49,26 @@ function cover2_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'cover2' ) );
 		if ( $categories_list && cover2_categorized_blog() ) {
-			printf( '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'category', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>' ); // WPCS: XSS OK.
+			echo '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'category', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>';
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'cover2' ) );
 		if ( $tags_list ) {
-			printf( '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
+			echo '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
 		}
 	}
 	if ( 'jetpack-portfolio' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_term_list( get_the_ID(), 'jetpack-portfolio-type', '', esc_html__( ', ', 'cover2' ) );
 		if ( $categories_list && cover2_categorized_blog() ) {
-			printf( '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'category', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>' ); // WPCS: XSS OK.
+			echo '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'category', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>';
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_term_list( get_the_ID(), 'jetpack-portfolio-tag', '', esc_html__( ', ', 'cover2' ) );
 		if ( $tags_list ) {
-			printf( '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>' ); // WPCS: XSS OK.
+			echo '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
 		}
 	}
 
