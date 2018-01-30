@@ -10,11 +10,15 @@
 
 .footer-widgets {
 	background-color: #f5f5f5;
-	padding: 3em 0;
+	padding-bottom: 3em;
 
 	.overlay-dark & {
 		background-color: $color__background-dark;
 	    color: $color__white;
+	}
+
+	.widget:first-child {
+		margin-top: 3em;
 	}
 }
 

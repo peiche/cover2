@@ -21,6 +21,7 @@
 	min-height: 1px;
 
 	@include min-width($breakpoint__tablet-portrait) {
+		padding-left: 20px;
 		padding-right: 20px;
 	}
 }
