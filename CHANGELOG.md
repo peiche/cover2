@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.1.3 - 2/4/2018**
+- Fixed "posted on" and "byline" strings to address [issue 22](https://github.com/peiche/cover2/issues/22).
+
 **1.1.2 - 1/30/2018**
 - Fixed Jetpack infinite footer style.
 - Fixed footer widget alignment.

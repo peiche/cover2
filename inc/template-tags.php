@@ -24,15 +24,11 @@ function cover2_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	$posted_on = sprintf(
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
-	$byline = sprintf(
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' .
-		get_avatar( get_the_author_meta( 'ID' ), 35, '', 'Profile Picture for ' . esc_html( get_the_author() ) ) .
-		'<span class="author-text">' . esc_html( get_the_author() ) . '</span></a></span>'
-	);
+	$byline = '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' .
+			get_avatar( get_the_author_meta( 'ID' ), 35, '', 'Profile Picture for ' . esc_html( get_the_author() ) ) .
+			'<span class="author-text">' . esc_html( get_the_author() ) . '</span></a></span>';
 
 	echo '<span class="byline"> ' . $byline . '</span> &mdash; <span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
