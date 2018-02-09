@@ -22,7 +22,7 @@
 
 		a {
 			@include button;
-			@include button-style($color__accent, false);
+			@include button-style($color__accent);
 		}
 	}
 

@@ -16,6 +16,7 @@
     } ],
     "comment-whitespace-inside": null,
     "declaration-block-no-ignored-properties": null,
+    "function-url-quotes": "always",
     "indentation": null,
     "max-line-length": null,
     "media-feature-no-missing-punctuation": null,

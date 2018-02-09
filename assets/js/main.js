@@ -25,16 +25,19 @@
 		menuOverlay = $( '.overlay--menu' ),
 		searchOverlay = $( '.overlay--search' ),
 		chapterOverlay = $( '.overlay--chapter' ),
+		filterOverlay = $( '#ais-facets' ),
 		body = $( 'body' ),
 		menuToggle = $( '.menu-toggle' ),
 		searchToggle = $( '.search-toggle' ),
 		chapterToggle = $( '.chapter-toggle' ),
+		filterToggle = $( '.filter-toggle' ),
 		button = '<button class="showsub-toggle" aria-expanded="false">' + menuToggleText.icon + '<span class="screen-reader-text">' + menuToggleText.open + '</span></button>',
 		headroom,
 		clickEvent = new CustomEvent( 'click' ), // For programmatically firing the click event on SVG icons
 		menuIcon = document.getElementById( 'svg-icon-menu-icon' ),
 		searchIcon = document.getElementById( 'svg-icon-search-icon' ),
-		bookmarkIcon = document.getElementById( 'svg-icon-bookmark-icon' );
+		bookmarkIcon = document.getElementById( 'svg-icon-bookmark-icon' ),
+		filterIcon = document.getElementById( 'svg-icon-filter-icon' );
 
 	/**
 	 * Header
@@ -80,6 +83,7 @@
 
 			searchToggle.toggleClass( 'hide' );
 			chapterToggle.toggleClass( 'hide' );
+			filterToggle.toggleClass( 'hide' );
 		} );
 
 		searchToggle.on( 'click', function( e ) {
@@ -98,6 +102,7 @@
 
 			menuToggle.toggleClass( 'hide' );
 			chapterToggle.toggleClass( 'hide' );
+			filterToggle.toggleClass( 'hide' );
 
 			if ( searchField.is( ':visible' ) ) {
 				setTimeout( function() {
@@ -121,6 +126,25 @@
 
 			menuToggle.toggleClass( 'hide' );
 			searchToggle.toggleClass( 'hide' );
+			filterToggle.toggleClass( 'hide' );
+		} );
+
+		filterToggle.on( 'click', function( e ) {
+			var $this = $( this );
+
+			e.preventDefault();
+
+			filterOverlay.toggleClass( 'show' ).resize();
+			body.toggleClass( 'overlay-open' );
+
+			$this.toggleClass( 'toggle-on' );
+			$this.attr( 'aria-expanded', 'false' == $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' );
+
+			filterIcon.dispatchEvent( clickEvent );
+
+			menuToggle.toggleClass( 'hide' );
+			searchToggle.toggleClass( 'hide' );
+			chapterToggle.toggleClass( 'hide' );
 		} );
 	}
 
@@ -234,6 +258,7 @@
 			menuOverlay.removeClass( 'show' ).resize();
 			searchToggle.removeClass( 'hide' );
 			chapterToggle.removeClass( 'hide' );
+			filterToggle.removeClass( 'hide' );
 			menuIcon.dispatchEvent( clickEvent );
 		}
 
@@ -244,6 +269,7 @@
 			searchOverlay.removeClass( 'show' ).resize();
 			menuToggle.removeClass( 'hide' );
 			chapterToggle.removeClass( 'hide' );
+			filterToggle.removeClass( 'hide' );
 			searchIcon.dispatchEvent( clickEvent );
 		}
 
@@ -254,7 +280,19 @@
 			chapterOverlay.removeClass( 'show' ).resize();
 			menuToggle.removeClass( 'hide' );
 			searchToggle.removeClass( 'hide' );
+			filterToggle.removeClass( 'hide' );
 			bookmarkIcon.dispatchEvent( clickEvent );
+		}
+
+		if ( 27 === e.keyCode && filterOverlay.hasClass( 'show' ) ) {
+			body.removeClass( 'overlay-open' );
+			filterToggle.removeClass( 'toggle-on' );
+			filterToggle.attr( 'aria-expanded', 'false' );
+			filterOverlay.removeClass( 'show' ).resize();
+			menuToggle.removeClass( 'hide' );
+			searchToggle.removeClass( 'hide' );
+			chapterToggle.removeClass( 'hide' );
+			filterIcon.dispatchEvent( clickEvent );
 		}
 	} );
 

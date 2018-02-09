@@ -14,13 +14,13 @@
 }
 
 @mixin button {
-	@include rem(padding-bottom, 0.25);
+	@include rem(padding-bottom, 0.2);
 	@include rem(padding-left, 1);
 	@include rem(padding-right, 1);
-	@include rem(padding-top, 0.25);
+	@include rem(padding-top, 0.2);
 
 	background-color: transparent;
-	border: 1px solid rgba(0, 0, 0, 0.25);
+	border: 2px solid rgba(0, 0, 0, 0.25);
 	border-radius: 4px;
 	display: inline-block;
 	text-decoration: none;
@@ -31,7 +31,7 @@
 	}
 }
 
-@mixin button-style($color, $ghost: true) {
+@mixin button-style($color, $ghost: false, $round: false) {
 	border-color: $color;
 
 	@if $ghost {
@@ -50,11 +50,27 @@
 		@if $ghost {
 			background-color: $color;
 			border-color: $color;
+
+			&:active,
+			&:focus {
+				color: inverse-color($color);
+			}
 		}
 
 		@else {
 			background-color: darken($color, 10%);
 			border-color: darken($color, 10%);
+		}
+	}
+
+	&:active,
+	&:focus {
+		@if $ghost {
+			color: $color;
+		}
+
+		@else {
+			color: $color__white;
 		}
 	}
 }

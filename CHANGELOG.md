@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.2.0 - 2/8/2018**
+- Fixed logo scaling (if SVG is used) in Internet Explorer.
+- Updated button styles. Buttons now default to "solid" style, and support an optional "ghost" class for an outlined style.
+- Tweaked header divider and excerpt widths.
+- Added filter sidebar to Algolia Instant Search template. Small screens display a filter button in the header.
+
 **1.1.3 - 2/4/2018**
 - Fixed "posted on" and "byline" strings to address [issue 22](https://github.com/peiche/cover2/issues/22).
 

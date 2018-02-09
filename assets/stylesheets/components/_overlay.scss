@@ -43,12 +43,26 @@
   }
 }
 
-.chapter-toggle {
+.chapter-toggle,
+.filter-toggle {
   right: 120px;
 
   &.toggle-on {
     right: 20px;
   }
+}
+
+.filter-toggle {
+  display: none;
+
+	// Class added by js
+	.algolia-search & {
+		display: inline-block;
+
+		@include min-width($breakpoint__tablet-portrait) { // $breakpoint__tablet-landscape
+			display: none;
+		}
+	}
 }
 
 body.overlay-open {

@@ -19,11 +19,31 @@
 	}
 
 	.button {
+		background-color: $color__white;
 		border-color: $color__white;
-		color: $color__white;
+		color: $color__text-main;
+
+		&:hover {
+			background-color: darken($color__white, 10%);
+			border-color: darken($color__white, 10%);
+		}
 
 		&.default {
-			@include button-style($color__accent);
+			color: $color__white;
+		}
+
+		&.ghost {
+			background-color: transparent;
+			color: $color__white;
+
+			&:hover {
+				background-color: $color__white;
+				color: $color__text-main;
+			}
+
+			&.default {
+				@include button-style($color__accent, true);
+			}
 		}
 	}
 
@@ -66,7 +86,7 @@
 	> hr {
 		margin-left: auto;
 		margin-right: auto;
-		max-width: $content__width-large;
+		max-width: $content__width-narrow;
 	}
 }
 

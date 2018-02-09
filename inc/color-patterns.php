@@ -91,9 +91,9 @@
    input[type="submit"].default,
    .button.default,
    .page-header .button.default,
-   .entry-content .wp-block-button .wp-block-button__link {
+   .entry-content .wp-block-button.default .wp-block-button__link {
      border-color: hsl(' . $hue . ', 75%, 50%);
-     color: hsl(' . $hue . ', 75%, 50%);
+     background-color: hsl(' . $hue . ', 75%, 50%);
    }
    button.default:hover,
    input[type="button"].default:hover,
@@ -101,9 +101,46 @@
    input[type="submit"].default:hover,
    .button.default:hover,
    .page-header .button.default:hover,
-   .entry-content .wp-block-button .wp-block-button__link:hover {
+   .entry-content .wp-block-button.default .wp-block-button__link:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
+   }
+   button.default.ghost,
+   input[type="button"].default.ghost,
+   input[type="reset"].default.ghost,
+   input[type="submit"].default.ghost,
+   .button.default.ghost,
+   .page-header .button.default.ghost,
+   .entry-content .wp-block-button.default.ghost .wp-block-button__link {
+     border-color: hsl(' . $hue . ', 75%, 50%);
+     color: hsl(' . $hue . ', 75%, 50%);
+   }
+   button.default.ghost:active,
+   button.default.ghost:focus,
+   input[type="button"].default.ghost:active,
+   input[type="button"].default.ghost:focus,
+   input[type="reset"].default.ghost:active,
+   input[type="reset"].default.ghost:focus,
+   input[type="submit"].default.ghost:active,
+   input[type="submit"].default.ghost:focus,
+   .button.default.ghost:active,
+   .button.default.ghost:focus,
+   .page-header .button.default.ghost:active,
+   .page-header .button.default.ghost:focus,
+   .entry-content .wp-block-button.default.ghost .wp-block-button__link:active,
+   .entry-content .wp-block-button.default.ghost .wp-block-button__link:focus {
+    color: hsl(' . $hue . ', 75%, 50%);
+   }
+   button.default.ghost:hover,
+   input[type="button"].default.ghost:hover,
+   input[type="reset"].default.ghost:hover,
+   input[type="submit"].default.ghost:hover,
+   .button.default.ghost:hover,
+   .page-header .button.default.ghost:hover,
+   .entry-content .wp-block-button.default.ghost .wp-block-button__link:hover {
+     background-color: hsl(' . $hue . ', 75%, 50%);
+     border-color: hsl(' . $hue . ', 75%, 50%);
+     color: #fff;
    }
    .entry-summary .page-links > a,
    .entry-content .page-links > a {
@@ -119,10 +156,34 @@
 	   border-top-color: hsl(' . $hue . ', 75%, 50%);
    }
    .fotorama__thumb-border {
-    border-color: hsl(' . $hue . ', 75%, 40%);
+    border-color: hsl(' . $hue . ', 75%, 50%);
    }
    .accent-footer .site-footer {
+    background-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .ais-hierarchical-menu--item__active .ais-hierarchical-menu--link,
+   .ais-menu--item__active .ais-menu--link {
+    background-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .ais-menu--item__active .ais-menu--count,
+   .ais-hierarchical-menu--item__active .ais-hierarchical-menu--count {
+    color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .ais-menu--count,
+   .ais-hierarchical-menu--count,
+   .ais-refinement-list--count {
+    background-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .ais-refinement-list--checkbox:checked ~ .ais-refinement-list--label::before {
+    background-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .ais-pagination--link {
+    background-color: hsl(' . $hue . ', 75%, 50%);
+    border-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .ais-pagination--link:hover {
     background-color: hsl(' . $hue . ', 75%, 40%);
+    border-color: hsl(' . $hue . ', 75%, 40%);
    }
    ';
 

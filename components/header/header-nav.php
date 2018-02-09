@@ -76,3 +76,23 @@ endif;
 </button>
 
 <?php endif; ?>
+
+<?php if ( is_search() ) : ?>
+
+<button type="button" class="nav-toggle filter-toggle hide" aria-label="toggle search filter" aria-expanded="false">
+	<svg id="svg-icon-filter-icon" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" stroke-width="3">
+		<g stroke-width="3" transform="translate(0, 0)">
+			<g class="nc-interact_filter-check-o-32" stroke-width="3">
+				<path class="nc-check" data-cap="none" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M29 7L12 24l-9-9" stroke-dasharray="36.77 36.77" stroke-dashoffset="-36.77"></path>
+				<path class="nc-line_top" data-cap="none" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M3 7h26" opacity="1" transform="translate(0 0)"></path>
+				<path class="nc-line_center" data-cap="none" data-color="color-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M7 16h18" opacity="1" transform="translate(0 0)"></path>
+				<path class="nc-line_bottom" data-cap="none" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M11 25h10" opacity="1" transform="translate(0 0)"></path>
+			</g>
+			<script stroke-width="3">
+				!function(){function t(e){var i=e.parentNode;if("svg"!==i.tagName)i=t(i);return i;}function e(t,e,i,n){return 1&gt;(t/=n/2)?i/2*t*t*t*t+e:-i/2*((t-=2)*t*t*t-2)+e}function i(t){this.element=t,this.topLine=this.element.querySelectorAll(".nc-line_top")[0],this.centerLine=this.element.querySelectorAll(".nc-line_center")[0],this.bottomLine=this.element.querySelectorAll(".nc-line_bottom")[0],this.check=this.element.querySelectorAll(".nc-check")[0],this.checkLength=this.check.getTotalLength().toFixed(2),this.time={start:null,total:300},this.status={interacted:!1,animating:!1},this.init()}if(!window.requestAnimationFrame){var n=null;window.requestAnimationFrame=function(t,e){var i=(new Date).getTime();n||(n=i);var s=Math.max(0,16-(i-n)),a=window.setTimeout(function(){t(i+s)},s);return n=i+s,a}}i.prototype.init=function(){var t=this;this.element.addEventListener("click",function(){t.status.animating||(t.status.animating=!0,window.requestAnimationFrame(t.triggerAnimation.bind(t)))})},i.prototype.triggerAnimation=function(t){var e=this.getProgress(t),i=this.status.interacted?this.time.total-e:e;this.animateIcon(i),this.checkProgress(e)},i.prototype.getProgress=function(t){return this.time.start||(this.time.start=t),t-this.time.start},i.prototype.checkProgress=function(t){var e=this;this.time.total&gt;t?window.requestAnimationFrame(e.triggerAnimation.bind(e)):(this.status={interacted:!this.status.interacted,animating:!1},this.time.start=null)},i.prototype.animateIcon=function(t){if(t&gt;this.time.total)(t=this.time.total);if(0&gt;t)(t=0);var i=e(Math.min(t,.6*this.time.total),0,1,.6*this.time.total),n=e(Math.min(Math.max(t-.2*this.time.total,0),.6*this.time.total),0,1,.6*this.time.total),s=e(Math.max(t-.4*this.time.total,0),0,1,.6*this.time.total);this.bottomLine.setAttribute("opacity",1-i),this.bottomLine.setAttribute("transform","translate("+32*i+" 0)"),this.centerLine.setAttribute("opacity",1-n),this.centerLine.setAttribute("transform","translate("+32*n+" 0)"),this.topLine.setAttribute("opacity",1-s),this.topLine.setAttribute("transform","translate("+32*s+" 0)"),this.check.setAttribute("stroke-dashoffset",e(Math.max(t-.2*this.time.total,0),-this.checkLength,+this.checkLength,.8*this.time.total))};var s=document.getElementsByClassName("nc-interact_filter-check-o-32");if(s)for(var a=0;s.length&gt;a;a++)new i(t(s[a]))}();
+			</script>
+		</g>
+	</svg>
+</button>
+
+<?php endif; ?>

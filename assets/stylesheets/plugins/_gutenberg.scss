@@ -185,10 +185,22 @@ p {
 
     .entry-content & .wp-block-button__link {
         @include button;
-        @include button-style($color__accent);
+    	@include button-style($color__text-main);
 
-        height: auto;
+    	height: auto;
         line-height: inherit;
+    }
+
+    .entry-content &.ghost .wp-block-button__link {
+        @include button-style($color__text-main, true);
+    }
+
+    .entry-content &.default .wp-block-button__link {
+        @include button-style($color__accent);
+    }
+
+    .entry-content &.default.ghost .wp-block-button__link {
+        @include button-style($color__accent, true);
     }
 }
 

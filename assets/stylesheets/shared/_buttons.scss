@@ -6,7 +6,15 @@ input[type="submit"],
 	@include button;
 	@include button-style($color__text-main);
 
+	&.ghost {
+		@include button-style($color__text-main, true);
+	}
+
 	&.default {
 		@include button-style($color__accent);
+
+		&.ghost {
+			@include button-style($color__accent, true);
+		}
 	}
 }
