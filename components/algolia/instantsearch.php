@@ -8,28 +8,29 @@
 get_header(); ?>
 
 	<div id="ais-wrapper">
-		<main id="ais-main">
-			
+		<div class="cf">
 			<header class="page-header">
 				<div class="page-header__image"></div>
 				<div class="page-header__content">
-
 					<div id="algolia-search-box" class="page-title text-align-center">
 						<div id="algolia-stats"></div>
 					</div>
-
 				</div>
+				
 			</header>
 			
-			<div id="algolia-hits"></div>
-			<div id="algolia-pagination"></div>
-		</main>
-		<aside id="ais-facets">
-			<section class="ais-facets" id="facet-post-types"></section>
-			<section class="ais-facets" id="facet-categories"></section>
-			<section class="ais-facets" id="facet-tags"></section>
-			<section class="ais-facets" id="facet-users"></section>
-		</aside>
+			<aside id="ais-facets">
+				<section class="ais-facets" id="facet-post-types"></section>
+				<section class="ais-facets" id="facet-categories"></section>
+				<section class="ais-facets" id="facet-tags"></section>
+				<section class="ais-facets" id="facet-users"></section>
+			</aside>
+			<main id="ais-main">
+				<div id="algolia-hits"></div>
+				<div id="algolia-pagination"></div>
+			</main>
+		</div>
+		
 	</div>
 
 	<script type="text/html" id="tmpl-instantsearch-hit">
@@ -55,7 +56,12 @@ get_header(); ?>
 
 	<script type="text/javascript">
 		jQuery(function() {
-			if(jQuery('#algolia-search-box').length > 0) {
+			
+			jQuery('body').addClass('algolia-search');
+			
+			jQuery('.filter-toggle').removeClass('hide');
+			
+			if (jQuery('#algolia-search-box').length > 0) {
 
 				if (algolia.indices.searchable_posts === undefined && jQuery('.admin-bar').length > 0) {
 					alert('It looks like you haven\'t indexed the searchable posts index. Please head to the Indexing page of the Algolia Search plugin and index it.');
@@ -103,30 +109,30 @@ get_header(); ?>
 							empty: 'No results were found for "<strong>{{query}}</strong>".',
 							item: wp.template('instantsearch-hit')
 						},
-            transformData: {
-						  item: function (hit) {
-                for(var key in hit._highlightResult) {
-                  // We do not deal with arrays.
-                  if(typeof hit._highlightResult[key].value !== 'string') {
-                    continue;
-                  }
-                  hit._highlightResult[key].value = _.escape(hit._highlightResult[key].value);
-                  hit._highlightResult[key].value = hit._highlightResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
-                }
+						transformData: {
+									  item: function (hit) {
+							for(var key in hit._highlightResult) {
+							  // We do not deal with arrays.
+							  if(typeof hit._highlightResult[key].value !== 'string') {
+								continue;
+							  }
+							  hit._highlightResult[key].value = _.escape(hit._highlightResult[key].value);
+							  hit._highlightResult[key].value = hit._highlightResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+							}
 
-                for(var key in hit._snippetResult) {
-                  // We do not deal with arrays.
-                  if(typeof hit._snippetResult[key].value !== 'string') {
-                    continue;
-                  }
+							for(var key in hit._snippetResult) {
+							  // We do not deal with arrays.
+							  if(typeof hit._snippetResult[key].value !== 'string') {
+								continue;
+							  }
 
-                  hit._snippetResult[key].value = _.escape(hit._snippetResult[key].value);
-                  hit._snippetResult[key].value = hit._snippetResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
-                }
+							  hit._snippetResult[key].value = _.escape(hit._snippetResult[key].value);
+							  hit._snippetResult[key].value = hit._snippetResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+							}
 
-                return hit;
-              }
-            }
+							return hit;
+						  }
+						}
 					})
 				);
 
@@ -134,19 +140,6 @@ get_header(); ?>
 				search.addWidget(
 					instantsearch.widgets.pagination({
 						container: '#algolia-pagination'
-					})
-				);
-
-				/* Post types refinement widget */
-				search.addWidget(
-					instantsearch.widgets.menu({
-						container: '#facet-post-types',
-						attributeName: 'post_type_label',
-						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
-						limit: 10,
-						templates: {
-							header: '<h3 class="widgettitle">Post Type</h3>'
-						},
 					})
 				);
 
@@ -172,7 +165,8 @@ get_header(); ?>
 						limit: 15,
 						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 						templates: {
-							header: '<h3 class="widgettitle">Tags</h3>'
+							header: '<h3 class="widgettitle">Tags</h3>',
+							item: '<input type="checkbox" class="{{cssClasses.checkbox}}" value="{{name}}" {{#isRefined}}checked{{/isRefined}} /><label class="{{cssClasses.label}}">{{{highlighted}}} <span class="{{cssClasses.count}}">{{#helpers.formatNumber}}{{count}}{{/helpers.formatNumber}}</span>\n</label>'
 						}
 					})
 				);
@@ -182,14 +176,14 @@ get_header(); ?>
 					instantsearch.widgets.menu({
 						container: '#facet-users',
 						attributeName: 'post_author.display_name',
-						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
+						sortBy: ['name:asc'],
 						limit: 10,
 						templates: {
 							header: '<h3 class="widgettitle">Authors</h3>'
 						}
 					})
 				);
-
+				
 				/* Start */
 				search.start();
 
