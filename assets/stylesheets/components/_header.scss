@@ -100,6 +100,11 @@
   float: left;
   margin: 10px 10px 10px 20px;
   max-height: 55px;
+
+  // IE-specific style because SVGs don't scale properly
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    height: 55px;
+  }
 }
 
 .site-title {
