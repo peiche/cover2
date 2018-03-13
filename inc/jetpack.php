@@ -39,9 +39,19 @@ function cover2_jetpack_setup() {
         'max_posts'   => 10,
         'post_types'  => array( 'post' ),
     ) );
-
 }
 add_action( 'after_setup_theme', 'cover2_jetpack_setup' );
+
+/**
+ * Enqueue Jetpack styles.
+ */
+function cover2_jetpack_styles() {
+	wp_register_style( 'cover2-jetpack-style', get_template_directory_uri() . '/dist/css/plugins/jetpack.css', array(), filemtime( get_template_directory() . '/dist/css/plugins/jetpack.css' ) );
+	if ( class_exists( 'Jetpack' ) ) {
+		wp_enqueue_style( 'cover2-jetpack-style' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'cover2_jetpack_styles' );
 
 /**
  * Custom render function for Infinite Scroll.

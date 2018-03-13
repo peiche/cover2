@@ -6,6 +6,17 @@
  */
 
 /**
+ * Enqueue Algolia styles.
+ */
+function cover2_algolia_styles() {
+	wp_register_style( 'cover2-algolia-style', get_template_directory_uri() . '/dist/css/plugins/algolia.css', array(), filemtime( get_template_directory() . '/dist/css/plugins/algolia.css' ) );
+	if ( class_exists( 'Algolia_Plugin' ) ) {
+	    wp_enqueue_style( 'cover2-algolia-style' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'cover2_algolia_styles' );
+
+/**
  * Dequeue default CSS files.
  *
  * Hooked to the wp_print_styles action, with a late priority (100),
