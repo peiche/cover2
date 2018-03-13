@@ -127,7 +127,18 @@ gulp.task( 'css', [ 'stylelint' ], function() {
     processors.push( cssnano );
   }
 
-  return gulp.src( './assets/stylesheets/**/*.scss' )
+  // Put plugin styles in dist/css
+  gulp.src( [
+    './assets/stylesheets/**/*.scss',
+    '!./assets/stylesheets/**/style.scss'
+  ] )
+    .pipe( sass().on( 'error', sass.logError ) )
+    .pipe( postcss( processors ) )
+    .pipe( gulp.dest( './dist/css/' ) )
+    .pipe( browserSync.stream() )
+    .pipe( lec() );
+
+  return gulp.src( './assets/stylesheets/**/style.scss' )
     .pipe( sass().on( 'error', sass.logError ) )
     .pipe( postcss( processors ) )
     .pipe( gulp.dest( './' ) )
