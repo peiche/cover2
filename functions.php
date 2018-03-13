@@ -48,7 +48,7 @@ function cover2_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'top'		=> esc_html__( 'Top Menu', 'cover2' ),
-		'mini'	=> esc_html__( 'Mini Menu', 'cover2' ),
+		'mini'		=> esc_html__( 'Mini Menu', 'cover2' ),
 	) );
 
 	/**
@@ -100,6 +100,31 @@ function cover2_setup() {
 	 */
 	add_theme_support( 'gutenberg', array(
 		'wide-images' => true,
+		'colors' => array(
+			'hsl(' . absint( get_theme_mod( 'accent_color', 250 ) ) . ', 75%, 50%)',
+			'#F44336', // red
+			'#E91E63', // pink
+			'#9C27B0', // purple
+			'#673AB7', // deep purple
+			'#3F51B5', // indigo
+			'#2196F3', // blue
+			'#03A9F4', // light blue
+			'#00BCD4', // cyan
+			'#009688', // teal
+			'#4CAF50', // green
+			'#8BC34A', // light green
+			'#CDDC39', // lime
+			'#FFEB3B', // yellow
+			'#FFC107', // amber
+			'#FF9800', // orange
+			'#FF5722', // deep orange
+			'#795548', // brown
+			'#9E9E9E', // gray
+			'#607D8B', // blue gray
+			'#333333', // dark gray
+			'#000000', // black
+			'#ffffff', // white
+		),
 	) );
 
 	/*
