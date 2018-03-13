@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.2.1 - 3/13/2018**
+- Fixed archive header margin to address [issue 26](https://github.com/peiche/cover2/issues/26).
+- Fixed paged post button styles.
+- Fixed nav button focus and hover states.
+- Added brand colors to Jetpack social media menu.
+- Split Jetpack, Aesop Story Engine, and Algolia styles out of main stylesheet.
+
 **1.2.0 - 2/8/2018**
 - Fixed logo scaling (if SVG is used) in Internet Explorer.
 - Updated button styles. Buttons now default to "solid" style, and support an optional "ghost" class for an outlined style.
