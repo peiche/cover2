@@ -91,7 +91,9 @@
    input[type="submit"].default,
    .button.default,
    .page-header .button.default,
-   .entry-content .wp-block-button.default .wp-block-button__link {
+   .entry-content .wp-block-button.default .wp-block-button__link,
+   .entry-summary .page-links > a,
+   .entry-content .page-links > a {
      border-color: hsl(' . $hue . ', 75%, 50%);
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
@@ -101,7 +103,9 @@
    input[type="submit"].default:hover,
    .button.default:hover,
    .page-header .button.default:hover,
-   .entry-content .wp-block-button.default .wp-block-button__link:hover {
+   .entry-content .wp-block-button.default .wp-block-button__link:hover,
+   .entry-summary .page-links > a:hover,
+   .entry-content .page-links > a:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
@@ -141,16 +145,6 @@
      background-color: hsl(' . $hue . ', 75%, 50%);
      border-color: hsl(' . $hue . ', 75%, 50%);
      color: #fff;
-   }
-   .entry-summary .page-links > a,
-   .entry-content .page-links > a {
-     color: hsl(' . $hue . ', 75%, 50%);
-     border-color: hsl(' . $hue . ', 75%, 50%);
-   }
-   .entry-summary .page-links > a:hover,
-   .entry-content .page-links > a:hover {
-     background-color: hsl(' . $hue . ', 75%, 50%);
-     border-color: hsl(' . $hue . ', 75%, 50%);
    }
    .infinite-loader .spinner {
 	   border-top-color: hsl(' . $hue . ', 75%, 50%);
