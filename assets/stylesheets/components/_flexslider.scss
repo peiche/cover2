@@ -2,6 +2,7 @@
   background-color: $color__background-dark;
   overflow: hidden;
   position: relative;
+  z-index: $z-index__default;
 }
 
 .no-js .featured-content--slide:not(:first-child) {
