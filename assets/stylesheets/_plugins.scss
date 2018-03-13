@@ -1,8 +1,8 @@
 /*--------------------------------------------------------------
-# Aesop Story Engine
-# https://wordpress.org/plugins-wp/aesop-story-engine/
+# Gutenberg
+# https://wordpress.org/plugins/gutenberg/
 --------------------------------------------------------------*/
-@import "plugins/aesop";
+@import "plugins/gutenberg";
 
 /*--------------------------------------------------------------
 # Disqus
@@ -11,22 +11,10 @@
 @import "plugins/disqus";
 
 /*--------------------------------------------------------------
-# Algolia
-# https://wordpress.org/plugins/search-by-algolia-instant-relevant-results/
---------------------------------------------------------------*/
-@import "plugins/algolia";
-
-/*--------------------------------------------------------------
 # Featured Video Plus
 # https://wordpress.org/plugins/featured-video-plus/
 --------------------------------------------------------------*/
 @import "plugins/featured-video-plus";
-
-/*--------------------------------------------------------------
-# Timelines
-# https://github.com/peiche/timelines/
---------------------------------------------------------------*/
-@import "plugins/timelines";
 
 /*--------------------------------------------------------------
 # Post Badges
@@ -35,7 +23,7 @@
 @import "plugins/post-badges";
 
 /*--------------------------------------------------------------
-# Post Badges
-# https://wordpress.org/plugins/gutenberg/
+# Timelines
+# https://github.com/peiche/timelines/
 --------------------------------------------------------------*/
-@import "plugins/gutenberg";
+@import "plugins/timelines";

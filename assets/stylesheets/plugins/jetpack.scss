@@ -1,0 +1,119 @@
+@import "../../../node_modules/brand-colors/dist/latest/scss/brand-colors.latest.scss";
+@import "../variables/variables-base";
+@import "../mixins/mixins-base";
+
+/*--------------------------------------------------------------
+# Jetpack Modules
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Social Network Menu
+--------------------------------------------------------------*/
+
+$social-networks: (
+	"codepen.io": $bc-codepen,
+	"digg.com": $bc-digg,
+	"dribbble.com": $bc-dribbble,
+	"dropbox.com": $bc-dropbox,
+	"facebook.com": $bc-facebook,
+	"flickr.com": $bc-flickr,
+	"foursquare.com": $bc-foursquare,
+	"github.com": $bc-github,
+	"plus.google.com": $bc-googleplus,
+	"instagram.com": $bc-instagram,
+	"linkedin.com": $bc-linkedin,
+	"path.com": $bc-path,
+	"pinterest.com": $bc-pinterest,
+	"getpocket.com": $bc-pocket,
+	"reddit.com": $bc-reddit,
+	"skype:": $bc-skype,
+	"spotify.com": $bc-spotify,
+	"stumbleupon.com": $bc-stumbleupon,
+	"tumblr.com": $bc-tumblr,
+	"twitch.tv": $bc-twitch-tv,
+	"twitter.com": $bc-twitter,
+	"vimeo.com": $bc-vimeo,
+	"vine.co": $bc-vine,
+	"wordpress.com": $bc-wordpress,
+	"wordpress.org": $bc-wordpress,
+	"youtube.com": $bc-youtube
+);
+
+.jetpack-social-navigation.jetpack-social-navigation-genericons a {
+	@include rem(font-size, 2);
+	@include rem(padding, 0.5);
+
+	border-radius: 50%;
+	height: auto;
+	width: auto;
+
+	&:hover {
+		background-color: $color__background-dark;
+		color: $color__white;
+	}
+
+	@each $url, $color in $social-networks {
+
+		&[href*="#{$url}"]:hover {
+			background-color: $color;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+# Infinite Scroll
+--------------------------------------------------------------*/
+
+// Globally hidden elements when Infinite Scroll is supported and in use.
+.infinite-scroll .posts-navigation, // Older / Newer Posts Navigation (always hidden)
+.infinite-scroll.neverending .site-footer { // Theme Footer (when set to scrolling)
+	display: none;
+}
+
+/*
+ * When Infinite Scroll has reached its end we need to re-display elements that
+ * were hidden (via .neverending) before.
+ */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+.infinite-loader {
+	height: 85px !important; // overrides jetpack css
+
+	.spinner {
+		animation-duration: 0.75s;
+		animation-iteration-count: infinite;
+		animation-name: spin;
+		animation-timing-function: linear;
+		border: 5px solid $color__border;
+		border-radius: 50%;
+		border-top-color: $color__accent;
+		height: 50px;
+		left: auto !important; // overrides inline style
+		margin: auto;
+		top: 15px !important; // overrides inline style
+		width: 50px !important; // overrides inline style
+
+		div {
+			display: none;
+		}
+	}
+}
+
+#infinite-footer {
+	display: none;
+}
+
+.site-main #infinite-handle {
+	margin-bottom: 1.5em;
+	margin-top: 1.5em;
+	text-align: center;
+
+	span {
+		@include button;
+		@include button-style($color__accent);
+
+		font-size: inherit;
+	}
+}

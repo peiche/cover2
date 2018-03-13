@@ -9,6 +9,10 @@
 
 .timelines-timeline {
   @include site-width($content__width-large);
+
+  .timelines-container & { // specificity override
+    margin-bottom: 0;
+  }
 }
 
 .entry-content .timelines-content,
