@@ -41,7 +41,6 @@
    .headroom--not-top .chapter-toggle:before {
      border-color: ' . $header_text_color . ' ' . $header_text_color . ' transparent;
    }
-   
    .site-header,
    .blog .site-header.headroom.headroom--top,
    .page-header,
@@ -178,6 +177,9 @@
    .ais-pagination--link:hover {
     background-color: hsl(' . $hue . ', 75%, 40%);
     border-color: hsl(' . $hue . ', 75%, 40%);
+   }
+   .svg-icon use {
+    stroke: hsl(' . $hue . ', 75%, 50%);
    }
    ';
 

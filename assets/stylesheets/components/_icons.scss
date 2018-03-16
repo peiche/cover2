@@ -1,15 +1,27 @@
 .svg-icon {
   align-self: center;
   display: inline-flex;
-  fill: currentColor;
   height: 1em;
   position: relative;
   stroke: currentColor;
   width: 1em;
 
+  use {
+    stroke: $color__accent;
+
+    .post-navigation &,
+    .video-toggle & {
+      stroke: currentColor;
+    }
+  }
+
   .nav-toggle & {
     height: inherit;
     width: inherit;
+  }
+
+  .video-toggle & {
+    margin-bottom: 30px;
   }
 
   .showsub-toggle & {
@@ -32,9 +44,11 @@
     opacity: 0.75;
 
     @include min-width($breakpoint__tablet-landscape) {
+      height: 1.25em;
 			margin-left: -50px;
-			margin-top: 15px;
+			margin-top: 12px;
 			position: absolute;
+			width: 1.25em;
 		}
   }
 
