@@ -45,6 +45,7 @@ $social-networks: (
 
 	border-radius: 50%;
 	height: auto;
+	transition: background $timing__default;
 	width: auto;
 
 	&:hover {
