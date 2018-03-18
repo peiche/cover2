@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. This projec
 
 **1.2.2 - 3/16/2018**
 - Fixed broken close video button for Featured Video Plus.
+- Fixed posts navigation vertical alignment on small screens to address [issue 28](https://github.com/peiche/cover2/issues/28).
 - Updated Nucleo icons and added accent color.
 - Added background color transition to Jetpack's social network icons.
 
