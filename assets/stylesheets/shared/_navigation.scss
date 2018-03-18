@@ -23,12 +23,21 @@
 		a {
 			@include button;
 			@include button-style($color__accent);
+
+			display: block;
+
+			@include min-width($breakpoint__tablet-portrait) {
+				display: inline-block;
+			}
 		}
 	}
 
 	.nav-previous {
+		margin-bottom: 0.5em;
+
 		@include min-width($breakpoint__tablet-portrait) {
 			float: left;
+			margin-bottom: 0;
 		}
 	}
 
