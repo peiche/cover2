@@ -107,14 +107,19 @@ $social-networks: (
 }
 
 .site-main #infinite-handle {
-	margin-bottom: 1.5em;
-	margin-top: 1.5em;
+	margin: 1.5em auto;
 	text-align: center;
+	width: 90%;
 
 	span {
 		@include button;
 		@include button-style($color__accent);
 
+		display: block;
 		font-size: inherit;
+
+		@include min-width($breakpoint__tablet-portrait) {
+			display: inline-block;
+		}
 	}
 }
