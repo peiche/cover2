@@ -16,7 +16,7 @@
 
 		<div class="page-header__content">
 			<?php if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
-				<button class="video-toggle video-play" aria-label="toggle video" aria-expanded="false"><?php echo cover2_get_svg( array( 'icon' => 'video-circle' ) ); ?></button>
+				<button class="video-toggle video-play" aria-label="toggle video" aria-expanded="false"><?php echo cover2_get_svg( array( 'icon' => 'play' ) ); ?></button>
 			<?php } ?>
 
 			<?php the_title( '<h1 class="page-title text-align-center">', '</h1>' ); ?>
@@ -33,7 +33,7 @@
 
 		<?php if ( cover2_get_featured_image( get_the_ID() ) != '' ) : ?>
 			<a class="page-header__scroll-to-content" href="#post-<?php the_ID(); ?>-content">
-				<?php echo cover2_get_svg( array( 'icon' => 'chevron-down-large' ) ); ?>
+				<?php echo cover2_get_svg( array( 'icon' => 'chevron-down' ) ); ?>
 			</a>
 		<?php endif; ?>
 	</header>

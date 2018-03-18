@@ -280,7 +280,7 @@ function cover2_scripts() {
 	wp_localize_script( 'cover2-main', 'menuToggleText', array(
 		'open'   => esc_html__( 'Open child menu', 'cover2' ),
 		'close'  => esc_html__( 'Close child menu', 'cover2' ),
-		'icon'   => cover2_get_svg( array( 'icon' => 'chevron-down-small', 'fallback' => true ) ),
+		'icon'   => cover2_get_svg( array( 'icon' => 'caret-down', 'fallback' => true ) ),
 	) );
 
 	wp_enqueue_script( 'cover2-navigation', get_template_directory_uri() . '/dist/js/navigation.js', array(), filemtime( get_template_directory() . '/dist/js/navigation.js' ), true );

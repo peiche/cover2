@@ -19,10 +19,10 @@
 			$format = get_post_format();
 			switch ( $format ) {
 				case 'video':
-					echo cover2_get_svg( array( 'icon' => 'video-camera', 'title' => __( 'Video', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'video', 'title' => __( 'Video', 'cover2' ) ) );
 					break;
 				case 'audio':
-					echo cover2_get_svg( array( 'icon' => 'music', 'title' => __( 'Audio', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'audio', 'title' => __( 'Audio', 'cover2' ) ) );
 					break;
 				case 'gallery':
 					echo cover2_get_svg( array( 'icon' => 'gallery', 'title' => __( 'Gallery', 'cover2' ) ) );
@@ -34,7 +34,7 @@
 					echo cover2_get_svg( array( 'icon' => 'quote', 'title' => __( 'Quote', 'cover2' ) ) );
 					break;
 				case 'aside':
-					echo cover2_get_svg( array( 'icon' => 'note', 'title' => __( 'Aside', 'cover2' ) ) );
+					echo cover2_get_svg( array( 'icon' => 'aside', 'title' => __( 'Aside', 'cover2' ) ) );
 					break;
 				case 'link':
 					echo cover2_get_svg( array( 'icon' => 'link', 'title' => __( 'Link', 'cover2' ) ) );

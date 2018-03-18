@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.2.2 - 3/16/2018**
+- Fixed broken close video button for Featured Video Plus.
+- Fixed posts navigation vertical alignment on small screens to address [issue 28](https://github.com/peiche/cover2/issues/28).
+- Updated Nucleo icons and added accent color.
+- Added background color transition to Jetpack's social network icons.
+
 **1.2.1 - 3/13/2018**
 - Fixed archive header margin to address [issue 26](https://github.com/peiche/cover2/issues/26).
 - Fixed paged post button styles.
