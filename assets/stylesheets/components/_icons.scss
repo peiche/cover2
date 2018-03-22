@@ -6,7 +6,7 @@
   stroke: currentColor;
   width: 1em;
 
-  use {
+  .icon-accent & use {
     stroke: $color__accent;
 
     .post-navigation &,

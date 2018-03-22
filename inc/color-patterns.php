@@ -43,20 +43,8 @@
    }
    .site-header,
    .blog .site-header.headroom.headroom--top,
-   .page-header,
-   .comment-navigation .nav-previous a,
-   .comment-navigation .nav-next a,
-   .posts-navigation .nav-previous a,
-   .posts-navigation .nav-next a,
-   .site-main #infinite-handle span {
+   .page-header {
      background-color: hsl(' . $hue . ', 75%, 50%);
-   }
-   .comment-navigation .nav-previous a:hover,
-   .comment-navigation .nav-next a:hover,
-   .posts-navigation .nav-previous a:hover,
-   .posts-navigation .nav-next a:hover,
-   .site-main #infinite-handle span:hover {
-     background-color: hsl(' . $hue . ', 75%, 40%);
    }
    a,
    .calendar_wrap tbody a,
@@ -69,20 +57,8 @@
    .calendar_wrap tbody a:hover {
      color: hsl(' . $hue . ', 75%, 40%);
    }
-   .comment-navigation .nav-previous a,
-   .comment-navigation .nav-next a,
-   .posts-navigation .nav-previous a,
-   .posts-navigation .nav-next a,
-   .entry-content > blockquote,
-   .site-main #infinite-handle span {
+   .entry-content > blockquote {
      border-color: hsl(' . $hue . ', 75%, 50%);
-   }
-   .comment-navigation .nav-previous a:hover,
-   .comment-navigation .nav-next a:hover,
-   .posts-navigation .nav-previous a:hover,
-   .posts-navigation .nav-next a:hover,
-   .site-main #infinite-handle span:hover {
-     border-color: hsl(' . $hue . ', 75%, 40%);
    }
    button.default,
    input[type="button"].default,
@@ -151,7 +127,7 @@
    .fotorama__thumb-border {
     border-color: hsl(' . $hue . ', 75%, 50%);
    }
-   .accent-footer .site-footer {
+   .footer-accent .site-footer {
     background-color: hsl(' . $hue . ', 75%, 50%);
    }
    .ais-hierarchical-menu--item__active .ais-hierarchical-menu--link,
@@ -178,7 +154,7 @@
     background-color: hsl(' . $hue . ', 75%, 40%);
     border-color: hsl(' . $hue . ', 75%, 40%);
    }
-   .svg-icon use {
+   .icon-accent .svg-icon use {
     stroke: hsl(' . $hue . ', 75%, 50%);
    }
    ';

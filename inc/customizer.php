@@ -46,13 +46,20 @@ function cover2_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'cover2_sanitize_overlay_colorscheme',
 	) );
 	
-	// Add setting for using accent color in footer.
-	$wp_customize->add_setting( 'footer_accent', array(
+	// Add setting for footer color scheme.
+	$wp_customize->add_setting( 'footer_colorscheme', array(
+		'default'			=> 'light',
+		'transport'			=> 'postMessage',
+		'sanitize_callback'	=> 'cover2_sanitize_footer_colorscheme',
+	) );
+	
+	// Add setting for icon accent color.
+	$wp_customize->add_setting( 'icon_accent', array(
 		'default'			=> '',
 		'transport'			=> 'postMessage',
 		'sanitize_callback'	=> 'cover2_sanitize_checkbox',
 	) );
-
+	
 	// Add control for header color.
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
 		'label'		    	=> __( 'Navbar Color', 'cover2' ),
@@ -82,12 +89,25 @@ function cover2_customize_register( $wp_customize ) {
 		'priority' 			=> 7,
 	) );
 	
-	// Add control for footer accent color.
-	$wp_customize->add_control( 'footer_accent', array(
-		'type'				=> 'checkbox',
-		'label'				=> __( 'Use Accent Color in footer', 'cover2' ),
+	// Add control for footer color scheme.
+	$wp_customize->add_control( 'footer_colorscheme', array(
+		'type'				=> 'radio',
+		'label'				=> __( 'Footer Color Scheme', 'cover2' ),
+		'choices'			=> array(
+			'light'				=> __( 'Light', 'cover2' ),
+			'dark'				=> __( 'Dark', 'cover2' ),
+			'accent'			=> __( 'Accent', 'cover2' ),
+		),
 		'section'			=> 'colors',
 		'priority'			=> 8,
+	) );
+	
+	// Add control for icon accent color.
+	$wp_customize->add_control( 'icon_accent', array(
+		'type'				=> 'checkbox',
+		'label'				=> __( 'Use Accent Color in theme icons', 'cover2' ),
+		'section'			=> 'colors',
+		'priority'			=> 9,
 	) );
 
 }
@@ -100,6 +120,21 @@ add_action( 'customize_register', 'cover2_customize_register' );
  */
 function cover2_sanitize_overlay_colorscheme( $input ) {
 	$valid = array( 'light', 'dark' );
+
+	if ( in_array( $input, $valid ) ) {
+		return $input;
+	}
+
+	return 'light';
+}
+
+/**
+ * Sanitize the footer_colorscheme.
+ *
+ * @param String $input The input to sanitize.
+ */
+function cover2_sanitize_footer_colorscheme( $input ) {
+	$valid = array( 'light', 'dark', 'accent' );
 
 	if ( in_array( $input, $valid ) ) {
 		return $input;

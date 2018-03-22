@@ -42,12 +42,19 @@
 		} );
 	} );
 
-	// Footer accent.
-	wp.customize( 'footer_accent', function( value ) {
+	// Footer color scheme.
+	wp.customize( 'footer_colorscheme', function( value ) {
 		value.bind( function( to ) {
-			$( 'body' ).removeClass( 'accent-footer' );
+			$( 'body' ).removeClass( 'footer-light footer-dark footer-accent' ).addClass( 'footer-' + to );
+		} );
+	} );
+
+	// Icon accent.
+	wp.customize( 'icon_accent', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).removeClass( 'icon-accent' );
 			if ( !! to ) {
-				$( 'body' ).addClass( 'accent-footer' );
+				$( 'body' ).addClass( 'icon-accent' );
 			}
 		} );
 	} );

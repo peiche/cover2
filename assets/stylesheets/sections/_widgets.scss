@@ -1,6 +1,7 @@
 .widget {
+	@include word-wrap;
+
 	margin: 0 0 3em;
-	word-break: break-word;
 
 	&:last-child {
 		margin: 0;
@@ -29,12 +30,16 @@
 	  li:first-child {
 	    border-top: 1px solid $color__border;
 
-	    .overlay-dark & {
+	    .overlay-dark .overlay &,
+	    .footer-dark .site-footer &,
+	    .footer-accent .site-footer & {
 	      border-color: darken($color__border, 25%);
 	    }
 	  }
 
-	  .overlay-dark & {
+	  .overlay-dark .overlay &,
+	  .footer-dark .site-footer &,
+	  .footer-accent .site-footer & {
 	    border-color: darken($color__border, 25%);
 	  }
 	}
@@ -48,7 +53,9 @@
 	  &:active {
 	    color: darken($color__text-main, 10%);
 
-	    .overlay-dark & {
+	    .overlay-dark .overlay &,
+	    .footer-dark .site-footer &,
+	  	.footer-accent .site-footer & {
 	      color: darken($color__white, 10%);
 	    }
 	  }
@@ -56,7 +63,9 @@
 
 	.button:not(.default) {
 
-		.overlay-dark & {
+		.overlay-dark .overlay &,
+		.footer-dark .site-footer &,
+	  	.footer-accent .site-footer & {
 			border-color: $color__white;
 			color: $color__white;
 
@@ -82,14 +91,18 @@
 .recentcomments a {
 	color: lighten($color__text-main, 10%);
 
-	.overlay-dark & {
+	.overlay-dark .overlay &,
+	.footer-dark .site-footer &,
+	.footer-accent .site-footer & {
 		color: darken($color__white, 10%);
 	}
 
 	&:hover {
 		color: $color__text-main;
 
-		.overlay-dark & {
+		.overlay-dark .overlay &,
+		.footer-dark .site-footer &,
+	  	.footer-accent .site-footer & {
 	    	color: $color__white;
 	  	}
 	}
@@ -128,7 +141,9 @@
 			&:nth-child(even) {
 				background-color: $color__gray;
 
-				.overlay-dark & {
+				.overlay-dark .overlay &,
+				.footer-dark .site-footer &,
+	  			.footer-accent .site-footer & {
 					background-color: #444;
 				}
 			}

@@ -30,7 +30,7 @@ function cover2_body_classes( $classes ) {
 
 	// Add a class of has-featured-image when there is a featured image.
 	if ( is_singular() && get_the_post_thumbnail() ) {
-  	$classes[] = 'has-featured-image';
+  		$classes[] = 'has-featured-image';
 	} else if ( is_singular() && 'timeline' == get_post_type() ) {
 		$has_term_image = false;
 		$term_id = 0;
@@ -50,16 +50,20 @@ function cover2_body_classes( $classes ) {
 		}
 	}
 
-	// Get the colorscheme or the default if there isn't one.
-	$colors = cover2_sanitize_overlay_colorscheme( get_theme_mod( 'overlay_colorscheme', 'light' ) );
-	$classes[] = 'overlay-' . $colors;
+	// Get the overlay colorscheme or the default if there isn't one.
+	$overlay_colorscheme = cover2_sanitize_overlay_colorscheme( get_theme_mod( 'overlay_colorscheme', 'light' ) );
+	$classes[] = 'overlay-' . $overlay_colorscheme;
 	
-	// Set accent colored footer.
-	$accent_footer = cover2_sanitize_checkbox( get_theme_mod( 'footer_accent', false ) );
-	if ( $accent_footer ) {
-		$classes[] = 'accent-footer';
+	// Get the footer colorscheme or the default if there isn't one.
+	$footer_colorscheme = cover2_sanitize_footer_colorscheme( get_theme_mod( 'footer_colorscheme', 'light' ) );
+	$classes[] = 'footer-' . $footer_colorscheme;
+	
+	// Set accent colored icons.
+	$icon_accent = cover2_sanitize_checkbox( get_theme_mod( 'icon_accent', false ) );
+	if ( $icon_accent ) {
+		$classes[] = 'icon-accent';
 	}
-
+	
 	if ( cover2_has_featured_post() ) {
 		$classes[] = 'has-featured-post';
 	}

@@ -2,8 +2,13 @@
 	@include clearfix;
 
 	padding-bottom: 1.5em;
+	transition: background $timing__default;
 
-	.accent-footer & {
+	.footer-dark & {
+		background-color: $color__background-dark;
+	}
+
+	.footer-accent & {
 		background-color: $color__accent;
 	}
 }
@@ -12,7 +17,8 @@
 	background-color: #f5f5f5;
 	padding-bottom: 3em;
 
-	.overlay-dark & {
+	.footer-dark &,
+	.footer-accent & {
 		background-color: $color__background-dark;
 	    color: $color__white;
 	}
@@ -28,14 +34,16 @@
 	padding-top: 1.5em;
 	text-align: center;
 
-	.accent-footer & {
+	.footer-dark &,
+	.footer-accent & {
 		color: $color__white;
 	}
 
 	a:not(.button) {
 		@include link;
 
-		.accent-footer & {
+		.footer-dark &,
+		.footer-accent & {
 			color: $color__white;
 		}
 	}
