@@ -85,3 +85,9 @@
 	font-style: italic;
 	text-align: center;
 }
+
+@mixin word-wrap {
+	hyphens: auto;
+	word-break: normal;
+	word-wrap: break-word;
+}

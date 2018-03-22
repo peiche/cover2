@@ -111,6 +111,8 @@ a.page-header__scroll-to-content {
 }
 
 .page-title:not(#algolia-search-box) {
+	@include word-wrap;
+
 	font-family: $font__family-heading;
 	font-size: 12vmin;
 	font-weight: $font__weight-heading;
@@ -118,7 +120,6 @@ a.page-header__scroll-to-content {
 	margin-bottom: 0;
 	margin-top: 0;
 	transition: font $timing__default;
-	word-break: break-word;
 }
 
 .page-description {
