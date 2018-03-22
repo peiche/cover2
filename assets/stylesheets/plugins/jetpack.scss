@@ -113,7 +113,7 @@ $social-networks: (
 
 	span {
 		@include button;
-		@include button-style($color__accent);
+		@include button-style($color__text-main);
 
 		display: block;
 		font-size: inherit;
