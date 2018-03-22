@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.2.3 - 3/21/2018**
+- Fixed posts navigation margin.
+- Fixed comment navigation width.
+- Fixed footer widget colors.
+- Fixed word break and hyphenation styles.
+- Changed posts and comment navigation button style.
+- Changed Customizer footer color options.
+- Added Customizer option to use accent color in theme icons.
+
 **1.2.2 - 3/16/2018**
 - Fixed broken close video button for Featured Video Plus.
 - Fixed posts navigation vertical alignment on small screens to address [issue 28](https://github.com/peiche/cover2/issues/28).
