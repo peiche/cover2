@@ -1,6 +1,5 @@
 .comment-navigation,
 .posts-navigation {
-	@include site-width;
 
 	.site-main & {
 		margin-bottom: 1.5em;
@@ -33,11 +32,8 @@
 	}
 
 	.nav-previous {
-		margin-bottom: 0.5em;
-
 		@include min-width($breakpoint__tablet-portrait) {
 			float: left;
-			margin-bottom: 0;
 		}
 	}
 
@@ -47,6 +43,18 @@
 			text-align: right;
 		}
 	}
+
+	.nav-previous + .nav-next {
+		margin-top: 0.5em;
+
+		@include min-width($breakpoint__tablet-portrait) {
+			margin-top: 0;
+		}
+	}
+}
+
+.posts-navigation {
+	@include site-width;
 }
 
 .post-navigation {
