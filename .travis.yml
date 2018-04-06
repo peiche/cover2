@@ -84,3 +84,8 @@ script:
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
 notifications:
     email: false
+
+addons:
+    browserstack:
+        username: pauleiche1
+        access_key: kWsE4JzpqAyG1EoxzmDu
