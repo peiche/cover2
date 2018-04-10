@@ -9,8 +9,10 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php $panel_class = is_customize_preview() ? 'panel panel-' . get_query_var( 'panel' ) : 'panel'; ?>
+<article id="panel-<?php the_ID(); ?>" <?php post_class( $panel_class ); ?>>
 
+	<!--
 	<header class="page-header">
 		<div class="page-header__image"></div>
 
@@ -30,15 +32,32 @@
 				</div>
 			<?php endif; ?>
 		</div>
-		
+
 		<?php if ( cover2_get_featured_image( get_the_ID() ) != '' ) : ?>
 			<a class="page-header__scroll-to-content" href="#post-<?php the_ID(); ?>-content">
 				<?php echo cover2_get_svg( array( 'icon' => 'chevron-down' ) ); ?>
 			</a>
 		<?php endif; ?>
 	</header>
+	-->
+	
+	<!-- TODO background image if exists, white text -->
+	<?php
+	$has_img = false;
+	$img = cover2_get_featured_image( get_the_ID() );
+	if ( $img != '' ) :
+		$has_img = true;
+	endif;
+	?>
+	<header class="panel-header<?php echo $has_img ? ' panel-header--image' : ''; ?>">
+		<div class="panel-header__image"<?php echo $has_img ? ' style="background-image: url(' . $img . ');"' : ''; ?>></div>
+		<div class="panel-header__content">
+			<?php the_title( '<h2>', '</h2>' ); ?>
+		</div>
+	</header>
 
 	<div id="post-<?php the_ID(); ?>-content" class="entry-content aesop-entry-content">
+		
 		<?php
 			the_content();
 
@@ -47,52 +66,6 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div>
-	
-	<div class="singlepage-sections">
-	
-		<?php
-		
-		$jump_pages = array();
-		
-		$args = array(
-			'child_of' => get_the_ID()
-		);
-		$pages = get_pages( $args );
-		$counter = 0;
-		foreach ( $pages as $page ) {
-			$content = $page->post_content;
-			
-			// Check for empty page
-			if ( ! $content ) {
-				continue;
-			}
-			
-			$content = apply_filters( 'the_content', $content );
-			$jump_pages[ $counter ] = $page;
-			
-			$img_class = '';
-			$img = cover2_get_featured_image( $page->ID );
-			if ( '' != $img ) {
-				$img_class = ' has-featured-image';
-			}
-			
-			?>
-			
-			<section id="post-<?php echo $page->ID; ?>-content" class="singlepage-content<?php echo $img_class; ?>">
-				<div class="singlepage-content-bg" style="background-image: url('<?php echo $img; ?>');"></div>
-				<div class="entry-content aesop-entry-content">
-					<h2><?php echo $page->post_title; ?></h2>
-					<?php echo $content; ?>
-				</div>
-			</section>
-			
-			<?php
-			$counter++;
-		}
-		
-		?>
-	
 	</div>
 	
 	<footer class="entry-footer">
@@ -108,23 +81,5 @@
 			);
 		?>
 	</footer>
+	
 </article><!-- #post-## -->
-
-<div class="singlepage-scroll-nav">
-	<nav class="scroll-nav fixed" role="navigation">
-		<div class="scroll-nav__wrapper">
-			<ol class="scroll-nav__list">
-				<li class="scroll-nav__item">
-					<a href="#post-<?php the_ID(); ?>-content" class="scroll-nav__link">Top</a>
-				</li>
-				
-				<?php foreach( $jump_pages as $page ) { ?>
-					<li class="scroll-nav__item">
-						<a href="#post-<?php echo $page->ID; ?>-content" class="scroll-nav__link"><?php echo $page->post_title; ?></a>
-					</li>
-				<?php } ?>
-				
-			</ol>
-		</div>
-	</nav>
-</div>

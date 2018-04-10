@@ -29,8 +29,16 @@ get_header(); ?>
 				/* Start the Loop */
 				while ( have_posts() ) : the_post();
 				
-					get_template_part( 'components/post/content', 'summary' );
+					if ( ! is_home() ) :
+	
+						get_template_part( 'components/page/content', 'front-page' );
 					
+					else :
+						
+						get_template_part( 'components/post/content', 'summary' );
+						
+					endif;
+	
 				endwhile;
 	
 				the_posts_navigation();
@@ -41,22 +49,15 @@ get_header(); ?>
 	
 			endif;
 			
-			if ( 0 !== cover2_panel_count() || is_customize_preview() ) : // If we have pages to show.
-				
-				/**
-				 * Filter number of front page sections.
-				 *
-				 * @since Cover2 1.2.3
-				 *
-				 * @param $num_sections integer
-				 */
+			// Single-page includes, defined in the Customizer.
+			if ( ! is_home() && ( 0 !== cover2_panel_count() || is_customize_preview() ) ) : // If we have pages to show.
 				$num_sections = apply_filters( 'cover2_front_page_sections', 4 );
 				global $cover2counter;
 				// Create a setting and control for each of the sections available in the theme.
 				for ( $i = 1; $i < ( 1 + $num_sections ); $i++ ) {
 					$cover2counter = $i;
+					cover2_front_page_sections( null, $i );
 				}
-				
 			endif;
 			?>
 			

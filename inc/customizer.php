@@ -109,7 +109,34 @@ function cover2_customize_register( $wp_customize ) {
 		'section'			=> 'colors',
 		'priority'			=> 9,
 	) );
-
+	
+	// Add section for single page layout.
+	$wp_customize->add_section( 'page_options', array(
+		'title'           => __( 'Front Page Content', 'cover2' ),
+		'active_callback' => 'cover2_is_page',
+		'description'	  => __( 'Select pages to feature in each area from the dropdowns. Empty sections will not be displayed.', 'cover2' ),
+	) );
+	
+	$num_sections = apply_filters( 'cover2_front_page_sections', 4 );
+	for ( $i = 1; $i < ( 1 + $num_sections ); $i++ ) {
+	
+		$wp_customize->add_setting( 'panel_' . $i, array(
+			'default'           => false,
+			'sanitize_callback' => 'absint',
+		) );
+		
+		$wp_customize->add_control( 'panel_' . $i, array(
+			'label'   => __( 'Page Content', 'cover2' ),
+			'section' => 'page_options',
+			'type'    => 'dropdown-pages',
+		) );
+		
+		$wp_customize->selective_refresh->add_partial( 'panel_' . $i, array(
+			'selector'            => '.panel-' . $i,
+			'render_callback'     => 'cover2_front_page_sections',
+			'container_inclusive' => true,
+		) );
+	}
 }
 add_action( 'customize_register', 'cover2_customize_register' );
 

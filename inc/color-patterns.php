@@ -43,7 +43,7 @@
    }
    .site-header,
    .blog .site-header.headroom.headroom--top,
-   .page-header {
+   body:not(.has-featured-image) .page-header {
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
    a,

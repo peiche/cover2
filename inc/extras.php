@@ -48,6 +48,8 @@ function cover2_body_classes( $classes ) {
 		if ( $has_term_image ) {
 			$classes[] = 'has-featured-image';
 		}
+	} else if ( ! is_singular() && cover2_get_first_featured_image() != '' ) {
+		$classes[] = 'has-featured-image';
 	}
 
 	// Get the overlay colorscheme or the default if there isn't one.
@@ -229,3 +231,54 @@ function cover2_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'cover2_pingback_header' );
+
+/**
+ * Count our number of active panels.
+ *
+ * Primarily used to see if we have any panels active, duh.
+ */
+function cover2_panel_count() {
+	$panels = array( '1', '2', '3', '4' );
+	$panel_count = 0;
+	foreach ( $panels as $panel ) {
+		if ( get_theme_mod( 'panel_' . $panel ) ) {
+			$panel_count++;
+		}
+	}
+	return $panel_count;
+}
+
+/**
+ * Display a front page section (modified).
+ * Replaced `id="' . $id . '"` with `id="' . $post->post_name . '"`.
+ *
+ * @param $partial WP_Customize_Partial Partial associated with a selective refresh request.
+ * @param $id integer Front page section to display.
+ */
+function cover2_front_page_sections( $partial = null, $id = 0 ) {
+ 	if ( is_a( $partial, 'WP_Customize_Partial' ) ) {
+ 		// Find out the id and set it up during a selective refresh.
+ 		global $cover2counter;
+ 		$id = str_replace( 'panel_', '', $partial->id );
+ 		$cover2counter = $id;
+ 	}
+ 	global $post; // Modify the global post object before setting up post data.
+ 	if ( get_theme_mod( 'panel_' . $id ) ) {
+ 		global $post;
+ 		$post = get_post( get_theme_mod( 'panel_' . $id ) );
+ 		setup_postdata( $post );
+ 		set_query_var( 'panel', $id );
+ 		get_template_part( 'components/page/content', 'front-page-panel' );
+ 		wp_reset_postdata();
+ 	} elseif ( is_customize_preview() ) {
+ 		// The output placeholder anchor.
+ 		echo '<article class="panel-placeholder panel panel-' . $id . '" id="panel-' . $id . '"><span class="panel-title">' . sprintf( __( 'Front Page Section %1$s Placeholder', 'cover2' ), $id ) . '</span></article>';
+ 	}
+}
+
+/**
+ * Custom Active Callback to check for page.
+ */
+function cover2_is_page() {
+	return ( is_front_page() && is_page() );
+}

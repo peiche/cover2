@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="page-header">
+	<header class="page-header<?php if ( cover2_get_featured_image( get_the_ID() ) != '' ): echo ' full-height'; endif; ?>">
 		<div class="page-header__image"></div>
 
 		<div class="page-header__content">
