@@ -25,6 +25,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.5.3",
+    "bourbon-neat": "^2.1.0",
     "brand-colors": "^2.0.1",
     "browser-sync": "^2.18.1",
     "cssnano": "^3.8.0",
@@ -51,7 +52,6 @@
   },
   "dependencies": {
     "@vimeo/player": "^2.0.1",
-    "bourbon-neat": "^2.0.0",
     "flexslider": "^2.6.3",
     "headroom.js": "^0.9.3"
   }
