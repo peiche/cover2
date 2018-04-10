@@ -10,7 +10,48 @@
 # Social Network Menu
 --------------------------------------------------------------*/
 
-$social-networks: (
+$social-network-names: (
+	"500px": $bc-500px,
+	"amazon": $bc-amazon,
+	"bandcamp": $bc-bandcamp,
+	"behance": $bc-behance,
+	"codepen": $bc-codepen,
+	"deviantart": $bc-deviantart,
+	"digg": $bc-digg,
+	"dribbble": $bc-dribbble,
+	"dropbox": $bc-dropbox,
+	"etsy": $bc-etsy,
+	"facebook": $bc-facebook,
+	"flickr": $bc-flickr,
+	"foursquare": $bc-foursquare,
+	"goodreads": $bc-goodreads,
+	"google-plus": $bc-google-plus,
+	"google": $bc-google,
+	"github": $bc-github,
+	"instagram": $bc-instagram,
+	"linkedin": $bc-linkedin,
+	"meetup": $bc-meetup,
+	"medium": $bc-medium,
+	"pinterest": $bc-pinterest,
+	"pocket": $bc-pocket,
+	"reddit": $bc-reddit,
+	"skype": $bc-skype,
+	"slideshare": $bc-slideshare,
+	"snapchat": $bc-snapchat,
+	"soundcloud": $bc-soundcloud,
+	"spotify": $bc-spotify,
+	"stumbleupon": $bc-stumbleupon,
+	"tumblr": $bc-tumblr,
+	"twitch": $bc-twitch-tv,
+	"twitter": $bc-twitter,
+	"vimeo": $bc-vimeo,
+	"vk": $bc-vkontakte,
+	"wordpress": $bc-wordpress,
+	"yelp": $bc-yelp,
+	"youtube": $bc-youtube
+);
+
+$social-network-links: (
 	"codepen.io": $bc-codepen,
 	"digg.com": $bc-digg,
 	"dribbble.com": $bc-dribbble,
@@ -39,6 +80,68 @@ $social-networks: (
 	"youtube.com": $bc-youtube
 );
 
+.jetpack_widget_social_icons {
+	text-align: center;
+
+	.jetpack-social-widget-item {
+		margin: 0 1em 1em;
+	}
+
+	// Override Jetpack styles	
+	a,
+	ul.size-small a,
+	ul.size-medium a,
+	ul.size-large a {
+		height: auto;
+		width: auto;
+	}
+
+	.icon {
+		background-color: transparent;
+		border-radius: 50%;
+		height: 1.75em;
+		padding: 0.25em;
+		transition: background $timing__default;
+		width: 1.75em;
+	}
+
+	.size-small .icon {
+		height: 1.75em;
+		width: 1.75em;
+	}
+
+	.size-medium .icon {
+		height: 2em;
+		width: 2em;
+	}
+
+	.size-large .icon {
+		height: 2.5em;
+		width: 2.5em;
+	}
+
+	@each $name, $color in $social-network-names {
+
+		a:hover > .icon-#{$name} {
+			background-color: $color;
+		}
+	}
+}
+
+// Deprecated social menu menu
+.menu-social-menu-container {
+
+	ul {
+		margin-top: 3em;
+		text-align: center;
+	}
+
+	li {
+		border: 0;
+		padding: 0 0.75em;
+	}
+}
+
 .jetpack-social-navigation.jetpack-social-navigation-genericons a {
 	@include rem(font-size, 2);
 	@include rem(padding, 0.5);
@@ -53,7 +156,7 @@ $social-networks: (
 		color: $color__white;
 	}
 
-	@each $url, $color in $social-networks {
+	@each $url, $color in $social-network-links {
 
 		&[href*="#{$url}"]:hover {
 			background-color: $color;

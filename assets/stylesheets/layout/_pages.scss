@@ -5,6 +5,12 @@
 	padding: 150px 0 100px;
 	position: relative;
 
+	.panel & {
+		background-color: transparent;
+		color: inherit;
+		padding: 0;
+	}
+
 	a:not(.button) {
 		@include link;
 
@@ -49,9 +55,20 @@
 
 	.has-featured-image & {
 		background-color: $color__background-dark;
+	}
+
+	&.full-height {
 		min-height: 100vh;
 		padding-bottom: 75px;
 		padding-top: 40vh;
+
+		// Android Chrome specific style
+		@supports (-webkit-appearance:none) {
+
+			.os-android & {
+				min-height: calc(100vh - 56px);
+			}
+		}
 	}
 
 	hr {
@@ -64,7 +81,7 @@
 	background-size: cover;
 	bottom: 0;
 	left: 0;
-	opacity: 0.6;
+	opacity: 0.5;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -131,4 +148,51 @@ a.page-header__scroll-to-content {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.panel {
+
+	// Customizer edit button
+	.customize-partial-edit-shortcut-button {
+		left: 5px;
+	}
+
+	&.panel-placeholder {
+		border: 5px dashed $color__placeholder;
+		color: $color__placeholder;
+		margin: 0.5em;
+		padding: 1.5em;
+		text-align: center;
+
+		// Customizer edit button
+		.customize-partial-edit-shortcut-button {
+			left: -30px;
+		}
+	}
+}
+
+.panel-header {
+	position: relative;
+}
+
+.panel-header--image {
+	background-color: $color__background-dark;
+	color: $color__white;
+	margin-bottom: 1.5em;
+	padding: 3em 0 1.5em;
+}
+
+.panel-header__image {
+	bottom: 0;
+	left: 0;
+	opacity: 0.5;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.panel-header__content {
+	@include site-width;
+
+	position: relative;
 }

@@ -8,11 +8,11 @@
 
   .icon-accent & use {
     stroke: $color__accent;
+  }
 
-    .post-navigation &,
-    .video-toggle & {
-      stroke: currentColor;
-    }
+  .icon-accent .post-navigation & use,
+  .icon-accent .video-toggle & use {
+    stroke: currentColor;
   }
 
   .nav-toggle & {

@@ -65,3 +65,16 @@
 .comment-reply-title {
 	font-weight: $font__weight-normal;
 }
+
+.comment-form {
+
+	label {
+		display: block;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="url"] {
+		width: 100%;
+	}
+}

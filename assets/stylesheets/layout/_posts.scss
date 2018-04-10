@@ -147,6 +147,10 @@
 		padding-top: 0;
 	}
 
+	.panel & {
+		padding-top: 20px;
+	}
+
 	.not-found & {
 		padding-bottom: 60px;
 	}
@@ -199,52 +203,6 @@
 			overflow: auto;
 		}
 	}
-}
-
-.singlepage-sections {
-	margin-top: 60px;
-}
-
-.singlepage-content {
-	padding-bottom: 60px;
-	position: relative;
-
-	&.has-featured-image {
-		background-color: $color__background-dark;
-		color: $color__white;
-
-		a {
-			color: inherit;
-		}
-	}
-
-	&:nth-child(odd) {
-		background-color: $color__background-light;
-	}
-
-	.entry-content {
-		position: relative;
-	}
-
-	p:first-of-type,
-	.scroll-nav__section:first-child p:first-of-type {
-		font-size: inherit;
-	}
-
-	:first-child {
-		margin-top: 0;
-	}
-}
-
-.singlepage-content-bg {
-	background-position: center;
-	background-size: cover;
-	bottom: 0;
-	left: 0;
-	opacity: 0.6;
-	position: absolute;
-	right: 0;
-	top: 0;
 }
 
 .twitter-tweet {
