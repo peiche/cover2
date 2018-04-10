@@ -46,13 +46,20 @@ function cover2_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'cover2_sanitize_overlay_colorscheme',
 	) );
 	
-	// Add setting for using accent color in footer.
-	$wp_customize->add_setting( 'footer_accent', array(
+	// Add setting for footer color scheme.
+	$wp_customize->add_setting( 'footer_colorscheme', array(
+		'default'			=> 'light',
+		'transport'			=> 'postMessage',
+		'sanitize_callback'	=> 'cover2_sanitize_footer_colorscheme',
+	) );
+	
+	// Add setting for icon accent color.
+	$wp_customize->add_setting( 'icon_accent', array(
 		'default'			=> '',
 		'transport'			=> 'postMessage',
 		'sanitize_callback'	=> 'cover2_sanitize_checkbox',
 	) );
-
+	
 	// Add control for header color.
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
 		'label'		    	=> __( 'Navbar Color', 'cover2' ),
@@ -82,14 +89,54 @@ function cover2_customize_register( $wp_customize ) {
 		'priority' 			=> 7,
 	) );
 	
-	// Add control for footer accent color.
-	$wp_customize->add_control( 'footer_accent', array(
-		'type'				=> 'checkbox',
-		'label'				=> __( 'Use Accent Color in footer', 'cover2' ),
+	// Add control for footer color scheme.
+	$wp_customize->add_control( 'footer_colorscheme', array(
+		'type'				=> 'radio',
+		'label'				=> __( 'Footer Color Scheme', 'cover2' ),
+		'choices'			=> array(
+			'light'				=> __( 'Light', 'cover2' ),
+			'dark'				=> __( 'Dark', 'cover2' ),
+			'accent'			=> __( 'Accent', 'cover2' ),
+		),
 		'section'			=> 'colors',
 		'priority'			=> 8,
 	) );
-
+	
+	// Add control for icon accent color.
+	$wp_customize->add_control( 'icon_accent', array(
+		'type'				=> 'checkbox',
+		'label'				=> __( 'Use Accent Color in theme icons', 'cover2' ),
+		'section'			=> 'colors',
+		'priority'			=> 9,
+	) );
+	
+	// Add section for single page layout.
+	$wp_customize->add_section( 'page_options', array(
+		'title'           => __( 'Front Page Content', 'cover2' ),
+		'active_callback' => 'cover2_is_page',
+		'description'	  => __( 'Select pages to feature in each area from the dropdowns. Empty sections will not be displayed.', 'cover2' ),
+	) );
+	
+	$num_sections = apply_filters( 'cover2_front_page_sections', 4 );
+	for ( $i = 1; $i < ( 1 + $num_sections ); $i++ ) {
+	
+		$wp_customize->add_setting( 'panel_' . $i, array(
+			'default'           => false,
+			'sanitize_callback' => 'absint',
+		) );
+		
+		$wp_customize->add_control( 'panel_' . $i, array(
+			'label'   => __( 'Page Content', 'cover2' ),
+			'section' => 'page_options',
+			'type'    => 'dropdown-pages',
+		) );
+		
+		$wp_customize->selective_refresh->add_partial( 'panel_' . $i, array(
+			'selector'            => '.panel-' . $i,
+			'render_callback'     => 'cover2_front_page_sections',
+			'container_inclusive' => true,
+		) );
+	}
 }
 add_action( 'customize_register', 'cover2_customize_register' );
 
@@ -100,6 +147,21 @@ add_action( 'customize_register', 'cover2_customize_register' );
  */
 function cover2_sanitize_overlay_colorscheme( $input ) {
 	$valid = array( 'light', 'dark' );
+
+	if ( in_array( $input, $valid ) ) {
+		return $input;
+	}
+
+	return 'light';
+}
+
+/**
+ * Sanitize the footer_colorscheme.
+ *
+ * @param String $input The input to sanitize.
+ */
+function cover2_sanitize_footer_colorscheme( $input ) {
+	$valid = array( 'light', 'dark', 'accent' );
 
 	if ( in_array( $input, $valid ) ) {
 		return $input;

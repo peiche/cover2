@@ -107,7 +107,7 @@
   }
 }
 
-.site-title {
+.site-title:not(.page-title) {
   @include rem(font-size, 1.5);
 
   display: inline-block;
@@ -142,7 +142,11 @@
   }
 }
 
-.site-description {
+.site-title.page-title a:hover {
+  border-color: transparent;
+}
+
+.site-description:not(.entry-excerpt) {
   @include rem(font-size, 1);
   @include rem(line-height, 1.5);
 

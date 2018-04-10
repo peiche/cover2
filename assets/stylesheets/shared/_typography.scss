@@ -20,9 +20,10 @@ h6 {
 }
 
 p {
+	@include word-wrap;
+
 	line-height: 38px;
 	margin: 0 0 30px;
-	word-break: break-word;
 
 	&:last-child {
 		margin-bottom: 0;

@@ -28,7 +28,9 @@ $content__width-large: 1000px;
 // Z-indexes (z-indices?)
 $z-index__default: 1;
 
+// Bouron Neat grid
 $neat-grid: (
-  columns: 12,
-  gutter: 0,
+	columns: 12,
+	gutter: 0,
 );
+$neat-grid-gutter: 30px;

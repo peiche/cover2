@@ -30,7 +30,7 @@ function cover2_body_classes( $classes ) {
 
 	// Add a class of has-featured-image when there is a featured image.
 	if ( is_singular() && get_the_post_thumbnail() ) {
-  	$classes[] = 'has-featured-image';
+  		$classes[] = 'has-featured-image';
 	} else if ( is_singular() && 'timeline' == get_post_type() ) {
 		$has_term_image = false;
 		$term_id = 0;
@@ -48,18 +48,24 @@ function cover2_body_classes( $classes ) {
 		if ( $has_term_image ) {
 			$classes[] = 'has-featured-image';
 		}
+	} else if ( ! is_singular() && cover2_get_first_featured_image() != '' ) {
+		$classes[] = 'has-featured-image';
 	}
 
-	// Get the colorscheme or the default if there isn't one.
-	$colors = cover2_sanitize_overlay_colorscheme( get_theme_mod( 'overlay_colorscheme', 'light' ) );
-	$classes[] = 'overlay-' . $colors;
+	// Get the overlay colorscheme or the default if there isn't one.
+	$overlay_colorscheme = cover2_sanitize_overlay_colorscheme( get_theme_mod( 'overlay_colorscheme', 'light' ) );
+	$classes[] = 'overlay-' . $overlay_colorscheme;
 	
-	// Set accent colored footer.
-	$accent_footer = cover2_sanitize_checkbox( get_theme_mod( 'footer_accent', false ) );
-	if ( $accent_footer ) {
-		$classes[] = 'accent-footer';
+	// Get the footer colorscheme or the default if there isn't one.
+	$footer_colorscheme = cover2_sanitize_footer_colorscheme( get_theme_mod( 'footer_colorscheme', 'light' ) );
+	$classes[] = 'footer-' . $footer_colorscheme;
+	
+	// Set accent colored icons.
+	$icon_accent = cover2_sanitize_checkbox( get_theme_mod( 'icon_accent', false ) );
+	if ( $icon_accent ) {
+		$classes[] = 'icon-accent';
 	}
-
+	
 	if ( cover2_has_featured_post() ) {
 		$classes[] = 'has-featured-post';
 	}
@@ -225,3 +231,54 @@ function cover2_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'cover2_pingback_header' );
+
+/**
+ * Count our number of active panels.
+ *
+ * Primarily used to see if we have any panels active, duh.
+ */
+function cover2_panel_count() {
+	$panels = array( '1', '2', '3', '4' );
+	$panel_count = 0;
+	foreach ( $panels as $panel ) {
+		if ( get_theme_mod( 'panel_' . $panel ) ) {
+			$panel_count++;
+		}
+	}
+	return $panel_count;
+}
+
+/**
+ * Display a front page section (modified).
+ * Replaced `id="' . $id . '"` with `id="' . $post->post_name . '"`.
+ *
+ * @param $partial WP_Customize_Partial Partial associated with a selective refresh request.
+ * @param $id integer Front page section to display.
+ */
+function cover2_front_page_sections( $partial = null, $id = 0 ) {
+ 	if ( is_a( $partial, 'WP_Customize_Partial' ) ) {
+ 		// Find out the id and set it up during a selective refresh.
+ 		global $cover2counter;
+ 		$id = str_replace( 'panel_', '', $partial->id );
+ 		$cover2counter = $id;
+ 	}
+ 	global $post; // Modify the global post object before setting up post data.
+ 	if ( get_theme_mod( 'panel_' . $id ) ) {
+ 		global $post;
+ 		$post = get_post( get_theme_mod( 'panel_' . $id ) );
+ 		setup_postdata( $post );
+ 		set_query_var( 'panel', $id );
+ 		get_template_part( 'components/page/content', 'front-page-panel' );
+ 		wp_reset_postdata();
+ 	} elseif ( is_customize_preview() ) {
+ 		// The output placeholder anchor.
+ 		echo '<article class="panel-placeholder panel panel-' . $id . '" id="panel-' . $id . '"><span class="panel-title">' . sprintf( __( 'Front Page Section %1$s Placeholder', 'cover2' ), $id ) . '</span></article>';
+ 	}
+}
+
+/**
+ * Custom Active Callback to check for page.
+ */
+function cover2_is_page() {
+	return ( is_front_page() && is_page() );
+}

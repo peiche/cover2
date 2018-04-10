@@ -14,10 +14,8 @@
 }
 
 @mixin button {
-	@include rem(padding-bottom, 0.2);
-	@include rem(padding-left, 1);
-	@include rem(padding-right, 1);
-	@include rem(padding-top, 0.2);
+	@include rem(padding-left, 0.5);
+	@include rem(padding-right, 0.5);
 
 	background-color: transparent;
 	border: 2px solid rgba(0, 0, 0, 0.25);
@@ -28,6 +26,10 @@
 
 	&:hover {
 		border-color: rgba(0, 0, 0, 0.5);
+	}
+
+	p & {
+		line-height: 33px;
 	}
 }
 
@@ -84,4 +86,10 @@
 	color: $color__text-main;
 	font-style: italic;
 	text-align: center;
+}
+
+@mixin word-wrap {
+	hyphens: auto;
+	word-break: normal;
+	word-wrap: break-word;
 }

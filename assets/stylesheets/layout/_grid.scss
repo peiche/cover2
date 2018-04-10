@@ -1,5 +1,4 @@
 .container {
-	@include clearfix;
 	@include site-width; // Default width is the normal column size
 
 	&.narrow {
@@ -15,35 +14,53 @@
 	}
 }
 
-[class^="col-"] {
-	@include grid-column;
+.grid-container {
+	padding-left: ($neat-grid-gutter / 2);
+	padding-right: ($neat-grid-gutter / 2);
+}
 
-	min-height: 1px;
+.grid-row {
+	@include grid-container;
 
+	margin-left: -($neat-grid-gutter / 2);
+	margin-right: -($neat-grid-gutter / 2);
+}
+
+[class^="grid-col-"] {
+	padding-left: ($neat-grid-gutter / 2);
+	padding-right: ($neat-grid-gutter / 2);
+}
+
+@for $i from 1 through 12 {
+
+    .grid-col-#{$i} {
+    	@include grid-column($i);
+    }
+}
+
+@for $i from 1 through 12 {
 	@include min-width($breakpoint__tablet-portrait) {
-		padding-left: 20px;
-		padding-right: 20px;
+
+		.grid-col-sm-#{$i} {
+	    	@include grid-column($i);
+	    }
 	}
 }
 
-.col-2 {
-	@include min-width($breakpoint__tablet-portrait) {
-		@include grid-column(6); // 6/12 = 2 columns across
-	}
-}
-
-.col-3 {
-	@include min-width($breakpoint__tablet-portrait) {
-		@include grid-column(4); // 4/12 = 3 columns across
-	}
-}
-
-.col-4 {
-	@include min-width($breakpoint__tablet-portrait) {
-		@include grid-column(6); // 6/12 = 2 columns across
-	}
-
+@for $i from 1 through 12 {
 	@include min-width($breakpoint__tablet-landscape) {
-		@include grid-column(3); // 3/12 = 4 columns across
+
+		.grid-col-md-#{$i} {
+	    	@include grid-column($i);
+	    }
+	}
+}
+
+@for $i from 1 through 12 {
+	@include min-width($breakpoint__desktop) {
+
+		.grid-col-lg-#{$i} {
+	    	@include grid-column($i);
+	    }
 	}
 }

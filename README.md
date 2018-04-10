@@ -47,19 +47,7 @@ Cover2 was built from the ground up with Aesop Story Engine in mind. Break out o
 
 ### Responsive Grid
 
-Cover2 includes support for a basic multi-column grid which collapses down to a single column on small screens. Use the following markup in your post or page:
-
-```
-<div class="container">
-  <div class="col-2">...</div>
-  <div class="col-2">...</div>
-</div>
-```
-
-Use these classes to define the width of your columns:
-- `col-2`   Two columns, collapses to one under 600px
-- `col-3`   Three columns, collapses to one under 600px
-- `col-4`   Four columns, collapses to two under 900px, collapses to one under 600px 
+Cover2 includes support for a mobile first 12-column grid. [Read about it here.](RESPONSIVE-GRID.md)
 
 ## Installation
 
@@ -125,3 +113,4 @@ All other resources are licensed as follows:
 [Reponsive Display Text](https://24ways.org/2016/responsive-display-text/)  
 [Align SVG Icons to Text and Say Goodbye to Font Icons](https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4#.yfiiz5rca)  
 [Your Body Text Is Too Small](https://blog.marvelapp.com/body-text-small/)  
+[Getting started with Neat 2.0, a lightweight and flexible Sass grid](https://robots.thoughtbot.com/the-release-of-neat-2-0-a-lightweight-and-flexible-sass-grid)
