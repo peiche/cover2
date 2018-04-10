@@ -2,14 +2,21 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.2.3 - 3/21/2018**
+**1.3.0 - 4/9/2018**
 - Fixed posts navigation margin.
+- Fixed blog page top margin.
 - Fixed comment navigation width.
 - Fixed footer widget colors.
 - Fixed word break and hyphenation styles.
-- Changed posts and comment navigation button style.
+- Fixed comment form field widths.
+- Fixed full-height header to address [issue 31](https://github.com/peiche/cover2/issues/31).
+- Changed header styles.
+- Changed posts and comment navigation button styles.
 - Changed Customizer footer color options.
+- Added support for new [Jetpack social media icons widget](https://jetpack.com/2018/04/03/jetpack-6-0/).
 - Added Customizer option to use accent color in theme icons.
+- Added Customizer option to add configurable front page content.
+- Replaced old grid styles with 12-column responsive grid. [Read the documentation.](RESPONSIVE-GRID.md)
 
 **1.2.2 - 3/16/2018**
 - Fixed broken close video button for Featured Video Plus.
