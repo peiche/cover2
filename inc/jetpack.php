@@ -35,7 +35,7 @@ function cover2_jetpack_setup() {
 	// Add theme support for Featured Content.
 	add_theme_support( 'featured-content', array(
         'filter'      => 'cover2_get_featured_posts',
-        'description' => esc_html__( 'The featured content section displays on the index page bellow the header.', 'cover2' ),
+        'description' => esc_html__( 'The featured content section displays on the index page below the header.', 'cover2' ),
         'max_posts'   => 10,
         'post_types'  => array( 'post' ),
     ) );
