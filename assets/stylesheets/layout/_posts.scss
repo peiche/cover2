@@ -52,6 +52,11 @@
 	display: inline;
 }
 
+.entry-summary > *,
+.entry-content > * {
+	line-height: $font__line-height-content;
+}
+
 .entry-summary {
 	margin: 30px 0 0;
 }

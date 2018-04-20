@@ -9,10 +9,6 @@
 	.edit-link {
 		padding: 0;
 	}
-
-	a {
-		@include link;
-	}
 }
 
 .comments-title {
@@ -44,14 +40,19 @@
 	border-bottom: 1px solid $color__border;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
+
+	a:not(.button) {
+		@include link;
+	}
 }
 
 .comment-content {
 	@include clearfix;
+	@include word-wrap;
 
-	a {
-		@include word-wrap;
-	}
+	line-height: $font__line-height-content;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
 
 	ul {
 		margin-left: 0;

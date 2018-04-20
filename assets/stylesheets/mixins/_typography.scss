@@ -21,15 +21,14 @@
 	border: 2px solid rgba(0, 0, 0, 0.25);
 	border-radius: 4px;
 	display: inline-block;
+	line-height: $font__line-height-content;
+	margin-bottom: 2px;
+	margin-top: 2px;
 	text-decoration: none;
 	transition: all $timing__default ease;
 
 	&:hover {
 		border-color: rgba(0, 0, 0, 0.5);
-	}
-
-	p & {
-		line-height: 33px;
 	}
 }
 
