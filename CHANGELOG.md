@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 **1.3.1 - 4/20/2018**
-- Fixed content and button line-height.
+- Fixed content and button line-height to address [issue 30](https://github.com/peiche/cover2/issues/30) (again).
 - Fixed typo in Jetpack featured content description.
 - Added support for button classes on menu items.
 
