@@ -2,9 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.3.1 - 4/11/2018**
-- Fixed button styles in comments.
+**1.3.1 - 4/20/2018**
+- Fixed content and button line-height.
 - Fixed typo in Jetpack featured content description.
+- Added support for button classes on menu items.
 
 **1.3.0 - 4/9/2018**
 - Fixed posts navigation margin.
