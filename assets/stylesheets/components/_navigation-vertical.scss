@@ -24,6 +24,45 @@
 	a {
 		display: block;
 	}
+
+	.menu-item.button > a {
+		@include button;
+		@include button-style($color__text-main);
+
+		display: block;
+	}
+
+	.menu-item.button:not(.default) > a {
+
+		.overlay-dark .overlay &,
+		.footer-dark .site-footer &,
+		.footer-accent .site-footer & {
+			@include button-style($color__white);
+
+			color: $color__text-main;
+		}
+	}
+
+	.menu-item.button.ghost > a {
+		@include button-style($color__text-main, true);
+	}
+
+	.menu-item.button.ghost:not(.default) > a {
+
+		.overlay-dark .overlay &,
+		.footer-dark .site-footer &,
+		.footer-accent .site-footer & {
+			@include button-style($color__white, true);
+		}
+	}
+
+	.menu-item.button.default > a {
+		@include button-style($color__accent);
+	}
+
+	.menu-item.button.ghost.default > a {
+		@include button-style($color__accent, true);
+	}
 }
 
 .showsub-toggle {
@@ -77,6 +116,43 @@
 		&:active {
 			color: inherit;
 		}
+	}
+
+	.menu > .menu-item.button,
+	.menu > .menu-item.button:hover {
+		background-color: transparent;
+	}
+
+	.menu > .menu-item.button > a {
+		@include button;
+		@include button-style($color__text-main);
+
+		line-height: normal;
+		margin-bottom: -5px;
+		margin-top: -5px;
+		padding-bottom: 5px;
+		padding-top: 5px;
+	}
+
+	.menu > .menu-item.button.ghost:not(.default) > a {
+		@include button-style($color__text-main, true);
+
+		border-color: #fff;
+		color: #fff;
+
+		&:hover {
+			background-color: #fff;
+			border-color: #fff;
+			color: $color__text-main;
+		}
+	}
+
+	.menu > .menu-item.button.default > a {
+		@include button-style($color__accent);
+	}
+
+	.menu > .menu-item.button.default.ghost > a {
+		@include button-style($color__accent, true);
 	}
 
 	.has-chapters & {

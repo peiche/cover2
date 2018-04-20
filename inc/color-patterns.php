@@ -41,6 +41,15 @@
    .headroom--not-top .chapter-toggle:before {
      border-color: ' . $header_text_color . ' ' . $header_text_color . ' transparent;
    }
+   .headroom--not-top .mini-menu-container .menu > .menu-item.button.ghost:not(.default) a {
+    border-color: ' . $header_text_color . ';
+    color: ' . $header_text_color . ';
+   }
+   .headroom--not-top .mini-menu-container .menu > .menu-item.button.ghost:not(.default) a:hover {
+    border-color: ' . $header_text_color . ';
+    background-color: ' . $header_text_color . ';
+    color: ' . ( ( hexdec( $header_color ) > 0xffffff / 2 ) ? '#fff' : '#404040' ) . ';
+   }
    .site-header,
    .blog .site-header.headroom.headroom--top,
    body:not(.has-featured-image) .page-header {
@@ -64,23 +73,27 @@
    input[type="button"].default,
    input[type="reset"].default,
    input[type="submit"].default,
-   .button.default,
+   .button.default:not(.menu-item),
    .page-header .button.default,
    .entry-content .wp-block-button.default .wp-block-button__link,
    .entry-summary .page-links > a,
-   .entry-content .page-links > a {
+   .entry-content .page-links > a,
+   .mini-menu-container .menu > .menu-item.button.default > a,
+   .menu .menu-item.button.default > a {
      border-color: hsl(' . $hue . ', 75%, 50%);
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
-   button.default:hover,
+   button.default:not(.menu-item):hover,
    input[type="button"].default:hover,
    input[type="reset"].default:hover,
    input[type="submit"].default:hover,
-   .button.default:hover,
+   .button.default:not(.menu-item):hover,
    .page-header .button.default:hover,
    .entry-content .wp-block-button.default .wp-block-button__link:hover,
    .entry-summary .page-links > a:hover,
-   .entry-content .page-links > a:hover {
+   .entry-content .page-links > a:hover,
+   .mini-menu-container .menu > .menu-item.button.default > a:hover,
+   .menu .menu-item.button.default > a:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
@@ -88,9 +101,11 @@
    input[type="button"].default.ghost,
    input[type="reset"].default.ghost,
    input[type="submit"].default.ghost,
-   .button.default.ghost,
+   .button.default.ghost:not(.menu-item),
    .page-header .button.default.ghost,
-   .entry-content .wp-block-button.default.ghost .wp-block-button__link {
+   .entry-content .wp-block-button.default.ghost .wp-block-button__link,
+   .mini-menu-container .menu > .menu-item.button.default.ghost > a,
+   .menu .menu-item.button.ghost.default > a {
      border-color: hsl(' . $hue . ', 75%, 50%);
      color: hsl(' . $hue . ', 75%, 50%);
    }
@@ -102,21 +117,27 @@
    input[type="reset"].default.ghost:focus,
    input[type="submit"].default.ghost:active,
    input[type="submit"].default.ghost:focus,
-   .button.default.ghost:active,
-   .button.default.ghost:focus,
+   .button.default.ghost:not(.menu-item):active,
+   .button.default.ghost:not(.menu-item):focus,
    .page-header .button.default.ghost:active,
    .page-header .button.default.ghost:focus,
    .entry-content .wp-block-button.default.ghost .wp-block-button__link:active,
-   .entry-content .wp-block-button.default.ghost .wp-block-button__link:focus {
+   .entry-content .wp-block-button.default.ghost .wp-block-button__link:focus,
+   .mini-menu-container .menu > .menu-item.button.default.ghost > a:active,
+   .mini-menu-container .menu > .menu-item.button.default.ghost > a:focus,
+   .menu .menu-item.button.ghost.default > a:active,
+   .menu .menu-item.button.ghost.default > a:focus {
     color: hsl(' . $hue . ', 75%, 50%);
    }
    button.default.ghost:hover,
    input[type="button"].default.ghost:hover,
    input[type="reset"].default.ghost:hover,
    input[type="submit"].default.ghost:hover,
-   .button.default.ghost:hover,
+   .button.default.ghost:not(.menu-item):hover,
    .page-header .button.default.ghost:hover,
-   .entry-content .wp-block-button.default.ghost .wp-block-button__link:hover {
+   .entry-content .wp-block-button.default.ghost .wp-block-button__link:hover,
+   .mini-menu-container .menu > .menu-item.button.default.ghost > a:hover,
+   .menu .menu-item.button.ghost.default > a:hover {
      background-color: hsl(' . $hue . ', 75%, 50%);
      border-color: hsl(' . $hue . ', 75%, 50%);
      color: #fff;

@@ -2,7 +2,7 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-.button {
+.button:not(.menu-item) {
 	@include button;
 	@include button-style($color__text-main);
 
