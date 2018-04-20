@@ -54,7 +54,7 @@
 
 .entry-summary > *,
 .entry-content > * {
-	line-height: 38px;
+	line-height: $font__line-height-content;
 }
 
 .entry-summary {
