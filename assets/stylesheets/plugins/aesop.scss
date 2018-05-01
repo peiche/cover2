@@ -385,3 +385,98 @@
     margin-top: 0;
   }
 }
+
+/*--------------------------------------------------------------
+# Swipebox (image gallery plugin)
+--------------------------------------------------------------*/
+
+.swipebox-html body {
+  overflow: hidden;
+}
+
+#swipebox-slider {
+  top: 50px;
+
+  .slide {
+    background-image: none;
+    height: calc(100% - 100px);
+    padding: 0 50px;
+
+    img {
+      position: relative;
+      z-index: $z-index__default;
+    }
+
+    &.current:after {
+      animation-duration: 0.75s;
+  		animation-iteration-count: infinite;
+  		animation-name: spin;
+  		animation-timing-function: linear;
+      background-image: url("../../img/spinner.svg");
+      bottom: 0;
+      content: "";
+      height: 32px;
+      left: 0;
+      margin: auto;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 32px;
+    }
+  }
+}
+
+#swipebox-caption,
+#swipebox-action {
+  background-color: transparent;
+  text-shadow: none;
+}
+
+#swipebox-caption,
+#swipebox-caption.visible-bars {
+  bottom: 0;
+  color: $color__white;
+  top: auto;
+}
+
+#swipebox-action {
+  position: static;
+
+  #swipebox-close,
+  #swipebox-prev,
+  #swipebox-next {
+    background-position: center;
+  }
+
+  #swipebox-close {
+    background-image: url("../../img/x.svg");
+    left: auto;
+    right: 0;
+    top: 0;
+  }
+
+  #swipebox-prev,
+  #swipebox-next {
+    top: 50%;
+    transform: translate(0, -50%);
+
+    &.disabled {
+      display: none;
+    }
+  }
+
+  #swipebox-prev {
+    background-image: url("../../img/arrow-left.svg") !important; // overrides inline style
+    left: 0;
+    right: auto;
+  }
+
+  #swipebox-next {
+    background-image: url("../../img/arrow-right.svg") !important; // overrides inline style
+    right: 0;
+  }
+}
+
+#swipebox-overlay {
+  background-color: $color__background-dark;
+}

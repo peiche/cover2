@@ -89,9 +89,13 @@ gulp.task( 'clean', function() {
 } );
 
 /**
- * Copy third-party scripts.
+ * Copy images and third-party scripts.
  */
 gulp.task( 'copy', function() {
+  gulp.src( [
+    'assets/img/**/*'
+  ] ).pipe( gulp.dest( 'dist/img' ) );
+
   return gulp.src( [
     'node_modules/headroom.js/dist/headroom*.js',
     'node_modules/flexslider/jquery.flexslider*.js',
