@@ -40,6 +40,10 @@
 			@include button-style($color__white);
 
 			color: $color__text-main;
+			
+			&:active {
+				color: $color__text-main;
+			}
 		}
 	}
 
@@ -137,12 +141,20 @@
 	.menu > .menu-item.button.ghost:not(.default) > a {
 		@include button-style($color__text-main, true);
 
-		border-color: #fff;
-		color: #fff;
+		border-color: $color__white;
+		color: $color__white;
 
 		&:hover {
-			background-color: #fff;
-			border-color: #fff;
+			background-color: $color__white;
+			border-color: $color__white;
+			color: $color__text-main;
+		}
+
+		&:active {
+			color: $color__white;
+		}
+
+		&:hover:active {
 			color: $color__text-main;
 		}
 	}

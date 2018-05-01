@@ -32,6 +32,7 @@
 		&:hover {
 			background-color: darken($color__white, 10%);
 			border-color: darken($color__white, 10%);
+			color: $color__text-main;
 		}
 
 		&.default {
