@@ -14,7 +14,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	border: 1px solid $color__border-input;
+	border: 2px solid $color__border-input;
 	border-radius: 3px;
 	color: $color__text-input;
 
@@ -24,7 +24,7 @@ textarea {
 }
 
 select {
-	border: 1px solid $color__border-input;
+	border: 2px solid $color__border-input;
 }
 
 input[type="text"],
@@ -42,11 +42,11 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"] {
-	padding: 3px;
+	padding: 5px 10px;
 }
 
 textarea {
-	padding-left: 3px;
+	padding: 5px 10px;
 	width: 100%;
 }
 
