@@ -399,12 +399,9 @@
 }
 
 #swipebox-slider {
-  top: 50px;
 
   .slide {
     background-image: none;
-    height: calc(100% - 100px);
-    padding: 0 50px;
 
     img {
       position: relative;
@@ -432,31 +429,42 @@
 
 #swipebox-caption,
 #swipebox-action {
-  background-color: transparent;
   text-shadow: none;
 }
 
-#swipebox-caption,
-#swipebox-caption.visible-bars {
+#swipebox-caption {
+  background-color: rgba($color__background-dark, 0.5);
   bottom: 0;
   color: $color__white;
   top: auto;
+
+  &:empty {
+    display: none;
+  }
+
+  &.visible-bars {
+    top: auto;
+  }
 }
 
 #swipebox-action {
-  position: static;
+  height: 0;
 
   #swipebox-close,
   #swipebox-prev,
   #swipebox-next {
+    background-color: rgba($color__background-dark, 0.5);
     background-position: center;
+    border-radius: 50%;
+    position: fixed;
   }
 
   #swipebox-close {
     background-image: url("../../img/x.svg");
     left: auto;
-    right: 0;
-    top: 0;
+    right: 5px;
+    top: 5px;
+    transition: top $timing__default;
   }
 
   #swipebox-prev,
@@ -471,13 +479,15 @@
 
   #swipebox-prev {
     background-image: url("../../img/arrow-left.svg") !important; // overrides inline style
-    left: 0;
+    left: 5px;
     right: auto;
+    transition: left $timing__default;
   }
 
   #swipebox-next {
     background-image: url("../../img/arrow-right.svg") !important; // overrides inline style
-    right: 0;
+    right: 5px;
+    transition: right $timing__default;
   }
 }
 
