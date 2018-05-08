@@ -216,7 +216,7 @@ $social-network-links: (
 
 	span {
 		@include button;
-		@include button-style($color__text-main);
+		@include button-style($color__accent);
 
 		display: block;
 		font-size: inherit;
@@ -224,5 +224,24 @@ $social-network-links: (
 		@include min-width($breakpoint__tablet-portrait) {
 			display: inline-block;
 		}
+	}
+}
+
+/*--------------------------------------------------------------
+# Contact Form
+--------------------------------------------------------------*/
+
+.contact-form {
+	@include site-width;
+
+	input[type="email"],
+	input[type="text"],
+	input[type="url"] {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	textarea {
+		width: 100%;
 	}
 }
