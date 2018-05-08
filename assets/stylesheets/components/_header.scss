@@ -11,7 +11,7 @@
   will-change: transform;
   z-index: $z-index__default + 2;
 
-  @include min-width($breakpoint__tablet-aesop) {
+  @include min-width($breakpoint__tablet-portrait--aesop) {
 
     .aesop-sticky-map.aesop-sticky-map-top & {
       top: 220px;
