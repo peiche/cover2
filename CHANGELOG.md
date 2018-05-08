@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.3.2 - 5/8/2018**
+**1.4.0 - 5/8/2018**
 - Fixed button styles in header, navigation, and overlay.
 - Fixed top margin for paged blog posts.
 - Updated Aesop Story Engine plugin's lightbox icons to match Cover2 style.
