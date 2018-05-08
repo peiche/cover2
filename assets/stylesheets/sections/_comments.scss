@@ -78,4 +78,8 @@
 	input[type="url"] {
 		width: 100%;
 	}
+
+	a:not(.button) {
+		@include link;
+	}
 }
