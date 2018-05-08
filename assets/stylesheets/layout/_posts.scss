@@ -14,6 +14,10 @@
 		padding-top: 0;
 	}
 
+	.home-latest-posts & {
+		padding-top: 50px;
+	}
+
 	.timeline & {
 		padding-bottom: 0;
 	}
@@ -39,6 +43,10 @@
 		.page &,
 		.featured-content & {
 			display: none;
+		}
+
+		.home-latest-posts & {
+			display: block;
 		}
 	}
 }
@@ -84,8 +92,6 @@
 	margin-bottom: 0;
 	margin-top: 0;
 
-	body.single &,
-	body.page &,
 	.featured-content & {
 		@include rem(font-size, 2.5);
 		@include rem(line-height, 3);
@@ -150,10 +156,6 @@
 
 	.no-header & {
 		padding-top: 0;
-	}
-
-	.panel & {
-		padding-top: 20px;
 	}
 
 	.not-found & {
@@ -291,7 +293,7 @@
 .entry-summary .page-links > a,
 .entry-content .page-links > a {
 	@include button;
-	@include button-style($color__link);
+	@include button-style($color__accent);
 }
 
 .cat-links,

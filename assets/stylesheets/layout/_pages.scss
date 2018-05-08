@@ -35,16 +35,30 @@
 			color: $color__text-main;
 		}
 
+		&:active {
+			color: $color__text-main;
+		}
+
 		&.default {
 			color: $color__white;
 		}
 
 		&.ghost {
 			background-color: transparent;
+			border-color: $color__white;
 			color: $color__white;
 
 			&:hover {
 				background-color: $color__white;
+				border-color: $color__white;
+				color: $color__text-main;
+			}
+
+			&:active {
+				color: $color__white;
+			}
+
+			&:hover:active {
 				color: $color__text-main;
 			}
 
@@ -152,6 +166,11 @@ a.page-header__scroll-to-content {
 }
 
 .panel {
+	padding: 3em 0;
+
+	> * {
+		position: relative;
+	}
 
 	// Customizer edit button
 	.customize-partial-edit-shortcut-button {
@@ -170,30 +189,62 @@ a.page-header__scroll-to-content {
 			left: -30px;
 		}
 	}
+
+	&.panel--image {
+		background-color: $color__background-dark;
+		color: $color__white;
+
+		a {
+			border-color: rgba($color__border, 0.5);
+			color: $color__white;
+		}
+
+		.button,
+		button,
+		input[type="button"],
+		input[type="reset"],
+		input[type="submit"] {
+			@include button-style($color__white);
+
+			color: $color__text-main;
+
+			&:active {
+				color: $color__text-main;
+			}
+
+			&.ghost {
+				@include button-style($color__white, true);
+			}
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"],
+		input[type="number"],
+		input[type="tel"],
+		input[type="range"],
+		input[type="date"],
+		input[type="month"],
+		input[type="week"],
+		input[type="time"],
+		input[type="datetime"],
+		input[type="datetime-local"],
+		input[type="color"],
+		textarea {
+			background-color: transparent;
+			border-color: rgba($color__white, 0.5);
+			color: $color__white;
+		}
+	}
 }
 
-.panel-header {
-	position: relative;
-}
-
-.panel-header--image {
-	background-color: $color__background-dark;
-	color: $color__white;
-	margin-bottom: 1.5em;
-	padding: 3em 0 1.5em;
-}
-
-.panel-header__image {
+.panel__image {
 	bottom: 0;
 	left: 0;
 	opacity: 0.5;
 	position: absolute;
 	right: 0;
 	top: 0;
-}
-
-.panel-header__content {
-	@include site-width;
-
-	position: relative;
 }

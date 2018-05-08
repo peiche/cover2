@@ -137,6 +137,47 @@ function cover2_customize_register( $wp_customize ) {
 			'container_inclusive' => true,
 		) );
 	}
+	
+	// Add setting and control for displaying latest posts on static home page.
+	$wp_customize->add_setting( 'static_posts_bool', array(
+		'default'			=> false,
+		'sanitize_callback'	=> 'cover2_sanitize_checkbox',
+	) );
+	
+	$wp_customize->add_control( 'static_posts_bool', array(
+		'type'				=> 'checkbox',
+		'label'				=> __( 'Display most recent posts', 'cover2' ),
+		'section'			=> 'page_options',
+	) );
+	
+	// Add setting and control for the number of latest posts displayed on static home page.
+	$wp_customize->add_setting( 'static_posts_count', array(
+		'default'           => 3,
+		'sanitize_callback' => 'cover2_sanitize_static_posts_count',
+	) );
+	
+	$wp_customize->add_control( 'static_posts_count', array(
+		'type'				=> 'number',
+		'label'				=> __( 'Number of recent posts to display', 'cover2' ),
+		'section'			=> 'page_options',
+	) );
+	
+	if ( cover2_has_featured_post() ) :
+	
+		// Add setting and control for displaying featured posts on static home page.
+		$wp_customize->add_setting( 'featured_posts_bool', array(
+			'default'			=> false,
+			'sanitize_callback'	=> 'cover2_sanitize_checkbox',
+		) );
+		
+		$wp_customize->add_control( 'featured_posts_bool', array(
+			'type'				=> 'checkbox',
+			'label'				=> __( 'Display featured posts', 'cover2' ),
+			'section'			=> 'page_options',
+		) );
+	
+	endif;
+	
 }
 add_action( 'customize_register', 'cover2_customize_register' );
 
@@ -173,10 +214,19 @@ function cover2_sanitize_footer_colorscheme( $input ) {
 /**
  * Sanitize checkbox.
  *
- * @param String $input The input to sanitize.
+ * @param Boolean $checked The input to sanitize.
  */
 function cover2_sanitize_checkbox( $checked ) {
   return ( ( isset( $checked ) && true == $checked ) ? true : false );
+}
+
+/**
+ * Sanitize recent post count on static home page.
+ * 
+ * @param Number $count The input to sanitize.
+ */
+function cover2_sanitize_static_posts_count( $count ) {
+	return ( $count > 0 ? $count : 1 );
 }
 
 /**

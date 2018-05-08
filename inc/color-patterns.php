@@ -76,10 +76,14 @@
    .button.default:not(.menu-item),
    .page-header .button.default,
    .entry-content .wp-block-button.default .wp-block-button__link,
+   .mini-menu-container .menu > .menu-item.button.default > a,
+   .menu .menu-item.button.default > a,
+   .comment-navigation .nav-next a,
+   .posts-navigation .nav-next a,
    .entry-summary .page-links > a,
    .entry-content .page-links > a,
-   .mini-menu-container .menu > .menu-item.button.default > a,
-   .menu .menu-item.button.default > a {
+   .site-main #infinite-handle span,
+   .aesop-story-collection .aesop-collection-load-more {
      border-color: hsl(' . $hue . ', 75%, 50%);
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
@@ -90,10 +94,14 @@
    .button.default:not(.menu-item):hover,
    .page-header .button.default:hover,
    .entry-content .wp-block-button.default .wp-block-button__link:hover,
+   .mini-menu-container .menu > .menu-item.button.default > a:hover,
+   .menu .menu-item.button.default > a:hover,
+   .comment-navigation .nav-next a:hover,
+   .posts-navigation .nav-next a:hover,
    .entry-summary .page-links > a:hover,
    .entry-content .page-links > a:hover,
-   .mini-menu-container .menu > .menu-item.button.default > a:hover,
-   .menu .menu-item.button.default > a:hover {
+   .site-main #infinite-handle span:hover,
+   .aesop-story-collection .aesop-collection-load-more:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
