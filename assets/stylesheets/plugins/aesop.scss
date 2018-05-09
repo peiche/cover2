@@ -434,15 +434,17 @@
 
 #swipebox-caption {
   background-color: rgba($color__background-dark, 0.5);
-  bottom: 0;
+  bottom: -50px;
   color: $color__white;
   top: auto;
+  transition: bottom;
 
   &:empty {
     display: none;
   }
 
   &.visible-bars {
+    bottom: 0;
     top: auto;
   }
 }
@@ -463,8 +465,12 @@
     background-image: url("../../img/x.svg");
     left: auto;
     right: 5px;
-    top: 5px;
+    top: -50px;
     transition: top $timing__default;
+  }
+
+  &.visible-bars #swipebox-close {
+    top: 5px;
   }
 
   #swipebox-prev,
@@ -473,21 +479,29 @@
     transform: translate(0, -50%);
 
     &.disabled {
-      display: none;
+      opacity: 0.25;
     }
   }
 
   #swipebox-prev {
     background-image: url("../../img/arrow-left.svg") !important; // overrides inline style
-    left: 5px;
+    left: -50px;
     right: auto;
     transition: left $timing__default;
   }
 
+  &.visible-bars #swipebox-prev {
+    left: 5px;
+  }
+
   #swipebox-next {
     background-image: url("../../img/arrow-right.svg") !important; // overrides inline style
-    right: 5px;
+    right: -50px;
     transition: right $timing__default;
+  }
+
+  &.visible-bars #swipebox-next {
+    right: 5px;
   }
 }
 
