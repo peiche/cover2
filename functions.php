@@ -60,7 +60,12 @@ function cover2_setup() {
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
-
+	
+	/**
+	 *  Add support for custom video header.
+	 */
+	add_theme_support( 'custom-header' );
+	
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
