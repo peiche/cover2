@@ -1,0 +1,294 @@
+#ais-main {
+
+	.page-header__content {
+	  max-width: $content__width-normal;
+	}
+
+	@media screen and (min-width: $breakpoint__tablet-landscape) {
+		float: right;
+		width: 75%;
+	}
+}
+
+#algolia-stats {
+  opacity: 0.75;
+  text-align: left;
+}
+
+input.ais-search-box--input {
+  background-color: transparent;
+	border: 2px solid $color__border;
+	border-radius: 0;
+	border-width: 0 0 2px;
+	box-shadow: none; // Hide "invalid" styling for Firefox.
+	box-sizing: border-box;
+	color: $color__white;
+	display: block;
+	font-size: 40px;
+	margin-bottom: 5px;
+	outline: none;
+	padding: 5px 0;
+	width: 100%;
+
+	&::placeholder {
+	  color: rgba(255, 255, 255, 0.75);
+	}
+
+	&:focus {
+	  color: inherit;
+	}
+
+	// Hide "clear field" pseudo-element for IE/Edge.
+	&::-ms-clear {
+    	display: none;
+	}
+}
+
+.ais-search-box--powered-by {
+  text-align: right;
+}
+
+.ais-search-box--powered-by-link {
+  background-image: url("../../img/search-by-algolia-dark.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 35px;
+  overflow: hidden;
+  text-indent: 100%;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100px;
+}
+
+.ais-hits__empty {
+  @include site-width;
+
+  padding: 50px 0;
+}
+
+.ais-hits--content em {
+  background-color: #ddd;
+  border-radius: 3px;
+  font-style: normal;
+}
+
+.ais-pagination {
+  @include site-width;
+  @include clearfix;
+
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 30px;
+  padding: 0;
+}
+
+.ais-pagination--item__first,
+.ais-pagination--item__last,
+.ais-pagination--item__page {
+  display: none;
+}
+
+.ais-pagination--link {
+  @include button;
+  @include button-style($color__accent);
+}
+
+.ais-pagination--item__disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.ais-pagination--item__previous {
+  float: left;
+}
+
+.ais-pagination--item__next {
+  float: right;
+}
+
+.autocomplete-empty {
+	opacity: 0.75;
+}
+
+#ais-wrapper .page-header__content {
+	max-width: $content__width-normal;
+}
+
+// Treat as overlay on small screens
+#ais-facets {
+	background-color: $color__background-light;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	overflow: auto;
+	padding: 0 1em;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transition: all $timing__default;
+	visibility: hidden;
+	z-index: $z-index__default + 2;
+
+	.overlay-dark & {
+		background-color: $color__background-dark;
+		color: $color__white;
+	}
+
+	&.show {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	@media screen and (min-width: $breakpoint__tablet-landscape) {
+		background-color: transparent;
+		display: block;
+		float: left;
+		margin-top: 0.5em;
+		opacity: 1;
+		padding-left: 3em;
+		position: static;
+		visibility: visible;
+		width: 25%;
+
+		.overlay-light &,
+		.overlay-dark & {
+			background-color: transparent;
+			color: inherit;
+		}
+	}
+}
+
+.ais-facets {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 500px;
+	width: 90%;
+}
+
+.ais-header .widgettitle {
+	font-family: $font__family-heading;
+	font-weight: $font__weight-heading;
+	margin-bottom: 1em;
+	margin-top: 2em;
+}
+
+.ais-menu--link,
+.ais-hierarchical-menu--link {
+	border-radius: 5px;
+	color: inherit;
+	display: block;
+	margin-bottom: 5px;
+	padding: 5px;
+	position: relative;
+	text-decoration: none;
+	transition: background 200ms;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: inherit;
+	}
+
+	@media screen and (min-width: $breakpoint__tablet-landscape) {
+
+		&:hover {
+			background-color: #ddd;
+		}
+	}
+}
+
+.ais-hierarchical-menu--item__active .ais-hierarchical-menu--link,
+.ais-menu--item__active .ais-menu--link {
+	background-color: $color__accent;
+	color: $color__white;
+
+	&:after {
+		content: "×";
+		display: inline-block;
+		position: absolute;
+		right: 10px;
+		top: 5px;
+	}
+}
+
+.ais-refinement-list--item {
+	border-radius: 5px;
+	padding: 5px;
+	transition: background $timing__default;
+}
+
+.ais-facets > div {
+	margin-bottom: 3em;
+	position: relative;
+}
+
+.ais-refinement-list--label {
+	display: block;
+	padding-left: 30px;
+	position: relative;
+
+	&:before {
+		@include rem(height, 1);
+		@include rem(top, 0.5);
+		@include rem(width, 1);
+
+		background-color: #ddd;
+		border-radius: 3px;
+		content: "";
+		display: block;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		user-select: none;
+
+		.ais-refinement-list--checkbox:checked ~ & {
+			background-color: $color__accent;
+		}
+	}
+
+	&:after {
+		@include rem(height, 1);
+		@include rem(top, 0.5);
+		@include rem(width, 1);
+
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 50% 50%;
+		content: "";
+		display: block;
+		left: 0;
+		position: absolute;
+
+		.ais-refinement-list--checkbox:checked ~ & {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+		}
+	}
+}
+
+.ais-refinement-list--checkbox {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.ais-menu--count,
+.ais-hierarchical-menu--count,
+.ais-refinement-list--count {
+	background-color: $color__accent;
+	border-radius: 25px;
+	color: $color__white;
+	font-size: 65%;
+	padding: 3px 9px;
+	vertical-align: middle;
+}
+
+.ais-menu--item__active .ais-menu--count,
+.ais-hierarchical-menu--item__active .ais-hierarchical-menu--count {
+	background-color: $color__white;
+	color: $color__accent;
+}
+
+#algolia-pagination {
+	margin-bottom: 2em;
+}
