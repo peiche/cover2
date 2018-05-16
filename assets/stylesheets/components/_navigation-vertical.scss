@@ -150,12 +150,13 @@
 			color: $color__text-main;
 		}
 
-		&:active {
+		&:active,
+		&:focus {
 			color: $color__white;
-		}
 
-		&:hover:active {
-			color: $color__text-main;
+			&:hover {
+				color: $color__text-main;
+			}
 		}
 	}
 
