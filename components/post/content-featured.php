@@ -19,10 +19,11 @@ if ( empty( $featured_posts ) ) {
       ?>
 
       <article id="post-<?php the_ID(); ?>" <?php post_class( 'page-header featured-content--slide' ); ?>>
+        <a href="<?php echo esc_url( get_permalink() ); ?>" class="featured-link"></a>
         <div class="page-header__image"></div>
         <div class="page-header__content">
           <header class="entry-header text-align-center">
-            <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+            <?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
           </header>
 
           <?php if ( has_excerpt() ) : ?>
