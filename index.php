@@ -18,7 +18,6 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			
 			<?php
-			// TODO confirm this still works, maybe move below?
 			if ( is_home() && ! is_paged() ) {
 			  // Include the featured content template.
 			  get_template_part( 'components/post/content', 'featured' );
