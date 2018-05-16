@@ -170,12 +170,19 @@ add_filter( 'get_the_archive_title', 'cover2_archive_title' );
 function cover2_post_nav_background() {
 	$current_image = cover2_get_first_featured_image();
 	$css = '';
-
-	if ( '' != $current_image ) {
+	
+	if ( '' != get_header_image() ) :
+		$css .= '
+			.home.page .page-header { background-color: #333; }
+			.home.page .page-header__image { background-image: url(' . get_header_image() . '); }
+		';
+	endif;
+	
+	if ( '' != $current_image ) :
 		$css .= '
 			.page-header__image { background-image: url(' . esc_url_raw( $current_image ) . '); }
 		';
-	}
+	endif;
 
 	$term_image = '';
 

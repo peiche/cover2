@@ -165,12 +165,12 @@ function cover2_customize_register( $wp_customize ) {
 	if ( cover2_has_featured_post() ) :
 	
 		// Add setting and control for displaying featured posts on static home page.
-		$wp_customize->add_setting( 'featured_posts_bool', array(
+		$wp_customize->add_setting( 'static_featured_bool', array(
 			'default'			=> false,
 			'sanitize_callback'	=> 'cover2_sanitize_checkbox',
 		) );
 		
-		$wp_customize->add_control( 'featured_posts_bool', array(
+		$wp_customize->add_control( 'static_featured_bool', array(
 			'type'				=> 'checkbox',
 			'label'				=> __( 'Display featured posts', 'cover2' ),
 			'section'			=> 'page_options',

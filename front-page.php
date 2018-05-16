@@ -18,7 +18,6 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			
 			<?php
-			// TODO confirm this still works, maybe move below?
 			if ( is_home() && ! is_paged() ) {
 			  // Include the featured content template.
 			  get_template_part( 'components/post/content', 'featured' );
@@ -49,6 +48,12 @@ get_header(); ?>
 	
 			endif;
 			
+			if ( cover2_has_featured_post() && get_theme_mod( 'static_featured_bool', false ) ) : ?>
+				<div class="home-featured-posts container large">
+					<?php get_template_part( 'components/post/content', 'featured' ); ?>
+				</div>
+			<?php endif;
+			
 			// Single-page includes, defined in the Customizer.
 			if ( ! is_home() && ( 0 !== cover2_panel_count() || is_customize_preview() ) ) : // If we have pages to show.
 				$num_sections = apply_filters( 'cover2_front_page_sections', 4 );
@@ -61,12 +66,6 @@ get_header(); ?>
 			endif;
 			?>
 
-			<?php if ( cover2_has_featured_post() && get_theme_mod( 'static_featured', false ) ) : ?>
-				<div class="home-featured-posts">
-					<!-- TODO -->
-				</div>
-			<?php endif; ?>
-			
 			<?php if ( get_theme_mod( 'static_posts_bool', false ) ) : ?>
 				<div class="home-latest-posts">
 					<div class="container align-center">
