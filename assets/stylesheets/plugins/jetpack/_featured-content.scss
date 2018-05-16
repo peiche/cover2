@@ -1,0 +1,109 @@
+.featured-content {
+  background-color: $color__background-dark;
+  overflow: hidden;
+  position: relative;
+  z-index: $z-index__default;
+
+  .home-featured-posts & {
+    border-radius: 5px;
+
+    .featured-content--slide,
+    .page-header__image {
+      border-radius: 5px;
+    }
+  }
+}
+
+.featured-link {
+  border: 0 !important;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background $timing__default !important;
+  z-index: $z-index__default;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .home-featured-posts & {
+    border-radius: 5px;
+  }
+}
+
+.no-js .featured-content--slide:not(:first-child) {
+  display: none;
+}
+
+.flex-direction-nav {
+  display: none;
+
+  @include min-width($breakpoint__desktop) {
+    display: block;
+  }
+
+  .flex-prev,
+  .flex-next {
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    margin: auto;
+    outline: none;
+    position: absolute;
+    text-indent: -9999px;
+    top: 0;
+    transition: background $timing__default;
+    width: 50px;
+    z-index: 2;
+
+    &:hover {
+      background-color: rgba($color__white, 0.1);
+    }
+  }
+
+  .flex-prev {
+    background-image: url("./../../../dist/img/arrow-left.svg");
+    left: 0;
+  }
+
+  .flex-next {
+    background-image: url("./../../../dist/img/arrow-right.svg");
+    right: 0;
+  }
+}
+
+.flex-control-paging {
+  bottom: 0;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  z-index: $z-index__default + 1;
+
+  li {
+    display: inline-block;
+    margin: 15px;
+  }
+
+  a {
+    background-color: $color__white;
+    border-radius: 50%;
+    display: inline-block;
+    height: 5px;
+    outline: none;
+    text-indent: -9999px;
+    transition: all $timing__default;
+    vertical-align: middle;
+    width: 5px;
+
+    &.flex-active {
+      height: 10px;
+      width: 10px;
+    }
+  }
+}
