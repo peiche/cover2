@@ -51,7 +51,11 @@ function cover2_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'cover2' ) );
 		if ( $tags_list ) {
-			echo '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
+			$tag_str = 'tag';
+			if ( count( get_the_tags() ) > 1 ) {
+				$tag_str = 'tags';
+			}
+			echo '<div class="tags-links">' . cover2_get_svg( array( 'icon' => $tag_str, 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
 		}
 	}
 	if ( 'jetpack-portfolio' === get_post_type() ) {
@@ -64,7 +68,11 @@ function cover2_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_term_list( get_the_ID(), 'jetpack-portfolio-tag', '', esc_html__( ', ', 'cover2' ) );
 		if ( $tags_list ) {
-			echo '<div class="tags-links">' . cover2_get_svg( array( 'icon' => 'tag', 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
+			$tag_str = 'tag';
+			if ( count( wp_get_post_terms( get_the_ID(), 'jetpack-portfolio-tag' ) ) > 1 ) {
+				$tag_str = 'tags';
+			}
+			echo '<div class="tags-links">' . cover2_get_svg( array( 'icon' => $tag_str, 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
 		}
 	}
 
