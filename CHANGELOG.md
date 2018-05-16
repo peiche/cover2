@@ -2,17 +2,21 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.4.0 - 5/8/2018**
+**1.4.0 - 5/16/2018**
 - Fixed button styles in header, navigation, and overlay.
 - Fixed top margin for paged blog posts.
 - Updated Aesop Story Engine plugin's lightbox icons to match Cover2 style.
 - Updated Gallery post format icon.
 - Updated Jetpack plugin's Contact Form module styles.
+- Adjusted header image opacity to increase legibility.
+- Replaced Algolia PNG logo with SVG.
 - Added styles for Aesop Story Engine plugin's collection component.
 - Added styles for Jetpack plugin's contact form module.
 - Added panel options to static front page.
 - Added recent post options to static front page.
 - Added featured post options to static front page (requires Jetpack plugin).
+- Added multiple tags icon.
+- Added custom header support for static home page.
 
 **1.3.1 - 4/20/2018**
 - Fixed content and button line-height to address [issue 30](https://github.com/peiche/cover2/issues/30) (again).
