@@ -13,13 +13,8 @@
 
 	<header class="page-header">
 		<div class="page-header__image"></div>
-
+		
 		<div class="page-header__content text-align-center">
-			
-			<?php // TODO add option in customizer to show/hide logo here? ?>
-				<?php //the_custom_logo(); ?>
-			<?php //endif; ?>
-			
 			<h1 class="site-title page-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<hr />
 			<div class="site-description entry-excerpt">
