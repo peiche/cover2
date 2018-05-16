@@ -1,0 +1,48 @@
+.wp-block-embed,
+[class^="wp-block-embed-"] {
+    @include site-width($content__width-normal);
+
+    margin-bottom: 3em;
+    margin-top: 3em;
+
+    &.alignwide {
+        @include site-width($content__width-large);
+    }
+
+    &.alignfull {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    figcaption {
+        @include caption;
+    }
+}
+
+/*
+ * There is no way to know which embed classes have video,
+ * so we need to declare each one specifically.
+ */
+.wp-block-embed-youtube,
+.wp-block-embed-vimeo,
+.wp-block-embed-videopress {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    iframe {
+        border: 0;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}

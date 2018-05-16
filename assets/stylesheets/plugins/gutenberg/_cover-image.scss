@@ -1,0 +1,39 @@
+.wp-block-cover-image {
+    height: auto;
+    margin: 3em auto;
+    max-width: $content__width-normal;
+    min-height: 500px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+
+    &.has-parallax {
+        //
+    }
+
+    &.has-background-dim {
+
+        &:before {
+            //
+        }
+    }
+
+    &.aligncenter {
+        display: flex;
+    }
+
+    &.alignwide {
+        max-width: $content__width-large;
+    }
+
+    &.alignfull {
+        max-width: 100%;
+    }
+
+    h2 {
+        font-family: $font__family-heading;
+        font-size: 8vmin;
+        line-height: 10vmin;
+        max-width: $content__width-large;
+        padding: 0;
+    }
+}

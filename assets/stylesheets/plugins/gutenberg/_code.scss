@@ -1,0 +1,9 @@
+.wp-block-code {
+    //
+}
+
+.wp-block-preformatted {
+    @include site-width($content__width-large);
+
+    padding: 20px;
+}

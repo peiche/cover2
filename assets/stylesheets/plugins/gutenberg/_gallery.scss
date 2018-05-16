@@ -1,0 +1,27 @@
+.wp-block-gallery {
+    @include site-width($content__width-normal);
+
+    margin-bottom: 3em;
+    margin-top: 3em;
+    padding: 0;
+
+    &.alignwide {
+        @include site-width($content__width-large);
+    }
+
+    &.alignfull {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+// How awful that we have to extend this specificity tomfoolery
+.blocks-gallery-image {
+
+    .wp-block-gallery &,
+    .wp-block-gallery.alignleft &,
+    .wp-block-gallery.alignright &,
+    .wp-block-gallery.aligncenter & {
+        margin: 8px;
+    }
+}

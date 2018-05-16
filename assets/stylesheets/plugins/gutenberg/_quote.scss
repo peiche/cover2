@@ -1,0 +1,56 @@
+.wp-block-quote {
+    margin-bottom: 30px;
+
+    footer {
+        color: inherit;
+        font-size: 85%;
+        font-style: italic;
+    }
+
+    &.blocks-quote-style-1 {
+        border-color: $color__border;
+        border-left-width: 5px;
+        padding-left: 1.5em;
+    }
+
+    &.blocks-quote-style-2 {
+        border-left-width: 5px;
+        padding-left: 1.5em;
+
+        p {
+            font-size: inherit;
+            font-style: inherit;
+            line-height: inherit;
+        }
+
+        footer {
+            font-size: 85%;
+            text-align: left;
+        }
+    }
+
+    cite {
+        color: inherit;
+        font-size: 85%;
+        font-style: italic;
+        margin-top: 0;
+    }
+}
+
+.wp-block-pullquote {
+    border: 5px solid $color__accent;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+
+    p {
+        font-family: $font__family-main;
+        font-size: 150%;
+        font-weight: $font__weight-normal;
+    }
+
+    footer {
+        font-size: 90%;
+        font-weight: $font__weight-normal;
+        text-transform: none;
+    }
+}
