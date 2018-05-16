@@ -1,0 +1,37 @@
+.scroll-nav__section {
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+
+  p + &,
+  .scroll-nav__section + & {
+    margin-top: -1.5em; // fallback for browsers that don't support calc()
+    margin-top: calc(-1.5em + 1px);
+  }
+
+  &:first-child {
+    margin-top: -3em;
+    padding-top: 3em;
+
+    p:first-of-type {
+      font-size: 125%;
+    }
+  }
+
+  > h1,
+	> h2,
+	> h3,
+	> h4,
+	> h5,
+	> h6,
+	> p,
+	> ol,
+	> ul,
+	> dl,
+	> table,
+	> address,
+	> pre > code,
+	> blockquote,
+	> .page-links {
+		@include site-width;
+	}
+}

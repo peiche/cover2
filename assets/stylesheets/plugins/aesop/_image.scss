@@ -1,0 +1,42 @@
+.aesop-component.aesop-image-component {
+
+  &:hover {
+    opacity: 1; // Override
+  }
+
+  img {
+    box-shadow: none;
+    display: block;
+  }
+
+  .aesop-image-component-image.aesop-component-align-center {
+    margin-bottom: 3em;
+    margin-top: 3em;
+  }
+}
+
+.aesop-image-component .aesop-image-component-caption,
+.aesop-gallery-component .aesop-component-caption {
+  @include caption;
+}
+
+.aesop-img-enlarge {
+  display: none;
+}
+
+.entry-content a.aesop-lightbox {
+
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.aesop-component-align-left,
+.aesop-component-align-right {
+  @include max-width($content__width-small) {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}

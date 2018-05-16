@@ -1,0 +1,20 @@
+.aesop-video-component {
+
+  .wp-video {
+    margin: auto;
+  }
+
+  .mejs-container,
+  .fluid-width-video-wrapper {
+    background-color: #ccc;
+  }
+
+  .aesop-video-component-caption {
+    @include caption;
+  }
+
+  .jetpack-video-wrapper {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}

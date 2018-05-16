@@ -1,0 +1,117 @@
+.aesop-story-collection {
+  background-color: #efefef;
+  overflow: hidden;
+  overflow-x: auto;
+  padding: 3em 0;
+  text-align: center;
+
+  .aesop-story-collection-title {
+    @include site-width;
+
+    background-color: transparent;
+    box-shadow: none;
+    color: #999;
+    font-family: $font__family-heading;
+  	font-size: 30px;
+  	font-weight: $font__weight-heading;
+    line-height: inherit;
+    margin-bottom: 1em;
+    text-align: left;
+    text-transform: none;
+  }
+
+  .aesop-collection-load-more {
+    @include button;
+    @include button-style($color__accent);
+
+    height: auto;
+    margin: 1.5em 0 0;
+    opacity: 1;
+    width: auto;
+  }
+}
+
+.aesop-collection-grid {
+  @include site-width($content__width-large);
+
+  .aesop-collection-item {
+    padding: 0.25em;
+
+    .aesop-collection-item-link {
+      background-color: $color__white;
+      border: 1px solid $color__border;
+      border-radius: 5px;
+      color: $color__text-main;
+      display: block;
+      position: relative;
+      transition: border $timing__default;
+
+      &:hover {
+        border-color: darken($color__border, 15%);
+
+        .aesop-collection-item-inner {
+          background: none;
+        }
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+
+    &.aesop-has-image .aesop-collection-item-link {
+      background-color: $color__background-dark;
+      border: 0;
+      color: $color__white;
+      transition: opacity $timing__default;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .aesop-collection-item-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1em 1.5em;
+      text-shadow: none;
+
+      .aesop-collection-entry-title {
+        color: $color__text-main;
+        font-weight: inherit;
+        margin: 0 !important; // overrides high specificity
+        text-transform: none;
+
+        &:empty {
+          display: none;
+
+          // display excerpt if there is no title
+          ~ .aesop-collection-item-excerpt {
+            display: block;
+            font-size: 85%;
+            text-align: left;
+          }
+        }
+      }
+
+      .aesop-collection-meta,
+      .aesop-collection-item-excerpt {
+        display: none;
+      }
+    }
+
+    &.aesop-has-image .aesop-collection-item-inner {
+
+      .aesop-collection-entry-title {
+        color: $color__white;
+      }
+    }
+
+    .aesop-collection-item-img {
+      border-radius: 5px;
+      opacity: 0.3;
+      top: 0;
+    }
+  }
+}

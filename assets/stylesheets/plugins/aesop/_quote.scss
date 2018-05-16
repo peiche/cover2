@@ -1,0 +1,16 @@
+.aesop-quote-component {
+  display: block;
+
+  &.aesop-content {
+    @include site-width;
+  }
+
+  blockquote {
+    display: block;
+    font-style: normal;
+  }
+
+  cite {
+    font-size: 85%;
+  }
+}

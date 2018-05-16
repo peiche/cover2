@@ -1,0 +1,36 @@
+.aesop-toggle-chapter-menu,
+.aesop-close-chapter-menu,
+.aesop-chapter-menu {
+  display: none; // NOTE: hides ASE's button in favor of Cover2's
+}
+
+.aesop-component.aesop-article-chapter-wrap {
+  margin-top: 3em;
+
+  .scroll-nav__section + .scroll-nav__section > & {
+    margin-top: 4.5em;
+  }
+}
+
+.aesop-article-chapter {
+  min-height: 0 !important; // NOTE: overrides ASE's inline style
+  
+  &:before {
+  	background-color: $color__background-dark;
+  	content: "";
+  	height: 100%;
+  	left: 0;
+  	opacity: 0.4;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+  }
+}
+
+.aesop-cover-title {
+
+  small {
+    display: block;
+    font-family: $font__family-main;
+  }
+}

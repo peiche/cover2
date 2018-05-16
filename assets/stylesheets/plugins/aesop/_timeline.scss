@@ -1,0 +1,114 @@
+.aesop-timeline-stop {
+  margin-bottom: 1em;
+  padding-top: 1em;
+}
+
+.aesop-timeline {
+  background-color: transparent;
+  bottom: auto;
+  display: none;
+  left: auto;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 50px;
+  z-index: $z-index__default;
+
+  @include min-width($breakpoint__tablet-portrait) {
+    display: block;
+  }
+
+  .scroll-nav__list {
+    background-color: transparent;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .scroll-nav__item {
+    cursor: pointer;
+    display: block;
+    font-family: $font__family-main;
+    height: 40px;
+    margin: 0;
+    position: relative;
+    text-align: right;
+
+    &:before {
+      background-color: #ccc;
+      border-radius: 50%;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 10px;
+      left: auto;
+      margin: auto;
+      position: absolute;
+      right: 30px;
+      top: 0;
+      transition: background $timing__default;
+      width: 10px;
+    }
+
+    &:hover {
+
+      &:before {
+        background-color: #bbb;
+      }
+
+      .scroll-nav__link {
+        opacity: 1;
+        transform: translate(10px, 0);
+        visibility: visible;
+      }
+    }
+
+    &.active {
+
+      &:before,
+      &:hover:before {
+        background-color: #666;
+      }
+    }
+  }
+
+  .scroll-nav__link:link,
+  .scroll-nav__link:visited {
+    @include rem(font-size, 1);
+
+    background-color: $color__gray;
+    border-radius: 4px;
+    color: $color__text-main;
+    display: inline-block;
+    margin-right: 15px;
+    opacity: 0;
+    padding: 8px 15px;
+    position: absolute;
+    right: 100%;
+    text-decoration: none;
+    text-transform: none;
+    transition: all $timing__default;
+    visibility: hidden;
+    white-space: nowrap;
+
+    &:after {
+      border: 7px solid transparent;
+      border-left-color: $color__gray;
+      bottom: 0;
+      content: "";
+      height: 0;
+      left: 100%;
+      margin: auto -1px;
+      position: absolute;
+      top: 0;
+      width: 0;
+    }
+  }
+}
