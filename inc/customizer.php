@@ -60,7 +60,7 @@ function cover2_customize_register( $wp_customize ) {
 		'sanitize_callback'	=> 'cover2_sanitize_checkbox',
 	) );
 	
-	// Add control for header color.
+	// Add control for navbar color.
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
 		'label'		    	=> __( 'Navbar Color', 'cover2' ),
 		'description'		=> __( 'Applied to the top bar on the blog homepage and when scrolling down the page.', 'cover2' ),
