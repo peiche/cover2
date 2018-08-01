@@ -69,7 +69,7 @@ get_header(); ?>
 			<?php if ( get_theme_mod( 'static_posts_bool', false ) ) : ?>
 				<div class="home-latest-posts">
 					<div class="container align-center">
-						<h1>Latest Posts</h1>
+						<h1 class="home-latest-posts-title">Latest Posts</h1>
 					</div>
 					
 					<?php
