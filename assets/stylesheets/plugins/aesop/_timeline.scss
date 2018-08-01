@@ -1,4 +1,6 @@
 .aesop-timeline-stop {
+  font-family: $font__family-heading;
+  font-weight: $font__weight-heading;
   margin-bottom: 1em;
   padding-top: 1em;
 }
@@ -81,12 +83,11 @@
 
   .scroll-nav__link:link,
   .scroll-nav__link:visited {
-    @include rem(font-size, 1);
-
     background-color: $color__gray;
     border-radius: 4px;
     color: $color__text-main;
     display: inline-block;
+    font-size: 1rem;
     margin-right: 15px;
     opacity: 0;
     padding: 8px 15px;

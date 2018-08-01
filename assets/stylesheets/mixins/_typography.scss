@@ -1,8 +1,3 @@
-@mixin rem($property, $sizeValue: 1) {
-	#{$property}: ($sizeValue * 16) * 1px;
-	#{$property}: $sizeValue * 1rem;
-}
-
 @mixin link($border-color: $color__border) {
 	border-bottom: 1px solid transparent;
 	text-decoration: none;
@@ -14,9 +9,6 @@
 }
 
 @mixin button {
-	@include rem(padding-left, 0.5);
-	@include rem(padding-right, 0.5);
-
 	background-color: transparent;
 	border: 2px solid rgba(0, 0, 0, 0.25);
 	border-radius: 4px;
@@ -24,6 +16,8 @@
 	line-height: $font__line-height-content;
 	margin-bottom: 2px;
 	margin-top: 2px;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 	text-decoration: none;
 	transition: all $timing__default ease;
 
@@ -77,13 +71,12 @@
 }
 
 @mixin caption {
-	@include rem(font-size, 1);
-	@include rem(line-height, 1.75);
-	@include rem(margin-bottom, 1);
-	@include rem(margin-top, 0.5);
-
 	color: $color__text-main;
+	font-size: 1rem;
 	font-style: italic;
+	line-height: 1.75rem;
+	margin-bottom: 1rem;
+	margin-top: 0.5rem;
 	text-align: center;
 }
 

@@ -25,8 +25,21 @@
         @include button;
     	@include button-style($color__text-main);
 
+        font-size: 1.25rem;
     	height: auto;
         line-height: inherit;
+        padding-bottom: 0;
+        padding-top: 0;
+
+        &.has-background {
+            border: 0;
+            opacity: 0.9;
+            padding: 2px calc(0.5rem + 2px);
+
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
 
     .entry-content &.ghost .wp-block-button__link {

@@ -43,3 +43,13 @@
 		background-color: $color;
 	}
 }
+
+@mixin grid-column {
+	padding-left: $grid-gutter;
+	padding-right: $grid-gutter;
+
+	.no-gutter & {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

@@ -1,0 +1,85 @@
+.jp-carousel-wrap {
+
+    .jp-carousel-close-hint span {
+        background-image: url("../../img/x-small.svg"); // TODO account for light background
+        background-size: cover;
+        height: 24px;
+        text-indent: -9999px;
+    }
+
+    .jp-carousel-previous-button,
+    .jp-carousel-next-button {
+
+        span {
+            background-position: center;
+            background-size: 50px;
+            opacity: 0.5;
+            transition: opacity $timing__default;
+        }
+
+        &:hover {
+
+            span {
+                opacity: 1;
+            }
+        }
+    }
+
+    .jp-carousel-previous-button span {
+        background-image: url("../../img/arrow-left.svg"); // TODO account for light background
+    }
+
+    .jp-carousel-next-button span {
+        background-image: url("../../img/arrow-right.svg"); // TODO account for light background
+    }
+
+    .jp-carousel-buttons {
+
+        .jp-carousel-commentlink {
+            background-image: url("../../img/comment.svg"); // TODO account for light background
+            background-position: left center;
+            background-size: 15px;
+            color: #fff;
+            opacity: 0.6;
+
+            &:hover {
+                color: $color__white;
+                opacity: 1;
+            }
+        }
+    }
+
+    .jp-carousel-image-download {
+        background-image: url("../../img/external.svg");
+        background-position: left center;
+        background-size: contain;
+        color: $color__white;
+        opacity: 0.5;
+        transition: opacity $timing__default;
+
+        &:hover {
+            background-position: left center;
+            color: $color__white;
+            opacity: 1;
+        }
+    }
+
+    #jp-carousel-comment-form-comment-field {
+        border-width: 2px;
+        box-shadow: none;
+    }
+
+    #jp-carousel-comment-form-button-submit {
+        @include button;
+    	@include button-style($color__text-main);
+
+    	background-image: none;
+        height: auto;
+        margin-bottom: 0;
+        margin-top: 15px;
+
+        &:hover {
+            background-image: none;
+        }
+    }
+}

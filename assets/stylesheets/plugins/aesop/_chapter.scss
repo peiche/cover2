@@ -13,6 +13,8 @@
 }
 
 .aesop-article-chapter {
+  align-items: end;
+  display: flex;
   min-height: 0 !important; // NOTE: overrides ASE's inline style
   
   &:before {
@@ -28,9 +30,32 @@
 }
 
 .aesop-cover-title {
+  @include site-width($content__width-large);
+
+  border: 0;
+  bottom: auto;
+  font-family: $font__family-heading;
+  font-weight: $font__weight-heading;
+  left: auto;
+  line-height: 1;
+  padding: 3em 0 1.5em;
+  position: relative;
+
+  .aesop-video-chapter & {
+    border: 0 !important; // Inline override
+  }
 
   small {
     display: block;
-    font-family: $font__family-main;
+    font-size: 65%;
+    margin-top: 0.5em;
+
+    @include max-width($breakpoint__phone--aesop) {
+      font-size: 65% !important; // Inline override
+    }
+
+    @include max-width($content__width-normal) { // apparently this is a breakpoint in ASE too
+      font-size: 65% !important; // Inline override
+    }
   }
 }

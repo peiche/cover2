@@ -84,22 +84,22 @@
 }
 
 .entry-title {
-	@include rem(font-size, 2);
 	@include word-wrap;
 
 	color: $color__text-main;
 	font-family: $font__family-heading;
+	font-size: 2rem;
 	font-weight: $font__weight-heading;
 	margin-bottom: 0;
 	margin-top: 0;
 
 	.featured-content & {
-		@include rem(font-size, 2.5);
-		@include rem(line-height, 3);
+		font-size: 2.5rem;
+		line-height: 3rem;
 
 		@include min-width($breakpoint__tablet-portrait) {
-			@include rem(font-size, 3.5);
-			@include rem(line-height, 4);
+			font-size: 3.5rem;
+			line-height: 4rem;
 		}
 	}
 
@@ -201,6 +201,10 @@
 
 	> p:first-of-type {
 		font-size: 125%;
+
+		.panel & {
+			font-size: 100%;
+		}
 	}
 
 	pre {

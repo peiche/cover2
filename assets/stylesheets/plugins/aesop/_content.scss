@@ -52,15 +52,3 @@
     }
   }
 }
-
-.aesop-cover-title {
-  @include site-width($content__width-large);
-
-  border: 0;
-  bottom: auto;
-  font-family: $font__family-heading;
-  font-weight: $font__weight-heading;
-  left: auto;
-  padding: 3em 0 1.5em;
-  position: relative;
-}

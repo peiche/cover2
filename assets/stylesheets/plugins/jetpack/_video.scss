@@ -1,0 +1,7 @@
+.jetpack-video-wrapper {
+	margin: 3em auto;
+}
+
+.jetpack-video-wrapper {
+	@include site-width($content__width-large);
+}

@@ -1,10 +1,5 @@
-.wp-video,
-.jetpack-video-wrapper {
+.wp-video {
 	margin: 3em auto;
-}
-
-.jetpack-video-wrapper {
-	@include site-width($content__width-large);
 }
 
 video {

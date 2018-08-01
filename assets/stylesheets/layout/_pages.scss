@@ -73,9 +73,16 @@
 	}
 
 	&.full-height {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		min-height: 100vh;
-		padding-bottom: 75px;
-		padding-top: 40vh;
+		padding-bottom: 1em;
+
+		> * {
+			margin-top: auto;
+		}
 
 		// Android Chrome specific style
 		@supports (-webkit-appearance:none) {
@@ -115,6 +122,10 @@
 		max-width: $content__width-large;
 	}
 
+	.browser-ie .page-header.full-height & {
+		margin-top: 20vh;
+	}
+
 	> hr {
 		margin-left: auto;
 		margin-right: auto;
@@ -122,23 +133,19 @@
 	}
 }
 
-a.page-header__scroll-to-content {
-	@include rem(font-size, 2.5);
-
+.browser-ie .page-header__scroll-container {
 	bottom: 0;
-	display: inline-block;
 	left: 0;
-	line-height: 75px; // matches bottom padding of container
 	position: absolute;
 	right: 0;
 	text-align: center;
+}
 
-	&:focus {
-		outline: none;
-	}
+.page-header__scroll-link {
+	font-size: 2.5rem;
 
-	.page-header & {
-		border: 0;
+	&:hover {
+		border-color: transparent !important;
 	}
 }
 
@@ -247,4 +254,14 @@ a.page-header__scroll-to-content {
 	position: absolute;
 	right: 0;
 	top: 0;
+}
+
+.home-latest-posts {
+	margin-top: 3em;
+}
+
+.home-latest-posts-title {
+	color: #999;
+	font-family: $font__family-heading;
+	font-weight: $font__weight-heading;
 }

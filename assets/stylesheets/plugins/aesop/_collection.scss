@@ -79,8 +79,9 @@
 
       .aesop-collection-entry-title {
         color: $color__text-main;
-        font-weight: inherit;
-        margin: 0 !important; // overrides high specificity
+        font-family: $font__family-heading;
+      	font-weight: $font__weight-heading;
+      	margin: 0 !important; // overrides high specificity
         text-transform: none;
 
         &:empty {

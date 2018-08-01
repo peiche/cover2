@@ -45,20 +45,19 @@ input.ais-search-box--input {
 }
 
 .ais-search-box--powered-by {
-  text-align: right;
-}
+	line-height: 0;
+	text-indent: -9999px;
 
-.ais-search-box--powered-by-link {
-  background-image: url("../../img/search-by-algolia-dark.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  height: 35px;
-  overflow: hidden;
-  text-indent: 100%;
-  vertical-align: middle;
-  white-space: nowrap;
-  width: 100px;
+	.ais-search-box--powered-by-link {
+		background-image: url("../../img/search-by-algolia-light.svg");
+		background-position: center right;
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: 0 !important; // fuck it
+		display: block;
+		height: 1.5em;
+		margin-top: 0.5em;
+	}
 }
 
 .ais-hits__empty {
@@ -229,18 +228,17 @@ input.ais-search-box--input {
 	position: relative;
 
 	&:before {
-		@include rem(height, 1);
-		@include rem(top, 0.5);
-		@include rem(width, 1);
-
 		background-color: #ddd;
 		border-radius: 3px;
 		content: "";
 		display: block;
+		height: 1rem;
 		left: 0;
 		pointer-events: none;
 		position: absolute;
+		top: 0.5rem;
 		user-select: none;
+		width: 1rem;
 
 		.ais-refinement-list--checkbox:checked ~ & {
 			background-color: $color__accent;
@@ -248,17 +246,16 @@ input.ais-search-box--input {
 	}
 
 	&:after {
-		@include rem(height, 1);
-		@include rem(top, 0.5);
-		@include rem(width, 1);
-
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: 50% 50%;
 		content: "";
 		display: block;
+		height: 1rem;
 		left: 0;
 		position: absolute;
+		top: 0.5rem;
+		width: 1rem;
 
 		.ais-refinement-list--checkbox:checked ~ & {
 			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
@@ -291,4 +288,10 @@ input.ais-search-box--input {
 
 #algolia-pagination {
 	margin-bottom: 2em;
+}
+
+.ais-show-more {
+	cursor: pointer;
+	display: block;
+	padding: 5px;
 }

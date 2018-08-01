@@ -3,10 +3,9 @@ button,
 input,
 select,
 textarea {
-	@include rem(font-size, 1.25);
-
 	color: $color__text-main;
 	font-family: $font__family-main;
+	font-size: 1.25rem;
 	line-height: $font__line-height-main;
 }
 
@@ -17,6 +16,11 @@ h4,
 h5,
 h6 {
 	clear: both;
+}
+
+.heading {
+	font-family: $font__family-heading;
+	font-weight: $font__weight-heading;
 }
 
 p {
