@@ -13,7 +13,7 @@
 $panel_class = is_customize_preview() ? 'panel panel-' . get_query_var( 'panel' ) : 'panel';
 $has_img = false;
 $img = cover2_get_featured_image( get_the_ID() );
-if ( $img != '' ) :
+if ( '' != $img ) :
 	$has_img = true;
 	$panel_class = $panel_class . ' panel--image';
 endif;
