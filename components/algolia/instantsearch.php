@@ -40,6 +40,24 @@ get_header(); ?>
 					<h2 class="entry-title" itemprop="name headline">
 						<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a>
 					</h2>
+					<div class="entry-meta">
+						<span class="posted-on">
+							<a href="{{ data.permalink }}" rel="bookmark">
+								<time class="entry-date published updated">
+									<#
+										var locale = '<?php echo get_locale(); ?>'.replace('_', '-');
+										var date = new Date(data.post_date * 1000);
+										var options = {
+											year: 'numeric',
+											month: 'long',
+											day: 'numeric'
+										};
+									#>
+									{{ date.toLocaleDateString(locale, options) }}
+								</time>
+							</a>
+						</span>
+					</div>
 				</header>
 				<div class="entry-summary">
 					<p>
@@ -52,7 +70,6 @@ get_header(); ?>
 			<div class="ais-clearfix"></div>
 		</article>
 	</script>
-
 
 	<script type="text/javascript">
 		jQuery(function() {
@@ -80,7 +97,30 @@ get_header(); ?>
 						facetingAfterDistinct: true,
 			            highlightPreTag: '__ais-highlight__',
 			            highlightPostTag: '__/ais-highlight__'
+					},
+					routing: true
+					/*
+					routing: {
+						stateMapping: {
+							stateToRoute(uiState) {
+								return {
+									query: uiState.query,
+									tag: uiState.refinementList && uiState.refinementList.taxonomies.post_tag.join('~'),
+									page: uiState.page
+								};
+							},
+							routeToState(routeState) {
+								return {
+									query: routeState.query,
+									refinementList: {
+										tag: routeState.taxonomies.post_tag && routeState.taxonomies.post_tag.split('~')
+									},
+									page: routeState.page
+								};
+							}
+						}
 					}
+					*/
 				});
 
 				/* Search box widget */
@@ -144,6 +184,7 @@ get_header(); ?>
 				);
 
 				/* Categories refinement widget */
+				// https://community.algolia.com/instantsearch.js/v2/widgets/hierarchicalMenu.html
 				search.addWidget(
 					instantsearch.widgets.hierarchicalMenu({
 						container: '#facet-categories',
@@ -163,6 +204,7 @@ get_header(); ?>
 						attributeName: 'taxonomies.post_tag',
 						operator: 'and',
 						limit: 15,
+						showMore: true,
 						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 						templates: {
 							header: '<h3 class="widgettitle">Tags</h3>',
