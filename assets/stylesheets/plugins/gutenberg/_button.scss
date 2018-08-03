@@ -31,13 +31,46 @@
         padding-bottom: 0;
         padding-top: 0;
 
-        &.has-background {
-            border: 0;
-            opacity: 0.9;
-            padding: 2px calc(0.5rem + 2px);
+        // Iterate over defined colors
+        @each $name, $color in $gutenberg-colors {
 
-            &:hover {
-                opacity: 1;
+            &.has-#{$name}-color {
+                color: $color;
+            }
+
+            &.has-#{$name}-background-color {
+                background-color: $color;
+
+                &:hover {
+                    background-color: darken($color, 10%);
+                }
+            }
+        }
+    }
+
+    .entry-content &.is-style-outline .wp-block-button__link {
+        @include button-style($color__text-main, true);
+
+        background-color: transparent;
+        
+        // Iterate over defined colors
+        @each $name, $color in $gutenberg-colors {
+
+            &.has-#{$name}-color {
+                color: $color;
+
+                &:not(.has-background):hover {
+                    color: $color__white;
+                }
+            }
+
+            &.has-#{$name}-background-color {
+                border-color: $color;
+
+                &:hover {
+                    background-color: $color;
+                    color: inverse-color($color);
+                }
             }
         }
     }

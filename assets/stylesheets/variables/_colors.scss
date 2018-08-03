@@ -27,3 +27,10 @@ $color__background-light: #fafafa;
 $color__background-dark: #333;
 
 $color__placeholder: #aaa;
+
+$gutenberg-colors: (
+    "accent": $color__accent,
+    "dark":   $color__text-main,
+    "light":  $color__gray,
+    "white":  $color__white
+);

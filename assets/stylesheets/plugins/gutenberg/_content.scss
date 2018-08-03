@@ -16,6 +16,19 @@ p {
         font-size: 2rem;
         line-height: 3rem;
     }
+
+    // Iterate over defined colors
+    @each $name, $color in $gutenberg-colors {
+
+        &.has-#{$name}-color {
+            color: $color;
+        }
+
+        &.has-#{$name}-background-color {
+            background-color: $color;
+        }
+    }
+
     &.aligncenter {
         // Nothing needed
     }

@@ -104,6 +104,31 @@ function cover2_setup() {
 	 * See http://gutenberg-devdoc.surge.sh/reference/theme-support/
 	 */
 	add_theme_support( 'align-wide' );
+	
+	// Matches color map defined in /assets/stylesheets/variables/_colors.scss
+	// Uses accent color defined in Customizer
+	add_theme_support( 'editor-color-palette', array(
+	    array(
+	        'name' => __( 'accent', 'cover2' ),
+	        'slug' => 'accent',
+	        'color' => 'hsl(' . absint( get_theme_mod( 'accent_color', 250 ) ) . ', 75%, 50%)',
+	    ),
+	    array(
+	        'name' => __( 'dark', 'cover2' ),
+	        'slug' => 'dark',
+	        'color' => '#404040',
+	    ),
+	    array(
+	        'name' => __( 'light', 'cover2' ),
+	        'slug' => 'light',
+	        'color' => '#eee',
+	    ),
+	    array(
+	        'name' => __( 'white', 'cover2' ),
+	        'slug' => 'white',
+	        'color' => '#fff',
+	    ),
+	) );
 	add_theme_support( 'editor-font-sizes', array(
 	    array(
 	        'name' => __( 'small', 'cover2' ),
