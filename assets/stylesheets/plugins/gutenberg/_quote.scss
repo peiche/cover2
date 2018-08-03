@@ -2,22 +2,7 @@
     margin-bottom: 30px;
     margin-top: 30px;
 
-    cite,
-    footer {
-        color: inherit;
-        font-size: 85%;
-        font-style: italic;
-        margin-top: 0;
-    }
-
-    cite {
-
-        &:before {
-            content: "\2014";
-        }
-    }
-
-    &.is-large {
+    &.is-style-large {
         border: 0;
         margin: 30px auto;
         max-width: $content__width-large;

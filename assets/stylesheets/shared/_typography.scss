@@ -35,7 +35,6 @@ p {
 }
 
 dfn,
-cite,
 em,
 i {
 	font-style: italic;
@@ -44,6 +43,11 @@ i {
 dfn,
 cite {
 	font-size: 85%;
+}
+
+cite {
+	color: lighten($color__text-main, 20%);
+	font-style: normal;
 }
 
 address {
@@ -100,5 +104,13 @@ q {
 	&:before,
 	&:after {
 		content: "";
+	}
+
+	p {
+		margin-bottom: 0.5em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
