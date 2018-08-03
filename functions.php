@@ -103,6 +103,32 @@ function cover2_setup() {
 	 * Enable support for the Gutenberg editor.
 	 * See http://gutenberg-devdoc.surge.sh/reference/theme-support/
 	 */
+	add_theme_support( 'editor-font-sizes', array(
+	    array(
+	        'name' => __( 'small', 'cover2' ),
+	        'shortName' => __( 'S', 'cover2' ),
+	        'size' => 16,
+	        'slug' => 'small'
+	    ),
+	    array(
+	        'name' => __( 'regular', 'cover2' ),
+	        'shortName' => __( 'M', 'cover2' ),
+	        'size' => 20,
+	        'slug' => 'regular'
+	    ),
+	    array(
+	        'name' => __( 'large', 'cover2' ),
+	        'shortName' => __( 'L', 'cover2' ),
+	        'size' => 24,
+	        'slug' => 'large'
+	    ),
+	    array(
+	        'name' => __( 'larger', 'cover2' ),
+	        'shortName' => __( 'XL', 'cover2' ),
+	        'size' => 30,
+	        'slug' => 'larger'
+	    )
+	) );
 	add_theme_support( 'gutenberg', array(
 		'wide-images' => true,
 		'colors' => array(
