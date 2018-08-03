@@ -103,6 +103,7 @@ function cover2_setup() {
 	 * Enable support for the Gutenberg editor.
 	 * See http://gutenberg-devdoc.surge.sh/reference/theme-support/
 	 */
+	add_theme_support( 'align-wide' );
 	add_theme_support( 'editor-font-sizes', array(
 	    array(
 	        'name' => __( 'small', 'cover2' ),
