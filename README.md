@@ -4,7 +4,7 @@
 
 # Cover2
 
-Cover2 is a content-driven blogging theme for WordPress. Built on top of Automattic’s Underscores, Cover2 allows you to focus on your writing. There are no sidebars to mess with, just a single column view of your content.
+Cover2 is a content-driven blogging theme for WordPress. Built on top of Automattic's Underscores, Cover2 allows you to focus on your writing. There are no sidebars to mess with, just a single column view of your content.
 
 ## Features
 
