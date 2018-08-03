@@ -41,6 +41,15 @@ get_header(); ?>
 						<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a>
 					</h2>
 					<div class="entry-meta">
+						<span class="byline">
+							<span class="author vcard">
+								<a class="url fn n" href="/?author={{{ data.post_author.user_id }}}">
+									<!-- <img class="avatar avatar-35 photo avatar-author-{{ data.post_author.user_id }}" alt="Profile Picture for {{ data.post_author.display_name }}" src="" width="35" height="35"> -->
+									<span class="author-text">{{{ data.post_author.display_name }}}</span>
+								</a>
+							</span>
+						</span>
+						—
 						<span class="posted-on">
 							<a href="{{ data.permalink }}" rel="bookmark">
 								<time class="entry-date published updated">
