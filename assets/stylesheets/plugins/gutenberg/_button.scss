@@ -1,0 +1,89 @@
+.wp-block-button {
+    @include site-width;
+
+    background-color: transparent;
+    border-radius: 0;
+    display: block;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 0;
+    white-space: normal;
+
+    &.alignleft,
+    &.alignright {
+        margin-left: 30px;
+        margin-right: 30px;
+        width: auto;
+    }
+
+    &.aligncenter {
+        display: block;
+        text-align: center;
+    }
+
+    .entry-content & .wp-block-button__link {
+        @include button;
+    	@include button-style($color__text-main);
+
+        font-size: 1.25rem;
+    	height: auto;
+        line-height: inherit;
+        padding-bottom: 0;
+        padding-top: 0;
+
+        // Iterate over defined colors
+        @each $name, $color in $gutenberg-colors {
+
+            &.has-#{$name}-color {
+                color: $color;
+            }
+
+            &.has-#{$name}-background-color {
+                background-color: $color;
+
+                &:hover {
+                    background-color: darken($color, 10%);
+                }
+            }
+        }
+    }
+
+    .entry-content &.is-style-outline .wp-block-button__link {
+        @include button-style($color__text-main, true);
+
+        background-color: transparent;
+        
+        // Iterate over defined colors
+        @each $name, $color in $gutenberg-colors {
+
+            &.has-#{$name}-color {
+                color: $color;
+
+                &:not(.has-background):hover {
+                    color: $color__white;
+                }
+            }
+
+            &.has-#{$name}-background-color {
+                border-color: $color;
+
+                &:hover {
+                    background-color: $color;
+                    color: inverse-color($color);
+                }
+            }
+        }
+    }
+
+    .entry-content &.ghost .wp-block-button__link {
+        @include button-style($color__text-main, true);
+    }
+
+    .entry-content &.default .wp-block-button__link {
+        @include button-style($color__accent);
+    }
+
+    .entry-content &.default.ghost .wp-block-button__link {
+        @include button-style($color__accent, true);
+    }
+}

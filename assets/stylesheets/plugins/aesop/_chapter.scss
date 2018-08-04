@@ -1,0 +1,61 @@
+.aesop-toggle-chapter-menu,
+.aesop-close-chapter-menu,
+.aesop-chapter-menu {
+  display: none; // NOTE: hides ASE's button in favor of Cover2's
+}
+
+.aesop-component.aesop-article-chapter-wrap {
+  margin-top: 3em;
+
+  .scroll-nav__section + .scroll-nav__section > & {
+    margin-top: 4.5em;
+  }
+}
+
+.aesop-article-chapter {
+  align-items: end;
+  display: flex;
+  min-height: 0 !important; // NOTE: overrides ASE's inline style
+  
+  &:before {
+  	background-color: $color__background-dark;
+  	content: "";
+  	height: 100%;
+  	left: 0;
+  	opacity: 0.4;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+  }
+}
+
+.aesop-cover-title {
+  @include site-width($content__width-large);
+
+  border: 0;
+  bottom: auto;
+  font-family: $font__family-heading;
+  font-weight: $font__weight-heading;
+  left: auto;
+  line-height: 1;
+  padding: 3em 0 1.5em;
+  position: relative;
+
+  .aesop-video-chapter & {
+    border: 0 !important; // Inline override
+  }
+
+  small {
+    display: block;
+    font-size: 65%;
+    margin-top: 0.5em;
+
+    @include max-width($breakpoint__phone--aesop) {
+      font-size: 65% !important; // Inline override
+    }
+
+    @include max-width($content__width-normal) { // apparently this is a breakpoint in ASE too
+      font-size: 65% !important; // Inline override
+    }
+  }
+}

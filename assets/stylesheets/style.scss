@@ -4,7 +4,7 @@ Theme URI: http://eichefam.net/projects/cover2
 Author: Paul Eiche
 Author URI: https://eichefam.net
 Description: A content-driven blogging theme for WordPress.
-Version: 1.3.1
+Version: 1.4.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: cover2
@@ -45,7 +45,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 # Cover2
 --------------------------------------------------------------*/
-@import "../../node_modules/bourbon-neat/core/neat";
 @import "variables/variables-base";
 @import "mixins/mixins-base";
 

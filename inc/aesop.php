@@ -12,6 +12,7 @@ function cover2_aesop_styles() {
 	wp_register_style( 'cover2-aesop-style', get_template_directory_uri() . '/dist/css/plugins/aesop.css', array(), filemtime( get_template_directory() . '/dist/css/plugins/aesop.css' ) );
 	
 	// Check for the first shortcode ASE registers.
+	// TODO if shortcodes will be removed in the future, this will have to change.
 	if ( shortcode_exists( 'aesop_chapter' ) ) {
     	wp_enqueue_style( 'cover2-aesop-style' );
 	}
@@ -31,3 +32,22 @@ function cover2_content_overlay() {
     return;
 }
 add_action('aesop_cbox_content_inside_top', 'cover2_content_overlay');
+
+function has_ase_chapters( $post ) {
+    if ( is_object( $post ) && ( is_single() || is_page() ) ) :
+        if ( has_shortcode( $post->post_content, 'aesop_chapter' ) ) :
+            return true;
+        endif;
+        
+        if ( function_exists( 'gutenberg_content_has_blocks' ) && gutenberg_content_has_blocks( $post->post_content ) ) :
+            $blocks = gutenberg_parse_blocks( $post->post_content );
+    		foreach ( $blocks as $block ) {
+    			if ( array_key_exists('blockName', $block) && $block['blockName'] == 'ase/chapter' ) :
+    				return true;
+    			endif;
+    		}
+        endif;
+    endif;
+
+    return false;
+}

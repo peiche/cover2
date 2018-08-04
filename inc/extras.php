@@ -40,7 +40,7 @@ function cover2_body_classes( $classes ) {
 			$term_id = cftpb_get_term_id( 'timelines', get_the_ID() );
 
 			// Category Images plugin compatibility.
-			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $term_id ) != '' ) {
+			if ( function_exists( 'z_taxonomy_image_url' ) && '' != z_taxonomy_image_url( $term_id ) ) {
 				$has_term_image = true;
 			}
 		}
@@ -48,7 +48,7 @@ function cover2_body_classes( $classes ) {
 		if ( $has_term_image ) {
 			$classes[] = 'has-featured-image';
 		}
-	} else if ( ! is_singular() && cover2_get_first_featured_image() != '' ) {
+	} else if ( ! is_singular() && '' != cover2_get_first_featured_image() ) {
 		$classes[] = 'has-featured-image';
 	}
 
@@ -170,12 +170,19 @@ add_filter( 'get_the_archive_title', 'cover2_archive_title' );
 function cover2_post_nav_background() {
 	$current_image = cover2_get_first_featured_image();
 	$css = '';
-
-	if ( '' != $current_image ) {
+	
+	if ( '' != get_header_image() ) :
+		$css .= '
+			.home.page .page-header { background-color: #333; }
+			.home.page .page-header__image { background-image: url(' . get_header_image() . '); }
+		';
+	endif;
+	
+	if ( '' != $current_image ) :
 		$css .= '
 			.page-header__image { background-image: url(' . esc_url_raw( $current_image ) . '); }
 		';
-	}
+	endif;
 
 	$term_image = '';
 
@@ -184,14 +191,14 @@ function cover2_post_nav_background() {
 		if ( function_exists( 'cftpb_get_term_id' ) ) {
 			$term_id = cftpb_get_term_id( 'timelines', get_the_ID() );
 
-			if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url( $term_id ) != '' ) {
+			if ( function_exists( 'z_taxonomy_image_url' ) && '' != z_taxonomy_image_url( $term_id ) ) {
 				$term_image = z_taxonomy_image_url( $term_id );
 			}
 		}
 	}
 
 	// Set the fetaured image for archives.
-	if ( function_exists( 'z_taxonomy_image_url' ) && z_taxonomy_image_url() != '' ) {
+	if ( function_exists( 'z_taxonomy_image_url' ) && '' != z_taxonomy_image_url() ) {
 		$term_image = z_taxonomy_image_url();
 	}
 

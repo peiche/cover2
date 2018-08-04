@@ -2,18 +2,17 @@
 
 ## Create a container and row
 
-Grid columns must be nested inside `.grid-container` and `.grid-row` elements.
+Grid columns must be nested inside `.container` and `.grid-row` elements.
 
 ```
-<div class="grid-container">
+<div class="container">
     <div class="grid-row">
     </div>
 </div>
 ```
 
-The container's width by default is 100%. To set a container width, add these optional classes:
+The `.container` class has a default width of 800px. To set a different width, use these optional classes:
 
-`<div class="container">` - 800px (default)
 `<div class="container narrow">` - 500px
 `<div class="container small">` - 640px
 `<div class="container large">` - 1000px
@@ -37,7 +36,7 @@ By stacking these classes, it is possible to define a four-column content area o
 The entire markup, including container and row, would be as follows (for 4 columns on content):
 
 ```
-<div class="grid-container">
+<div class="container">
     <div class="grid-row">
         <div class="grid-col-12 grid-col-sm-6 grid-col-md-4 grid-col-lg-3">
             // Column 1
@@ -54,3 +53,5 @@ The entire markup, including container and row, would be as follows (for 4 colum
     </div>
 </div>
 ```
+
+_Note: I would much prefer the class syntax of `.row` and `.col-`, but I'm trying not to introduce conflicts with existing grid framework plugins._

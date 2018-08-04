@@ -6,424 +6,67 @@
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# Cover Image
+# Content
 --------------------------------------------------------------*/
 
-.wp-block-cover-image {
-    height: auto;
-    margin: 3em auto;
-    max-width: $content__width-normal;
-    min-height: 500px;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-
-    &.has-parallax {
-        //
-    }
-
-    &.has-background-dim {
-
-        &:before {
-            //
-        }
-    }
-
-    &.aligncenter {
-        display: flex;
-    }
-
-    &.alignwide {
-        max-width: $content__width-large;
-    }
-
-    &.alignfull {
-        max-width: 100%;
-    }
-
-    h2 {
-        font-family: $font__family-heading;
-        font-size: 8vmin;
-        line-height: 10vmin;
-        max-width: $content__width-large;
-        padding: 0;
-    }
-}
-
-/*--------------------------------------------------------------
-# Paragraph
---------------------------------------------------------------*/
-
-p {
-
-    &.aligncenter {
-        // Nothing needed
-    }
-
-    &.alignleft,
-    &.alignright {
-        display: block;
-        float: none;
-
-        @include min-width($breakpoint__tablet-portrait) {
-            margin-left: 1em;
-            margin-right: 1em;
-            max-width: 50%;
-        }
-    }
-
-    &.alignleft {
-        @include min-width($breakpoint__tablet-portrait) {
-            float: left;
-        }
-    }
-
-    &.alignright {
-        @include min-width($breakpoint__tablet-portrait) {
-            float: right;
-        }
-    }
-
-    &.alignwide {
-        max-width: $content__width-large;
-    }
-
-    &.alignfull {
-        max-width: 100%;
-        width: 100%;
-    }
-
-    &.has-drop-cap:first-letter {
-        font-family: inherit;
-    }
-}
-
-/*--------------------------------------------------------------
-# Quote
---------------------------------------------------------------*/
-
-.wp-block-quote {
-    margin-bottom: 30px;
-
-    footer {
-        color: inherit;
-        font-size: 85%;
-        font-style: italic;
-    }
-
-    &.blocks-quote-style-1 {
-        border-color: $color__border;
-        border-left-width: 5px;
-        padding-left: 1.5em;
-    }
-
-    &.blocks-quote-style-2 {
-        border-left-width: 5px;
-        padding-left: 1.5em;
-
-        p {
-            font-size: inherit;
-            font-style: inherit;
-            line-height: inherit;
-        }
-
-        footer {
-            font-size: 85%;
-            text-align: left;
-        }
-    }
-
-    cite {
-        color: inherit;
-        font-size: 85%;
-        font-style: italic;
-        margin-top: 0;
-    }
-}
-
-.wp-block-pullquote {
-    border: 5px solid $color__accent;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-
-    p {
-        font-family: $font__family-main;
-        font-size: 150%;
-        font-weight: $font__weight-normal;
-    }
-
-    footer {
-        font-size: 90%;
-        font-weight: $font__weight-normal;
-        text-transform: none;
-    }
-}
-
-/*--------------------------------------------------------------
-# Button
---------------------------------------------------------------*/
-
-.wp-block-button {
-    @include site-width;
-
-    background-color: transparent;
-    border-radius: 0;
-    display: block;
-    height: auto;
-    margin-bottom: 30px;
-    padding: 0;
-    white-space: normal;
-
-    &.alignleft,
-    &.alignright {
-        margin-left: 30px;
-        margin-right: 30px;
-        width: auto;
-    }
-
-    &.aligncenter {
-        display: block;
-        text-align: center;
-    }
-
-    .entry-content & .wp-block-button__link {
-        @include button;
-    	@include button-style($color__text-main);
-
-    	height: auto;
-        line-height: inherit;
-    }
-
-    .entry-content &.ghost .wp-block-button__link {
-        @include button-style($color__text-main, true);
-    }
-
-    .entry-content &.default .wp-block-button__link {
-        @include button-style($color__accent);
-    }
-
-    .entry-content &.default.ghost .wp-block-button__link {
-        @include button-style($color__accent, true);
-    }
-}
-
-/*--------------------------------------------------------------
-# Image
---------------------------------------------------------------*/
-
-.wp-block-image {
-    @include site-width;
-
-    margin-bottom: 3em;
-    margin-top: 3em;
-
-    &.aligncenter {
-        text-align: center;
-    }
-
-    &.alignleft,
-    &.alignright {
-        display: block;
-
-        @include min-width($breakpoint__tablet-portrait) {
-            margin-bottom: 0;
-            margin-top: 0;
-        }
-    }
-
-    &.alignleft {
-        @include min-width($breakpoint__tablet-portrait) {
-            float: left;
-            margin-right: 1em;
-        }
-    }
-
-    &.alignright {
-        @include min-width($breakpoint__tablet-portrait) {
-            float: right;
-            margin-left: 1em;
-        }
-    }
-
-    &.alignwide {
-        max-width: $content__width-large;
-    }
-
-    &.alignfull {
-        max-width: 100%;
-        width: 100%;
-    }
-
-    img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    figcaption {
-        @include caption;
-    }
-}
-
-/*--------------------------------------------------------------
-# Gallery
---------------------------------------------------------------*/
-
-.wp-block-gallery {
-    @include site-width($content__width-normal);
-
-    margin-bottom: 3em;
-    margin-top: 3em;
-    padding: 0;
-
-    &.alignwide {
-        @include site-width($content__width-large);
-    }
-
-    &.alignfull {
-        max-width: 100%;
-        width: 100%;
-    }
-}
-
-// How awful that we have to extend this specificity tomfoolery
-.blocks-gallery-image {
-
-    .wp-block-gallery &,
-    .wp-block-gallery.alignleft &,
-    .wp-block-gallery.alignright &,
-    .wp-block-gallery.aligncenter & {
-        margin: 8px;
-    }
-}
-
-/*--------------------------------------------------------------
-# Table
---------------------------------------------------------------*/
-
-.wp-block-table {
-
-    thead {
-        //
-    }
-
-    tbody {
-        //
-    }
-
-    tr {
-        //
-
-        &.alt {
-            //
-        }
-    }
-
-    th {
-        //
-    }
-
-    td {
-        //
-    }
-}
-
-/*--------------------------------------------------------------
-# Separator
---------------------------------------------------------------*/
-
-.wp-block-separator {
-    border: 0;
-    margin-bottom: 1.5em;
-    margin-top: 1.5em;
-}
+@import "gutenberg/content";
 
 /*--------------------------------------------------------------
 # Code
 --------------------------------------------------------------*/
 
-.wp-block-code {
-    //
-}
+@import "gutenberg/code";
 
-.wp-block-preformatted {
-    @include site-width($content__width-large);
+/*--------------------------------------------------------------
+# Quote
+--------------------------------------------------------------*/
 
-    padding: 20px;
-}
+@import "gutenberg/quote";
+
+/*--------------------------------------------------------------
+# Table
+--------------------------------------------------------------*/
+
+@import "gutenberg/table";
+
+/*--------------------------------------------------------------
+# Separator
+--------------------------------------------------------------*/
+
+@import "gutenberg/separator";
+
+/*--------------------------------------------------------------
+# Button
+--------------------------------------------------------------*/
+
+@import "gutenberg/button";
+
+/*--------------------------------------------------------------
+# Image
+--------------------------------------------------------------*/
+
+@import "gutenberg/image";
+
+/*--------------------------------------------------------------
+# Gallery
+--------------------------------------------------------------*/
+
+@import "gutenberg/gallery";
+
+/*--------------------------------------------------------------
+# Cover Image
+--------------------------------------------------------------*/
+
+@import "gutenberg/cover-image";
 
 /*--------------------------------------------------------------
 # Video
 --------------------------------------------------------------*/
 
-.wp-block-video {
-    @include site-width($content__width-normal);
-
-    margin-bottom: 3em;
-    margin-top: 3em;
-
-    &.alignwide {
-        @include site-width($content__width-large);
-    }
-
-    &.alignfull {
-        max-width: 100%;
-        width: 100%;
-    }
-
-    figcaption {
-        @include caption;
-    }
-}
+@import "gutenberg/video";
 
 /*--------------------------------------------------------------
 # Embed
 --------------------------------------------------------------*/
 
-.wp-block-embed,
-[class^="wp-block-embed-"] {
-    @include site-width($content__width-normal);
-
-    margin-bottom: 3em;
-    margin-top: 3em;
-
-    &.alignwide {
-        @include site-width($content__width-large);
-    }
-
-    &.alignfull {
-        max-width: 100%;
-        width: 100%;
-    }
-
-    figcaption {
-        @include caption;
-    }
-}
-
-/*
- * There is no way to know which embed classes have video,
- * so we need to declare each one specifically.
- */
-.wp-block-embed-youtube,
-.wp-block-embed-vimeo,
-.wp-block-embed-videopress {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-
-    &:before {
-        content: "";
-        display: block;
-        padding-top: 56.25%;
-    }
-
-    iframe {
-        border: 0;
-        bottom: 0;
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
-}
+@import "gutenberg/embed";

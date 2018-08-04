@@ -18,7 +18,6 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			
 			<?php
-			// TODO confirm this still works, maybe move below?
 			if ( is_home() && ! is_paged() ) {
 			  // Include the featured content template.
 			  get_template_part( 'components/post/content', 'featured' );
@@ -49,6 +48,12 @@ get_header(); ?>
 	
 			endif;
 			
+			if ( cover2_has_featured_post() && get_theme_mod( 'static_featured_bool', false ) ) : ?>
+				<div class="home-featured-posts container large">
+					<?php get_template_part( 'components/post/content', 'featured' ); ?>
+				</div>
+			<?php endif;
+			
 			// Single-page includes, defined in the Customizer.
 			if ( ! is_home() && ( 0 !== cover2_panel_count() || is_customize_preview() ) ) : // If we have pages to show.
 				$num_sections = apply_filters( 'cover2_front_page_sections', 4 );
@@ -60,6 +65,33 @@ get_header(); ?>
 				}
 			endif;
 			?>
+
+			<?php if ( get_theme_mod( 'static_posts_bool', false ) ) : ?>
+				<div class="home-latest-posts">
+					<div class="container align-center">
+						<h1 class="home-latest-posts-title">Latest Posts</h1>
+					</div>
+					
+					<?php
+					$posts_count = get_theme_mod( 'static_posts_count', 3 );
+				    $query = new WP_Query( array (
+				    	'posts_per_page' => $posts_count,
+				    	'ignore_sticky_posts' => true,
+				    	'orderby' => 'date',
+				    	'order' => 'DESC',
+				    ) );
+					while ( $query->have_posts() ) :
+					    $query->the_post();
+					    get_template_part( 'components/post/content', 'summary' );
+					endwhile;
+					?>
+					
+					<nav class="navigation posts-navigation align-center" role="navigation">
+						<h2 class="screen-reader-text">Posts navigation</h2>
+						<a class="button default" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">View more</a>
+					</nav>
+				</div>
+			<?php endif; ?>
 			
 		</main>
 	</div>

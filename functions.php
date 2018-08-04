@@ -60,7 +60,12 @@ function cover2_setup() {
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
-
+	
+	/**
+	 *  Add support for custom video header.
+	 */
+	add_theme_support( 'custom-header' );
+	
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -98,33 +103,57 @@ function cover2_setup() {
 	 * Enable support for the Gutenberg editor.
 	 * See http://gutenberg-devdoc.surge.sh/reference/theme-support/
 	 */
-	add_theme_support( 'gutenberg', array(
-		'wide-images' => true,
-		'colors' => array(
-			'hsl(' . absint( get_theme_mod( 'accent_color', 250 ) ) . ', 75%, 50%)',
-			'#F44336', // red
-			'#E91E63', // pink
-			'#9C27B0', // purple
-			'#673AB7', // deep purple
-			'#3F51B5', // indigo
-			'#2196F3', // blue
-			'#03A9F4', // light blue
-			'#00BCD4', // cyan
-			'#009688', // teal
-			'#4CAF50', // green
-			'#8BC34A', // light green
-			'#CDDC39', // lime
-			'#FFEB3B', // yellow
-			'#FFC107', // amber
-			'#FF9800', // orange
-			'#FF5722', // deep orange
-			'#795548', // brown
-			'#9E9E9E', // gray
-			'#607D8B', // blue gray
-			'#333333', // dark gray
-			'#000000', // black
-			'#ffffff', // white
-		),
+	add_theme_support( 'align-wide' );
+	
+	// Matches color map defined in /assets/stylesheets/variables/_colors.scss
+	// Uses accent color defined in Customizer
+	add_theme_support( 'editor-color-palette', array(
+	    array(
+	        'name' => __( 'accent', 'cover2' ),
+	        'slug' => 'accent',
+	        'color' => 'hsl(' . absint( get_theme_mod( 'accent_color', 250 ) ) . ', 75%, 50%)',
+	    ),
+	    array(
+	        'name' => __( 'dark', 'cover2' ),
+	        'slug' => 'dark',
+	        'color' => '#404040',
+	    ),
+	    array(
+	        'name' => __( 'light', 'cover2' ),
+	        'slug' => 'light',
+	        'color' => '#eee',
+	    ),
+	    array(
+	        'name' => __( 'white', 'cover2' ),
+	        'slug' => 'white',
+	        'color' => '#fff',
+	    ),
+	) );
+	add_theme_support( 'editor-font-sizes', array(
+	    array(
+	        'name' => __( 'small', 'cover2' ),
+	        'shortName' => __( 'S', 'cover2' ),
+	        'size' => 16,
+	        'slug' => 'small'
+	    ),
+	    array(
+	        'name' => __( 'regular', 'cover2' ),
+	        'shortName' => __( 'M', 'cover2' ),
+	        'size' => 20,
+	        'slug' => 'regular'
+	    ),
+	    array(
+	        'name' => __( 'large', 'cover2' ),
+	        'shortName' => __( 'L', 'cover2' ),
+	        'size' => 24,
+	        'slug' => 'large'
+	    ),
+	    array(
+	        'name' => __( 'larger', 'cover2' ),
+	        'shortName' => __( 'XL', 'cover2' ),
+	        'size' => 30,
+	        'slug' => 'larger'
+	    )
 	) );
 
 	/*

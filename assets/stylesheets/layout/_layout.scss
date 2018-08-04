@@ -19,7 +19,8 @@ body {
 	@include clearfix;
 
 	.home:not(.has-featured-image):not(.has-featured-post):not(.page) &,
-	.blog:not(.has-featured-post) & {
+	.blog:not(.has-featured-post) &,
+	.blog.paged & {
 		margin-top: $height__nav-bar;
 	}
 }

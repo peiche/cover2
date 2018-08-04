@@ -76,10 +76,15 @@
    .button.default:not(.menu-item),
    .page-header .button.default,
    .entry-content .wp-block-button.default .wp-block-button__link,
+   .entry-content .wp-block-button .wp-block-button__link.has-accent-background-color,
+   .mini-menu-container .menu > .menu-item.button.default > a,
+   .menu .menu-item.button.default > a,
+   .comment-navigation .nav-next a,
+   .posts-navigation .nav-next a,
    .entry-summary .page-links > a,
    .entry-content .page-links > a,
-   .mini-menu-container .menu > .menu-item.button.default > a,
-   .menu .menu-item.button.default > a {
+   .site-main #infinite-handle span,
+   .aesop-story-collection .aesop-collection-load-more {
      border-color: hsl(' . $hue . ', 75%, 50%);
      background-color: hsl(' . $hue . ', 75%, 50%);
    }
@@ -90,10 +95,15 @@
    .button.default:not(.menu-item):hover,
    .page-header .button.default:hover,
    .entry-content .wp-block-button.default .wp-block-button__link:hover,
+   .entry-content .wp-block-button .wp-block-button__link.has-accent-background-color:hover,
+   .mini-menu-container .menu > .menu-item.button.default > a:hover,
+   .menu .menu-item.button.default > a:hover,
+   .comment-navigation .nav-next a:hover,
+   .posts-navigation .nav-next a:hover,
    .entry-summary .page-links > a:hover,
    .entry-content .page-links > a:hover,
-   .mini-menu-container .menu > .menu-item.button.default > a:hover,
-   .menu .menu-item.button.default > a:hover {
+   .site-main #infinite-handle span:hover,
+   .aesop-story-collection .aesop-collection-load-more:hover {
      background-color: hsl(' . $hue . ', 75%, 40%);
      border-color: hsl(' . $hue . ', 75%, 40%);
    }
@@ -109,6 +119,43 @@
      border-color: hsl(' . $hue . ', 75%, 50%);
      color: hsl(' . $hue . ', 75%, 50%);
    }
+   
+   .entry-content .wp-block-button .wp-block-button__link.has-accent-color {
+    color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .entry-content .wp-block-button .wp-block-button__link.has-accent-color:hover {
+    color: hsl(' . $hue . ', 75%, 40%);
+   }
+   
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-color,
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-color:active,
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-color:focus {
+    color: hsl(' . $hue . ', 75%, 50%);
+   }
+   
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-color:hover,
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-color:active:hover {
+    color: hsl(' . $hue . ', 75%, 40%);
+   }
+   
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-background-color,
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-background-color:active,
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-background-color:focus {
+    background-color: transparent;
+    border-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-background-color:hover,
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-background-color:active:hover {
+    background-color: hsl(' . $hue . ', 75%, 40%);
+    border-color: hsl(' . $hue . ', 75%, 40%);
+   }
+   
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-color.has-background:hover,
+   .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-accent-color.has-background:active:hover {
+    color: #fff;
+   }
+   
    button.default.ghost:active,
    button.default.ghost:focus,
    input[type="button"].default.ghost:active,
@@ -177,6 +224,12 @@
    }
    .icon-accent .svg-icon use {
     stroke: hsl(' . $hue . ', 75%, 50%);
+   }
+   p.has-accent-background-color {
+    background-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   p.has-accent-color {
+    color: hsl(' . $hue . ', 75%, 50%);
    }
    ';
 

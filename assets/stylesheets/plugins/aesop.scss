@@ -5,383 +5,70 @@
 # Aesop Story Engine components
 --------------------------------------------------------------*/
 
-.aesop-component {
-  margin-bottom: 3em;
-  margin-top: 3em;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-/*--------------------------------------------------------------
-# Image
---------------------------------------------------------------*/
-
-.aesop-component.aesop-image-component {
-
-  &:hover {
-    opacity: 1; // Override
-  }
-
-  img {
-    box-shadow: none;
-    display: block;
-  }
-
-  .aesop-image-component-image.aesop-component-align-center {
-    margin-bottom: 3em;
-    margin-top: 3em;
-  }
-}
-
-.aesop-image-component .aesop-image-component-caption,
-.aesop-gallery-component .aesop-component-caption {
-  @include caption;
-}
-
-.aesop-img-enlarge {
-  display: none;
-}
-
-.entry-content a.aesop-lightbox {
-
-  &:hover {
-    border-color: transparent;
-  }
-}
-
-.aesop-component-align-left,
-.aesop-component-align-right {
-  @include max-width($content__width-small) {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-}
-
-/*--------------------------------------------------------------
-# Quote
---------------------------------------------------------------*/
-
-.aesop-quote-component {
-  display: block;
-
-  &.aesop-content {
-    @include site-width;
-  }
-
-  blockquote {
-    display: block;
-    font-style: normal;
-  }
-
-  cite {
-    font-size: 85%;
-  }
-}
+@import "aesop/base";
 
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 
-.aesop-content-component {
+@import "aesop/content";
 
-  &.aesop-content-has-img {
+/*--------------------------------------------------------------
+# Quote
+--------------------------------------------------------------*/
 
-    .aesop-content-darken {
-      background-color: $color__background-dark;
-      bottom: 0;
-      content: "";
-      left: 0;
-      opacity: 0.4;
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-  }
+@import "aesop/quote";
 
-  .aesop-content {
-    @include site-width;
-  }
+/*--------------------------------------------------------------
+# Swipebox (lightbox used by Image and Gallery)
+--------------------------------------------------------------*/
 
-  .aesop-content-comp-wrap {
-    padding: 1.5em 0;
-  }
+@import "aesop/swipebox";
 
-  .aesop-content-comp-inner {
+/*--------------------------------------------------------------
+# Image
+--------------------------------------------------------------*/
 
-    p {
-      line-height: $font__line-height-content;
-    }
-
-    a {
-      color: inherit;
-    }
-  }
-
-  .aesop-content-img .aesop-content-comp-inner {
-    background-color: transparent;
-    padding: 0;
-    position: relative;
-    z-index: $z-index__default;
-  }
-}
-
-.aesop-cover-title {
-  @include site-width($content__width-large);
-
-  border: 0;
-  bottom: auto;
-  font-family: $font__family-heading;
-  font-weight: $font__weight-heading;
-  left: auto;
-  padding: 3em 0 1.5em;
-  position: relative;
-}
+@import "aesop/image";
 
 /*--------------------------------------------------------------
 # Gallery
 --------------------------------------------------------------*/
 
-.aesop-gallery-edit {
-  display: inline-block;
-}
+@import "aesop/gallery";
 
 /*--------------------------------------------------------------
 # Scroll Navigation Sections (used by Chapter and Timeline)
 --------------------------------------------------------------*/
 
-.scroll-nav__section {
-  margin-bottom: 1.5em;
-  padding-bottom: 1.5em;
-
-  p + &,
-  .scroll-nav__section + & {
-    margin-top: -1.5em; // fallback for browsers that don't support calc()
-    margin-top: calc(-1.5em + 1px);
-  }
-
-  &:first-child {
-    margin-top: -3em;
-    padding-top: 3em;
-
-    p:first-of-type {
-      font-size: 125%;
-    }
-  }
-
-  > h1,
-	> h2,
-	> h3,
-	> h4,
-	> h5,
-	> h6,
-	> p,
-	> ol,
-	> ul,
-	> dl,
-	> table,
-	> address,
-	> pre > code,
-	> blockquote,
-	> .page-links {
-		@include site-width;
-	}
-}
+@import "aesop/scroll-nav";
 
 /*--------------------------------------------------------------
 # Chapter
 --------------------------------------------------------------*/
 
-.aesop-toggle-chapter-menu,
-.aesop-close-chapter-menu,
-.aesop-chapter-menu {
-  display: none; // NOTE: hides ASE's button in favor of Cover2's
-}
-
-.aesop-component.aesop-article-chapter-wrap {
-  margin-top: 3em;
-
-  .scroll-nav__section + .scroll-nav__section > & {
-    margin-top: 4.5em;
-  }
-}
-
-.aesop-article-chapter {
-  min-height: 0 !important; // NOTE: overrides ASE's inline style
-  
-  &:before {
-  	background-color: #333;
-  	content: "";
-  	height: 100%;
-  	left: 0;
-  	opacity: 0.4;
-  	position: absolute;
-  	top: 0;
-  	width: 100%;
-  }
-}
-
-.aesop-cover-title {
-
-  small {
-    display: block;
-    font-family: $font__family-main;
-  }
-}
+@import "aesop/chapter";
 
 /*--------------------------------------------------------------
 # Timeline
 --------------------------------------------------------------*/
 
-.aesop-timeline-stop,
-.wp-block-scrollnav-block {
-  margin-bottom: 1em;
-  padding-top: 1em;
-}
-
-.aesop-timeline,
-.gb-scrollnav .scroll-nav {
-  background-color: transparent;
-  bottom: auto;
-  display: none;
-  left: auto;
-  padding: 0;
-  position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translate(0, -50%);
-  width: 50px;
-  z-index: $z-index__default;
-
-  @include min-width($breakpoint__tablet-portrait) {
-    display: block;
-  }
-
-  .scroll-nav__list {
-    background-color: transparent;
-    box-shadow: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-
-    &:after {
-      display: none;
-    }
-  }
-
-  .scroll-nav__item {
-    cursor: pointer;
-    display: block;
-    font-family: $font__family-main;
-    height: 40px;
-    margin: 0;
-    position: relative;
-    text-align: right;
-
-    &:before {
-      background-color: #ccc;
-      border-radius: 50%;
-      bottom: 0;
-      content: "";
-      display: block;
-      height: 10px;
-      left: auto;
-      margin: auto;
-      position: absolute;
-      right: 30px;
-      top: 0;
-      transition: background $timing__default;
-      width: 10px;
-    }
-
-    &:hover {
-
-      &:before {
-        background-color: #bbb;
-      }
-
-      .scroll-nav__link {
-        opacity: 1;
-        transform: translate(10px, 0);
-        visibility: visible;
-      }
-    }
-
-    &.active {
-
-      &:before,
-      &:hover:before {
-        background-color: #666;
-      }
-    }
-  }
-
-  .scroll-nav__link:link,
-  .scroll-nav__link:visited {
-    @include rem(font-size, 1);
-
-    background-color: $color__gray;
-    border-radius: 4px;
-    color: $color__text-main;
-    display: inline-block;
-    margin-right: 15px;
-    opacity: 0;
-    padding: 8px 15px;
-    position: absolute;
-    right: 100%;
-    text-decoration: none;
-    text-transform: none;
-    transition: all $timing__default;
-    visibility: hidden;
-    white-space: nowrap;
-
-    &:after {
-      border: 7px solid transparent;
-      border-left-color: $color__gray;
-      bottom: 0;
-      content: "";
-      height: 0;
-      left: 100%;
-      margin: auto -1px;
-      position: absolute;
-      top: 0;
-      width: 0;
-    }
-  }
-}
-
-/*--------------------------------------------------------------
-# Chat
---------------------------------------------------------------*/
-
-.aesop-component.aesop-component-chat + .aesop-component-chat {
-  margin-top: -3em;
-}
+@import "aesop/timeline";
 
 /*--------------------------------------------------------------
 # Video
 --------------------------------------------------------------*/
 
-.aesop-video-component {
+@import "aesop/video";
 
-  .wp-video {
-    margin: auto;
-  }
+/*--------------------------------------------------------------
+# Collection
+--------------------------------------------------------------*/
 
-  .mejs-container,
-  .fluid-width-video-wrapper {
-    background-color: #ccc;
-  }
+@import "aesop/collection";
 
-  .aesop-video-component-caption {
-    @include caption;
-  }
+/*--------------------------------------------------------------
+# Chat (third-party addon plugin)
+--------------------------------------------------------------*/
 
-  .jetpack-video-wrapper {
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-}
+@import "aesop/chat";

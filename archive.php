@@ -15,24 +15,8 @@ get_header(); ?>
 		<?php
 		if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<div class="page-header__image"></div>
-				<div class="page-header__content">
-
-					<?php if ( is_author() ) : ?>
-						<div class="profile-avatar text-align-center">
-							<?php
-							echo get_avatar( get_the_author_meta( 'ID' ), 120, '', __( 'Profile Picture for ', 'cover2' ) . esc_html( get_the_author() ) ); ?>
-						</div>
-					<?php endif; ?>
-
-					<?php the_archive_title( '<h1 class="page-title text-align-center">', '</h1>' ); ?>
-					<?php if ( get_the_archive_description() != '' ) : ?>
-						<hr>
-						<?php the_archive_description( '<div class="page-description">', '</div>' ); ?>
-					<?php endif; ?>
-				</div>
-			</header>
+			<?php get_template_part( 'components/shared/page', 'header' ); ?>
+			
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();

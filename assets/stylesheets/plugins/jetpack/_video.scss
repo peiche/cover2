@@ -1,0 +1,13 @@
+.jetpack-video-wrapper {
+	@include site-width($content__width-large);
+
+	margin-bottom: 3em;
+	margin-top: 3em;
+
+	.wp-block-embed & {
+		margin-bottom: 0;
+		margin-top: 0;
+		max-width: 100%;
+		width: 100%;
+	}
+}

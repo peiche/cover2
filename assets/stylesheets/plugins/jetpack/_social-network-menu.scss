@@ -1,0 +1,152 @@
+$social-network-names: (
+	"500px": $bc-500px,
+	"amazon": $bc-amazon,
+	"bandcamp": $bc-bandcamp,
+	"behance": $bc-behance,
+	"codepen": $bc-codepen,
+	"deviantart": $bc-deviantart,
+	"digg": $bc-digg,
+	"dribbble": $bc-dribbble,
+	"dropbox": $bc-dropbox,
+	"etsy": $bc-etsy,
+	"facebook": $bc-facebook,
+	"flickr": $bc-flickr,
+	"foursquare": $bc-foursquare,
+	"goodreads": $bc-goodreads,
+	"google-plus": $bc-google-plus,
+	"google": $bc-google,
+	"github": $bc-github,
+	"instagram": $bc-instagram,
+	"linkedin": $bc-linkedin,
+	"meetup": $bc-meetup,
+	"medium": $bc-medium,
+	"pinterest": $bc-pinterest,
+	"pocket": $bc-pocket,
+	"reddit": $bc-reddit,
+	"skype": $bc-skype,
+	"slideshare": $bc-slideshare,
+	"snapchat": $bc-snapchat,
+	"soundcloud": $bc-soundcloud,
+	"spotify": $bc-spotify,
+	"stumbleupon": $bc-stumbleupon,
+	"tumblr": $bc-tumblr,
+	"twitch": $bc-twitch-tv,
+	"twitter": $bc-twitter,
+	"vimeo": $bc-vimeo,
+	"vk": $bc-vkontakte,
+	"wordpress": $bc-wordpress,
+	"yelp": $bc-yelp,
+	"youtube": $bc-youtube
+);
+
+$social-network-links: (
+	"codepen.io": $bc-codepen,
+	"digg.com": $bc-digg,
+	"dribbble.com": $bc-dribbble,
+	"dropbox.com": $bc-dropbox,
+	"facebook.com": $bc-facebook,
+	"flickr.com": $bc-flickr,
+	"foursquare.com": $bc-foursquare,
+	"github.com": $bc-github,
+	"plus.google.com": $bc-googleplus,
+	"instagram.com": $bc-instagram,
+	"linkedin.com": $bc-linkedin,
+	"path.com": $bc-path,
+	"pinterest.com": $bc-pinterest,
+	"getpocket.com": $bc-pocket,
+	"reddit.com": $bc-reddit,
+	"skype:": $bc-skype,
+	"spotify.com": $bc-spotify,
+	"stumbleupon.com": $bc-stumbleupon,
+	"tumblr.com": $bc-tumblr,
+	"twitch.tv": $bc-twitch-tv,
+	"twitter.com": $bc-twitter,
+	"vimeo.com": $bc-vimeo,
+	"vine.co": $bc-vine,
+	"wordpress.com": $bc-wordpress,
+	"wordpress.org": $bc-wordpress,
+	"youtube.com": $bc-youtube
+);
+
+.jetpack_widget_social_icons {
+	text-align: center;
+
+	.jetpack-social-widget-item {
+		margin: 0 1em 1em;
+	}
+
+	// Override Jetpack styles	
+	a,
+	ul.size-small a,
+	ul.size-medium a,
+	ul.size-large a {
+		height: auto;
+		width: auto;
+	}
+
+	.icon {
+		background-color: transparent;
+		border-radius: 50%;
+		height: 1.75em;
+		padding: 0.25em;
+		transition: background $timing__default;
+		width: 1.75em;
+	}
+
+	.size-small .icon {
+		height: 1.75em;
+		width: 1.75em;
+	}
+
+	.size-medium .icon {
+		height: 2em;
+		width: 2em;
+	}
+
+	.size-large .icon {
+		height: 2.5em;
+		width: 2.5em;
+	}
+
+	@each $name, $color in $social-network-names {
+
+		a:hover > .icon-#{$name} {
+			background-color: $color;
+		}
+	}
+}
+
+// Deprecated social menu menu
+.menu-social-menu-container {
+
+	ul {
+		margin-top: 3em;
+		text-align: center;
+	}
+
+	li {
+		border: 0;
+		padding: 0 0.75em;
+	}
+}
+
+.jetpack-social-navigation.jetpack-social-navigation-genericons a {
+	border-radius: 50%;
+	font-size: 2rem;
+	height: auto;
+	padding: 0.5rem;
+	transition: background $timing__default;
+	width: auto;
+
+	&:hover {
+		background-color: $color__background-dark;
+		color: $color__white;
+	}
+
+	@each $url, $color in $social-network-links {
+
+		&[href*="#{$url}"]:hover {
+			background-color: $color;
+		}
+	}
+}

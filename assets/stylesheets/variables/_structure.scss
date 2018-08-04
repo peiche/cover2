@@ -11,13 +11,15 @@ $height__wp-top-bar-desktop: 31px;
 // Specific size at which the WP top bar switches from mobile to desktop
 $breakpoint__wp-top-bar: 782px;
 
-// ASE tablet breakpoint
-$breakpoint__tablet-aesop: 768px;
-
 // Sizes for media queries
 $breakpoint__tablet-portrait: 600px;
 $breakpoint__tablet-landscape: 900px;
 $breakpoint__desktop: 1200px;
+
+// ASE breakpoints
+$breakpoint__phone--aesop: 480px;
+$breakpoint__tablet-portrait--aesop: 768px;
+$breakpoint__tablet-landscape--aesop: 782px;
 
 // Sizes for content
 $content__width-narrow: 500px;
@@ -28,9 +30,6 @@ $content__width-large: 1000px;
 // Z-indexes (z-indices?)
 $z-index__default: 1;
 
-// Bouron Neat grid
-$neat-grid: (
-	columns: 12,
-	gutter: 0,
-);
-$neat-grid-gutter: 30px;
+// Responsive grid
+$grid-columns: 12;
+$grid-gutter: 15px;

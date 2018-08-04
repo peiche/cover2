@@ -6,6 +6,7 @@ var autoprefixer = require( 'autoprefixer' ),
     jscs         = require( 'gulp-jscs' ),
     lec          = require( 'gulp-line-ending-corrector' ),
     phpcs        = require( 'gulp-phpcs' ),
+    pixrem       = require( 'pixrem' ),
     postcss      = require( 'gulp-postcss' ),
     sass         = require( 'gulp-sass' ),
     scss         = require( 'postcss-scss' ),
@@ -89,9 +90,13 @@ gulp.task( 'clean', function() {
 } );
 
 /**
- * Copy third-party scripts.
+ * Copy images and third-party scripts.
  */
 gulp.task( 'copy', function() {
+  gulp.src( [
+    'assets/img/**/*'
+  ] ).pipe( gulp.dest( 'dist/img' ) );
+
   return gulp.src( [
     'node_modules/headroom.js/dist/headroom*.js',
     'node_modules/flexslider/jquery.flexslider*.js',
@@ -119,6 +124,7 @@ gulp.task( 'stylelint', function() {
  */
 gulp.task( 'css', [ 'stylelint' ], function() {
   var processors = [
+    pixrem( { browsers: AUTOPREFIXER_BROWSERS } ),
     autoprefixer( { browsers: AUTOPREFIXER_BROWSERS } )
   ];
 
@@ -138,6 +144,7 @@ gulp.task( 'css', [ 'stylelint' ], function() {
     .pipe( browserSync.stream() )
     .pipe( lec() );
 
+  // Compile main stylesheet
   return gulp.src( './assets/stylesheets/**/style.scss' )
     .pipe( sass().on( 'error', sass.logError ) )
     .pipe( postcss( processors ) )

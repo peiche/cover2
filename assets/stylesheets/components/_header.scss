@@ -4,6 +4,7 @@
   background-color: $color__accent;
   color: $color__white;
   left: 0;
+  max-height: $height__nav-bar;
   position: absolute;
   right: 0;
   top: 0;
@@ -11,7 +12,7 @@
   will-change: transform;
   z-index: $z-index__default + 2;
 
-  @include min-width($breakpoint__tablet-aesop) {
+  @include min-width($breakpoint__tablet-portrait--aesop) {
 
     .aesop-sticky-map.aesop-sticky-map-top & {
       top: 220px;
@@ -108,9 +109,8 @@
 }
 
 .site-title:not(.page-title) {
-  @include rem(font-size, 1.5);
-
   display: inline-block;
+  font-size: 1.5rem;
   font-weight: $font__weight-normal;
   margin: 0;
   padding: 20px 10px 20px 20px;
@@ -147,12 +147,11 @@
 }
 
 .site-description:not(.entry-excerpt) {
-  @include rem(font-size, 1);
-  @include rem(line-height, 1.5);
-
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   display: none;
+  font-size: 1rem;
   font-weight: $font__weight-normal;
+  line-height: 1.5rem;
   margin: 0;
   padding-bottom: 2px;
   padding-left: 20px;

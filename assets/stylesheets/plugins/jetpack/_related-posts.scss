@@ -1,0 +1,228 @@
+#jp-relatedposts.jp-relatedposts {
+    @include site-width($content__width-large);
+
+    padding-top: 0;
+
+    &:before {
+        // TODO separator like <hr>
+    }
+
+    h3.jp-relatedposts-headline {
+        @include site-width;
+
+        color: #999;
+        display: block;
+        float: none;
+        font-family: $font__family-heading;
+        font-size: 30px;
+        width: 100%;
+
+        em {
+            font-weight: $font__weight-heading;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    .jp-relatedposts-items {
+        margin-left: 0;
+        margin-right: 0;
+
+        .jp-relatedposts-post {
+            float: none;
+            margin: 0;
+            opacity: 1;
+            padding: 0;
+            transition: all $timing__default;
+            vertical-align: top;
+            width: 100%;
+
+            &:hover {
+
+                .jp-relatedposts-post-a,
+                .jp-relatedposts-post-title .jp-relatedposts-post-a {
+                    text-decoration: none;
+                }
+            }
+
+            .jp-relatedposts-post-a,
+            .jp-relatedposts-post-title .jp-relatedposts-post-a {
+                text-decoration: none;
+            }
+
+            .jp-relatedposts-post-title {
+                font-family: $font__family-heading;
+                font-weight: $font__weight-heading;
+                line-height: $font__line-height-content;
+                max-width: 100%;
+
+                a:hover {
+                    border: 0;
+                    text-decoration: none;
+                }
+            }
+
+            .jp-relatedposts-post-img {
+                border-radius: 5px;
+                margin: auto;
+            }
+        }
+
+        &.jp-relatedposts-grid {
+            @include min-width($breakpoint__tablet-portrait) {
+                margin-left: -1em;
+            }
+
+            .jp-relatedposts-post {
+                background-color: $color__background-dark;
+                border-radius: 5px;
+                margin-bottom: 0.5em;
+                min-height: 183px;
+                overflow: hidden;
+                position: relative;
+                text-align: center;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                @include min-width($breakpoint__tablet-portrait) {
+                    display: inline-block;
+                    margin-bottom: 0;
+                    margin-left: 1em;
+                    text-align: left;
+                    width: calc(33.33% - 1em);
+                }
+
+                .jp-relatedposts-post-a {
+                    border: 0;
+                    display: block;
+
+                    .jp-relatedposts-post-img {
+                        bottom: 0;
+                        left: 0;
+                        margin: auto;
+                        min-height: 100%;
+                        min-width: 100%;
+                        opacity: 0.6;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+
+                .jp-relatedposts-post-title {
+                    font-size: 30px;
+                    left: 0;
+                    max-width: 100%;
+                    padding: 0 10px;
+                    position: absolute;
+                    right: 0;
+                    text-align: center;
+                    top: 50%;
+                    transform: translate(0, -50%);
+
+                    .jp-relatedposts-post-a {
+                        background-color: transparent;
+                        border: 0;
+                        color: $color__white;
+                    }
+                }
+
+                .jp-relatedposts-post-excerpt {
+                    display: none;
+                }
+
+                .jp-relatedposts-post-date,
+                .jp-relatedposts-post-context {
+                    bottom: 0;
+                    color: $color__white;
+                    display: block;
+                    opacity: 0.9;
+                    padding: 5px 10px;
+                    pointer-events: none;
+                    position: absolute;
+                    width: 50%;
+                }
+
+                .jp-relatedposts-post-date {
+                    left: 0;
+                    text-align: left;
+                }
+
+                .jp-relatedposts-post-context {
+                    right: 0;
+                    text-align: right;
+                }
+            }
+        }
+
+        &.jp-relatedposts-list {
+            @include site-width;
+
+            width: 100%;
+
+            .jp-relatedposts-post {
+                @include clearfix;
+
+                margin-bottom: 1em;
+                min-height: 100px;
+                padding-left: 120px;
+                position: relative;
+
+                .jp-relatedposts-post-a {
+                    border: 0;
+                    border-radius: 5px;
+                    display: block;
+                    height: 100px;
+                    left: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    transition: all $timing__default;
+                    width: 100px;
+
+                    &:hover {
+                        border: 0;
+                        opacity: 0.8;
+                    }
+
+                    .jp-relatedposts-post-img {
+                        max-height: 200%;
+                        max-width: 200%;
+                    }
+                }
+
+                .jp-relatedposts-post-title {
+                    font-size: 1.5rem;
+
+                    .jp-relatedposts-post-a {
+                        border-bottom: 1px solid transparent;
+                        border-radius: 0;
+                        height: auto;
+                        overflow: visible;
+                        position: static;
+                        width: auto;
+
+                        &:hover {
+                            border-color: $color__border;
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .jp-relatedposts-post-date,
+                .jp-relatedposts-post-context {
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
+            }
+        }
+    }
+}

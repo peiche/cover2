@@ -31,6 +31,10 @@
 		}
 	}
 
+	.nav-next a {
+		@include button-style($color__accent);
+	}
+
 	.nav-previous {
 		@include min-width($breakpoint__tablet-portrait) {
 			float: left;
@@ -87,11 +91,10 @@
 		}
 
 		.post-title {
-			@include rem(font-size, 2.5);
-			@include rem(line-height, 3);
-
 			font-family: $font__family-heading;
+			font-size: 2.5rem;
 			font-weight: $font__weight-heading;
+			line-height: 3rem;
 		}
 	}
 

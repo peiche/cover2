@@ -1,0 +1,80 @@
+.wp-block-quote {
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+    &.is-style-large {
+        border: 0;
+        margin: 30px auto;
+        max-width: $content__width-large;
+        padding: 3em 0 0;
+        position: relative;
+
+        &:before {
+            background-image: url("./dist/img/quote.svg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            content: "";
+            height: 2em;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 2em;
+        }
+
+        p {
+            color: lighten($color__text-main, 20%);
+            font-size: 2rem;
+            font-style: normal;
+        }
+
+        cite,
+        footer {
+            color: lighten($color__text-main, 40%);
+            display: block;
+            font-size: 1.25rem;
+            font-style: normal;
+        }
+    }
+
+    //&.blocks-quote-style-1 {
+    //    border-color: $color__border;
+    //    border-left-width: 5px;
+    //    padding-left: 1.5em;
+    //}
+
+    //&.blocks-quote-style-2 {
+    //    border-left-width: 5px;
+    //    padding-left: 1.5em;
+    //
+    //    p {
+    //        font-size: inherit;
+    //        font-style: inherit;
+    //        line-height: inherit;
+    //    }
+    //
+    //    footer {
+    //        font-size: 85%;
+    //        text-align: left;
+    //    }
+    //}
+}
+
+.wp-block-pullquote {
+    border: 5px solid $color__accent;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+
+    p {
+        font-family: $font__family-main;
+        font-size: 150%;
+        font-weight: $font__weight-normal;
+    }
+
+    footer {
+        font-size: 90%;
+        font-weight: $font__weight-normal;
+        text-transform: none;
+    }
+}

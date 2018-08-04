@@ -1,0 +1,54 @@
+.aesop-content-component {
+
+  &.aesop-content-has-img {
+
+    .aesop-content-darken {
+      background-color: $color__background-dark;
+      bottom: 0;
+      content: "";
+      left: 0;
+      opacity: 0.8;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .aesop-content {
+    @include site-width;
+  }
+
+  .aesop-content-comp-wrap {
+    padding: 1.5em 0;
+
+    &.aesop-content-img {
+      padding: 3em 0;
+    }
+  }
+
+  .aesop-content-comp-inner {
+
+    p {
+      line-height: $font__line-height-content;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  .aesop-content-img .aesop-content-comp-inner {
+    background-color: transparent;
+    padding: 0;
+    position: relative;
+    z-index: $z-index__default;
+
+    p {
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

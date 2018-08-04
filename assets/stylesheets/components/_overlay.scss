@@ -72,12 +72,12 @@ body.overlay-open {
 }
 
 .overlay {
-  @include rem(font-size, 1.5);
   @include scrollbar(darken($color__background-light, 25%));
 
   background-color: $color__background-light;
   bottom: 0;
   color: $color__text-main;
+  font-size: 1.5rem;
   height: 100%;
   left: 0;
   opacity: 0;

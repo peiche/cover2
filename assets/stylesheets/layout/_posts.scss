@@ -14,6 +14,11 @@
 		padding-top: 0;
 	}
 
+	.home-featured-posts &,
+	.home-latest-posts & {
+		padding-top: 50px;
+	}
+
 	.timeline & {
 		padding-bottom: 0;
 	}
@@ -39,6 +44,10 @@
 		.page &,
 		.featured-content & {
 			display: none;
+		}
+
+		.home-latest-posts & {
+			display: block;
 		}
 	}
 }
@@ -75,24 +84,22 @@
 }
 
 .entry-title {
-	@include rem(font-size, 2);
 	@include word-wrap;
 
 	color: $color__text-main;
 	font-family: $font__family-heading;
+	font-size: 2rem;
 	font-weight: $font__weight-heading;
 	margin-bottom: 0;
 	margin-top: 0;
 
-	body.single &,
-	body.page &,
 	.featured-content & {
-		@include rem(font-size, 2.5);
-		@include rem(line-height, 3);
+		font-size: 2.5rem;
+		line-height: 3rem;
 
 		@include min-width($breakpoint__tablet-portrait) {
-			@include rem(font-size, 3.5);
-			@include rem(line-height, 4);
+			font-size: 3.5rem;
+			line-height: 4rem;
 		}
 	}
 
@@ -152,10 +159,6 @@
 		padding-top: 0;
 	}
 
-	.panel & {
-		padding-top: 20px;
-	}
-
 	.not-found & {
 		padding-bottom: 60px;
 	}
@@ -198,6 +201,10 @@
 
 	> p:first-of-type {
 		font-size: 125%;
+
+		.panel & {
+			font-size: 100%;
+		}
 	}
 
 	pre {
@@ -291,7 +298,7 @@
 .entry-summary .page-links > a,
 .entry-content .page-links > a {
 	@include button;
-	@include button-style($color__link);
+	@include button-style($color__accent);
 }
 
 .cat-links,

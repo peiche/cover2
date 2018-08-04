@@ -1,0 +1,72 @@
+p {
+
+    &.has-small-font-size {
+        font-size: 1rem;
+    }
+
+    &.has-regular-font-size {
+        font-size: 1.25rem;
+    }
+
+    &.has-large-font-size {
+        font-size: 1.5rem;
+    }
+
+    &.has-larger-font-size {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+
+    // Iterate over defined colors
+    @each $name, $color in $gutenberg-colors {
+
+        &.has-#{$name}-color {
+            color: $color;
+        }
+
+        &.has-#{$name}-background-color {
+            background-color: $color;
+        }
+    }
+
+    &.aligncenter {
+        // Nothing needed
+    }
+
+    &.alignleft,
+    &.alignright {
+        display: block;
+        float: none;
+
+        @include min-width($breakpoint__tablet-portrait) {
+            margin-left: 1em;
+            margin-right: 1em;
+            max-width: 50%;
+        }
+    }
+
+    &.alignleft {
+        @include min-width($breakpoint__tablet-portrait) {
+            float: left;
+        }
+    }
+
+    &.alignright {
+        @include min-width($breakpoint__tablet-portrait) {
+            float: right;
+        }
+    }
+
+    &.alignwide {
+        max-width: $content__width-large;
+    }
+
+    &.alignfull {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    &.has-drop-cap:first-letter {
+        font-family: inherit;
+    }
+}

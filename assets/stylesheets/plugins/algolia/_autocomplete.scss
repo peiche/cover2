@@ -1,0 +1,73 @@
+.algolia-logo {
+  vertical-align: middle;
+}
+
+.algolia-autocomplete {
+  position: static !important; // NOTE: overrides inline style
+
+  .autocomplete-header {
+    color: #999;
+    font-size: 2rem;
+    margin: 1.5em 0 0.75em;
+  }
+
+  .suggestion-post-title,
+  .suggestion-post-content {
+    display: block;
+  }
+
+  .aa-suggestion {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+
+    em {
+      background-color: #ccc;
+      border-radius: 4px;
+      font-style: normal;
+
+      .overlay-dark & {
+        background-color: #999;
+      }
+    }
+
+    .suggestion-link {
+      transition: opacity $timing__default;
+    }
+
+    &.aa-cursor {
+      background-color: rgba(0, 0, 0, 0.25);
+
+      .overlay-dark & {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+    }
+  }
+
+  .suggestion-link {
+    color: #333;
+
+    .overlay-dark & {
+      color: $color__white;
+    }
+  }
+
+	.autocomplete-footer {
+		font-size: initial;
+		margin-top: 20px;
+		padding: 10px 0;
+		text-align: right;
+	}
+
+	.algolia-logo {
+		background-image: url("../../img/search-by-algolia-dark.svg");
+		background-position: center right;
+		background-repeat: no-repeat;
+		background-size: contain;
+		height: 1.5em;
+		vertical-align: middle;
+
+		.overlay-dark & {
+			background-image: url("../../img/search-by-algolia-light.svg");
+		}
+	}
+}

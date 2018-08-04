@@ -11,34 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="page-header">
-		<div class="page-header__image"></div>
-
-		<div class="page-header__content">
-
-			<?php if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
-				<button class="video-toggle video-play" aria-label="toggle video" aria-expanded="false">
-					<?php echo cover2_get_svg( array( 'icon' => 'play' ) ); ?>
-				</button>
-			<?php } ?>
-
-			<?php
-			the_title( '<h1 class="page-title text-align-center">', '</h1>' );
-
-			if ( 'post' === get_post_type() ) : ?>
-			<?php get_template_part( 'components/post/content', 'meta' ); ?>
-			<?php
-			endif; ?>
-
-			<?php if ( has_excerpt() ) : ?>
-				<hr>
-				<div class="entry-excerpt">
-					<?php echo the_excerpt(); ?>
-				</div>
-			<?php endif; ?>
-
-		</div>
-	</header>
+	<?php get_template_part( 'components/shared/page', 'header' ); ?>
 
 	<div class="entry-content aesop-entry-content">
 		<?php

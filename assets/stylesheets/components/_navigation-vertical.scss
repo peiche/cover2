@@ -40,6 +40,10 @@
 			@include button-style($color__white);
 
 			color: $color__text-main;
+
+			&:active {
+				color: $color__text-main;
+			}
 		}
 	}
 
@@ -101,15 +105,21 @@
 
 	li {
 		display: inline-block;
-		padding: 25px 10px 15px;
+		padding: 0 10px;
 		position: relative;
+
+		&.menu-item-has-children {
+			padding-right: 42px;
+		}
 	}
 
 	a {
 		@include link($color__white);
 
+		border-width: 2px;
 		color: inherit;
 		display: inline-block;
+		padding: 25px 0 19px;
 
 		&:hover,
 		&:focus,
@@ -137,13 +147,22 @@
 	.menu > .menu-item.button.ghost:not(.default) > a {
 		@include button-style($color__text-main, true);
 
-		border-color: #fff;
-		color: #fff;
+		border-color: $color__white;
+		color: $color__white;
 
 		&:hover {
-			background-color: #fff;
-			border-color: #fff;
+			background-color: $color__white;
+			border-color: $color__white;
 			color: $color__text-main;
+		}
+
+		&:active,
+		&:focus {
+			color: $color__white;
+
+			&:hover {
+				color: $color__text-main;
+			}
 		}
 	}
 
@@ -161,6 +180,7 @@
 
 	.showsub-toggle {
 		color: inherit;
+		position: absolute;
 	}
 
 	.sub-menu {
@@ -169,13 +189,13 @@
 		border-radius: 3px;
 		color: $color__text-main;
 		display: none;
-		margin-top: -10px;
+		margin-top: -7px;
 		min-width: 100%;
 		overflow: visible;
 		padding-bottom: 10px;
 		padding-top: 10px;
 		position: absolute;
-		right: 0;
+		right: -10;
 		top: 100%;
 
 		&.sub-on {

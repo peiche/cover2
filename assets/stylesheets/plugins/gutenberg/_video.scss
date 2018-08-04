@@ -1,0 +1,19 @@
+.wp-block-video {
+    @include site-width($content__width-normal);
+
+    margin-bottom: 3em;
+    margin-top: 3em;
+
+    &.alignwide {
+        @include site-width($content__width-large);
+    }
+
+    &.alignfull {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    figcaption {
+        @include caption;
+    }
+}
