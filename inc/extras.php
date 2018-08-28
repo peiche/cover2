@@ -279,7 +279,7 @@ function cover2_front_page_sections( $partial = null, $id = 0 ) {
  		wp_reset_postdata();
  	} elseif ( is_customize_preview() ) {
  		// The output placeholder anchor.
- 		echo '<article class="panel-placeholder panel panel-' . $id . '" id="panel-' . $id . '"><span class="panel-title">' . sprintf( __( 'Front Page Section %1$s Placeholder', 'cover2' ), $id ) . '</span></article>';
+ 		echo '<section class="panel-placeholder panel panel-' . $id . '" id="panel-' . $id . '"><span class="panel-title">' . sprintf( __( 'Front Page Section %1$s Placeholder', 'cover2' ), $id ) . '</span></section>';
  	}
 }
 
