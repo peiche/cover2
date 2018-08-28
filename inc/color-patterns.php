@@ -214,11 +214,11 @@
    .ais-refinement-list--checkbox:checked ~ .ais-refinement-list--label::before {
     background-color: hsl(' . $hue . ', 75%, 50%);
    }
-   .ais-pagination--link {
+   .ais-pagination--item__active .ais-pagination--link {
     background-color: hsl(' . $hue . ', 75%, 50%);
     border-color: hsl(' . $hue . ', 75%, 50%);
    }
-   .ais-pagination--link:hover {
+   .ais-pagination--item__active .ais-pagination--link:hover {
     background-color: hsl(' . $hue . ', 75%, 40%);
     border-color: hsl(' . $hue . ', 75%, 40%);
    }
