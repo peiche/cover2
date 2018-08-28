@@ -113,4 +113,3 @@ All other resources are licensed as follows:
 [Reponsive Display Text](https://24ways.org/2016/responsive-display-text/)  
 [Align SVG Icons to Text and Say Goodbye to Font Icons](https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4#.yfiiz5rca)  
 [Your Body Text Is Too Small](https://blog.marvelapp.com/body-text-small/)  
-[Getting started with Neat 2.0, a lightweight and flexible Sass grid](https://robots.thoughtbot.com/the-release-of-neat-2-0-a-lightweight-and-flexible-sass-grid)
