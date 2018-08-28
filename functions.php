@@ -91,6 +91,7 @@ function cover2_setup() {
 		'link',
 		'chat',
 		'status',
+		'gallery',
 	) );
 
 	/*
