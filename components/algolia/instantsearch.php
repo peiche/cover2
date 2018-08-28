@@ -8,17 +8,17 @@
 get_header(); ?>
 
 	<div id="ais-wrapper">
-		<div class="cf">
-			<header class="page-header">
-				<div class="page-header__image"></div>
-				<div class="page-header__content">
-					<div id="algolia-search-box" class="page-title text-align-center">
-						<div id="algolia-stats"></div>
-					</div>
+		<header class="page-header">
+			<div class="page-header__image"></div>
+			<div class="page-header__content">
+				<div id="algolia-search-box" class="page-title text-align-center">
+					<div id="algolia-stats"></div>
 				</div>
-				
-			</header>
+			</div>
 			
+		</header>
+		
+		<div class="ais-container">
 			<aside id="ais-facets">
 				<section class="ais-facets" id="facet-post-types"></section>
 				<section class="ais-facets" id="facet-categories"></section>
@@ -30,7 +30,6 @@ get_header(); ?>
 				<div id="algolia-pagination"></div>
 			</main>
 		</div>
-		
 	</div>
 
 	<script type="text/html" id="tmpl-instantsearch-hit">
@@ -49,7 +48,7 @@ get_header(); ?>
 								</a>
 							</span>
 						</span>
-						—
+						&mdash;
 						<span class="posted-on">
 							<a href="{{ data.permalink }}" rel="bookmark">
 								<time class="entry-date published updated">
@@ -100,36 +99,13 @@ get_header(); ?>
 					indexName: algolia.indices.searchable_posts.name,
 					urlSync: {
 						mapping: {'q': 's'},
-						trackedParameters: ['query']
+						trackedParameters: ['query', 'attribute:*']
 					},
 					searchParameters: {
 						facetingAfterDistinct: true,
 			            highlightPreTag: '__ais-highlight__',
 			            highlightPostTag: '__/ais-highlight__'
-					},
-					routing: true
-					/*
-					routing: {
-						stateMapping: {
-							stateToRoute(uiState) {
-								return {
-									query: uiState.query,
-									tag: uiState.refinementList && uiState.refinementList.taxonomies.post_tag.join('~'),
-									page: uiState.page
-								};
-							},
-							routeToState(routeState) {
-								return {
-									query: routeState.query,
-									refinementList: {
-										tag: routeState.taxonomies.post_tag && routeState.taxonomies.post_tag.split('~')
-									},
-									page: routeState.page
-								};
-							}
-						}
 					}
-					*/
 				});
 
 				/* Search box widget */

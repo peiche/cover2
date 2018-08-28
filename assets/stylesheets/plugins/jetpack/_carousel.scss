@@ -1,10 +1,14 @@
 .jp-carousel-wrap {
 
     .jp-carousel-close-hint span {
-        background-image: url("../../img/x-small.svg"); // TODO account for light background
+        background-image: url("../../img/x-small-light.svg");
         background-size: cover;
         height: 24px;
         text-indent: -9999px;
+    }
+
+    &.jp-carousel-light .jp-carousel-close-hint span {
+         background-image: url("../../img/x-small-dark.svg");
     }
 
     .jp-carousel-previous-button,
@@ -26,20 +30,28 @@
     }
 
     .jp-carousel-previous-button span {
-        background-image: url("../../img/arrow-left.svg"); // TODO account for light background
+        background-image: url("../../img/arrow-left-light.svg");
+    }
+
+    &.jp-carousel-light .jp-carousel-previous-button span {
+        background-image: url("../../img/arrow-left-dark.svg");
     }
 
     .jp-carousel-next-button span {
-        background-image: url("../../img/arrow-right.svg"); // TODO account for light background
+        background-image: url("../../img/arrow-right-light.svg");
+    }
+
+    &.jp-carousel-light .jp-carousel-next-button span {
+        background-image: url("../../img/arrow-right-dark.svg");
     }
 
     .jp-carousel-buttons {
 
         .jp-carousel-commentlink {
-            background-image: url("../../img/comment.svg"); // TODO account for light background
+            background-image: url("../../img/comment-light.svg"); // TODO account for light background
             background-position: left center;
             background-size: 15px;
-            color: #fff;
+            color: $color__white;
             opacity: 0.6;
 
             &:hover {
@@ -49,8 +61,14 @@
         }
     }
 
+    &.jp-carousel-light .jp-carousel-buttons .jp-carousel-commentlink {
+        background-image: url("../../img/comment-dark.svg");
+        background-position: left center;
+        color: $color__text-main;
+    }
+
     .jp-carousel-image-download {
-        background-image: url("../../img/external.svg");
+        background-image: url("../../img/external-light.svg");
         background-position: left center;
         background-size: contain;
         color: $color__white;
@@ -64,8 +82,26 @@
         }
     }
 
+    &.jp-carousel-light .jp-carousel-image-download {
+        background-image: url("../../img/external-dark.svg");
+        background-position: left center;
+        color: $color__text-main;
+
+        &:hover {
+            background-position: left center;
+            color: $color__text-main;
+        }
+    }
+
     #jp-carousel-comment-form-comment-field {
-        border-width: 2px;
+        border: 2px solid $color__text-main;
+        border-radius: 3px;
+        box-shadow: none;
+        padding: 5px 10px;
+    }
+
+    &.jp-carousel-light #jp-carousel-comment-form-comment-field {
+        border: 2px solid $color__border-input;
         box-shadow: none;
     }
 

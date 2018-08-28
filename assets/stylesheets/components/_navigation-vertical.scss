@@ -92,7 +92,6 @@
 
 .mini-menu-container {
 	display: none;
-	float: right;
 	margin-right: 120px;
 
 	@include min-width($breakpoint__desktop) {

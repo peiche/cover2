@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.4.1 - 8/28/2018**
+- Fixed non-printable character on Algolia search result template.
+- Fixed site logo aspect ratio.
+- Fixed line width for navbar icons.
+- Removed static posts Customizer setting.
+- Removed most floats and clears in favor of Flexbox.
+- Changed panel tag from article to section.
+- Updated bookmark icon in navbar with [Nucleo's icon transition tool](https://nucleoapp.com/tool/icon-transition).
+- Updated Aesop Story Engine detection when Gutenberg plugin is active.
+- Updated Algolia search result page's current page style color.
+- Added recent posts logic if the blog page is assigned to a front page panel.
+- Added dark and light icons for Jetpack image carousel.
+- Added gallery post format support.
+
 **1.4.0 - 8/3/2018**
 - Fixed button styles in header, navigation, and overlay.
 - Fixed top margin for paged blog posts.
