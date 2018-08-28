@@ -1,22 +1,21 @@
 #ais-main {
+	flex: 1 1 auto;
+	margin-right: auto;
+	max-width: 800px;
 
-	.page-header__content {
-	  max-width: $content__width-normal;
-	}
-
-	@media screen and (min-width: $breakpoint__tablet-landscape) {
-		float: right;
-		width: 75%;
+	.entry-header,
+	.entry-summary {
+		width: 100%;
 	}
 }
 
 #algolia-stats {
-  opacity: 0.75;
-  text-align: left;
+	opacity: 0.75;
+	text-align: left;
 }
 
 input.ais-search-box--input {
-  background-color: transparent;
+	background-color: transparent;
 	border: 2px solid $color__border;
 	border-radius: 0;
 	border-width: 0 0 2px;
@@ -60,50 +59,70 @@ input.ais-search-box--input {
 	}
 }
 
-.ais-hits__empty {
-  @include site-width;
+.ais-container {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
 
-  padding: 50px 0;
+.ais-hits__empty {
+	@include site-width;
+
+	padding: 50px 0;
 }
 
 .ais-hits--content em {
-  background-color: #ddd;
-  border-radius: 3px;
-  font-style: normal;
+	background-color: #ddd;
+	border-radius: 3px;
+	font-style: normal;
 }
 
 .ais-pagination {
-  @include site-width;
-  @include clearfix;
-
-  list-style: none;
-  margin-bottom: 0;
-  margin-top: 30px;
-  padding: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	list-style: none;
+	margin: 30px 0;
+	padding: 0;
 }
 
-.ais-pagination--item__first,
-.ais-pagination--item__last,
-.ais-pagination--item__page {
-  display: none;
+.ais-pagination--item {
+	margin: 0 0.25em;
+
+	&.ais-pagination--item__page {
+		display: none;
+
+		@media screen and (min-width: $breakpoint__tablet-landscape) {
+			display: block;
+		}
+	}
+
+	&.ais-pagination--item__first {
+		margin-left: 0;
+	}
+
+	&.ais-pagination--item__previous {
+		margin-right: auto;
+	}
+
+	&.ais-pagination--item__next {
+		margin-left: auto;
+	}
+
+	&.ais-pagination--item__last {
+		margin-right: 0;
+	}
 }
 
 .ais-pagination--link {
-  @include button;
-  @include button-style($color__accent);
+	@include button;
+	@include button-style($color__text-main);
 }
 
 .ais-pagination--item__disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.ais-pagination--item__previous {
-  float: left;
-}
-
-.ais-pagination--item__next {
-  float: right;
+	opacity: 0;
+	pointer-events: none;
 }
 
 .autocomplete-empty {
@@ -118,6 +137,7 @@ input.ais-search-box--input {
 #ais-facets {
 	background-color: $color__background-light;
 	bottom: 0;
+	flex: 1 1 auto;
 	left: 0;
 	opacity: 0;
 	overflow: auto;
@@ -142,13 +162,16 @@ input.ais-search-box--input {
 	@media screen and (min-width: $breakpoint__tablet-landscape) {
 		background-color: transparent;
 		display: block;
-		float: left;
+		flex: 0 0 25%;
+		margin-left: auto;
+		margin-right: 50px;
 		margin-top: 0.5em;
+		max-width: 300px;
 		opacity: 1;
-		padding-left: 3em;
+		padding: 0;
 		position: static;
 		visibility: visible;
-		width: 25%;
+		z-index: $z-index__default;
 
 		.overlay-light &,
 		.overlay-dark & {
@@ -162,7 +185,7 @@ input.ais-search-box--input {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 500px;
-	width: 90%;
+	//width: 90%;
 }
 
 .ais-header .widgettitle {

@@ -74,10 +74,6 @@
     background-color: transparent;
     color: $color__white;
 
-    .site-title a:hover {
-      border-color: $color__white;
-    }
-
     .blog & {
       background-color: $color__accent;
     }
@@ -97,10 +93,22 @@
   }
 }
 
+.site-branding {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.site-meta {
+  display: flex;
+  margin-right: auto;
+}
+
 .custom-logo {
-  float: left;
+  display: block;
   margin: 10px 10px 10px 20px;
   max-height: 55px;
+  width: auto;
 
   // IE-specific style because SVGs don't scale properly
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -112,12 +120,10 @@
   display: inline-block;
   font-size: 1.5rem;
   font-weight: $font__weight-normal;
-  margin: 0;
-  padding: 20px 10px 20px 20px;
+  margin: 20px 10px;
 
   .custom-logo-link:not([style="display:none;"]) + & {
     display: none;
-    padding-left: 10px;
 
     @include min-width($breakpoint__tablet-portrait) {
       display: inline-block;
@@ -125,16 +131,10 @@
   }
 
   a {
-    border-bottom: 1px solid transparent;
     color: inherit;
     text-decoration: none;
-    transition: border $timing__default;
 
-    &:hover {
-      border-color: $color__white;
-      color: inherit;
-    }
-
+    &:hover,
     &:active,
     &:focus {
       color: inherit;
@@ -152,10 +152,8 @@
   font-size: 1rem;
   font-weight: $font__weight-normal;
   line-height: 1.5rem;
-  margin: 0;
-  padding-bottom: 2px;
+  margin: 28px 10px 22px;
   padding-left: 20px;
-  vertical-align: text-bottom;
 
   @include min-width($breakpoint__tablet-portrait) {
     display: inline-block;

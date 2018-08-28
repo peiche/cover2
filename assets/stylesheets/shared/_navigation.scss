@@ -7,17 +7,18 @@
 	}
 
 	.nav-links {
-		@include clearfix;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@include min-width($breakpoint__tablet-portrait) {
+			flex-direction: row;
+		}
 	}
 
 	.nav-previous,
 	.nav-next {
 		text-align: center;
-
-		@include min-width($breakpoint__tablet-portrait) {
-			text-align: left;
-			width: 50%;
-		}
 
 		a {
 			@include button;
@@ -33,27 +34,6 @@
 
 	.nav-next a {
 		@include button-style($color__accent);
-	}
-
-	.nav-previous {
-		@include min-width($breakpoint__tablet-portrait) {
-			float: left;
-		}
-	}
-
-	.nav-next {
-		@include min-width($breakpoint__tablet-portrait) {
-			float: right;
-			text-align: right;
-		}
-	}
-
-	.nav-previous + .nav-next {
-		margin-top: 0.5em;
-
-		@include min-width($breakpoint__tablet-portrait) {
-			margin-top: 0;
-		}
 	}
 }
 
