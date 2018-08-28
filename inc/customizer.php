@@ -138,18 +138,6 @@ function cover2_customize_register( $wp_customize ) {
 		) );
 	}
 	
-	// Add setting and control for displaying latest posts on static home page.
-	$wp_customize->add_setting( 'static_posts_bool', array(
-		'default'			=> false,
-		'sanitize_callback'	=> 'cover2_sanitize_checkbox',
-	) );
-	
-	$wp_customize->add_control( 'static_posts_bool', array(
-		'type'				=> 'checkbox',
-		'label'				=> __( 'Display most recent posts', 'cover2' ),
-		'section'			=> 'page_options',
-	) );
-	
 	// Add setting and control for the number of latest posts displayed on static home page.
 	$wp_customize->add_setting( 'static_posts_count', array(
 		'default'           => 3,
