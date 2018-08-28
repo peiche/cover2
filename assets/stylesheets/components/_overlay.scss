@@ -61,7 +61,7 @@
 	.algolia-search & {
 		display: inline-block;
 
-		@include min-width($breakpoint__tablet-portrait) { // $breakpoint__tablet-landscape
+		@include min-width($breakpoint__tablet-landscape) {
 			display: none;
 		}
 	}
