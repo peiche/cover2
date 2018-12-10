@@ -30,7 +30,7 @@ function cover2_jetpack_setup() {
 	add_theme_support( 'jetpack-responsive-videos' );
 
 	// Add theme support for Social Menus.
-	add_theme_support( 'jetpack-social-menu' );
+	add_theme_support( 'jetpack-social-menu', 'svg' );
 
 	// Add theme support for Featured Content.
 	add_theme_support( 'featured-content', array(
@@ -104,25 +104,88 @@ function cover2_get_featured_posts() {
 }
 
 /**
- * Display custom color CSS.
+ * Display featured posts CSS.
  */
 function cover2_featured_posts_css() {
-        $css = '';
+  $css = '';
 
-        $featured_posts = cover2_get_featured_posts();
-        if ( ! empty( $featured_posts ) ) {
-			foreach ( $featured_posts as $post ) {
-					setup_postdata( $post );
-					$img = cover2_get_featured_image( $post->ID );
-					$css .= '
-					.featured-content .post-' . $post->ID . ' .page-header__image {
-							background-image: url(' . $img . ');
-					}
-					';
-			}
-			wp_reset_postdata();
-
-			printf( '<style type="text/css" id="featured-posts-css">%s</style>', $css );
+  $featured_posts = cover2_get_featured_posts();
+  if ( ! empty( $featured_posts ) ) {
+		foreach ( $featured_posts as $post ) {
+			setup_postdata( $post );
+			$img = cover2_get_featured_image( $post->ID );
+			$css .= '
+				.featured-content .post-' . $post->ID . ' .page-header__image {
+					background-image: url(' . $img . ');
+				}
+				';
 		}
+		wp_reset_postdata();
+
+		printf( '<style type="text/css" id="featured-posts-css">%s</style>', $css );
+	}
 }
 add_action( 'wp_head', 'cover2_featured_posts_css' );
+
+/**
+ * Contact form button class override
+ */
+// function cover2_jetpack_contact_form_submit_button_class() {
+//   return '';
+// }
+// add_filter( 'jetpack_contact_form_submit_button_class', 'cover2_jetpack_contact_form_submit_button_class' );
+
+/**
+ * Contact form input class override
+ */
+// function cover2_jetpack_contact_form_input_class() {
+//   return '';
+// }
+// add_filter( 'jetpack_contact_form_input_class', 'cover2_jetpack_contact_form_input_class' );
+
+/**
+ * Contact form required field text override
+ */
+// function cover2_jetpack_required_field_text() {
+//   return '*';
+// }
+// add_filter( 'jetpack_required_field_text', 'cover2_jetpack_required_field_text' );
+
+/**
+ * Returns list of icons not currently included with Jetpack
+ * 
+ * @link https://github.com/Automattic/jetpack/issues/10318
+ */
+function cover2_jetpack_icons() {
+	// Supported social links icons.
+	$social_links_icons = array(
+		'bitbucket.com' => 'logo-bitbucket',
+		'bitbucket.org' => 'logo-bitbucket',
+		'dev.to'        => 'logo-dev',
+		'gitlab.com'    => 'logo-gitlab',
+		'sourcerer.io'  => 'logo-sourcerer',
+		'stackshare.io' => 'logo-stackshare',
+	);
+
+	return $social_links_icons;
+}
+
+/**
+ * Add unsupported icons to Social Menu
+ */
+function cover2_jetpack_social_menu_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
+	// Get supported social icons.
+	$social_icons = cover2_jetpack_icons();
+
+	// Change SVG icon inside social links menu if there is supported URL.
+	if ( 'jetpack-social-menu' === $args->theme_location ) {
+		foreach ( $social_icons as $attr => $value ) {
+			if ( false !== strpos( $item_output, $attr ) ) {
+				$item_output = str_replace( $args->link_after, '</span>' . cover2_get_svg( array( 'icon' => esc_attr( $value ), 'class' => 'icon' ) ), $item_output );
+			}
+		}
+	}
+
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'cover2_jetpack_social_menu_nav_menu_social_icons', 10, 4 );
