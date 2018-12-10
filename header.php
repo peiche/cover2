@@ -28,7 +28,7 @@
 
 	<?php
 	$has_chapters = '';
-	if ( has_ase_chapters( $post ) ) :
+	if ( cover2_has_ase_chapters( $post ) ) :
 		$has_chapters = ' has-chapters';
 	endif;
 	?>
