@@ -6,25 +6,36 @@
 </script>
 
 <script type="text/html" id="tmpl-autocomplete-post-suggestion">
-  <a class="suggestion-link" href="{{ data.permalink }}" title="{{ data.post_title }}">
-    <div class="suggestion-post-attributes">
-      <span class="suggestion-post-title">{{{ data._highlightResult.post_title.value }}}</span>
-      <# if ( data._snippetResult['content'] ) { #>
-        <span class="suggestion-post-content">{{{ data._snippetResult['content'].value }}}</span>
+  <a class="suggestion-link post-suggestion-link" href="{{ data.permalink }}" title="{{ data.post_title }}">
+    <div class="suggestion-post-wrapper suggestion-post-attributes">
+      <# if ( data.images && data.images['single-post-thumbnail'] && data.images['single-post-thumbnail'].url ) { #>
+		<span class="suggestion-post-image" style="background-image: url('{{ data.images['single-post-thumbnail'].url }}');"></span>
+	  <# } else if ( data.images && data.images.thumbnail && data.images.thumbnail.url ) { #>
+        <span class="suggestion-post-image" style="background-image: url('{{ data.images.thumbnail.url }}');"></span>
       <# } #>
+      <span class="suggestion-post-title">
+		{{{ data.post_title }}}
+	  </span>
     </div>
   </a>
 </script>
 
 <script type="text/html" id="tmpl-autocomplete-term-suggestion">
-  <a class="suggestion-link" href="{{ data.permalink }}" title="{{ data.name }}">
-    <span class="suggestion-post-title">{{{ data._highlightResult.name.value }}}</span>
+  <a class="suggestion-link term-suggestion-link" href="{{ data.permalink }}" title="{{ data.name }}">
+    <span class="suggestion-post-title">
+		{{{ data.name }}}
+	</span>
   </a>
 </script>
 
 <script type="text/html" id="tmpl-autocomplete-user-suggestion">
   <a class="suggestion-link user-suggestion-link" href="{{ data.posts_url }}" title="{{ data.display_name }}">
-    <span class="suggestion-post-title">{{{ data._highlightResult.display_name.value }}}</span>
+    <span class="user-suggestion-avatar">
+      <img class="user-suggestion-avatar-image" src="{{ data.avatar_url }}">
+    </span>
+    <span class="suggestion-post-title">
+		{{{ data.display_name }}}
+    </span>
   </a>
 </script>
 
@@ -46,17 +57,19 @@
 </script>
 
 <script type="text/javascript">
-  jQuery(function () {
+  jQuery( function () {
     /* init Algolia client */
-    var client = algoliasearch(algolia.application_id, algolia.search_api_key);
+    var client = algoliasearch( algolia.application_id, algolia.search_api_key );
 
     /* setup default sources */
     var sources = [];
-    jQuery.each(algolia.autocomplete.sources, function (i, config) {
-      var suggestion_template = wp.template(config['tmpl_suggestion']);
-      sources.push({
-        source: algoliaAutocomplete.sources.hits(client.initIndex(config['index_name']), {
-          hitsPerPage: config['max_suggestions'],
+    jQuery.each( algolia.autocomplete.sources, function ( i, config ) {
+      var suggestion_template = wp.template( config[ 'tmpl_suggestion' ] );
+      sources.push( {
+        source: algoliaAutocomplete.sources.hits( client.initIndex( config[ 'index_name' ] ), {
+          hitsPerPage: config[
+            'max_suggestions'
+          ],
           attributesToSnippet: [
             'content:10'
           ],
@@ -65,31 +78,31 @@
         }),
         templates: {
           header: function () {
-            return wp.template('autocomplete-header')({
-              label: _.escape(config['label'])
-            });
+            return wp.template( 'autocomplete-header' )( {
+              label: _.escape( config[ 'label' ] )
+            } );
           },
-          suggestion: function (hit) {
-            for (var key in hit._highlightResult) {
+          suggestion: function ( hit ) {
+            for ( var key in hit._highlightResult ) {
               // We do not deal with arrays.
-              if (typeof hit._highlightResult[key].value !== 'string') {
+              if ( typeof hit._highlightResult[ key ].value !== 'string' ) {
                 continue;
               }
-              hit._highlightResult[key].value = _.escape(hit._highlightResult[key].value);
-              hit._highlightResult[key].value = hit._highlightResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+              hit._highlightResult[key].value = _.escape( hit._highlightResult[ key ].value );
+              hit._highlightResult[key].value = hit._highlightResult[ key ].value.replace( /__ais-highlight__/g, '<em>' ).replace( /__\/ais-highlight__/g, '</em>' );
             }
 
-            for (var key in hit._snippetResult) {
+            for ( var key in hit._snippetResult ) {
               // We do not deal with arrays.
-              if (typeof hit._snippetResult[key].value !== 'string') {
+              if ( typeof hit._snippetResult[ key ].value !== 'string' ) {
                 continue;
               }
 
-              hit._snippetResult[key].value = _.escape(hit._snippetResult[key].value);
-              hit._snippetResult[key].value = hit._snippetResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+              hit._snippetResult[ key ].value = _.escape( hit._snippetResult[key].value );
+              hit._snippetResult[ key ].value = hit._snippetResult[ key ].value.replace( /__ais-highlight__/g, '<em>' ).replace( /__\/ais-highlight__/g, '</em>' );
             }
 
-            return suggestion_template(hit);
+            return suggestion_template( hit );
           }
         }
       });
@@ -97,34 +110,33 @@
     });
 
     /* Setup dropdown menus */
-    jQuery("input[name='s']:not('.no-autocomplete')").each(function (i) {
-      var $searchInput = jQuery(this);
+    jQuery( "input[name='s']:not('.no-autocomplete')" ).each( function ( i ) {
+      var $searchInput = jQuery( this );
 
       var config = {
-        debug: algolia.debug,
-        hint: false, // Required given we use appendTo feature.
+        debug: true, // Required so the results don't disappear on blur
+		hint: false, // Required given we use appendTo feature.
         openOnFocus: true,
-        appendTo: '.overlay--search .search-form',
+        appendTo: '.overlay--search',
         templates: {
-          empty: wp.template('autocomplete-empty')
+          empty: wp.template( 'autocomplete-empty' )
         }
       };
 
-      if (algolia.powered_by_enabled) {
-        config.templates.footer = wp.template('autocomplete-footer');
+      if ( algolia.powered_by_enabled ) {
+        config.templates.footer = wp.template( 'autocomplete-footer' );
       }
 
       /* Instantiate autocomplete.js */
-      algoliaAutocomplete($searchInput[0], config, sources)
-      .on('autocomplete:selected', function (e, suggestion) {
+      algoliaAutocomplete( $searchInput[0], config, sources ).on( 'autocomplete:selected', function ( e, suggestion ) {
         /* Redirect the user when we detect a suggestion selection. */
         window.location.href = suggestion.permalink;
-      });
-    });
+      } );
+    } );
 
-    jQuery(document).on("click", ".algolia-powered-by-link", function (e) {
+    jQuery( document ).on( "click", ".algolia-powered-by-link", function ( e ) {
       e.preventDefault();
       window.location = "https://www.algolia.com/?utm_source=WordPress&utm_medium=extension&utm_content=" + window.location.hostname + "&utm_campaign=poweredby";
-    });
-  });
+    } );
+  } );
 </script>

@@ -35,6 +35,21 @@ get_header(); ?>
 	<script type="text/html" id="tmpl-instantsearch-hit">
 		<article class="hentry" itemtype="http://schema.org/Article">
 			<div class="ais-hits--content">
+				
+				<# if ( data.images && data.images['single-post-thumbnail'] && data.images['single-post-thumbnail'].url ) { #>
+					<figure class="entry-featured-image">
+						<a href="{{ data.permalink }}">
+							<span class="entry-image" style="background-image: url('{{ data.images['single-post-thumbnail'].url }}');"></span>
+						</a>
+					</figure>
+				<# } else if ( data.images && data.images.thumbnail && data.images.thumbnail.url ) { #>
+					<figure class="entry-featured-image">
+						<a href="{{ data.permalink }}">
+							<span class="entry-image" style="background-image: url('{{ data.images.thumbnail.url }}');"></span>
+						</a>
+					</figure>
+				<# } #>
+				
 				<header class="entry-header">
 					<h2 class="entry-title" itemprop="name headline">
 						<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a>
@@ -43,14 +58,14 @@ get_header(); ?>
 						<span class="byline">
 							<span class="author vcard">
 								<a class="url fn n" href="/?author={{{ data.post_author.user_id }}}">
-									<!-- <img class="avatar avatar-35 photo avatar-author-{{ data.post_author.user_id }}" alt="Profile Picture for {{ data.post_author.display_name }}" src="" width="35" height="35"> -->
+									<img class="avatar avatar-35 photo avatar-author-{{ data.post_author.user_id }}" alt="Profile Picture for {{ data.post_author.display_name }}" src="" width="35" height="35" data-author="{{ data.post_author.user_id }}">
 									<span class="author-text">{{{ data.post_author.display_name }}}</span>
 								</a>
 							</span>
 						</span>
-						&mdash;
 						<span class="posted-on">
 							<a href="{{ data.permalink }}" rel="bookmark">
+								<svg class="svg-icon svg-icon-calendar" aria-hidden="true" role="img"> <use href="#calendar" xlink:href="#calendar"></use> </svg>
 								<time class="entry-date published updated">
 									<#
 										var locale = '<?php echo get_locale(); ?>'.replace('_', '-');
@@ -69,8 +84,8 @@ get_header(); ?>
 				</header>
 				<div class="entry-summary">
 					<p>
-			            <# if ( data._snippetResult['content'] ) { #>
-			              <span class="suggestion-post-content">{{{ data._snippetResult['content'].value }}}</span>
+			        	<# if ( data._snippetResult['content'] ) { #>
+			            	<span class="suggestion-post-content">{{{ data._snippetResult['content'].value }}}</span>
 			            <# } #>
 					</p>
 				</div>
@@ -135,28 +150,28 @@ get_header(); ?>
 							item: wp.template('instantsearch-hit')
 						},
 						transformData: {
-									  item: function (hit) {
-							for(var key in hit._highlightResult) {
-							  // We do not deal with arrays.
-							  if(typeof hit._highlightResult[key].value !== 'string') {
-								continue;
-							  }
-							  hit._highlightResult[key].value = _.escape(hit._highlightResult[key].value);
-							  hit._highlightResult[key].value = hit._highlightResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+							item: function (hit) {
+								for(var key in hit._highlightResult) {
+								  // We do not deal with arrays.
+								  if(typeof hit._highlightResult[key].value !== 'string') {
+									continue;
+								  }
+								  hit._highlightResult[key].value = _.escape(hit._highlightResult[key].value);
+								  hit._highlightResult[key].value = hit._highlightResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+								}
+
+								for(var key in hit._snippetResult) {
+								  // We do not deal with arrays.
+								  if(typeof hit._snippetResult[key].value !== 'string') {
+									continue;
+								  }
+	
+								  hit._snippetResult[key].value = _.escape(hit._snippetResult[key].value);
+								  hit._snippetResult[key].value = hit._snippetResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
+								}
+	
+								return hit;
 							}
-
-							for(var key in hit._snippetResult) {
-							  // We do not deal with arrays.
-							  if(typeof hit._snippetResult[key].value !== 'string') {
-								continue;
-							  }
-
-							  hit._snippetResult[key].value = _.escape(hit._snippetResult[key].value);
-							  hit._snippetResult[key].value = hit._snippetResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
-							}
-
-							return hit;
-						  }
 						}
 					})
 				);
@@ -168,8 +183,10 @@ get_header(); ?>
 					})
 				);
 
-				/* Categories refinement widget */
-				// https://community.algolia.com/instantsearch.js/v2/widgets/hierarchicalMenu.html
+				/*
+				 * Categories refinement widget
+				 * @link https://community.algolia.com/instantsearch.js/v1/documentation/#hierarchicalmenu
+				 */
 				search.addWidget(
 					instantsearch.widgets.hierarchicalMenu({
 						container: '#facet-categories',
@@ -205,6 +222,7 @@ get_header(); ?>
 						attributeName: 'post_author.display_name',
 						sortBy: ['name:asc'],
 						limit: 10,
+						showMore: true,
 						templates: {
 							header: '<h3 class="widgettitle">Authors</h3>'
 						}
@@ -217,6 +235,10 @@ get_header(); ?>
 				jQuery('#algolia-search-box input').attr('type', 'search').select();
 				
 				jQuery('.site-footer').css('display', 'block');
+				
+				// jQuery.get('/wp-json/wp/v2/users/', function(data) {
+				// 	// parse data
+				// });
 			}
 		});
 	</script>
