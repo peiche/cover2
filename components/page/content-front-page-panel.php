@@ -36,7 +36,7 @@ endif;
 	
 		if ( $recent_posts->have_posts() ) : ?>
 
-			<div class="recent-posts">
+			<div class="home-latest-posts">
 				
 				<?php
 				the_title( '<h1 class="home-latest-posts-title text-align-center">', '</h1>' );
