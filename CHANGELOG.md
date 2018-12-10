@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+**1.4.2 - 10/26/2018**
+- Fixed fatal error in WordPress 5.0. ([#37](https://github.com/peiche/cover2/issues/37), [#38](https://github.com/peiche/cover2/issues/38))
+- Fixed inconsistent font weights.
+- Fixed styles for Gutenberg image blocks and captions.
+- Updated Gutenberg pullquote styles.
+- Updated post display specific to quote post format.
+- Updated tag cloud widget style.
+- Added styles for [Editor Blocks](https://editorblockswp.com/) plugin.
+- Added styles for [Atomic Blocks](#) plugin.
+- Added support for larger featured image size in Algolia search results.
+- Added utility class styles.
+- Added Jetpack social menu to footer.
+- Added Customizer setting to display featured images on post listings.
+- Added form styles.
+- Added calendar icon to post metadata.
+- Added SVG support to Jetpack social menu.
+- Added class support to icon utility function.
+- Added missing icons to Jetpack social menu:
+  - [Bitbucket](https://bitbucket.org/)
+  - [DEV](https://dev.to/)
+  - [GitLab](https://about.gitlab.com/)
+  - [Sourcerer](https://sourcerer.io/)
+  - [StackShare](https://stackshare.io/) (Note: the StackShare icon is currently broken when using a dark footer.)
+- Disabled autocomplete on search form.
+
 **1.4.1 - 8/28/2018**
 - Fixed non-printable character on Algolia search result template.
 - Fixed site logo aspect ratio.
