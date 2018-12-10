@@ -82,6 +82,10 @@
 
 		> * {
 			margin-top: auto;
+
+			.single-format-quote & {
+				margin-top: 0;
+			}
 		}
 
 		// Android Chrome specific style
@@ -241,13 +245,14 @@
 		input[type="color"],
 		textarea {
 			background-color: transparent;
-			border-color: rgba($color__white, 0.5);
 			color: $color__white;
 		}
 	}
 }
 
 .panel__image {
+	background-repeat: no-repeat;
+    background-size: cover;
 	bottom: 0;
 	left: 0;
 	opacity: 0.3;
