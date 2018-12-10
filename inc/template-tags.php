@@ -24,13 +24,15 @@ function cover2_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
+	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . 
+			cover2_get_svg( array( 'icon' => 'calendar' ) ) .
+			$time_string . '</a>';
 
 	$byline = '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' .
 			get_avatar( get_the_author_meta( 'ID' ), 35, '', 'Profile Picture for ' . esc_html( get_the_author() ) ) .
 			'<span class="author-text">' . esc_html( get_the_author() ) . '</span></a></span>';
 
-	echo '<span class="byline"> ' . $byline . '</span> &mdash; <span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+	echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 }
 endif;
@@ -45,7 +47,7 @@ function cover2_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'cover2' ) );
 		if ( $categories_list && cover2_categorized_blog() ) {
-			echo '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'category', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>';
+			echo '<div class="categories icon-link">' . cover2_get_svg( array( 'icon' => 'category', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>';
 		}
 
 		/* translators: used between list items, there is a space after the comma */
@@ -55,14 +57,22 @@ function cover2_entry_footer() {
 			if ( count( get_the_tags() ) > 1 ) {
 				$tag_str = 'tags';
 			}
-			echo '<div class="tags-links">' . cover2_get_svg( array( 'icon' => $tag_str, 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
+			echo '<div class="tags icon-link">' . cover2_get_svg( array( 'icon' => $tag_str, 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
+		}
+		
+		$timelines = wp_get_post_terms(get_the_ID(), 'timelines');
+		if ( $timelines && function_exists( 'cfth_timeline_links' ) ) {
+			echo '<div class="timelines icon-link">' . cover2_get_svg( array( 'icon' => 'timeline', 'title' => __( 'Timelines', 'cover2' ) ) ) . implode(', ', cfth_timeline_links($timelines)) . '</div>';
 		}
 	}
+	
+	//echo '<div>' . get_post_type() . '</div>';
+	
 	if ( 'jetpack-portfolio' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_term_list( get_the_ID(), 'jetpack-portfolio-type', '', esc_html__( ', ', 'cover2' ) );
 		if ( $categories_list && cover2_categorized_blog() ) {
-			echo '<div class="cat-links">' . cover2_get_svg( array( 'icon' => 'category', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>';
+			echo '<div class="jetpack-categories icon-link">' . cover2_get_svg( array( 'icon' => 'category', 'title' => __( 'Categories', 'cover2' ) ) ) . $categories_list . '</div>';
 		}
 
 		/* translators: used between list items, there is a space after the comma */
@@ -72,7 +82,7 @@ function cover2_entry_footer() {
 			if ( count( wp_get_post_terms( get_the_ID(), 'jetpack-portfolio-tag' ) ) > 1 ) {
 				$tag_str = 'tags';
 			}
-			echo '<div class="tags-links">' . cover2_get_svg( array( 'icon' => $tag_str, 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
+			echo '<div class="jetpack-tags icon-link">' . cover2_get_svg( array( 'icon' => $tag_str, 'title' => __( 'Tags', 'cover2' ) ) ) . $tags_list . '</div>';
 		}
 	}
 
@@ -88,7 +98,7 @@ function cover2_entry_footer() {
 			esc_html__( 'Edit %s', 'cover2' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
-		'<div class="edit-link">' . cover2_get_svg( array( 'icon' => 'edit', 'title' => __( 'Edit Post', 'cover2' ) ) ),
+		'<div class="edit icon-link">' . cover2_get_svg( array( 'icon' => 'edit', 'title' => __( 'Edit Post', 'cover2' ) ) ),
 		'</div>'
 	);
 }
