@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-**1.4.2 - 10/26/2018**
+**1.4.2 - 12/10/2018**
 - Fixed fatal error in WordPress 5.0. ([#37](https://github.com/peiche/cover2/issues/37), [#38](https://github.com/peiche/cover2/issues/38))
 - Fixed inconsistent font weights.
 - Fixed styles for Gutenberg image blocks and captions.
