@@ -1,0 +1,30 @@
+.wp-block-media-text {
+    @include site-width;
+
+    display: block;
+    grid-column-gap: 1em;
+
+    @include min-width($breakpoint__tablet-portrait) {
+        display: grid;
+    }
+
+    &.alignwide {
+        max-width: $content__width-large;
+    }
+
+    &.alignfull {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .wp-block-media-text__content {
+        margin-top: 1em;
+        padding: 0;
+        width: 90%;
+
+        @include min-width($breakpoint__tablet-portrait) {
+            margin-top: 0;
+            width: 100%;
+        }
+    }
+}

@@ -4,13 +4,25 @@
     margin-bottom: 3em;
     margin-top: 3em;
 
-    &.aligncenter {
-        text-align: center;
+    .aligncenter,
+    .alignleft,
+    .alignright {
+        display: block;
     }
 
-    &.alignleft,
-    &.alignright {
-        display: block;
+    .aligncenter {
+        text-align: center;
+
+        > figcaption {
+            display: block;
+        }
+    }
+
+    .alignleft,
+    .alignright {
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
 
         @include min-width($breakpoint__tablet-portrait) {
             margin-bottom: 0;
@@ -18,14 +30,14 @@
         }
     }
 
-    &.alignleft {
+    .alignleft {
         @include min-width($breakpoint__tablet-portrait) {
             float: left;
             margin-right: 1em;
         }
     }
 
-    &.alignright {
+    .alignright {
         @include min-width($breakpoint__tablet-portrait) {
             float: right;
             margin-left: 1em;
@@ -50,4 +62,12 @@
     figcaption {
         @include caption;
     }
+}
+
+// Override for wacky block styles
+.wp-block-image .aligncenter > figcaption,
+.wp-block-image .alignleft > figcaption,
+.wp-block-image .alignright > figcaption,
+.wp-block-image.is-resized > figcaption {
+    display: block;
 }
