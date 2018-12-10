@@ -1,0 +1,17 @@
+.wp-block-atomic-blocks-ab-cta {
+    @include site-width;
+
+    &.alignwide {
+        @include site-width($content__width-large);
+    }
+
+    &.alignfull {
+        @include site-width(100%);
+
+        width: 100%;
+    }
+
+    .ab-cta-title {
+        @include heading;
+    }
+}
