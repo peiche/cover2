@@ -1,14 +1,131 @@
 .contact-form {
 	@include site-width;
 
+	.grunion-field-label.checkbox,
+	.grunion-checkbox-multiple-label.checkbox-multiple,
+	.grunion-radio-label.radio {
+		font-weight: $font__weight-normal;
+	}
+
 	input[type="email"],
 	input[type="text"],
 	input[type="url"] {
-		max-width: 100%;
-		width: 100%;
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+
+	input.name,
+	input[type="email"],
+	input.email,
+	input[type="url"],
+	input.url,
+	input[type="date"],
+	input.date {
+	    background-position: 10px center;
+	    background-repeat: no-repeat;
+	    padding-left: 45px;
+	}
+
+	input.name {
+		background-image: url("../../img/user.svg");
+	}
+
+	input[type="email"],
+	input.email {
+		background-image: url("../../img/email.svg");
+	}
+
+	input[type="url"],
+	input.url {
+		background-image: url("../../img/link.svg");
+	}
+
+	input[type="date"],
+	input.date {
+		background-image: url("../../img/calendar.svg");
 	}
 
 	textarea {
-		width: 100%;
+		width: 100% !important;
+	}
+
+	input.checkbox,
+	input.checkbox-multiple {
+		display: inline-block;
+		margin-right: 20px;
+	    position: relative;
+	    width: 0;
+
+	    &:before,
+	    &:after {
+	    	content: "";
+	    	display: block;
+	    	height: 1rem;
+	    	margin-top: -2px;
+	    	position: absolute;
+	    	width: 1rem;
+	    }
+
+		&:before {
+			background-color: #ddd;
+			border-radius: 3px;
+			pointer-events: none;
+			transition: all $timing__default;
+			user-select: none;
+		}
+
+		&:checked:before {
+			background-color: $color__accent;
+		}
+
+		&:after {
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: 50% 50%;
+		}
+
+		&:checked:after {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+		}
+	}
+
+	input.radio {
+		display: inline-block;
+		margin-right: 20px;
+	    position: relative;
+	    width: 0;
+
+	    &:before,
+	    &:after {
+	    	border-radius: 50%;
+	    	content: "";
+	    	display: block;
+	    	height: 1rem;
+	    	margin-top: -2px;
+			position: absolute;
+		    width: 1rem;
+	    }
+
+		&:before {
+			background-color: #ddd;
+			pointer-events: none;
+		    transition: all $timing__default;
+		    user-select: none;
+		}
+
+		&:checked:before {
+			background-color: $color__accent;
+		}
+
+		&:after {
+			background-position: center center;
+		    background-repeat: no-repeat;
+		    background-size: 50% 50%;
+		}
+
+		&:checked:after {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E");
+		}
 	}
 }
+
