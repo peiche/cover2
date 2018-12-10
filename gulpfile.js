@@ -1,12 +1,13 @@
 var autoprefixer = require( 'autoprefixer' ),
     browserSync  = require( 'browser-sync' ).create(),
     cssnano      = require( 'cssnano' ),
+    comments     = require( 'postcss-discard-comments' ),
     del          = require( 'del' ),
+    empty        = require( 'postcss-discard-empty' ),
     gulp         = require( 'gulp' ),
     jscs         = require( 'gulp-jscs' ),
     lec          = require( 'gulp-line-ending-corrector' ),
     phpcs        = require( 'gulp-phpcs' ),
-    pixrem       = require( 'pixrem' ),
     postcss      = require( 'gulp-postcss' ),
     sass         = require( 'gulp-sass' ),
     scss         = require( 'postcss-scss' ),
@@ -16,20 +17,14 @@ var autoprefixer = require( 'autoprefixer' ),
     svgSprite    = require( 'gulp-svg-sprite' ),
     todo         = require( 'gulp-todo' ),
     uglify       = require( 'gulp-uglify' ),
+    unprefix     = require( 'postcss-unprefix' ),
     util         = require( 'gulp-util' ),
     wpPot        = require( 'gulp-wp-pot' ),
     zip          = require( 'gulp-zip' );
 
 var AUTOPREFIXER_BROWSERS = [
-  'ie >= 10',
-  'ie_mob >= 10',
-  'ff >= 30',
-  'chrome >= 34',
-  'safari >= 7',
-  'opera >= 23',
-  'ios >= 7',
-  'android >= 4.4',
-  'bb >= 10'
+  'last 2 versions',
+  'ie 11'
 ];
 
 var config = {
@@ -124,8 +119,10 @@ gulp.task( 'stylelint', function() {
  */
 gulp.task( 'css', [ 'stylelint' ], function() {
   var processors = [
-    pixrem( { browsers: AUTOPREFIXER_BROWSERS } ),
-    autoprefixer( { browsers: AUTOPREFIXER_BROWSERS } )
+    unprefix,
+    autoprefixer,
+    comments,
+    empty
   ];
 
   // Minify the stylesheet if we're running production tasks
