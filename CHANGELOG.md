@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file. This projec
 - Updated post display specific to quote post format.
 - Updated tag cloud widget style.
 - Added styles for [Editor Blocks](https://editorblockswp.com/) plugin.
-- Added styles for [Atomic Blocks](#) plugin.
+- Added styles for [Atomic Blocks](https://atomicblocks.com/) plugin.
 - Added support for larger featured image size in Algolia search results.
 - Added utility class styles.
 - Added Jetpack social menu to footer.
