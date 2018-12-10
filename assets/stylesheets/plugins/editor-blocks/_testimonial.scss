@@ -1,0 +1,17 @@
+.wp-block-editor-blocks-testimonial {
+    @include site-width;
+
+    .inner {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .testimonial__text {
+        margin: 0 auto;
+    }
+
+    .testimonial__author {
+        color: lighten($color__text-main, 20%);
+        font-size: 80%;
+    }
+}

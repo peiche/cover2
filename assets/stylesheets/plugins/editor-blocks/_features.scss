@@ -1,0 +1,24 @@
+.wp-block-editor-blocks-features {
+    @include site-width;
+
+    display: flex;
+    flex-direction: column;
+
+    @include min-width($breakpoint__tablet-portrait) {
+        flex-direction: row;
+    }
+
+    .feature {
+        flex: 1 1 100%;
+        margin-bottom: 1em;
+    }
+
+    .feature__heading {
+        @include heading;
+
+        margin-bottom: 0.25em;
+        margin-top: 0;
+    }
+
+    @include editor-blocks-column-builder(feature);
+}

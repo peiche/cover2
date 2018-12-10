@@ -1,0 +1,18 @@
+.wp-block-editor-blocks-intro {
+    @include site-width;
+
+    .intro__heading,
+    .intro__subheading {
+        @include heading;
+
+        margin-bottom: 0.5em;
+    }
+
+    .intro__heading {
+        font-size: 37.5px;
+    }
+
+    .intro__subheading {
+        font-size: 1.25em;
+    }
+}

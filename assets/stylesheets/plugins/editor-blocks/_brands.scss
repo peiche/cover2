@@ -1,0 +1,16 @@
+.wp-block-editor-blocks-brands {
+    @include site-width;
+
+    display: flex;
+    flex-direction: row;
+
+    .brand {
+        flex-grow: 1;
+        margin: 1em;
+    }
+
+    .brand__image {
+        display: block;
+        margin: auto;
+    }
+}

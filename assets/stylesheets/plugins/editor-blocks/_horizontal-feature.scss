@@ -1,0 +1,39 @@
+.wp-block-editor-blocks-horizontal-feature {
+    @include site-width;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &.image-position-left {
+        flex-direction: row-reverse;
+    }
+
+    .horizontal-feature__heading,
+    .horizontal-feature__subheading {
+        @include heading;
+
+        margin-bottom: 0.5em;
+    }
+
+    .horizontal-feature__heading {
+        font-size: 37.5px;
+        margin-top: 0;
+    }
+
+    .horizontal-feature__subheading {
+        font-size: 1.25em;
+    }
+
+    .horizontal-feature__button {
+        @include editor-blocks-button;
+    }
+
+    .horizontal-feature__image {
+        display: block;
+    }
+
+    &.image-position-right .horizontal-feature__image {
+        margin-left: auto;
+    }
+}

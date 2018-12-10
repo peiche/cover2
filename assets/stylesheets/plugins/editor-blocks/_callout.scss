@@ -1,0 +1,29 @@
+.wp-block-editor-blocks-callout {
+    @include site-width;
+
+    display: flex;
+    flex-direction: column;
+
+    @include min-width($breakpoint__tablet-portrait) {
+        flex-direction: row;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        order: 1;
+        text-align: center;
+    }
+
+    .callout__button {
+        @include editor-blocks-button;
+    }
+
+    .callout__text {
+        @include heading;
+
+        flex-grow: 1;
+        order: 0;
+    }
+}

@@ -1,0 +1,8 @@
+.wp-block-editor-blocks-wrapper {
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+
+    .wrapper-inner {
+        @include site-width;
+    }
+}

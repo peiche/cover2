@@ -1,0 +1,33 @@
+.wp-block-editor-blocks-vertical-feature {
+    @include site-width;
+
+    .vertical-feature-image-wrapper,
+    .vertical-feature__image,
+    .vertical-feature-content__inner {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .vertical-feature__image {
+        display: block;
+    }
+
+    .vertical-feature__heading,
+    .vertical-feature__subheading {
+        @include heading;
+
+        margin-bottom: 0.5em;
+    }
+
+    .vertical-feature__heading {
+        font-size: 37.5px;
+    }
+
+    .vertical-feature__subheading {
+        font-size: 1.25em;
+    }
+
+    .vertical-feature__button {
+        @include editor-blocks-button;
+    }
+}

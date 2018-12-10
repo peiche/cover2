@@ -1,0 +1,110 @@
+.wp-block-editor-blocks-pricing-table {
+    @include site-width;
+
+    display: flex;
+    flex-direction: column;
+
+    @include min-width($breakpoint__tablet-portrait) {
+        flex-direction: row;
+    }
+
+    .column {
+        background-color: $color__gray;
+        border-radius: 3px;
+        flex: 1 1 100%;
+        margin-bottom: 1em;
+        padding: 1em;
+
+        @include min-width($breakpoint__tablet-portrait) {
+            margin: 0 0.5em;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    @include editor-blocks-column-builder(column);
+
+    .pricing-table__heading,
+    .pricing-table__description,
+    .pricing-table__price,
+    .pricing-table__features {
+        margin-bottom: 0.5em;
+    }
+
+    .pricing-table__heading {
+        @include heading;
+
+        margin-top: 0;
+    }
+
+    .pricing-table__features {
+        font-size: 80%;
+        list-style: none;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .pricing-table__button {
+        @include editor-blocks-button;
+    }
+}
+
+/*
+.wp-block-editor-blocks-pricing-table {
+    
+    
+    flex-wrap: wrap;
+
+    
+
+    &:after {
+        display: none;
+    }
+
+    .column {
+        @include grid-column;
+
+        flex: 1;
+        float: none;
+        margin: 0 0 1em;
+        width: 100%;
+        
+        // Includes overrides for plugin's stylesheet
+        @include min-width($breakpoint__tablet-portrait) {
+            margin-bottom: 0;
+            margin-left: 1em !important;
+            margin-right: 1em !important;
+        }
+        
+        // Override for plugin's stylesheet
+        @include max-width(1040px) {
+            width: 100% !important;
+        }
+    }
+
+    @for $i from 2 through 6 {
+
+        &.col-#$i .column {
+            @include grid-column;
+
+            width: 100%;
+
+            @include min-width($breakpoint__tablet-portrait) {
+                margin-left: 1em;
+                margin-right: 1em;
+                width: percentage($i / $grid-columns);
+            }
+        }
+    }
+    
+    .pricing-table__button {
+        @include editor-blocks-button;
+    }
+}
+*/
