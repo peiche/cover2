@@ -1,6 +1,11 @@
 ul,
 ol {
 	margin: 0 0 30px 3em;
+
+	&.unstyled {
+		list-style: none;
+		padding: 0;
+	}
 }
 
 ul {

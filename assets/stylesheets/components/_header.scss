@@ -85,7 +85,7 @@
 
   &.headroom--not-top {
     background-color: $color__accent;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   }
 
   &.headroom--unpinned {

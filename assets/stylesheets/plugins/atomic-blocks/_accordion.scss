@@ -1,0 +1,44 @@
+.wp-block-atomic-blocks-ab-accordion {
+    @include site-width;
+
+    .ab-accordion-title {
+        background-color: $color__gray;
+        border-radius: 3px;
+        cursor: pointer;
+        list-style-image: none;
+        padding-left: 2em;
+        position: relative;
+
+        /*
+         * Note: Blink browsers do not yet support styling <summary> list-style-image
+         * @see https://css-tricks.com/quick-reminder-that-details-summary-is-the-easiest-way-ever-to-make-an-accordion/
+         */
+        &::-webkit-details-marker {
+            //color: transparent;
+            display: none;
+        }
+
+        &:after {
+            background-image: url("../../img/arrow-right-dark.svg");
+            background-size: contain;
+            bottom: 0;
+            content: "";
+            height: 20px;
+            left: 10px;
+            margin: auto;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            transition: transform $timing__default;
+            width: 20px;
+        }
+    }
+
+    details[open] > .ab-accordion-title:after {
+        transform: rotate(90deg);
+    }
+
+    .ab-accordion-text {
+        padding-left: 2em;
+    }
+}

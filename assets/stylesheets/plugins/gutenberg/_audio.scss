@@ -1,0 +1,19 @@
+.wp-block-audio {
+    @include site-width;
+
+    &.alignwide {
+        max-width: $content__width-large;
+    }
+
+    &.alignfull {
+        max-width: 100%;
+    }
+
+    audio {
+        width: 100%;
+    }
+
+    figcaption {
+        @include caption;
+    }
+}

@@ -3,6 +3,7 @@
 	margin-right: auto;
 	max-width: 800px;
 
+	.entry-featured-image,
 	.entry-header,
 	.entry-summary {
 		width: 100%;
@@ -72,10 +73,15 @@ input.ais-search-box--input {
 	padding: 50px 0;
 }
 
+.ais-hits--item .hentry:after {
+	display: block;
+}
+
 .ais-hits--content em {
 	background-color: #ddd;
 	border-radius: 3px;
 	font-style: normal;
+	padding: 0 5px;
 }
 
 .ais-pagination {
@@ -185,7 +191,6 @@ input.ais-search-box--input {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 500px;
-	//width: 90%;
 }
 
 .ais-header .widgettitle {
@@ -260,6 +265,7 @@ input.ais-search-box--input {
 		pointer-events: none;
 		position: absolute;
 		top: 0.5rem;
+		transition: all $timing__default;
 		user-select: none;
 		width: 1rem;
 

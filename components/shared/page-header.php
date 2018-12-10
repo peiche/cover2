@@ -19,22 +19,27 @@
 				<?php echo cover2_get_svg( array( 'icon' => 'play' ) ); ?>
 			</button>
 		<?php endif; ?>
-		
+
 		<?php if ( is_author() ) : ?>
 			<div class="profile-avatar text-align-center">
-				<?php
-				echo get_avatar( get_the_author_meta( 'ID' ), 120, '', __( 'Profile Picture for ', 'cover2' ) . esc_html( get_the_author() ) ); ?>
+				<?php echo get_avatar( get_the_author_meta( 'ID' ), 120, '', __( 'Profile Picture for ', 'cover2' ) . esc_html( get_the_author() ) ); ?>
 			</div>
 		<?php endif; ?>
 
 		<?php
 		if ( is_archive() ) :
-		    the_archive_title( '<h1 class="page-title text-align-center">', '</h1>' );
-		else :
+			the_archive_title( '<h1 class="page-title text-align-center">', '</h1>' );
+		elseif ( 'quote' != get_post_format( $post->ID ) ) :
 		    the_title( '<h1 class="page-title text-align-center">', '</h1>' );
 		endif;
+		
+		if ( 'post' == get_post_type() && 'quote' == get_post_format( $post->ID ) ) : ?>
+			<div class="entry-excerpt has-quotes">
+				<?php echo cover2_get_blockquote_in_content(); ?>
+			</div>
+		<?php endif;
 
-		if ( 'post' === get_post_type() && ! is_archive() ) :
+		if ( 'post' == get_post_type() && 'quote' != get_post_format( $post->ID ) && ! is_archive() ) :
 			get_template_part( 'components/post/content', 'meta' );
 		endif;
 		
@@ -53,7 +58,7 @@
 
 	</div>
 
-	<?php if ( '' != cover2_get_featured_image( get_the_ID() ) && ! is_archive() ) : ?>
+	<?php if ( '' != cover2_get_featured_image( get_the_ID() ) && 'quote' != get_post_format( $post->ID ) && ! is_archive() ) : ?>
 		<div class="page-header__scroll-container">
 			<a class="page-header__scroll-link" href="#post-<?php the_ID(); ?>-content">
 				<?php echo cover2_get_svg( array( 'icon' => 'chevron-down' ) ); ?>

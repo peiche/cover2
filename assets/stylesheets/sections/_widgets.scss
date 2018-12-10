@@ -173,3 +173,16 @@
 		}
 	}
 }
+
+.tag-cloud-link {
+	border: 1px solid #ccc;
+	border-radius: 1em;
+	font-size: 1.25rem !important;
+	padding: 0 0.5em;
+	transition: all $timing__default;
+
+	&:hover {
+		background-color: #ccc;
+		color: $color__text-main !important;
+	}
+}

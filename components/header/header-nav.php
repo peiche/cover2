@@ -45,7 +45,7 @@ endif;
 	</svg>
 </button>
 
-<?php if ( has_ase_chapters( $post ) ) : ?>
+<?php if ( cover2_has_ase_chapters( $post ) ) : ?>
 
 <button type="button" class="nav-toggle chapter-toggle" aria-label="toggle chapter list" aria-expanded="false">
 	<svg id="svg-icon-bookmark-icon" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32">

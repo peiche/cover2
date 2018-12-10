@@ -37,3 +37,30 @@ function cover2_algolia_templates_path() {
   return 'components/algolia/';
 }
 add_filter( 'algolia_templates_path', 'cover2_algolia_templates_path' );
+
+/**
+ * @param array   $record
+ * @param WP_User $user
+ *
+ * @return array
+ */
+// function cover2_algolia_user_record( array $record, WP_User $user ) {
+//     $record['custom_field'] = get_user_meta( $user->ID, 'custom_field', true );
+//     /* Add as many as you want. */
+
+//     return $record;
+// }
+// add_filter( 'algolia_user_record', 'cover2_algolia_user_record', 10, 2 );
+
+
+/**
+ * Set image thumbnail size to full width.
+ * 
+ * @link https://community.algolia.com/wordpress/frequently-asked-questions.html#can-i-use-custom-thumbnail-sizes-
+ */
+function cover2_algolia_post_images_sizes( $sizes ) {
+    $sizes[] = 'single-post-thumbnail';
+
+    return $sizes;
+}
+add_filter( 'algolia_post_images_sizes', 'cover2_algolia_post_images_sizes' );

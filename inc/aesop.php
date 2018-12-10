@@ -27,22 +27,30 @@ function cover2_quote_size_unit() {
 }
 add_filter( 'aesop_quote_size_unit', 'cover2_quote_size_unit' );
 
+/**
+ * Add overlay element to content component, so we don't rely on pseudo-elements
+ */
 function cover2_content_overlay() {
     echo '<div class="aesop-content-darken"></div>';
     return;
 }
 add_action('aesop_cbox_content_inside_top', 'cover2_content_overlay');
 
-function has_ase_chapters( $post ) {
-    if ( is_object( $post ) && ( is_single() || is_page() ) ) :
+/**
+ * Chapter check
+ */
+function cover2_has_ase_chapters( $post ) {
+    if ( defined( 'AI_CORE_VERSION' ) && is_object( $post ) && ( is_single() || is_page() ) ) :
         if ( has_shortcode( $post->post_content, 'aesop_chapter' ) ) :
             return true;
         endif;
         
         if ( function_exists( 'has_blocks' ) && has_blocks( $post->post_content ) ) :
-            $blocks = gutenberg_parse_blocks( $post->post_content );
+            
+            $blocks = cover2_parse_blocks( $post->post_content );
+    		
     		foreach ( $blocks as $block ) {
-    			if ( array_key_exists('blockName', $block) && $block['blockName'] == 'ase/chapter' ) :
+    			if ( is_array( $block ) && array_key_exists('blockName', $block) && $block['blockName'] == 'ase/chapter' ) :
     				return true;
     			endif;
     		}

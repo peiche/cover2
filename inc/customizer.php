@@ -166,6 +166,19 @@ function cover2_customize_register( $wp_customize ) {
 	
 	endif;
 	
+	// Add setting and control for showing the featured image on post listings.
+	$wp_customize->add_setting( 'blog_feature_image', array(
+		'default'			=> false,
+		'sanitize_callback'	=> 'cover2_sanitize_checkbox',
+	) );
+	
+	$wp_customize->add_control( 'blog_feature_image', array(
+		'type'				=> 'checkbox',
+		'label'				=> __( 'Display featured images', 'cover2' ),
+		'section'			=> 'static_front_page',
+		'description'		=> __( 'Show featured images on the blog, archive pages (categories, tags, authors, etc.), and search results.', 'cover2' ),
+	) );
+	
 }
 add_action( 'customize_register', 'cover2_customize_register' );
 

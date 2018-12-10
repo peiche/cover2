@@ -24,11 +24,13 @@
 	}
 }
 
-.site-info {
-	@include site-width($content__width-large);
-
+.colophon {
 	padding-top: 1.5em;
 	text-align: center;
+
+	@include min-width($breakpoint__tablet-landscape) {
+		text-align: left;
+	}
 
 	.footer-dark &,
 	.footer-accent & {

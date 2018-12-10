@@ -69,6 +69,12 @@
    .entry-content > blockquote {
      border-color: hsl(' . $hue . ', 75%, 50%);
    }
+   .wp-block-pullquote {
+    border-color: hsl(' . $hue . ', 75%, 50%);
+   }
+   .wp-block-pullquote:before {
+    background-color: hsl(' . $hue . ', 75%, 50%);
+   }
    button.default,
    input[type="button"].default,
    input[type="reset"].default,
@@ -211,7 +217,10 @@
    .ais-refinement-list--count {
     background-color: hsl(' . $hue . ', 75%, 50%);
    }
-   .ais-refinement-list--checkbox:checked ~ .ais-refinement-list--label::before {
+   .ais-refinement-list--checkbox:checked ~ .ais-refinement-list--label::before,
+   .contact-form input.checkbox:checked::before,
+   .contact-form input.checkbox-multiple:checked::before,
+   .contact-form input.radio:checked::before {
     background-color: hsl(' . $hue . ', 75%, 50%);
    }
    .ais-pagination--item__active .ais-pagination--link {

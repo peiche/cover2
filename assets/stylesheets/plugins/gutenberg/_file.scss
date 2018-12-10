@@ -1,0 +1,25 @@
+.wp-block-file {
+    @include site-width;
+
+    &.alignwide {
+        max-width: $content__width-large;
+    }
+
+    &.alignfull {
+        max-width: 100%;
+    }
+
+    .wp-block-file__button {
+        @include button;
+        @include button-style($color__text-main);
+
+        font-size: inherit;
+        opacity: 1;
+        padding-bottom: 0;
+        padding-top: 0;
+
+        .entry-content &:hover {
+            border-color: darken($color__text-main, 10%);
+        }
+    }
+}

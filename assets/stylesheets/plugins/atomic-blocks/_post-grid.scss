@@ -1,0 +1,7 @@
+.ab-block-post-grid {
+    @include site-width;
+
+    &.alignwide {
+        @include site-width($content__width-large);
+    }
+}

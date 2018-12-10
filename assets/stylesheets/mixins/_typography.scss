@@ -85,3 +85,8 @@
 	word-break: normal;
 	word-wrap: break-word;
 }
+
+@mixin heading {
+    font-family: $font__family-heading;
+    font-weight: $font__weight-heading;
+}

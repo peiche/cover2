@@ -6,6 +6,6 @@ $font__line-height-main: 1.5;
 $font__line-height-content: 38px;
 $font__line-height-code: 1.6;
 
-$font__weight-heading: 400;
 $font__weight-normal: 300;
-$font__weight-bold: 700;
+$font__weight-bold: 600;
+$font__weight-heading: $font__weight-bold;

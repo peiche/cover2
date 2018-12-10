@@ -14,8 +14,6 @@ if ( is_active_sidebar( 'sidebar-overlay' ) || has_nav_menu( 'top' ) || has_nav_
 			</nav><!-- #site-navigation -->
 		<?php endif; ?>
 
-		<?php cover2_social_menu(); ?>
-
 		<?php if ( is_active_sidebar( 'sidebar-overlay' ) ) {
 			get_sidebar();
 		} ?>
@@ -50,7 +48,7 @@ if ( function_exists( 'has_post_video' ) && has_post_video() ) { ?>
 
 <?php } ?>
 
-<?php if ( has_ase_chapters( $post ) ) : ?>
+<?php if ( cover2_has_ase_chapters( $post ) ) : ?>
 	
 	<div class="overlay overlay--chapter aesop-entry-header">
 	</div>

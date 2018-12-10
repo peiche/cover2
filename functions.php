@@ -186,7 +186,7 @@ function cover2_fonts_url() {
 
 	/**
 	 * Translators: If there are characters in your language that are not
-	 * supported by Libre Franklin, translate this to 'off'. Do not translate
+	 * supported by these fonts, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
 	$monserrat = _x( 'on', 'Montserrat font: on or off', 'cover2' );
@@ -196,7 +196,7 @@ function cover2_fonts_url() {
 	if ( 'off' !== $monserrat && 'off' !== $open_sans && 'off' !== $source_code_pro ) {
 		$font_families = array();
 
-		$font_families[] = 'Montserrat|Open+Sans:300,300i,600|Source+Code+Pro:300';
+		$font_families[] = 'Montserrat:600|Open+Sans:300,300i,600|Source+Code+Pro:300';
 
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
@@ -368,3 +368,13 @@ require get_template_directory() . '/inc/aesop.php';
  * Load Algolia compatibility.
  */
 require get_template_directory() . '/inc/algolia.php';
+
+/**
+ * Load Atomic Blocks compatibility.
+ */
+require get_template_directory() . '/inc/atomic-blocks.php';
+
+/**
+ * Load Editor Blocks compatibility.
+ */
+require get_template_directory() . '/inc/editor-blocks.php';

@@ -289,3 +289,46 @@ function cover2_front_page_sections( $partial = null, $id = 0 ) {
 function cover2_is_page() {
 	return ( is_front_page() && is_page() );
 }
+
+/**
+ * Helper function for Gutenberg/WP5.0 parse_blocks function
+ */
+function cover2_parse_blocks( $content ) {
+	// If the Gutenberg plugin is installed
+	if ( function_exists( 'gutenberg_parse_blocks' ) ) :
+		return gutenberg_parse_blocks( $content );
+	// If WordPress is upgraded to 5.0
+	elseif ( function_exists( 'parse_blocks' ) ) :
+		return parse_blocks( $content );
+	else :
+		return;
+	endif;
+}
+
+/**
+ * Extract and return the first blockquote from content.
+ */
+function cover2_get_blockquote_in_content() {
+	remove_filter( 'the_content', 'cover2_remove_blockquote_from_content' );
+
+	$content = apply_filters( 'the_content', get_the_content() );
+
+	add_filter( 'the_content', 'cover2_remove_blockquote_from_content' );
+
+	if ( preg_match( '/<blockquote(.*)>(.+?)<\/blockquote>/is', $content, $matches ) ) :
+		return $matches[0];
+	else :
+		return false;
+	endif;
+}
+
+function cover2_remove_blockquote_from_content( $content ) {
+	if ( 'quote' !== get_post_format() ) :
+		return $content;
+	endif;
+
+	$content = preg_replace( '/<blockquote(.*)>(.+?)<\/blockquote>/is', '', $content, 1 );
+
+	return $content;
+}
+add_filter( 'the_content', 'cover2_remove_blockquote_from_content' );

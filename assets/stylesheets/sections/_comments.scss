@@ -12,7 +12,8 @@
 }
 
 .comments-title {
-	font-weight: $font__weight-normal;
+	font-family: $font__family-heading;
+	font-weight: $font__weight-heading;
 	margin-top: 0;
 }
 
@@ -64,7 +65,8 @@
 }
 
 .comment-reply-title {
-	font-weight: $font__weight-normal;
+	font-family: $font__family-heading;
+	font-weight: $font__weight-heading;
 }
 
 .comment-form {
@@ -82,4 +84,12 @@
 	a:not(.button) {
 		@include link;
 	}
+}
+
+.logged-in-as {
+	margin-bottom: 0;
+}
+
+.comment-form-comment {
+	margin-bottom: 0;
 }

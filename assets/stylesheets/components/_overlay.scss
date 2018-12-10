@@ -184,13 +184,12 @@ body.overlay-open {
 }
 
 .overlay--search {
-
-  > * {
-    @include site-width($content__width-small);
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .search-form {
-    top: 20%;
+    @include site-width($content__width-small);
   }
 
   .search-field {

@@ -39,35 +39,6 @@ $social-network-names: (
 	"youtube": $bc-youtube
 );
 
-$social-network-links: (
-	"codepen.io": $bc-codepen,
-	"digg.com": $bc-digg,
-	"dribbble.com": $bc-dribbble,
-	"dropbox.com": $bc-dropbox,
-	"facebook.com": $bc-facebook,
-	"flickr.com": $bc-flickr,
-	"foursquare.com": $bc-foursquare,
-	"github.com": $bc-github,
-	"plus.google.com": $bc-googleplus,
-	"instagram.com": $bc-instagram,
-	"linkedin.com": $bc-linkedin,
-	"path.com": $bc-path,
-	"pinterest.com": $bc-pinterest,
-	"getpocket.com": $bc-pocket,
-	"reddit.com": $bc-reddit,
-	"skype:": $bc-skype,
-	"spotify.com": $bc-spotify,
-	"stumbleupon.com": $bc-stumbleupon,
-	"tumblr.com": $bc-tumblr,
-	"twitch.tv": $bc-twitch-tv,
-	"twitter.com": $bc-twitter,
-	"vimeo.com": $bc-vimeo,
-	"vine.co": $bc-vine,
-	"wordpress.com": $bc-wordpress,
-	"wordpress.org": $bc-wordpress,
-	"youtube.com": $bc-youtube
-);
-
 .jetpack_widget_social_icons {
 	text-align: center;
 
@@ -76,12 +47,11 @@ $social-network-links: (
 	}
 
 	// Override Jetpack styles	
-	a,
 	ul.size-small a,
 	ul.size-medium a,
 	ul.size-large a {
-		height: auto;
-		width: auto;
+		height: auto !important;
+		width: auto !important;
 	}
 
 	.icon {
@@ -116,37 +86,52 @@ $social-network-links: (
 	}
 }
 
-// Deprecated social menu menu
-.menu-social-menu-container {
+.colophon .jetpack-social-navigation .menu {
+	margin-bottom: 0;
+	margin-top: 1em;
+	text-align: center;
 
-	ul {
-		margin-top: 3em;
-		text-align: center;
+	@include min-width($breakpoint__tablet-landscape) {
+		margin-top: 0;
+		text-align: right;
 	}
 
-	li {
+	a {
 		border: 0;
-		padding: 0 0.75em;
+		height: auto;
+		width: auto;
 	}
 }
 
-.jetpack-social-navigation.jetpack-social-navigation-genericons a {
-	border-radius: 50%;
-	font-size: 2rem;
-	height: auto;
-	padding: 0.5rem;
-	transition: background $timing__default;
-	width: auto;
+.colophon,
+.overlay {
 
-	&:hover {
-		background-color: $color__background-dark;
-		color: $color__white;
+	.jetpack-social-navigation .menu a {
+		height: auto;
+		width: auto;
 	}
 
-	@each $url, $color in $social-network-links {
+	.jetpack-social-navigation-svg .icon {
+		height: 1.5em;
+		width: 1.5em;
+	}
+}
 
-		&[href*="#{$url}"]:hover {
-			background-color: $color;
+.colophon .jetpack-social-navigation a {
+	border-radius: 50%;
+	margin-top: -0.5em;
+	padding: 0.5em;
+	transition: all $timing__default;
+
+	&:hover {
+		background-color: rgba($color__white, 0.25);
+	}
+
+	.footer-light & {
+		color: $color__text-main;
+
+		&:hover {
+			background-color: #eee;
 		}
 	}
 }

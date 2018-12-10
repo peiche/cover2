@@ -1,5 +1,14 @@
-.wp-block-separator {
+hr.wp-block-separator {
+    background-color: $color__background-hr;
     border: 0;
     margin-bottom: 1.5em;
     margin-top: 1.5em;
+
+    &.is-style-wide {
+        max-width: $content__width-large;
+    }
+
+    &.is-style-dots:before {
+        color: $color__background-hr;
+    }
 }

@@ -47,6 +47,7 @@ function cover2_get_svg( $args = array() ) {
 	// Set defaults.
 	$defaults = array(
 		'icon'        => '',
+		'class'       => '',
 		'title'       => '',
 		'desc'        => '',
 		'fallback'    => false,
@@ -81,9 +82,14 @@ function cover2_get_svg( $args = array() ) {
 			$aria_labelledby = ' aria-labelledby="title-' . $unique_id . ' desc-' . $unique_id . '"';
 		}
 	}
-
+	
+	$css_class = '';
+	if ( $args['class'] ) {
+		$css_class = ' ' . $args['class'];
+	}
+	
 	// Begin SVG markup.
-	$svg = '<svg class="svg-icon svg-icon-' . esc_attr( $args['icon'] ) . '"' . $aria_hidden . $aria_labelledby . ' role="img">';
+	$svg = '<svg class="svg-icon svg-icon-' . esc_attr( $args['icon'] ) . $css_class . '"' . $aria_hidden . $aria_labelledby . ' role="img">';
 
 	// Display the title.
 	if ( $args['title'] ) {

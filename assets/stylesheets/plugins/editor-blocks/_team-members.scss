@@ -1,0 +1,39 @@
+.wp-block-editor-blocks-team {
+    @include site-width;
+
+    display: flex;
+    flex-direction: column;
+
+    @include min-width($breakpoint__tablet-portrait) {
+        flex-direction: row;
+    }
+
+    .team-member {
+        flex: 1 1 100%;
+        margin-bottom: 1em;
+    }
+
+    .team-member__name,
+    .team-member__position {
+        @include heading;
+    }
+
+    .team-member__name {
+        margin: 0;
+    }
+
+    .team-member__position,
+    .team-member__bio {
+        font-size: 80%;
+    }
+
+    .team-member__position {
+        text-transform: uppercase;
+    }
+
+    .team-member__bio {
+        color: lighten($color__text-main, 20%);
+    }
+
+    @include editor-blocks-column-builder(team-member);
+}
