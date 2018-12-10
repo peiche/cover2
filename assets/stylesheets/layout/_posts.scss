@@ -50,6 +50,10 @@
 			display: block;
 		}
 	}
+
+	&:last-of-type:after {
+		display: none;
+	}
 }
 
 .updated:not(.published) {
@@ -68,6 +72,26 @@
 
 .entry-summary {
 	margin: 30px 0 0;
+
+	.entry-header & {
+		width: 100%;
+	}
+
+	blockquote,
+	blockquote.wp-block-quote,
+	blockquote.wp-block-quote.is-style-large {
+		margin: 0;
+		width: 100%;
+
+		p,
+		cite {
+			color: $color__text-main;
+			font-size: 1.25rem;
+			font-style: normal;
+			line-height: 38px;
+			text-align: left;
+		}
+	}
 }
 
 .entry-header,
@@ -80,6 +104,79 @@
 
 	body.single & {
 		padding-top: 50px;
+	}
+}
+
+.entry-featured-image {
+	@include site-width($content__width-large);
+
+	margin-bottom: 1.5em;
+	overflow: hidden;
+	position: relative;
+
+	a {
+		color: $color__white;
+		display: block;
+		transition: all $timing__default;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $color__white;
+			opacity: 0.9;
+		}
+	}
+
+	.post-format-icon {
+		background-color: rgba(0, 0, 0, 0.5);
+		border-radius: 50%;
+		bottom: 0;
+		height: 4rem;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 4rem;
+
+		@include min-width($breakpoint__desktop) {
+			height: 6rem;
+			width: 6rem;
+		}
+	}
+
+	.svg-icon {
+		bottom: 0;
+		height: 2rem;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 2rem;
+
+		@include min-width($breakpoint__desktop) {
+			height: 3rem;
+			width: 3rem;
+		}
+
+		use,
+		.icon-accent & use {
+			stroke: currentColor;
+		}
+	}
+}
+
+.entry-image {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 5px;
+	display: block;
+	padding-top: 75%;
+
+	@include min-width($breakpoint__tablet-portrait) {
+		padding-top: 35%;
 	}
 }
 
@@ -155,6 +252,10 @@
 
 	padding-top: 60px;
 
+	&:empty {
+		padding: 0;
+	}
+
 	.no-header & {
 		padding-top: 0;
 	}
@@ -180,6 +281,16 @@
 	> .page-links,
 	> .cp_embed_wrapper {
 		@include site-width;
+	}
+
+	> h1,
+	> h2,
+	> h3,
+	> h4,
+	> h5,
+	> h6 {
+		font-family: $font__family-heading;
+		font-weight: $font__weight-heading;
 	}
 
 	> blockquote {
@@ -246,6 +357,77 @@
 	margin-right: auto;
 	max-width: $content__width-normal;
 	transition: font $timing__default;
+
+	blockquote,
+	blockquote.wp-block-quote,
+	blockquote.wp-block-quote.is-style-large {
+		color: inherit;
+		font-family: $font__family-heading;
+		font-size: 2.25rem;
+		font-weight: $font__weight-heading;
+		line-height: 2rem;
+		margin: auto;
+		text-align: center;
+		width: 100%;
+
+		p {
+			color: inherit;
+			font-size: inherit;
+			font-style: normal;
+			line-height: 3rem;
+			text-align: inherit;
+		}
+
+		cite {
+			color: inherit;
+			font-family: $font__family-main;
+			font-size: 1.5rem;
+			font-weight: $font__weight-normal;
+			opacity: 0.9;
+			text-align: inherit;
+		}
+	}
+
+	&.has-quotes {
+		position: relative;
+
+		&:before,
+		&:after {
+		    background-image: url("./dist/img/quote.svg");
+		    background-position: center;
+		    background-size: contain;
+		    content: "";
+		    display: block;
+		    height: 2em;
+		    opacity: 0.5;
+		    position: absolute;
+		    width: 2em;
+		}
+
+		&:before {
+			bottom: 100%;
+			left: 0;
+			margin-bottom: 0.5em;
+			transform: rotateX(180deg);
+
+			@include min-width($content__width-large) {
+				left: auto;
+				right: 100%;
+			}
+		}
+
+		&:after {
+			margin-top: 0.25em;
+			right: 0;
+			top: 100%;
+			transform: rotateY(180deg);
+
+			@include min-width($content__width-large) {
+				left: 100%;
+				right: auto;
+			}
+		}
+	}
 }
 
 .author,
@@ -263,6 +445,30 @@
 			border: 0;
 
 			.author-text {
+				border-color: $color__border;
+			}
+		}
+	}
+}
+
+.posted-on,
+.page-header .posted-on {
+	margin-left: 1.5em;
+
+	a:not(.button) {
+		border: 0;
+
+		.entry-date,
+		.updated {
+			border-bottom: 1px solid transparent;
+			transition: border $timing__default;
+		}
+
+		&:hover {
+			border: 0;
+
+			.entry-date,
+			.updated {
 				border-color: $color__border;
 			}
 		}
@@ -301,9 +507,7 @@
 	@include button-style($color__accent);
 }
 
-.cat-links,
-.tags-links,
-.edit-link {
+.icon-link {
 	padding-left: 35px;
 	position: relative;
 }
